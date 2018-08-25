@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 class RestaurauntApp extends Component {
  	render() {
    	return (
- 			<div>
- 				
- 			</div>
+ 			<Authentication
+        redirectUrl='/login'
+        defaultRedirect='/'
+      >
    	)
  	}
 }
