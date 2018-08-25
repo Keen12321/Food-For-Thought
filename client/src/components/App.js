@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import '../styles/App.css'
+import store from '../store'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import { Authentication, AuthRoute } from './Authentication'
 
@@ -12,9 +14,11 @@ class App extends Component {
     return (
     	<Provider store = {store}>
 		  	<Router>
-		  		<Route exactpath="/" component={LandingPage} />
-		    	<Route path="/deliveryLogin" component={DeliveryApp} />
-		    	<Route path="/restaurauntLogin" component={RestaurauntApp} />
+		  		<div>
+			  		<Route exactpath="/" component={LandingPage} />
+			    	<Route path="/deliveryLogin" component={DeliveryApp} />
+			    	<Route path="/restaurauntLogin" component={RestaurauntApp} />
+			    </div>
 		  	</Router>
 		  </Provider>
     )

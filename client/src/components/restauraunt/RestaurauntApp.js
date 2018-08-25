@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
+import { Authentication, AuthRoute } from '../Authentication'
 
 class RestaurauntApp extends Component {
  	render() {
    	return (
- 			<div>
- 				
- 			</div>
+ 			<Authentication
+        redirectUrl='/delivery'
+        defaultRedirect='/'
+      >
+      	
+      </Authentication>
    	)
  	}
 }
