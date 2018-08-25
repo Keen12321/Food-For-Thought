@@ -6,7 +6,7 @@ class RestaurauntApp extends Component {
  			<Authentication
         redirectUrl='/login'
         defaultRedirect='/'
-      >
+      />
    	)
  	}
 }
