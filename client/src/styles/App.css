@@ -1,5 +1,6 @@
+
 .startPickup {
-	background: green;
+	background: rgb(33,172,162);
 	color: white;
 	text-align: center;
 	padding: 10px;
@@ -31,7 +32,7 @@ a {
 	margin-bottom: 5px;
 }
 .manageReports {
-	background: red;
+	background: rgb(202,23,26);
 	color: white;
 	text-align: center;
 	padding: 10px;
@@ -41,7 +42,7 @@ a {
 	height: 100%;
 }
 .manageProfile {
-	background: blue;
+	background: rgb(35,123,202);
 	color: white;
 	text-align: center;
 	padding: 10px;
@@ -56,4 +57,70 @@ a {
 	height: 500px;
 }
 .D_HomeContainer > div {
+}
+/*
+mockup colors
+red - rgb(202,23,26)
+orange - rgb(251,100,79)
+green - rgb(33,172,162)
+blue - rgb(35,123,202)
+light gray - rgb(247,247,247)
+dark gray - rgb(30,30,30)
+*/
+
+* {
+	margin:0;
+	padding:0;
+}
+
+html {
+	box-sizing:border-box;
+}
+
+*, *:before, *:after {
+	box-sizing:inherit;
+}
+
+.container {
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+	font-family:sans-serif;
+	text-align:center;
+	color:rgb(30,30,30);
+}
+
+.container > div {
+	margin:5px auto;
+}
+
+.container > div > h1 {
+	font-size:1.5em;
+}
+
+.container > div > h2 {
+	font-size:1.25em;
+}
+
+.container > div > a {
+	text-decoration:none;
+	color:rgb(247,247,247);
+}
+
+.restaurantButton {
+	width:200px;
+	margin:10px;
+	padding:10px;
+	text-align:center;
+	border-radius:5px;
+	background-color:rgb(202,23,26);
+}
+
+.deliveryButton {
+	width:200px;
+	margin:10px;
+	padding:10px;
+	text-align:center;
+	border-radius:5px;
+	background-color:rgb(35,123,202);
 }
