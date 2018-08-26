@@ -1,3 +1,63 @@
+
+.startPickup {
+	background: rgb(33,172,162);
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-family: sans-serif;
+	border-radius: 5px;
+	cursor: pointer;
+	height: 100%;
+}
+a {
+	text-decoration: none;
+	color: white;
+	font-family: sans-serif;
+}
+*:active {
+	outline: none;
+}
+*:focus {
+	outline: none;
+}
+.fa-truck, .fa-apple {
+	color: white;
+	padding: 2px;
+	margin: 5px;
+	border: 2px solid white;
+	border-radius: 50%;
+}
+.D_homebar {
+	background: black;
+	margin-bottom: 5px;
+}
+.manageReports {
+	background: rgb(202,23,26);
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-family: sans-serif;
+	border-radius: 5px;
+	cursor: pointer;
+	height: 100%;
+}
+.manageProfile {
+	background: rgb(35,123,202);
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-family: sans-serif;
+	border-radius: 5px;
+	cursor: pointer;
+	height: 100%;
+}
+.D_HomeContainer {
+	display: flex;
+	width: 100%;
+	height: 500px;
+}
+.D_HomeContainer > div {
+}
 /*
 mockup colors
 red - rgb(202,23,26)
