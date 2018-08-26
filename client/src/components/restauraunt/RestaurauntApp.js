@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import { Authentication, AuthRoute } from '../Authentication'
 
+import DonateContainer from './donating/DonateContainer'
+
 class RestaurauntApp extends Component {
  	render() {
    	return (
@@ -10,7 +12,7 @@ class RestaurauntApp extends Component {
         defaultRedirect='/'
       >
 
-				<Route path="requestpickup" component={RequestPickup} />
+				<Route path="/donate" component={DonateContainer} />
       	
       </Authentication>
    	)
