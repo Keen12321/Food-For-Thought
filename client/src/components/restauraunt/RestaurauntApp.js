@@ -11,9 +11,7 @@ class RestaurauntApp extends Component {
         redirectUrl='/delivery'
         defaultRedirect='/'
       >
-
 				<Route path="/donate" component={DonateContainer} />
-      	
       </Authentication>
    	)
  	}
