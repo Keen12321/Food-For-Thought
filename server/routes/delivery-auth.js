@@ -14,7 +14,7 @@ router.post('/deliverylogin', (req, res, next) => {
 
 	conn.query(sql, [username, password], (err, results, fields) => {
 		if (results.length > 0) {
-			const token = jwt.sign({"username":username, "image":results[0].image}, config.get('jwt.secret'))
+			const token = jwt.sign({"username":username, "image":results[0].email}, config.get('jwt.secret'))
 
 			res.json({
 				token: token
@@ -31,9 +31,9 @@ router.post('/deliveryregister', (req, res, next) => {
 	const username = req.body.username
 	const password = sha512(req.body.password).toString('hex')
 
-	const sql = 'INSERT INTO Delivery_Users (username, password, email, address) VALUES (?, ?)'
+	const sql = 'INSERT INTO Delivery_Users (username, password, email, address) VALUES (?, ?, ?, ?)'
 
-	conn.query(sql, [username, password], (err, results, fields) => {
+	conn.query(sql, [username, password, email, address], (err, results, fields) => {
 		res.json({
 			message: 'User created'
 		})

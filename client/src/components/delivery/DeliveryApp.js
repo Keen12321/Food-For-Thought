@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom'
 import { Authentication, AuthRoute } from '../Authentication'
 
 import D_Login from './D_Login'
+import D_Register from './D_Register'
 
 class RestaurauntApp extends Component {
  	render() {
@@ -11,7 +12,8 @@ class RestaurauntApp extends Component {
         redirectUrl='/deliverylogin'
         defaultRedirect='/'
       >
-				<Route path="/deliverylogin" component={D_Login} />
+				<Route exact path="/deliverylogin" component={D_Login} />
+				<Route path="/deliveryregister" component={D_Register} />
       </Authentication>
    	)
  	}

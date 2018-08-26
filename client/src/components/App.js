@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import '../styles/App.css'
+import '../styles/Login.css'
 import store from '../store'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {Provider} from 'react-redux'
-import { Authentication, AuthRoute } from './Authentication'
 
 import LandingPage from './LandingPage'
 import DeliveryApp from './delivery/DeliveryApp'
@@ -14,9 +14,9 @@ class App extends Component {
     return (
     	<Provider store = {store}>
 		  	<Router>
-		  		<div>
+		  		<div className="mainContainer">
 			  		<Route exactpath="/" component={LandingPage} />
-			    	<Route path="/deliveryLogin" component={DeliveryApp} />
+			    	<Route path="/deliverylogin" component={DeliveryApp} />
 			    	<Route path="/restaurauntLogin" component={RestaurauntApp} />
 			    </div>
 		  	</Router>
