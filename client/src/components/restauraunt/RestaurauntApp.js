@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import { Authentication, AuthRoute } from '../Authentication'
 
 class RestaurauntApp extends Component {
@@ -8,6 +9,8 @@ class RestaurauntApp extends Component {
         redirectUrl='/delivery'
         defaultRedirect='/'
       >
+
+				<Route path="requestpickup" component={RequestPickup} />
       	
       </Authentication>
    	)
