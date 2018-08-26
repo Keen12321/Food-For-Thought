@@ -20,16 +20,25 @@ a {
 *:focus {
 	outline: none;
 }
-.fa-truck, .fa-apple {
+.fa-truck, .fa-cutlery, .fa-user {
 	color: white;
-	padding: 2px;
+	padding: 5px;
 	margin: 5px;
 	border: 2px solid white;
 	border-radius: 50%;
 }
-.D_homebar {
+.D_navbar {
 	background: black;
 	margin-bottom: 5px;
+}
+.left {
+	float: left;
+}
+.left > a {
+	padding-right: 10px;
+}
+.right {
+	text-align: right;
 }
 .manageReports {
 	background: rgb(202,23,26);
