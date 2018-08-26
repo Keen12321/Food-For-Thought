@@ -6,15 +6,23 @@
 	font-family: sans-serif;
 	border-radius: 5px;
 	cursor: pointer;
+	height: 100%;
 }
 a {
 	text-decoration: none;
 	color: white;
 	font-family: sans-serif;
 }
-.fa-truck {
+*:active {
+	outline: none;
+}
+*:focus {
+	outline: none;
+}
+.fa-truck, .fa-apple {
 	color: white;
 	padding: 2px;
+	margin: 5px;
 	border: 2px solid white;
 	border-radius: 50%;
 }
@@ -30,6 +38,7 @@ a {
 	font-family: sans-serif;
 	border-radius: 5px;
 	cursor: pointer;
+	height: 100%;
 }
 .manageProfile {
 	background: blue;
@@ -39,9 +48,12 @@ a {
 	font-family: sans-serif;
 	border-radius: 5px;
 	cursor: pointer;
+	height: 100%;
 }
 .D_HomeContainer {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
+	width: 100%;
+	height: 500px;
+}
+.D_HomeContainer > div {
 }
