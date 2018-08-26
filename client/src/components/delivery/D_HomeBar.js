@@ -6,7 +6,7 @@ class D_HomeBar extends Component {
    return (
    	<div className="D_navbar">
    		<div className="D_navbar left">
-   			<Link to='/deliveryhome'><i className='fa fa-cutlery'></i>Home</Link>
+   			<Link to='/deliveryhome'><i className='fa fa-truck'></i>Home</Link>
    			<Link to='/deliverymap'>Map</Link>
    			<Link to='/pickups'>Pickups</Link>
    		</div>
