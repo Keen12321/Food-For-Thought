@@ -8,10 +8,10 @@ class DeliveryApp extends Component {
  	render() {
    	return (
  			<Authentication
-        redirectUrl='/deliverylogin'
+        redirectUrl='/delivery-login'
         defaultRedirect='/'
       >
-				<Route path="/deliverylogin" component={D_Login} />
+				<Route path="/delivery-login" component={D_Login} />
       </Authentication>
    	)
  	}
