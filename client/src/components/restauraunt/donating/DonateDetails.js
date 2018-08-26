@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { withAuth } from '../../Authentication'
 
-class Details extends Component {
+class DonateDetails extends Component {
 	state = {
 		foodItem: '',
 		foodSize: ''
@@ -15,9 +16,10 @@ class Details extends Component {
 			[e.target.name]: e.target.value
 		})
 	}
+	
 	render() {
 		return (
-			<div>
+			<div className="donate-container">
 
 				<form className="donate__details-container">
 					<input className="donate__food-type" type="text" 
@@ -35,4 +37,4 @@ class Details extends Component {
 	}
 }
 
-export default Details
+export default DonateDetails

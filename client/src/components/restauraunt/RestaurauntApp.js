@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import { Authentication, AuthRoute } from '../Authentication'
 
-import DonateContainer from './donating/DonateContainer'
+import DonateDetails from './donating/DonateDetails'
 
 class RestaurauntApp extends Component {
  	render() {
@@ -11,7 +11,7 @@ class RestaurauntApp extends Component {
         redirectUrl='/delivery'
         defaultRedirect='/'
       >
-				<Route path="/donate" component={DonateContainer} />
+				<Route path="/donating" component={DonateDetails} />
       </Authentication>
    	)
  	}

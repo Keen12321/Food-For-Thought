@@ -77,3 +77,15 @@ html {
 .donate__details-container {
 	border: 2px solid red;
 }
+
+.donate__food-type {
+	padding: 10px;
+}
+
+.donate__food-size {
+	padding: 10px;
+}
+
+.donate__details-submit {
+	padding: 10px;
+}

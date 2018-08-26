@@ -4,7 +4,7 @@ import { Authentication, AuthRoute } from '../Authentication'
 
 import D_Login from './D_Login'
 
-class RestaurauntApp extends Component {
+class DeliveryApp extends Component {
  	render() {
    	return (
  			<Authentication
@@ -17,4 +17,4 @@ class RestaurauntApp extends Component {
  	}
 }
 
-export default RestaurauntApp
+export default DeliveryApp
