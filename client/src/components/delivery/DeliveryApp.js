@@ -9,7 +9,7 @@ import D_Home from './D_Home'
 import D_Reports from './D_Reports'
 import D_Profile from './D_Profile'
 
-class RestaurantApp extends Component {
+class DeliveryApp extends Component {
  	render() {
    	return (
       <div>
@@ -24,4 +24,4 @@ class RestaurantApp extends Component {
  	}
 }
 
-export default RestaurantApp
+export default DeliveryApp

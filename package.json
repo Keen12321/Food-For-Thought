@@ -7,7 +7,7 @@
     "start": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
     "lint": "standard --fix"
   },
-  "author": "",
+  "author": "Keen <austin.kuehne@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^3.6.1",
@@ -27,5 +27,5 @@
     "license": "MIT"
   },
   "devDependencies": {},
-  "description": ""
+  "repository": "git@github.com:Keen12321/Food-For-Thought.git"
 }
