@@ -1,4 +1,4 @@
-import {api} from '../components/Authentication'
+import {api} from '../../components/Authentication'
 
 export function restaurantRegister(user, cb) {
 	api.post('/api/restaurantregister', user).then(data => {

@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "concurrently": "^3.6.1",
+    "react-scripts": "^1.1.5",
     "standard": "^11.0.1"
   },
   "standard": {
@@ -26,6 +27,5 @@
     "author": "Michael Sweeney <jfmike@gmail.com> (https://github.com/overthemike)",
     "license": "MIT"
   },
-  "devDependencies": {},
-  "description": ""
+  "devDependencies": {}
 }

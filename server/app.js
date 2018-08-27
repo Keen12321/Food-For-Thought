@@ -2,11 +2,12 @@ import express from 'express'
 import logger from 'morgan'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
+import path from 'path'
 import config from 'config'
 import authDeliveryRoutes from './routes/delivery-auth'
-import authRestaurauntRoutes from './routes/restauraunt-auth'
+import authRestaurantRoutes from './routes/restaurant-auth'
 import protectedDeliveryRoutes from './routes/delivery-protected'
-import protectedRestaurauntRoutes from './routes/restauraunt-protected'
+import protectedRestaurantRoutes from './routes/restaurant-protected'
 import jwt from 'express-jwt'
 
 const app = express()
@@ -18,9 +19,9 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', authDeliveryRoutes)
-app.use('/api', authRestaurauntRoutes)
+app.use('/api', authRestaurantRoutes)
 app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedDeliveryRoutes)
-app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRestaurauntRoutes)
+app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRestaurantRoutes)
 
 
 app.use((req, res, next) => {
