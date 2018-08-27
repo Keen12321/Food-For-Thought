@@ -3,13 +3,16 @@ import logger from 'morgan'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import config from 'config'
+import path from 'path'
 import authDeliveryRoutes from './routes/delivery-auth'
-import authRestaurauntRoutes from './routes/restauraunt-auth'
+import authRestaurantRoutes from './routes/restaurant-auth'
 import protectedDeliveryRoutes from './routes/delivery-protected'
-import protectedRestaurauntRoutes from './routes/restauraunt-protected'
+import protectedRestaurantRoutes from './routes/restaurant-protected'
 import jwt from 'express-jwt'
 
 const app = express()
+
+const env = app.get('env') || 'development'
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
@@ -18,10 +21,9 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', authDeliveryRoutes)
-app.use('/api', authRestaurauntRoutes)
+app.use('/api', authRestaurantRoutes)
 app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedDeliveryRoutes)
-app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRestaurauntRoutes)
-
+app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRestaurantRoutes)
 
 app.use((req, res, next) => {
   let err = new Error('Not Found')
@@ -29,7 +31,7 @@ app.use((req, res, next) => {
   next(err)
 })
 
-if (app.get('env') === 'development') {
+if (env === 'development') {
   app.use((err, req, res, next) => {
     res.status(err.status || 500)
     res.json({
@@ -39,7 +41,7 @@ if (app.get('env') === 'development') {
 }
 
 
-if (app.get('env') === 'production') {
+if (env === 'production') {
   app.use((err, req, res, next) => {
     res.status(err.status || 500)
     res.json({

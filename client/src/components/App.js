@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import '../styles/App.css'
 import store from '../store'
+import {Provider} from 'react-redux'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import LandingPage from './LandingPage'

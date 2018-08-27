@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import { withAuth } from '../Authentication'
-import D_HomeBar from './D_HomeBar'
+import HomeBar from './D_HomeBar'
 
 
 class D_Home extends Component {
  render() {
    return (
    		<div>
-   			<D_HomeBar />
+   			<HomeBar />
             <div className="pickupnotification">
                <h3>There are 3 restaurants with food ready for pickup</h3>
             </div>

@@ -10,10 +10,10 @@ class LandingPage extends Component {
 	   				<h2>I Want To</h2>
 	   			</div>
 	   			<div className="restaurantButton"> 
-	   				<Link to={"/restaurauntLogin"}><i className="fa fa-cutlery"></i> Donate Food</Link>
+	   				<Link to={"/restaurant"}><i className="fa fa-cutlery"></i> Donate Food</Link>
 	   			</div>
 	   			<div className="deliveryButton">
-	   				<Link to={"/deliveryLogin"}><i className="fa fa-truck"></i> Receive Food</Link>
+	   				<Link to={"/delivery"}><i className="fa fa-truck"></i> Receive Food</Link>
 	   			</div>
 	   		</div>
 	   	)

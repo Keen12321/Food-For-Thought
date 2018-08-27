@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Authentication, AuthRoute } from '../Authentication'
+import { Authentication } from '../Authentication'
 
 class RestaurantApp extends Component {
  	render() {
