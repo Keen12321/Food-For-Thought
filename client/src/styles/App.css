@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
-
-=======
 
 .startPickup {
 	background: rgb(33,172,162);
@@ -141,4 +139,3 @@ html {
 	border-radius:5px;
 	background-color:rgb(35,123,202);
 }
->>>>>>> 992697ab2527b9ed7ff84527120a66025dbaf842
