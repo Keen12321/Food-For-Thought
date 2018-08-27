@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {Redirect} from 'react-router-dom'
+import {deliveryRegister} from '../../actions/delivery/D_loginActions'
 
 class D_Register extends Component {
  	state = {
@@ -15,7 +17,7 @@ class D_Register extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		register({
+		deliveryRegister({
 			username: this.state.username,
 			password: this.state.password
 		}, () => {
@@ -29,7 +31,7 @@ class D_Register extends Component {
  		const { redirectToReferrer } = this.state
 
  		if (redirectToReferrer) {
- 			return <Redirect to='/chat1' />
+ 			return <Redirect to='/' />
  		} else {
 	   	return (
 	   		<div>
@@ -48,7 +50,6 @@ class D_Register extends Component {
 	 			</div>
 	   	)
  		}
-   	
  	}
 }
 
