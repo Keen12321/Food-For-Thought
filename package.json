@@ -27,10 +27,6 @@
     "author": "Michael Sweeney <jfmike@gmail.com> (https://github.com/overthemike)",
     "license": "MIT"
   },
-<<<<<<< HEAD
   "devDependencies": {},
   "repository": "git@github.com:Keen12321/Food-For-Thought.git"
-=======
-  "devDependencies": {}
->>>>>>> a7159189380a9f6db33a716a83c4ea7578102d05
 }

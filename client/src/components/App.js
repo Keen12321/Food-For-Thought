@@ -4,7 +4,6 @@ import '../styles/Login.css'
 import store from '../store'
 import {Provider} from 'react-redux'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import {Provider} from 'react-redux'
 
 import LandingPage from './LandingPage'
 import DeliveryApp from './delivery/DeliveryApp'

@@ -4,7 +4,6 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import path from 'path'
 import config from 'config'
-import path from 'path'
 import authDeliveryRoutes from './routes/delivery-auth'
 import authRestaurantRoutes from './routes/restaurant-auth'
 import protectedDeliveryRoutes from './routes/delivery-protected'
@@ -25,10 +24,7 @@ app.use('/api', authDeliveryRoutes)
 app.use('/api', authRestaurantRoutes)
 app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedDeliveryRoutes)
 app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRestaurantRoutes)
-<<<<<<< HEAD
-=======
 
->>>>>>> a7159189380a9f6db33a716a83c4ea7578102d05
 
 app.use((req, res, next) => {
   let err = new Error('Not Found')
