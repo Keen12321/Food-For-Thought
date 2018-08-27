@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "font-awesome": "^4.7.0",
+    "google-maps-react": "^2.0.2",
     "jsonwebtoken": "^8.3.0",
     "normalize.css": "^8.0.0",
     "react": "^16.4.2",

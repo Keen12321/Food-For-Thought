@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+import {Route} from 'react-router-dom'
 import { Authentication, AuthRoute } from '../Authentication'
+
+import R_Login from './R_Login'
+import R_Register from './R_Register'
 
 class RestaurauntApp extends Component {
  	render() {
@@ -8,7 +12,8 @@ class RestaurauntApp extends Component {
         redirectUrl='/delivery'
         defaultRedirect='/'
       >
-      	
+      	<Route path="/restaurauntlogin" component={R_Login} />
+				<Route path="/restaurauntregister" component={R_Register} />
       </Authentication>
    	)
  	}
