@@ -12,6 +12,10 @@ a {
 	padding:0;
 }
 
+html {
+	font-family: 'Lato', sans-serif;
+}
+
 *:active {
 	outline: none;
 }
