@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
+<<<<<<< HEAD
 import { registerDelivery } from '../../actions/delivery-actions/D_loginActions'
+=======
+import {deliveryRegister} from '../../actions/delivery/D_loginActions'
+>>>>>>> 992697ab2527b9ed7ff84527120a66025dbaf842
 
 class D_Register extends Component {
  	state = {
@@ -17,7 +21,11 @@ class D_Register extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
+<<<<<<< HEAD
 		registerDelivery({
+=======
+		deliveryRegister({
+>>>>>>> 992697ab2527b9ed7ff84527120a66025dbaf842
 			username: this.state.username,
 			password: this.state.password
 		}, () => {

@@ -6,11 +6,11 @@ import config from 'config'
 
 const router = express.Router()
 
-router.post('/restaurauntlogin', (req, res, next) => {
+router.post('/restaurantlogin', (req, res, next) => {
 	const username = req.body.username
 	const password = sha512(req.body.password).toString('hex')
 
-	const sql = 'SELECT username, email, address FROM Restauraunt_Users WHERE username = ? AND password = ?'
+	const sql = 'SELECT username, email, address FROM Restaurant_Users WHERE username = ? AND password = ?'
 
 	conn.query(sql, [username, password], (err, results, fields) => {
 		if (results.length > 0) {
@@ -27,11 +27,13 @@ router.post('/restaurauntlogin', (req, res, next) => {
 	})
 })
 
-router.post('/restaurauntregister', (req, res, next) => {
+router.post('/restaurantregister', (req, res, next) => {
 	const username = req.body.username
 	const password = sha512(req.body.password).toString('hex')
+	const email = req.body.email
+	const address = req.body.address
 
-	const sql = 'INSERT INTO Restauraunt_Users (username, password, email, address) VALUES (?, ?, ?, ?)'
+	const sql = 'INSERT INTO Restaurant_Users (username, password, email, address) VALUES (?, ?, ?, ?)'
 
 	conn.query(sql, [username, password, email, address], (err, results, fields) => {
 		res.json({
