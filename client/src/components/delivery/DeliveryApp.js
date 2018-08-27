@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
-import {Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import { Authentication, AuthRoute } from '../Authentication'
 
 import D_Login from './D_Login'
+import D_Register from './D_Register'
 
-class RestaurauntApp extends Component {
+class RestaurantApp extends Component {
  	render() {
    	return (
- 			<Authentication
-        redirectUrl='/deliverylogin'
-        defaultRedirect='/'
-      >
-				<Route path="/deliverylogin" component={D_Login} />
-      </Authentication>
+   			<div>
+					<Route path="/delivery/login" component={D_Login} />
+					<Route path="/delivery/register" component={D_Register} />
+				</div>
    	)
  	}
 }
 
-export default RestaurauntApp
+export default RestaurantApp
