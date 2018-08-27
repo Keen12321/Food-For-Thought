@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Redirect} from 'react-router-dom'
 import {restaurantRegister} from '../../actions/restaurant/R_loginActions'
 
 class R_Register extends Component {
