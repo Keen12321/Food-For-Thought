@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Authentication, AuthRoute } from '../Authentication'
 
-class RestaurauntApp extends Component {
+class RestaurantApp extends Component {
  	render() {
    	return (
  			<Authentication
@@ -14,4 +14,4 @@ class RestaurauntApp extends Component {
  	}
 }
 
-export default RestaurauntApp
+export default RestaurantApp
