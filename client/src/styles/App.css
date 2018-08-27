@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
@@ -14,17 +15,41 @@ html {box-sizing: border-box;}
 	cursor: pointer;
 	height: 100%;
 }
+=======
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+>>>>>>> 1bc413f9af7c9943028e34b51ea662f7b42c0a5a
 a {
 	text-decoration: none;
 	color: white;
 	font-family: sans-serif;
 }
+
+* {
+	margin:0;
+	padding:0;
+}
+
 *:active {
 	outline: none;
 }
+
 *:focus {
 	outline: none;
 }
+
+.startPickup {
+	background: rgb(33,172,162);
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-family: sans-serif;
+	border-radius: 5px;
+	cursor: pointer;
+	height: 100%;
+}
+
 .fa-truck, .fa-cutlery, .fa-user {
 	color: white;
 	padding: 5px;
@@ -32,19 +57,24 @@ a {
 	border: 2px solid white;
 	border-radius: 50%;
 }
+
 .D_navbar {
 	background: black;
 	margin-bottom: 5px;
 }
+
 .left {
 	float: left;
 }
+
 .left > a {
 	padding-right: 10px;
 }
+
 .right {
 	text-align: right;
 }
+
 .manageReports {
 	background: rgb(202,23,26);
 	color: white;
@@ -55,6 +85,7 @@ a {
 	cursor: pointer;
 	height: 100%;
 }
+
 .navHome {
 	background: rgb(35,123,202);
 	color: white;
@@ -65,16 +96,19 @@ a {
 	cursor: pointer;
 	height: 100%;
 }
+
 .D_HomeContainer {
 	display: flex;
 	justify-content: space-evenly;
 	width: 100%;
 }
+
 .pickupnotification > h3 {
 	text-align: center;
 	font-family: sans-serif;
 	margin: 10px;
 }
+
 /*
 mockup colors
 red - rgb(202,23,26)
@@ -84,19 +118,6 @@ blue - rgb(35,123,202)
 light gray - rgb(247,247,247)
 dark gray - rgb(30,30,30)
 */
-
-* {
-	margin:0;
-	padding:0;
-}
-
-html {
-	box-sizing:border-box;
-}
-
-*, *:before, *:after {
-	box-sizing:inherit;
-}
 
 .container {
 	display:flex;

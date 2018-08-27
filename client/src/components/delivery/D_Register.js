@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
 
-import { registerDelivery } from '../../actions/delivery-actions/D_loginActions'
+
+
+
+
+
 
 import {deliveryRegister} from '../../actions/delivery/D_loginActions'
 
@@ -21,11 +25,10 @@ class D_Register extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-
-		registerDelivery({
+ 
 
 		deliveryRegister({
- 
+
 			username: this.state.username,
 			password: this.state.password
 		}, () => {

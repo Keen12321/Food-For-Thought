@@ -9,23 +9,10 @@ import D_Reports from './D_Reports'
 import D_Profile from './D_Profile'
 
 
-
-
-
-
-class RestaurantApp extends Component {
-
+class DeliveryApp extends Component {
  	render() {
    	return (
       <div>
- 			<Authentication
-        redirectUrl='/deliverylogin'
-        defaultRedirect='/'>
-
-      
-				<Route exact path="/deliverylogin" component={D_Login} />
-				<Route path="/deliveryregister" component={D_Register} />
-      </Authentication>
 
         <Route path="/delivery" component={D_Login} />
         <Route path="/delivery/register" component={D_Register} />
@@ -36,9 +23,12 @@ class RestaurantApp extends Component {
       </div>
 
 
+
+
+
    	)
  	}
  }
 
 
-export default RestaurantApp
+export default DeliveryApp

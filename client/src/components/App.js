@@ -4,14 +4,11 @@ import '../styles/Login.css'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import { Authentication, AuthRoute } from './Authentication'
-import store from './store'
+import store from '../store'
 import LandingPage from './LandingPage'
 import DeliveryApp from './delivery/DeliveryApp'
-import RestaurauntApp from './restauraunt/RestaurauntApp'
-
-
-
 import RestaurantApp from './restaurant/RestaurantApp'
+
 
 
 class App extends Component {
@@ -21,15 +18,9 @@ class App extends Component {
 		  	<Router>
 
 		  		<div className="mainContainer">
-			  		<Route exactpath="/" component={LandingPage} />
-			    	<Route path="/deliverylogin" component={DeliveryApp} />
-			    	<Route path="/restaurauntLogin" component={RestaurauntApp} />
-			    </div>
-
-		  		<div>
 			  		<Route exact path="/" component={LandingPage} />
-			    	<Route path="/delivery" component={DeliveryApp} />
-			    	<Route path="/restaurant" component={RestaurantApp} />
+			    	<Route path="/deliverylogin" component={DeliveryApp} />
+			    	<Route path="/restaurauntLogin" component={RestaurantApp} />
 			    </div>
 		  	</Router>
 		  </Provider>
