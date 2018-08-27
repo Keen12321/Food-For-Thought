@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
+
 import {deliveryRegister} from '../../actions/delivery/D_loginActions'
 
 class D_Register extends Component {
