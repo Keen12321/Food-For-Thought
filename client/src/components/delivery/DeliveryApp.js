@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import { Authentication, AuthRoute } from '../Authentication'
-
 import D_Login from './D_Login'
 import D_Register from './D_Register'
-
-
 import D_Pickups from './D_Pickups'
 import D_Home from './D_Home'
 import D_Reports from './D_Reports'
