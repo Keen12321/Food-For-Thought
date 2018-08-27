@@ -16,11 +16,10 @@ class App extends Component {
     return (
     	<Provider store = {store}>
 		  	<Router>
-
 		  		<div className="mainContainer">
 			  		<Route exact path="/" component={LandingPage} />
 			    	<Route path="/deliverylogin" component={DeliveryApp} />
-			    	<Route path="/restaurauntLogin" component={RestaurantApp} />
+			    	<Route path="/restaurantLogin" component={RestaurantApp} />
 			    </div>
 		  	</Router>
 		  </Provider>
