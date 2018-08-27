@@ -9,15 +9,18 @@ class D_Home extends Component {
    return (
    		<div>
    			<D_HomeBar />
+            <div className="pickupnotification">
+               <h3>There are 3 restaurants with food ready for pickup</h3>
+            </div>
    		<div className="D_HomeContainer">
    			<div>
-   				<Link to='/pickups'><button type="submit" className="startPickup">Start Pickups</button></Link>
+   				<Link to='/map'><button type="submit" className="startPickup">Start Pickups</button></Link>
    			</div>
    			<div>
-   				<Link to='/deliveryreports/'><button type="submit" className="manageReports">Manage Reports</button></Link>
+   				<Link to='/pickups'><button type="submit" className="manageReports">Manage Pickups</button></Link>
    			</div>
    			<div>
-   				<Link to='/deliveryprofile/'><button type="submit" className="manageProfile">Manage Profile</button></Link>
+   				<Link to='/map'><button type="submit" className="navHome">Navigate Home</button></Link>
    			</div>
    		</div>
      	</div>
