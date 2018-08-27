@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { withAuth } from '../Authentication'
 import {Redirect} from 'react-router-dom'
+import { registerRestauraunt } from '../../actions/restauraunt-actions/R_loginActions'
 
-class D_Login extends Component {
-	state = {
-		redirectToReferrer: false,
+class R_Register extends Component {
+ 	state = {
 		username: '',
-		password: ''
+		password: '',
+		redirectToReferrer: false
 	}
 
 	handleChange = (e) => {
@@ -14,25 +14,27 @@ class D_Login extends Component {
 			[e.target.name]:e.target.value
 		})
 	}
-	
-	handleForm = (e) => {
+
+	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.signin(this.state.username, this.state.password, () => {
+		registerRestauraunt({
+			username: this.state.username,
+			password: this.state.password
+		}, () => {
 			this.setState({
-			 	redirectToReferrer: true 
+				redirectToReferrer: true
 			})
 		})
 	}
 
  	render() {
- 		const { from } = this.props.location.state || { from: {pathname: this.props.defaultRedirect}}
  		const { redirectToReferrer } = this.state
 
  		if (redirectToReferrer) {
- 			return <Redirect to={from} />
+ 			return <Redirect to='/' />
  		} else {
 	   	return (
-	 			<div className="loginContainer">
+	   		<div className="loginContainer">
 	   			<div className="loginTitle">Login to your account</div>
 	 				<form className="loginForm" onSubmit={this.handleSubmit}>
 	 					<div className="loginInput">
@@ -45,8 +47,8 @@ class D_Login extends Component {
 	 				</form>
 	 			</div>
 	   	)
-   	}
+ 		}
  	}
 }
 
-export default withAuth(D_Login)
+export default R_Register

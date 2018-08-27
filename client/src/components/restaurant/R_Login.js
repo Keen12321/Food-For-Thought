@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { withAuth } from '../Authentication'
+import {Redirect} from 'react-router-dom'
 
 class R_Login extends Component {
 	state = {
@@ -30,17 +32,16 @@ class R_Login extends Component {
  			return <Redirect to={from} />
  		} else {
 	   	return (
-	 			<div>
-	 				<form className="deliveryLoginForm" onSubmit={this.handleForm}>
-	 					<div className="inputField">
-		 					<label htmlFor="username">Username</label>
-		 					<input className="inputBox" type="text" name="username" onChange={this.handleChange} value={this.state.username} />
+	 			<div className="loginContainer">
+	   			<div className="loginTitle">Login to your account</div>
+	 				<form className="loginForm" onSubmit={this.handleSubmit}>
+	 					<div className="loginInput">
+		 					<input className="loginInputBox" type="text" name="username" onChange={this.handleChange} value={this.state.username} placeholder="E-mail address" />
 		 				</div>
-		 				<div className="inputField">
-		 					<label htmlFor="password">Password</label>
-	 						<input className="inputBox" type="password" name="password" onChange={this.handleChange} value={this.state.password} />
+		 				<div className="loginInput">
+	 						<input className="loginInputBox" type="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password" />
 	 					</div>
-	 					<input className="loginSubmit" type="submit" value="Submit" />
+	 					<button className="loginSubmit" type="submit">Login</button>
 	 				</form>
 	 			</div>
 	   	)
@@ -48,4 +49,4 @@ class R_Login extends Component {
  	}
 }
 
-export default R_Login
+export default withAuth(R_Login)
