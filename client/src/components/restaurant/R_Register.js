@@ -1,8 +1,4 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
-
-class R_Register extends Component {
-=======
 import {Redirect} from 'react-router-dom'
 import {restaurantRegister} from '../../actions/restaurant/R_loginActions'
 
@@ -31,10 +27,9 @@ class R_Register extends Component {
 		})
 	}
 
->>>>>>> 36375f4a5a38d0a5dbb136831a829a8c00c7e244
  	render() {
    	return (
- 			
+ 			<div></div>
    	)
  	}
 }

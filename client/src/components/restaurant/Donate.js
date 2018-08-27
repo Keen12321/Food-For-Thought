@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class R_Donate extends Component {
+class Donate extends Component {
 	state = {
 		foodItem: '',
 		foodSize: ''
@@ -40,4 +40,4 @@ class R_Donate extends Component {
 	}
 }
 
-export default R_Donate
+export default Donate
