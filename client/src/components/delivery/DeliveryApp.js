@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
-import { Authentication, AuthRoute } from '../Authentication'
+import {Route} from 'react-router-dom'
 
 import D_Login from './D_Login'
 import D_Register from './D_Register'

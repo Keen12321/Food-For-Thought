@@ -13,7 +13,7 @@ class App extends Component {
     return (
     	<Provider store = {store}>
 		  	<Router>
-		  		<div>
+		  		<div className="mainContainer">
 			  		<Route exact path="/" component={LandingPage} />
 			    	<Route path="/delivery" component={DeliveryApp} />
 			    	<Route path="/restaurant" component={RestaurantApp} />
