@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
@@ -15,11 +15,23 @@ html {box-sizing: border-box;}
 	cursor: pointer;
 	height: 100%;
 }
-=======
+
+
+/*
+mockup colors
+red - rgb(202,23,26)
+orange - rgb(251,100,79)
+green - rgb(33,172,162)
+blue - rgb(35,123,202)
+light gray - rgb(247,247,247)
+dark gray - rgb(30,30,30)
+*/
+
+
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
 
->>>>>>> 1bc413f9af7c9943028e34b51ea662f7b42c0a5a
+
 a {
 	text-decoration: none;
 	color: white;
@@ -108,16 +120,6 @@ a {
 	font-family: sans-serif;
 	margin: 10px;
 }
-
-/*
-mockup colors
-red - rgb(202,23,26)
-orange - rgb(251,100,79)
-green - rgb(33,172,162)
-blue - rgb(35,123,202)
-light gray - rgb(247,247,247)
-dark gray - rgb(30,30,30)
-*/
 
 .container {
 	display:flex;
