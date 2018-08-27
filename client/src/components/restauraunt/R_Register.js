@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
-import {deliveryRegister} from '../../actions/delivery/D_loginActions'
+import { registerRestauraunt } from '../../actions/restauraunt-actions/R_loginActions'
 
-class D_Register extends Component {
+class R_Register extends Component {
  	state = {
 		username: '',
 		password: '',
@@ -17,7 +17,7 @@ class D_Register extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		deliveryRegister({
+		registerRestauraunt({
 			username: this.state.username,
 			password: this.state.password
 		}, () => {
@@ -34,14 +34,14 @@ class D_Register extends Component {
  			return <Redirect to='/' />
  		} else {
 	   	return (
-	   		<div>
-	   			<div className="nameTitle">Login to your account</div>
+	   		<div className="loginContainer">
+	   			<div className="loginTitle">Login to your account</div>
 	 				<form className="loginForm" onSubmit={this.handleSubmit}>
 	 					<div className="loginInput">
-		 					<input className="inputBox" type="text" name="username" onChange={this.handleChange} value={this.state.username} placeholder="E-mail address" />
+		 					<input className="loginInputBox" type="text" name="username" onChange={this.handleChange} value={this.state.username} placeholder="E-mail address" />
 		 				</div>
-		 				<div className="inputField">
-	 						<input className="inputBox" type="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password" />
+		 				<div className="loginInput">
+	 						<input className="loginInputBox" type="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password" />
 	 					</div>
 	 					<button className="loginSubmit" type="submit">Login</button>
 	 				</form>
@@ -51,4 +51,4 @@ class D_Register extends Component {
  	}
 }
 
-export default D_Register
+export default R_Register

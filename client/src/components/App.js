@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../styles/App.css'
+import '../styles/Login.css'
 import store from '../store'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {Provider} from 'react-redux'
