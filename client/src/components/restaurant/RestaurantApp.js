@@ -8,7 +8,7 @@ class RestaurauntApp extends Component {
         redirectUrl='/delivery'
         defaultRedirect='/'
       >
-      	
+      	<Route path="/restaurant/donating" component={R_Donate} />
       </Authentication>
    	)
  	}

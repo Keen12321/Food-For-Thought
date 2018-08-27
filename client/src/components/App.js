@@ -2,12 +2,10 @@ import React, { Component } from 'react'
 import '../styles/App.css'
 import store from '../store'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import {Provider} from 'react-redux'
-import { Authentication, AuthRoute } from './Authentication'
 
 import LandingPage from './LandingPage'
 import DeliveryApp from './delivery/DeliveryApp'
-import RestaurantApp from './Restaurant/RestaurantApp'
+import RestaurantApp from './restaurant/RestaurantApp'
 
 class App extends Component {
   render () {
@@ -16,7 +14,7 @@ class App extends Component {
 		  	<Router>
 		  		<div>
 			  		<Route exact path="/" component={LandingPage} />
-			    	<Route path="/delivery-login" component={DeliveryApp} />
+			    	<Route path="/delivery" component={DeliveryApp} />
 			    	<Route path="/restaurant" component={RestaurantApp} />
 			    </div>
 		  	</Router>
