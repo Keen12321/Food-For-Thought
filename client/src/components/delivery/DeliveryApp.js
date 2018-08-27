@@ -8,10 +8,10 @@ import D_Home from './D_Home'
 import D_Reports from './D_Reports'
 import D_Profile from './D_Profile'
 
-class RestaurantApp extends Component {
+class DeliveryApp extends Component {
  	render() {
    	return (
-   		<div>
+      <div>
         <Route path="/delivery" component={D_Login} />
         <Route path="/delivery/register" component={D_Register} />
         <Route path="/delivery/home" component={D_Home} />
@@ -23,4 +23,4 @@ class RestaurantApp extends Component {
  	}
 }
 
-export default RestaurantApp
+export default DeliveryApp
