@@ -7,7 +7,7 @@ import { Authentication, AuthRoute } from './Authentication'
 
 import LandingPage from './LandingPage'
 import DeliveryApp from './delivery/DeliveryApp'
-import RestaurauntApp from './restauraunt/RestaurauntApp'
+import RestaurantApp from './Restaurant/RestaurantApp'
 
 class App extends Component {
   render () {
@@ -17,7 +17,7 @@ class App extends Component {
 		  		<div>
 			  		<Route exact path="/" component={LandingPage} />
 			    	<Route path="/delivery-login" component={DeliveryApp} />
-			    	<Route path="/restauraunt-login" component={RestaurauntApp} />
+			    	<Route path="/restaurant" component={RestaurantApp} />
 			    </div>
 		  	</Router>
 		  </Provider>
