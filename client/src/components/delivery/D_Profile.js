@@ -9,7 +9,7 @@ class D_Profile extends Component {
       <div>
          <HomeBar />
    		<div>
-   			Delivery profile goes here
+   			Delivery Profile
    		</div>
       </div>
      
