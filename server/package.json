@@ -20,7 +20,13 @@
     "morgan": "~1.6.1",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.3",
+<<<<<<< HEAD
     "serve-favicon": "~2.3.0"
+=======
+    "react-scripts": "^1.1.5",
+    "serve-favicon": "~2.3.0",
+    "sha512": "^0.0.1"
+>>>>>>> a7159189380a9f6db33a716a83c4ea7578102d05
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

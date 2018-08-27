@@ -9,8 +9,8 @@ import D_Reports from './D_Reports'
 import D_Profile from './D_Profile'
 
 class DeliveryApp extends Component {
- 	render() {
-   	return (
+  render() {
+    return (
       <div>
         <Route path="/delivery/login" component={D_Login} />
         <Route path="/delivery/register" component={D_Register} />
@@ -19,8 +19,8 @@ class DeliveryApp extends Component {
         <Route path="/delivery/reports" component={D_Reports} />
         <Route path="/delivery/profile" component={D_Profile} />
       </div>
-   	)
- 	}
+    )
+  }
 }
 
 export default DeliveryApp
