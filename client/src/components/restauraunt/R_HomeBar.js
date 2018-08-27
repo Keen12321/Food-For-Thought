@@ -3,8 +3,14 @@ import React, { Component } from 'react'
 class R_HomeBar extends Component {
  render() {
    return (
-   	<div className="D_homebar">
-   		<Link to='/restauranthome'><i className='fa fa-apple fa-2x'></i>Home</Link>
+   	<div className="D_navbar">
+   		<div className="D_navbar left">
+   			<Link to='/deliveryhome'><i className='fa fa-cutlery'></i>Home</Link>
+   			<Link to='/deliverymap'>Map</Link>
+   		</div>
+   		<div className="D_navbar right">
+   			<Link to='/deliveryprofile'>Restaurant<i className='fa fa-user'></i></Link>
+   		</div>
    	</div>
      
    )
