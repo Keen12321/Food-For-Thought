@@ -8,31 +8,23 @@ import store from '../store'
 import LandingPage from './LandingPage'
 import DeliveryApp from './delivery/DeliveryApp'
 import RestaurantApp from './restaurant/RestaurantApp'
-import RestaurantProfile from './restaurant/RestaurantProfile'
 
 
 
 class App extends Component {
   render () {
     return (
-		<Router>
-			<div>
-				<Route exact path = '/' component={RestaurantProfile} />
-			</div>
-		</Router>
+    	<Provider store = {store}>
+		  	<Router>
+		  		<div className="mainContainer">
+			  		<Route exact path="/" component={LandingPage} />
+			    	<Route path="/deliverylogin" component={DeliveryApp} />
+			    	<Route path="/restaurantLogin" component={RestaurantApp} />
+			    </div>
+		  	</Router>
+		  </Provider>
     )
   }
 }
 
 export default App
-
-
-    // 	<Provider store = {store}>
-		  // 	<Router>
-		  // 		<div className="mainContainer">
-			 //  		<Route exact path="/" component={LandingPage} />
-			 //    	<Route path="/deliverylogin" component={DeliveryApp} />
-			 //    	<Route path="/restaurantLogin" component={RestaurantApp} />
-			 //    </div>
-		  // 	</Router>
-		  // </Provider>
