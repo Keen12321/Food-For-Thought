@@ -164,3 +164,29 @@ a {
 	border-radius:5px;
 	background-color:rgb(35,123,202);
 }
+
+
+
+.profileContain{
+	width: 100%;
+	
+}
+
+#head{
+	width: 100%;
+	padding: 10px;
+	background: #ccc;
+	display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+

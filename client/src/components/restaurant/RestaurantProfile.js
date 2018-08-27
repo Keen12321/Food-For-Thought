@@ -5,8 +5,11 @@ class RestaurantProfile extends Component{
 	render(){
 		return(
 			<div className="profileContain">
-				<div id="header">
-					<h1>Hello world</h1>
+				<div id="head">
+					<button><i class="fa fa-arrow-left"></i></button>
+					<div id="label">
+						<h1>Your Profile</h1>
+					</div>
 				</div>
 			</div>
 		)
