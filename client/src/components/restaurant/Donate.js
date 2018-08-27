@@ -21,14 +21,14 @@ class Donate extends Component {
 		return (
 			<div className="donate-container">
 				<Form>
-			    <Form.Field>
-			      <label>Food Item</label>
-			      <input placeholder='Food Item' />
-			    </Form.Field>
+			    
+				<Form.Input label='Food Item' type='text' placeholder='Food Item' />
 			    <Form.Field>
 			      <label>Food Size</label>
-			      <input placeholder='Size' />
+			      <input placeholder='Main Trays' />
 			    </Form.Field>
+						<label>Food Size</label>
+			      <input placeholder='Side Trays' />
 			    <Form.Field>
 			      <Checkbox label='I agree to the Terms and Conditions' />
 			    </Form.Field>
