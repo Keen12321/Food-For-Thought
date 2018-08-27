@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button, Checkbox, Form } from 'semantic-ui-react'
 
 class Donate extends Component {
 	state = {
@@ -19,25 +20,25 @@ class Donate extends Component {
 	render() {
 		return (
 			<div className="donate-container">
-
-				<form className="donate__details-container">
-					<div>
-						<input className="donate__food-type" type="text" 
-							value={this.state.foodItem} onChange={this.handleChange} 
-							name="food-item" placeholder="Food Item(s)" />
-					</div>
-					<div>
-						<input className="donate__food-size" type="text" 
-							value={this.state.foodSize} onChange={this.handleChange}
-							name="food-size" placeholder="Number of trays" />
-					</div>
-					<button className="donate__details-submit" onClick={this.handleSubmit} 
-						type="submit">Submit</button>
-				</form>
-
+				<Form>
+			    <Form.Field>
+			      <label>Food Item</label>
+			      <input placeholder='Food Item' />
+			    </Form.Field>
+			    <Form.Field>
+			      <label>Food Size</label>
+			      <input placeholder='Size' />
+			    </Form.Field>
+			    <Form.Field>
+			      <Checkbox label='I agree to the Terms and Conditions' />
+			    </Form.Field>
+			    <Button type='submit'>Submit</Button>
+			  </Form>
 			</div>
 		)
 	}
 }
 
 export default Donate
+
+// <input className="donate__food-type" type="text" value={this.state.foodItem} onChange={this.handleChange} name="food-item" placeholder="Food Item(s)" />

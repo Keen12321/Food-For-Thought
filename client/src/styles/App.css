@@ -150,11 +150,10 @@ dark gray - rgb(30,30,30)
 
 .donate-container {
 	display: flex;
-	border: 2px solid blue;
-}
-
-.donate__details-container {
-	border: 2px solid red;
+	border: 2px solid #eee;
+	border-radius: 3px;
+	width: 500px;
+	margin: 0 auto;
 }
 
 .donate__food-type {
