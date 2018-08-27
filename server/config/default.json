@@ -5,10 +5,10 @@
   "db": {
   	"host"		 : "localhost",
   	"user"		 : "Food-For-Thought",
-  	"password" : "T@KBD7Gng+zHs@+=bDF/N)MH",
+  	"password" : "aDc~.dW?$Gp6u=:=",
   	"database" : "Food-For-Thought"
   },
   "jwt": {
-  	"secret": ""
+  	"secret": "shhh"
   }
 }
