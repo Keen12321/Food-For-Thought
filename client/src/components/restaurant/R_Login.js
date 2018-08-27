@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth } from '../Authentication'
-import {Link, Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 class R_Login extends Component {
 	state = {

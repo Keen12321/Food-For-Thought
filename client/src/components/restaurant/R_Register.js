@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
-import { registerRestaurant } from '../../actions/restaurant-actions/R_loginActions'
+import {restaurantRegister} from '../../actions/restaurant/R_loginActions'
 
 class R_Register extends Component {
  	state = {
@@ -17,7 +17,7 @@ class R_Register extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		registerRestauraunt({
+		restaurantRegister({
 			username: this.state.username,
 			password: this.state.password
 		}, () => {
