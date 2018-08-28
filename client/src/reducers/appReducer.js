@@ -1,11 +1,12 @@
 const initialState = {
-  //add props here
+	donate: []
 }
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    //add cases here
+    case 'MAKE_DONATION':
+    	return {...state, donate: action.payload}
     default:
-    return state
+    	return state
   }
 }
