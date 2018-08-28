@@ -43,6 +43,10 @@ a {
 	padding:0;
 }
 
+html {
+	font-family: 'Lato', sans-serif;
+}
+
 *:active {
 	outline: none;
 }
@@ -51,7 +55,7 @@ a {
 	outline: none;
 }
 
-.startPickup {
+.startPickup, .requestPickup {
 	background: rgb(33,172,162);
 	color: white;
 	text-align: center;
@@ -69,24 +73,7 @@ a {
 	border: 2px solid white;
 	border-radius: 50%;
 }
-/*
-.D_navbar {
-	background: black;
-	margin-bottom: 5px;
 
-}
-
-.left {
-	float: left;
-}
-
-.left > a {
-	padding-right: 10px;
-}
-
-.right {
-	text-align: right;
-}*/
 
 .D_navbar{
 	background: #232323;
@@ -125,7 +112,7 @@ a {
 	height: 100%;
 }
 
-.navHome {
+.navHome, .manageProfile {
 	background: rgb(35,123,202);
 	color: white;
 	text-align: center;
@@ -136,7 +123,7 @@ a {
 	height: 100%;
 }
 
-.D_HomeContainer {
+.D_HomeContainer, .R_HomeContainer {
 	display: flex;
 	justify-content: space-evenly;
 	width: 100%;
@@ -194,6 +181,7 @@ a {
 
 }
 
+<<<<<<< HEAD
 
 
 
@@ -274,4 +262,29 @@ a {
 }
 
 
+
+
+/*******************************************
+	MAKING DONATIONS
+*******************************************/
+
+.donate-container {
+	display: flex;
+	border: 2px solid #eee;
+	border-radius: 3px;
+	width: 500px;
+	margin: 0 auto;
+}
+
+.donate__food-type {
+	padding: 10px;
+}
+
+.donate__food-size {
+	padding: 10px;
+}
+
+.donate__details-submit {
+	padding: 10px;
+}
 

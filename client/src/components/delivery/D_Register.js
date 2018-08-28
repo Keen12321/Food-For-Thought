@@ -42,7 +42,7 @@ class D_Register extends Component {
  		const { redirectToReferrer } = this.state
 
  		if (redirectToReferrer) {
- 			return <Redirect to='/' />
+ 			return <Redirect to="/" />
  		} else {
 	   	return (
 	   		<div>

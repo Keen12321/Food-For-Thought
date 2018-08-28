@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import R_HomeBar from './R_HomeBar'
+import { withAuth } from '../Authentication'
 class RestaurantProfile extends Component{
 	
 	render(){
@@ -44,7 +45,7 @@ class RestaurantProfile extends Component{
 	}
 }
 
-export default RestaurantProfile
+export default withAuth(RestaurantProfile)
 
 
 //lines 14 through 19 are optional, but it shouldnt be too hard to make
