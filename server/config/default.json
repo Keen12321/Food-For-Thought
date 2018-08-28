@@ -3,10 +3,10 @@
     "port": 3001
   },
   "db": {
-  	"host"		 : "localhost",
-  	"user"		 : "Food-For-Thought",
-  	"password" : "aDc~.dW?$Gp6u=:=",
-  	"database" : "Food-For-Thought"
+  	"host"		 : "138.68.63.194",
+  	"user"		 : "fft",
+  	"password" : "Hxe5W@8Q4^H$E9!Y",
+  	"database" : "foodforthought"
   },
   "jwt": {
   	"secret": "kl;"
