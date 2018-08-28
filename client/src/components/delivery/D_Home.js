@@ -9,9 +9,9 @@ class D_Home extends Component {
    return (
    		<div>
    			<HomeBar />
-            <div className="pickupnotification">
-               <h3>There are 3 restaurants with food ready for pickup</h3>
-            </div>
+          <div className="pickupnotification">
+             <h3>There are 3 restaurants with food ready for pickup</h3>
+          </div>
    		<div className="D_HomeContainer">
    			<div>
    				<Link to="/delivery/pickups"><button type="submit" className="startPickup">Start Pickups</button></Link>

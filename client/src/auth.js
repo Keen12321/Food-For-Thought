@@ -6,11 +6,11 @@ class AuthService {
     this.authPath = config.authPath || 'login'
   }
 
-  login = (username, password) => {
+  login = (email, password) => {
     return this.fetch(`${this.domain}/${this.authPath}`, {
       method: 'POST',
       body: JSON.stringify({
-        username, password
+        email, password
       })
     }).then(res => {
       this.setToken(res.token)
