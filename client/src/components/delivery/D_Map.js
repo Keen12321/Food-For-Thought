@@ -5,10 +5,10 @@ import  { compose, withProps, lifecycle } from 'recompose'
 import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-google-maps'
 
 
-class D_Map extends React.Component {
-  constructor(props){
-    super(props)
-  }
+class D_Map extends Component {
+  // constructor(props){
+  //   super(props)
+  // }
   
 render() {
     const DirectionsComponent = compose(
