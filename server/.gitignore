@@ -2,7 +2,10 @@
 
 # dependencies
 /node_modules
+<<<<<<< HEAD
+=======
 /config
+>>>>>>> 540c71e97c7cd054340458ba8e08a3a760cb12fb
 
 # testing
 /coverage
