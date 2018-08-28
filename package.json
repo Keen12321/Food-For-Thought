@@ -7,10 +7,11 @@
     "start": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
     "lint": "standard --fix"
   },
-  "author": "",
+  "author": "Keen <austin.kuehne@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^3.6.1",
+    "js-sha512": "^0.8.0",
     "react-scripts": "^1.1.5",
     "standard": "^11.0.1"
   },
@@ -27,5 +28,6 @@
     "author": "Michael Sweeney <jfmike@gmail.com> (https://github.com/overthemike)",
     "license": "MIT"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": "git@github.com:Keen12321/Food-For-Thought.git"
 }

@@ -9,7 +9,6 @@
   	"database" : "foodforthought"
   },
   "jwt": {
-  	"secret": "kl;"
-
+  	"secret": "shhh"
   }
 }

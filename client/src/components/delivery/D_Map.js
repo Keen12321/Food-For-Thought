@@ -1,8 +1,8 @@
 /*global google*/
 import React, { Component } from 'react'
 import D_HomeBar from './D_HomeBar'
-import  { compose, withProps, lifecycle } from 'recompose'
-import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-google-maps'
+import  { compose, withProps, lifecycle, withStateHandlers } from 'recompose'
+import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer, InfoWindow, Marker} from 'react-google-maps'
 
 
 class D_Map extends Component {
@@ -12,6 +12,13 @@ class D_Map extends Component {
   
 render() {
     const DirectionsComponent = compose(
+    	withStateHandlers(() => ({
+    		isOpen: false,
+    	}), {
+    		onToggleOpen: ({isOpen}) => () => ({
+    			isOpen: !isOpen,
+    		})
+    	}),
     
       withProps({
         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U",
@@ -48,7 +55,12 @@ this.setState({
       })
     )(props =>
       <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: 115.1398}}>
+      	<Marker position={{lat: 36.1699, lng: 115.1350}} onClick={props.onToggleOpen}>
        		 {props.directions && <DirectionsRenderer directions={props.directions} suppressMarkers={props.markers}/>}
+       		 {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
+       		 <p>here is some window stuff</p>
+       		 </InfoWindow>}
+       	</Marker>
       </GoogleMap>
     )
 return (

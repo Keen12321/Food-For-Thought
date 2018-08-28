@@ -1,3 +1,22 @@
+
+
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+
+
+.startPickup {
+	background: rgb(33,172,162);
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-family: sans-serif;
+	border-radius: 5px;
+	cursor: pointer;
+	height: 100%;
+}
+
+
 /*
 mockup colors
 red - rgb(202,23,26)
@@ -8,8 +27,10 @@ light gray - rgb(247,247,247)
 dark gray - rgb(30,30,30)
 */
 
+
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
+
 
 a {
 	text-decoration: none;
@@ -45,30 +66,43 @@ html {
 	height: 100%;
 }
 
-.fa-truck, .fa-cutlery, .fa-user {
-	color: white;
+.fa {
+	color: grey;
+	width: 30px;
 	padding: 5px;
 	margin: 5px;
 	border: 2px solid white;
 	border-radius: 50%;
 }
+.D_navbar{
+	background: #232323;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+.left > a, .right > a {
+	margin: auto;
+	margin-right: 5px;
 
-.D_navbar, .R_navbar {
-	background: black;
-	margin-bottom: 5px;
 }
 
-.left {
-	float: left;
+.fa{
+	margin: 3px;
 }
 
-.left > a {
-	padding-right: 10px;
+
+
+.fa-map-marker{
+	border:2px solid #fff;
+	padding: 5px;
+	border-radius: 50%;
+	font-weight: bold;
 }
 
-.right {
-	text-align: right;
-}
+
+
+
+
 
 .manageReports {
 	background: rgb(202,23,26);
@@ -104,6 +138,16 @@ html {
 	margin: 10px;
 }
 
+/*
+mockup colors
+red - rgb(202,23,26)
+orange - rgb(251,100,79)
+green - rgb(33,172,162)
+blue - rgb(35,123,202)
+light gray - rgb(247,247,247)
+dark gray - rgb(30,30,30)
+*/
+
 .container {
 	display:flex;
 	flex-direction:column;
@@ -128,6 +172,7 @@ html {
 .container > div > a {
 	text-decoration:none;
 	color:rgb(247,247,247);
+
 }
 
 .restaurantButton {
@@ -146,7 +191,90 @@ html {
 	text-align:center;
 	border-radius:5px;
 	background-color:rgb(35,123,202);
+
 }
+
+
+
+
+
+.profileContain{
+	width: 100%;
+	
+}
+
+#head{
+	width: 100%;
+	padding: 10px;
+	background: #ccc;
+	display: flex;
+}
+
+#head button{
+	border: none;
+	outline: none;
+	background: none;
+	font-size: 2em;
+	margin-right: 40%;
+}
+
+.D_navbar a:hover{
+	transform:scale(1.2);
+	color: #fff;
+}
+
+#prof{
+	margin: 15px;
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+/*	border-top: 1px solid #232323;*/
+/*	border-bottom: 1px solid #232323;*/
+}
+
+#prof h2{
+	padding: 5px;
+	border-bottom: 2px solid #232323;
+}
+
+#option{
+	margin: 30px;
+	border-top: 1px solid #232323;
+	border-bottom: 1px solid #232323;
+	padding: 20px;
+	display: flex;
+}
+
+#option button{
+	margin-right:5%;
+}
+
+#itemsD{
+	display: flex;
+	/*flex-direction: column;*/
+	justify-content: flex-start;
+	padding: 20px;
+}
+
+#dd{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	border:1px solid #232323;
+	padding: 10px;
+}
+
+#amount{
+	font-size: 2.5em;
+	margin-bottom: 30px;
+}
+
+#numberr{
+	font-size: 2.4em;
+}
+
+
+
 
 /*******************************************
 	MAKING DONATIONS
@@ -182,6 +310,7 @@ html {
 }
 .modal-show {
 	display: block;
+	z-index: 100;
 }
 .modal {
 	position: fixed;
