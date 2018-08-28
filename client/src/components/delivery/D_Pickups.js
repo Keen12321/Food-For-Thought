@@ -9,7 +9,7 @@ class D_Pickups extends Component {
       <div>
          <HomeBar />
    		<div>
-   			List of pickups goes here
+   			Pickups List
    		</div>
       </div>
      
