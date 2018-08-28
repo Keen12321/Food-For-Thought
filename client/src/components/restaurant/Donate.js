@@ -1,27 +1,31 @@
 import React, { Component } from 'react'
 import { Button, Form } from 'semantic-ui-react'
+import { makeDonation } from '../../actions/restaurant-actions/donateActions'
 
 class Donate extends Component {
 	state = {
-		foodItem: '',
+		name: '',
 		mainTray: '',
 		sideTray: ''
 	}
-
-	handleSubmit = (e) => {
-		e.preventDefault()
-		this.setState({
-			foodItem: 'test'
-		})
-		console.log('form submitted')
-		console.log(this.state.foodItem)
+	componentDidMount() {
+		console.log('component did mount')	
 	}
 
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
-		console.log('test user input')
+	}
+
+	handleSubmit = (e) => {
+		e.preventDefault()
+		makeDonation({
+			name: this.state.name,
+			main_tray: this.state.mainTray,
+			side_tray: this.state.sideTray,
+			food_id: this.props.match.params.id
+		})
 	}
 	
 	render() {
@@ -29,9 +33,9 @@ class Donate extends Component {
 			<div className="donate-container">
 
 				<Form onSubmit={this.handleSubmit}>
-					<Form.Input label='Food Item' type='text' placeholder='Food Item' onChange={this.handleChange} />
+					<Form.Input label='Food Item' type='text' placeholder='Food Item' onChange={this.handleChange} value={this.state.name} />
 
-			    <Form.Field label='Main Tray Amount' control='select' onChange={this.handleChange}>
+			    <Form.Field label='Main Tray Amount' control='select' onChange={this.handleChange} value={this.state.main_tray}>
 		        <option value='1'>1</option>
 		        <option value='2'>2</option>
 		        <option value='3'>3</option>
@@ -54,7 +58,7 @@ class Donate extends Component {
 						<option value='20'>20</option>
 		      </Form.Field>
 
-		      <Form.Field label='Side Tray Amount' control='select' onChange={this.handleChange}>
+		      <Form.Field label='Side Tray Amount' control='select' onChange={this.handleChange} value={this.state.side_tray}>
 		        <option value='1'>1</option>
 		        <option value='2'>2</option>
 		        <option value='3'>3</option>
