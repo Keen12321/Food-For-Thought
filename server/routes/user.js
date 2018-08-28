@@ -6,7 +6,8 @@ import config from 'config'
 
 const router = express.Router()
 
-router.post('/restaurant/donate', (req, res, next) => {
+// POSTING DONATIONS
+router.post('/donating', (req, res, next) => {
 	const sql = `
 		INSERT INTO
 			donations (name, main_tray, side_tray, food_id)
@@ -14,8 +15,9 @@ router.post('/restaurant/donate', (req, res, next) => {
 			(?, ?, ?, ?)
 	`
 
-	conn.query(sql, [req.body.name, req.body.main_tray, req.body.side_tray, req.body.food_id] (error, results, fields) => {
+	conn.query(sql, [req.body.name, req.body.main_tray, req.body.side_tray, req.body.food_id], (error, results, fields) => {
 		res.json(results)
+		console.log(results)
 	})
 })
 
