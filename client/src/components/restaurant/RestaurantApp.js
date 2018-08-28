@@ -12,7 +12,7 @@ class RestaurantApp extends Component {
  	render() {
    		return (
  			<div>
- 				<Route path="/restaurant" component={R_Login} />
+ 				<Route exact path="/restaurant" component={R_Login} />
  				<Route path="/restaurant/register" component={R_Register} />
  				<Route path="/restaurant/home" component={R_Home} />
 		        <Route path="/restaurant/pickup" component={R_Pickup} />
