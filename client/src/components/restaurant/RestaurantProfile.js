@@ -6,6 +6,30 @@ class RestaurantProfile extends Component{
 		return(
 			<div className="profileContain">
 				<R_HomeBar/>
+				
+				<div id="prof">
+					<h2>Your Restaurants Profile</h2>
+				</div>
+				<div id="option">
+					<button className='ui button' role='button'>
+  							Dontation History
+					</button>
+					<p>You will be able to access all of your dontaions from this page.</p>
+				</div>
+
+				<div id="option">
+					<button className="ui button" role='button'>
+						Delete Donation
+					</button>
+					<p>from here you will be able to delete any pre-existing donations.</p> 
+				</div>
+
+				<div id="option">
+					<button className="ui button" role='button'>
+						Donate Food
+					</button>
+					<p>From here you will be able to donate food to people in need</p> 
+				</div>
 			</div>
 		)
 	}
