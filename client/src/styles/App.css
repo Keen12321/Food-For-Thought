@@ -153,7 +153,7 @@ html {
 *******************************************/
 
 .donate-container {
-	display: flex;
+	padding: 20px;
 	border: 2px solid #eee;
 	border-radius: 3px;
 	width: 500px;
