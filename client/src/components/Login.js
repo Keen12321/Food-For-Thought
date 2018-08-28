@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { withAuth } from './Authentication'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
+import {api} from './Authentication'
 
 class D_Login extends Component {
 	state = {
-		redirectToReferrer: false,
-		username: '',
-		password: ''
+		email: '',
+		password: '',
+		redirect: false,
+		redirectTo: ''
 	}
 
 	handleChange = (e) => {
@@ -15,33 +17,46 @@ class D_Login extends Component {
 		})
 	}
 	
-	handleForm = (e) => {
+	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.signin(this.state.username, this.state.password, () => {
-			this.setState({
-			 	redirectToReferrer: true 
-			})
+		this.props.signin(this.state.email, this.state.password, () => {
+			if (api.getProfile().type === 'Restaurant') {
+				this.setState({
+					redirect: true,
+					redirectTo: '/restaurant'
+				})
+			} else {
+				this.setState({
+					redirect: true,
+					redirectTo: '/delivery'
+				})
+			}
 		})
 	}
 
  	render() {
- 		const { from } = this.props.location.state || { from: {pathname: this.props.defaultRedirect}}
- 		const { redirectToReferrer } = this.state
+ 		let { redirect, redirectTo } = this.state
 
- 		if (redirectToReferrer) {
- 			return <Redirect to={from} />
+ 		if (redirect) {
+ 			return <Redirect to={redirectTo} />
  		} else {
 	   	return (
 	 			<div className="loginContainer">
-	   			<div className="loginTitleContainer">Login to your account</div>
+	   			<div className="loginTitleContainer">
+	   				<i id="loginLogo" className="fa fa-cutlery" />
+	   				<div id="loginTitle">Login</div>
+	   			</div>
 	 				<form className="loginForm" onSubmit={this.handleSubmit}>
 	 					<div className="loginInputField">
-		 					<input className="loginInputBox" type="text" name="username" onChange={this.handleChange} value={this.state.username} placeholder="E-mail address" />
+	 						<i className="fa fa-user" />
+		 					<input className="loginInputBox" type="text" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Email" />
 		 				</div>
 		 				<div className="loginInputField">
+		 					<i className="fa fa-key" />
 	 						<input className="loginInputBox" type="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password" />
 	 					</div>
 	 					<button className="loginSubmit" type="submit">Login</button>
+	 					<Link className="registrationLink" to="/register">Not a Registered User? Register Here</Link>
 	 				</form>
 	 			</div>
 	   	)

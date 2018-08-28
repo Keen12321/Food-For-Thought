@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import validator from 'validator'
 import {Redirect} from 'react-router-dom'
 import {registerUser} from '../actions/loginActions'
 
@@ -6,9 +7,13 @@ class Register extends Component {
  	state = {
 		email: '',
 		password: '',
+		confirmPassword: '',
 		address: '',
 		phone: '',
 		type: '',
+		validateEmpty: true,
+		validateEmail: true,
+		validatePassword: true,
 		redirect: false,
 		redirectTo: ''
 	}
@@ -21,29 +26,67 @@ class Register extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		registerUser({
-			email: this.state.email,
-			password: this.state.password,
-			address: this.state.address,
-			phone: this.state.phone,
-			type: this.state.type
-		}, (userType) => {
-			if (userType === 'restaurant') {
-				this.setState({
-					redirect: true,
-					redirectTo: '/restaurant'
-				})
+		
+		if (this.state.email, this.state.password, this.state.confirmPassword, this.state.address, this.state.phone, this.state.type !== '') {
+			if (validator.isEmail(this.state.email)) {
+				if (this.state.password === this.state.confirmPassword) {
+					this.setState({
+					})
+					registerUser({
+						email: this.state.email,
+						password: this.state.password,
+						address: this.state.address,
+						phone: this.state.phone,
+						type: this.state.type
+					}, () => {
+						if (this.state.type === 'Restaurant') {
+							this.setState({
+								redirect: true,
+								redirectTo: '/restaurant'
+							})
+						} else {
+							this.setState({
+								redirect: true,
+								redirectTo: '/delivery'
+							})
+						}
+					})
+				} else {
+					this.setState({
+						validatePassword: false,
+						validateEmail: true
+					})
+				}
 			} else {
 				this.setState({
-					redirect: true,
-					redirectTo: '/delivery'
+					validateEmail: false,
+					validateEmpty: true
 				})
 			}
-		})
+		} else {
+			this.setState({
+				validateEmpty: false
+			})
+		}
 	}
 
  	render() {
- 		const { redirect, redirectTo } = this.state
+ 		let { redirect, redirectTo } = this.state
+		let fieldEmpty
+		let incorrectEmailValidation
+		let incorrectPasswordValidation
+
+		if (!this.state.validateEmpty) {
+			fieldEmpty = <div className="wrongField">Fill Fields Before Submitting</div>
+		}
+
+		if (!this.state.validateEmail) {
+			incorrectEmailValidation = <div className="wrongField">Please Enter Valid Email</div>
+		} 
+
+ 		if (!this.state.validatePassword) {
+ 			incorrectPasswordValidation = <div className="wrongField">Passwords Do Not Match</div>
+ 		}
 
 
  		if (redirect) {
@@ -71,10 +114,17 @@ class Register extends Component {
 	 						<i className="fa fa-user" />
 		 					<input className="loginInputBox" type="text" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Email" />
 		 				</div>
+		 				{incorrectEmailValidation}
 		 				<div className="loginInputField">
 		 					<i className="fa fa-key" />
 	 						<input className="loginInputBox" type="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password" />
 	 					</div>
+	 					{incorrectPasswordValidation}
+	 					<div className="loginInputField">
+		 					<i className="fa fa-key" />
+	 						<input className="loginInputBox" type="password" name="confirmPassword" onChange={this.handleChange} value={this.state.confirmPassword} placeholder="Confirm Password" />
+	 					</div>
+	 					{incorrectPasswordValidation}
 	 					<div className="loginInputField">
 	 						<i className="fa fa-home" />
 	 						<input className="loginInputBox" type="text" name="address" onChange={this.handleChange} value={this.state.address} placeholder="Address" />
@@ -83,7 +133,8 @@ class Register extends Component {
 	 						<i className="fa fa-mobile" />
 	 						<input className="loginInputBox" type="tel" name="phone" onChange={this.handleChange} value={this.state.phone} placeholder="Phone #" />
 	 					</div>
-	 					<button className="loginSubmit" type="submit">Login</button>
+	 					<button className="loginSubmit" type="submit">Register</button>
+	 					{fieldEmpty}
 	 				</form>
 	 			</div>
 	   	)

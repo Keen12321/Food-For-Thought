@@ -15,7 +15,7 @@ const App = props => (
   <Provider store = {store}>
   	<Router>
 			<Authentication
-    		redirectUrl='/login'
+    		redirectUrl='/'
     		defaultRedirect='/'
   		>
 	  		<div className="mainContainer">

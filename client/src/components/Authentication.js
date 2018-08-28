@@ -21,8 +21,8 @@ export class Authentication extends Component {
     defaultRedirect: '/'
   }
 
-  signin = (username, password, cb) => {
-    api.login(username, password)
+  signin = (email, password, cb) => {
+    api.login(email, password)
     .then(data => {
       this.setState({
         isAuthenticated: true

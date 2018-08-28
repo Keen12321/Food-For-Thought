@@ -11,21 +11,21 @@ router.post('/login', (req, res, next) => {
 	const password = sha512(req.body.password).toString()
 
 	const sql = `
-		SELECT email 
+		SELECT email, type
 		FROM users 
 		WHERE email = ? AND password = ?
 	`
 
 	conn.query(sql, [email, password], (err, results, fields) => {
 		if (results.length > 0) {
-			const token = jwt.sign({"email":email}, config.get('jwt.secret'))
+			const token = jwt.sign({"email":email, "type":results[0].type}, config.get('jwt.secret'))
 
 			res.json({
 				token: token
 			})
 		} else {
 			res.status(401).json({
-				message: 'Username or Password incorrect'
+				message: 'Email or Password incorrect'
 			})
 		}
 	})
