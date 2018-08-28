@@ -7,6 +7,7 @@ import {Provider} from 'react-redux'
 import LandingPage from './LandingPage'
 import DeliveryApp from './delivery/DeliveryApp'
 import RestaurantApp from './restaurant/RestaurantApp'
+import D_Map from './delivery/D_Map'
 
 class App extends Component {
   render () {
@@ -17,6 +18,7 @@ class App extends Component {
 			  		<Route exact path="/" component={LandingPage} />
 			    	<Route path="/delivery" component={DeliveryApp} />
 			    	<Route path="/restaurant" component={RestaurantApp} />
+			    	<D_Map />
 			    </div>
 		  	</Router>
 		  </Provider>
