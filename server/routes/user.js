@@ -10,9 +10,9 @@ const router = express.Router()
 router.post('/donating', (req, res, next) => {
 	const sql = `
 		INSERT INTO
-			donations (name, main_tray, side_tray, food_id)
+			donations (name, main_tray, side_tray)
 		VALUES
-			(?, ?, ?, ?)
+			(?, ?, ?)
 	`
 
 	conn.query(sql, [req.body.name, req.body.main_tray, req.body.side_tray, req.body.food_id], (error, results, fields) => {

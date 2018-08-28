@@ -8,14 +8,12 @@ class Donate extends Component {
 		mainTray: '',
 		sideTray: ''
 	}
-	componentDidMount() {
-		console.log('component did mount')	
-	}
 
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
+		console.log('is changed')
 	}
 
 	handleSubmit = (e) => {
@@ -23,8 +21,7 @@ class Donate extends Component {
 		makeDonation({
 			name: this.state.name,
 			main_tray: this.state.mainTray,
-			side_tray: this.state.sideTray,
-			food_id: this.props.match.params.id
+			side_tray: this.state.sideTray
 		})
 	}
 	
@@ -33,9 +30,11 @@ class Donate extends Component {
 			<div className="donate-container">
 
 				<Form onSubmit={this.handleSubmit}>
-					<Form.Input label='Food Item' type='text' placeholder='Food Item' onChange={this.handleChange} value={this.state.name} />
+					<Form.Input label='Food Item' type='text' placeholder='Food Item' name='name'
+						onChange={this.handleChange} value={this.state.name} />
 
-			    <Form.Field label='Main Tray Amount' control='select' onChange={this.handleChange} value={this.state.main_tray}>
+			    <Form.Field label='Main Tray Amount' control='select' name='mainTray'
+			    	onChange={this.handleChange} value={this.state.main_tray}>
 		        <option value='1'>1</option>
 		        <option value='2'>2</option>
 		        <option value='3'>3</option>
@@ -58,7 +57,8 @@ class Donate extends Component {
 						<option value='20'>20</option>
 		      </Form.Field>
 
-		      <Form.Field label='Side Tray Amount' control='select' onChange={this.handleChange} value={this.state.side_tray}>
+		      <Form.Field label='Side Tray Amount' control='select' name='sideTray'
+		      	onChange={this.handleChange} value={this.state.side_tray}>
 		        <option value='1'>1</option>
 		        <option value='2'>2</option>
 		        <option value='3'>3</option>
