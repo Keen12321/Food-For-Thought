@@ -9,7 +9,7 @@ class D_Reports extends Component {
       <div>
          <HomeBar />
    		<div>
-   			Reports page goes here
+   			Reports Page
    		</div>
       </div>
      

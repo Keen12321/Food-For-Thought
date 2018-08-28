@@ -1,3 +1,13 @@
+/*
+mockup colors
+red - rgb(202,23,26)
+orange - rgb(251,100,79)
+green - rgb(33,172,162)
+blue - rgb(35,123,202)
+light gray - rgb(247,247,247)
+dark gray - rgb(30,30,30)
+*/
+
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
 
@@ -12,6 +22,10 @@ a {
 	padding:0;
 }
 
+html {
+	font-family: 'Lato', sans-serif;
+}
+
 *:active {
 	outline: none;
 }
@@ -20,7 +34,7 @@ a {
 	outline: none;
 }
 
-.startPickup {
+.startPickup, .requestPickup {
 	background: rgb(33,172,162);
 	color: white;
 	text-align: center;
@@ -39,7 +53,7 @@ a {
 	border-radius: 50%;
 }
 
-.D_navbar {
+.D_navbar, .R_navbar {
 	background: black;
 	margin-bottom: 5px;
 }
@@ -67,7 +81,7 @@ a {
 	height: 100%;
 }
 
-.navHome {
+.navHome, .manageProfile {
 	background: rgb(35,123,202);
 	color: white;
 	text-align: center;
@@ -78,7 +92,7 @@ a {
 	height: 100%;
 }
 
-.D_HomeContainer {
+.D_HomeContainer, .R_HomeContainer {
 	display: flex;
 	justify-content: space-evenly;
 	width: 100%;
@@ -89,16 +103,6 @@ a {
 	font-family: sans-serif;
 	margin: 10px;
 }
-
-/*
-mockup colors
-red - rgb(202,23,26)
-orange - rgb(251,100,79)
-green - rgb(33,172,162)
-blue - rgb(35,123,202)
-light gray - rgb(247,247,247)
-dark gray - rgb(30,30,30)
-*/
 
 .container {
 	display:flex;
@@ -142,4 +146,28 @@ dark gray - rgb(30,30,30)
 	text-align:center;
 	border-radius:5px;
 	background-color:rgb(35,123,202);
+}
+
+/*******************************************
+	MAKING DONATIONS
+*******************************************/
+
+.donate-container {
+	display: flex;
+	border: 2px solid #eee;
+	border-radius: 3px;
+	width: 500px;
+	margin: 0 auto;
+}
+
+.donate__food-type {
+	padding: 10px;
+}
+
+.donate__food-size {
+	padding: 10px;
+}
+
+.donate__details-submit {
+	padding: 10px;
 }
