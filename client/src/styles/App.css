@@ -31,8 +31,9 @@ a {
 	height: 100%;
 }
 
-.fa-truck, .fa-cutlery, .fa-user {
-	color: white;
+.fa {
+	color: grey;
+	width: 30px;
 	padding: 5px;
 	margin: 5px;
 	border: 2px solid white;
@@ -99,47 +100,3 @@ blue - rgb(35,123,202)
 light gray - rgb(247,247,247)
 dark gray - rgb(30,30,30)
 */
-
-.container {
-	display:flex;
-	flex-direction:column;
-	flex-wrap:wrap;
-	font-family:sans-serif;
-	text-align:center;
-	color:rgb(30,30,30);
-}
-
-.container > div {
-	margin:5px auto;
-}
-
-.container > div > h1 {
-	font-size:1.5em;
-}
-
-.container > div > h2 {
-	font-size:1.25em;
-}
-
-.container > div > a {
-	text-decoration:none;
-	color:rgb(247,247,247);
-}
-
-.restaurantButton {
-	width:200px;
-	margin:10px;
-	padding:10px;
-	text-align:center;
-	border-radius:5px;
-	background-color:rgb(202,23,26);
-}
-
-.deliveryButton {
-	width:200px;
-	margin:10px;
-	padding:10px;
-	text-align:center;
-	border-radius:5px;
-	background-color:rgb(35,123,202);
-}
