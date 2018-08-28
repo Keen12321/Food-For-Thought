@@ -30,7 +30,6 @@ const App = props => (
 	    </Authentication>
   	</Router>
   </Provider>
-
 )
 
 export default App
