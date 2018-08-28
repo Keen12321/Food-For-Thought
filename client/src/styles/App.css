@@ -171,3 +171,12 @@ html {
 .donate__details-submit {
 	padding: 10px;
 }
+
+.pickups {
+	display: flex;
+	justify-content: space-between;
+}
+
+.pickups > div {
+	margin: 5px;
+}
