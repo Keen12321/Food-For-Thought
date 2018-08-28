@@ -35,7 +35,7 @@ class RestaurantProfile extends Component{
 
 				<div id="option">
 					<button className="ui button" role='button'>
-							Donate Food
+						Donate Food
 					</button>
 					<p>From here you will be able to donate food to people in need</p> 
 				</div>
