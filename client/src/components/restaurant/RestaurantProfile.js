@@ -10,6 +10,15 @@ class RestaurantProfile extends Component{
 				<div id="prof">
 					<h2>Your Restaurants Profile</h2>
 				</div>
+				
+				<div id="itemsD">
+					<div id="dd">
+						<span id="amount">Trays Donated</span>
+						<span id='numberr'>22</span>
+					</div>
+				</div>
+				
+
 				<div id="option">
 					<button className='ui button' role='button'>
   							Dontation History
@@ -36,3 +45,6 @@ class RestaurantProfile extends Component{
 }
 
 export default RestaurantProfile
+
+
+//lines 14 through 19 are optional, but it shouldnt be too hard to make
