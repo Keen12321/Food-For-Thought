@@ -12,7 +12,8 @@ const AuthContext = React.createContext({
 
 export class Authentication extends Component {
   state = {
-    isAuthenticated: api.loggedIn()
+    isAuthenticated: api.loggedIn(),
+    pageType: ''
   }
 
   static defaultProps = {
@@ -57,7 +58,7 @@ export const AuthRoute = ({ component: Component, ...rest }) => (
   <AuthContext.Consumer>
     { ({ isAuthenticated, redirectUrl }) => (
       <Route {...rest} render={(props) => (
-        isAuthenticated 
+        isAuthenticated
         ? <Component {...props} />
         : <Redirect to={{
             pathname: redirectUrl,

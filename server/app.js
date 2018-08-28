@@ -4,10 +4,8 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import path from 'path'
 import config from 'config'
-import authDeliveryRoutes from './routes/delivery-auth'
-import authRestaurantRoutes from './routes/restaurant-auth'
-import protectedDeliveryRoutes from './routes/delivery-protected'
-import protectedRestaurantRoutes from './routes/restaurant-protected'
+import authRoutes from './routes/auth'
+import protectedRoutes from './routes/user'
 import jwt from 'express-jwt'
 
 const app = express()
@@ -20,10 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/api', authDeliveryRoutes)
-app.use('/api', authRestaurantRoutes)
-app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedDeliveryRoutes)
-app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRestaurantRoutes)
+app.use('/api', authRoutes)
+app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRoutes)
 
 
 app.use((req, res, next) => {
@@ -50,5 +46,6 @@ if (env === 'production') {
     })
   })
 }
+
 
 module.exports = app

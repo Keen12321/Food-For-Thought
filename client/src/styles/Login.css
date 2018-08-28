@@ -1,23 +1,83 @@
 .loginContainer {
+	text-align: center;
+	margin: 0 auto;
+	width: 40%;
+	margin-top: 100px;
+	font: 20px sans-serif;
 }
 
-.loginTitle {
-	font: bold 24px sans-serif;
+.loginTitleContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+	font-size: 26px;
+}
+
+#loginLogo {
+	color: black;
+	padding: 10px;
+	font-size: 35px;
+	margin-right: 25px;
+}
+
+#loginTitle {
+	padding-left: 7px;
+	font-size: 32px;
 }
 
 .loginForm {
-	width: 40%;
-	height: 25%;
+	padding: 20px;
+	box-shadow: 4px 8px 10px #ccc, -4px -1px 10px  #ccc;
+	border: 1px solid #ccc;
 }
 
-.loginInput {
-	width: 100%;
+.userTypeContainer {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 70px;
+	font-size: 16px;
+}
+
+.userType {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 50px;
+	width: 40%;
+	padding-left: 18px;
+	font-size: 21px;
+	border: 2px solid rgb(220 220 220);
+	border-radius: 10px;
+}
+
+.userTypeRadio {
+	margin-right: 20px;
+}
+
+.loginInputField {
+	margin-top: 20px;
+	display: flex;
+	border: 2px solid rgb(220 220 220);
+	border-radius: 5px;
 }
 
 .loginInputBox {
-
+	display: flex;
+	align-items: center;
+	width: 95%;
+	padding-left: 5px;
+	height: auto;
+	border: none;
 }
 
 .loginSubmit {
-	
+	margin-top: 20px;
+	width: 100%;
+	height: 50px;
+	color: white;
+	background: rgb(190 191 194);
+	border-radius: 10px;
+	font-size: 25px;
 }
