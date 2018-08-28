@@ -13,7 +13,7 @@ class R_Home extends Component {
             </div>
             <div className="R_HomeContainer">
                <div>
-                  <Link to="/restaurant/pickup"><button type="submit" className="requestPickup">Request Pickup</button></Link>
+                  <Link to="/donate"><button type="submit" className="requestPickup">Donate Food</button></Link>
                </div>
                <div>
                   <Link to="/restaurant/reports"><button type="submit" className="manageReports">Manage Reports</button></Link>

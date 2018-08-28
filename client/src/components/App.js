@@ -8,6 +8,7 @@ import DeliveryApp from './delivery/DeliveryApp'
 import R_Home from './restaurant/R_Home'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import RestaurantProfile from './restaurant/RestaurantProfile'
+import Donate from './restaurant/Donate'
 class App extends Component {
   render () {
     return (
@@ -16,6 +17,7 @@ class App extends Component {
 		  		<div>
 		  			<Route exact path = '/' component={R_Home} />
 			  		<Route exact path='/Rprofile' component={RestaurantProfile} />
+			  		<Route exact path = '/donate' component={Donate} />
 		  		</div>
 		  	</Router>
 		  </Provider>
