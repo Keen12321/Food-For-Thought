@@ -69,10 +69,11 @@ a {
 	border: 2px solid white;
 	border-radius: 50%;
 }
-
+/*
 .D_navbar {
 	background: black;
 	margin-bottom: 5px;
+
 }
 
 .left {
@@ -85,7 +86,33 @@ a {
 
 .right {
 	text-align: right;
+}*/
+
+.D_navbar{
+	background: #232323;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
 }
+
+.fa{
+	margin: 3px;
+}
+
+.D_navbar a:hover{
+
+}
+
+.fa-map-marker{
+	border:2px solid #fff;
+	padding: 3px;
+	border-radius: 50%;
+}
+
+
+
+
+
 
 .manageReports {
 	background: rgb(202,23,26);
@@ -167,6 +194,8 @@ a {
 
 
 
+
+
 .profileContain{
 	width: 100%;
 	
@@ -179,7 +208,17 @@ a {
 	display: flex;
 }
 
+#head button{
+	border: none;
+	outline: none;
+	background: none;
+	font-size: 2em;
+	margin-right: 40%;
+}
 
+#head button:hover{
+	
+}
 
 
 
