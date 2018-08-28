@@ -34,6 +34,8 @@ class Donate extends Component {
 			    </Form.Field>
 			    <Button type='submit'>Submit</Button>
 			  </Form>
+
+			  <Button>Click Here</Button>
 			</div>
 		)
 	}
