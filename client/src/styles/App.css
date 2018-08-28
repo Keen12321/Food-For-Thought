@@ -22,6 +22,10 @@ a {
 	padding:0;
 }
 
+html {
+	font-family: 'Lato', sans-serif;
+}
+
 *:active {
 	outline: none;
 }
@@ -142,4 +146,28 @@ a {
 	text-align:center;
 	border-radius:5px;
 	background-color:rgb(35,123,202);
+}
+
+/*******************************************
+	MAKING DONATIONS
+*******************************************/
+
+.donate-container {
+	display: flex;
+	border: 2px solid #eee;
+	border-radius: 3px;
+	width: 500px;
+	margin: 0 auto;
+}
+
+.donate__food-type {
+	padding: 10px;
+}
+
+.donate__food-size {
+	padding: 10px;
+}
+
+.donate__details-submit {
+	padding: 10px;
 }
