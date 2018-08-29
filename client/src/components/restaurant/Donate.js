@@ -23,6 +23,7 @@ class Donate extends Component {
 		})
 	}
 	
+	
 	render() {
 		return (
 			<div className="donate-container">
