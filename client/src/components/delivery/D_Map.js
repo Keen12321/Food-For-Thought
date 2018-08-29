@@ -2,7 +2,8 @@
 import React, { Component } from 'react'
 import D_HomeBar from './D_HomeBar'
 import  { compose, withProps, lifecycle, withStateHandlers } from 'recompose'
-import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer, InfoWindow, Marker} from 'react-google-maps'
+import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer, Marker} from 'react-google-maps'
+import InfoBox from "react-google-maps/lib/components/addons/InfoBox"
 
 
 class D_Map extends Component {
@@ -25,6 +26,7 @@ render() {
         loadingElement: <div style={{ height: `400px` }} />,
         containerElement: <div style={{ width: `100%` }} />,
         mapElement: <div style={{height: `600px`, width: `100%` }}  />,
+        center: {lat: 36.1699, lng: -115.1398}
       }),
 
       withScriptjs,
@@ -54,13 +56,38 @@ this.setState({
         }
       })
     )(props =>
-      <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: 115.1398}}>
-      	<Marker position={{lat: 36.1699, lng: 115.1350}} onClick={props.onToggleOpen}>
+      <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
+			<InfoBox key="i"
+			defaultPosition={new google.maps.LatLng(36.1699, -115.1398)}
+			options={{
+				enableEventPropagation: true,
+				alignBottom: true,
+				boxStyle: {
+					boxShadow: `3px 3px 10px rgba(0,0,0,0.6)`,
+					background: "white",
+					padding: "10px",
+				},
+				closeBoxURL: ""
+			}}>
+			<div className="google_map_infobox">
+				<h3>Restaurant Name</h3>
+				<p>___ Main Trays</p>
+				<p>___ Side Trays</p>
+				<button className="ui green button">
+					<i className="check circle icon"></i>Confirm Receipt
+				</button>
+				<button className="ui red button">
+					<i className="trash alternate icon"></i>Delete
+				</button>
+			</div>
+			</InfoBox>
+	
+      	{/*<Marker position={{lat: 36.1699, lng: 115.1100}} onClick={props.onToggleOpen} > */}
        		 {props.directions && <DirectionsRenderer directions={props.directions} suppressMarkers={props.markers}/>}
-       		 {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
+       		{/* {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
        		 <p>here is some window stuff</p>
        		 </InfoWindow>}
-       	</Marker>
+       	</Marker> */}
       </GoogleMap>
     )
 return (

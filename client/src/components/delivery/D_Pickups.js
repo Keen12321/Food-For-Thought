@@ -47,6 +47,10 @@ class D_Pickups extends Component {
 			<p>Restaurant Name</p>
 			<p>Restaurant Address</p>
 			<p>Distance From Location</p>
+			<div className="cxlreason">
+				<textarea placeholder="Must provide reason for cancellation">
+				</textarea>
+			</div>
 			<button className="ui grey button">I don't work</button>
          </Modal>
    		<div className="pickups ui vertical segment">

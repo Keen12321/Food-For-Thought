@@ -78,11 +78,11 @@ html {
 	background: #232323;
 	display: flex;
 	justify-content: space-between;
-	padding: 10px;
+	padding: 5px;
 }
 .left > a, .right > a {
 	margin: auto;
-	margin-right: 5px;
+	margin-right: 15px;
 
 }
 
@@ -328,4 +328,18 @@ dark gray - rgb(30,30,30)
 	padding: 10px;
 	text-align: center;
 	background: white;
+}
+.cxlreason {
+	width: 50%;
+	height: 20vh;
+	display: block;
+	border: 2px solid #ccc;
+	margin: 10px auto;
+
+}
+.cxlreason > textarea {
+	width: 100%;
+	height: 100%;
+	font-family: sans-serif;
+	text-align: center;
 }
