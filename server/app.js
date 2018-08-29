@@ -19,8 +19,8 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', authRoutes)
-app.use('/api',  protectedRoutes)
-// jwt({secret: config.get('jwt.secret')}),
+app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRoutes)
+
 
 app.use((req, res, next) => {
   let err = new Error('Not Found')

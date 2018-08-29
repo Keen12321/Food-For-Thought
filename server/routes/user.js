@@ -7,7 +7,7 @@ import config from 'config'
 const router = express.Router()
 
 // POSTING DONATIONS
-router.post('/donating', (req, res, next) => {
+router.post('/donate', (req, res, next) => {
 	const name = req.body.name
 	const trays = req.body.trays
 	const sql = `
