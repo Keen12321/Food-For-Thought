@@ -20,7 +20,6 @@ router.post('/donate', (req, res, next) => {
 	conn.query(sql, [name, trays], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
-		
 	})
 })
 

@@ -65,14 +65,14 @@ a {
 }
 
 .manageReports {
-	background: rgb(202,23,26);
-	color: white;
-	text-align: center;
-	padding: 10px;
-	font-family: sans-serif;
-	border-radius: 5px;
-	cursor: pointer;
-	height: 100%;
+	/*background: rgb(202,23,26);*/
+	/*color: white;*/
+	/*text-align: center;*/
+	/*padding: 10px;*/
+	/*font-family: sans-serif;*/
+	/*border-radius: 5px;*/
+	/*cursor: pointer;*/
+	/*height: 100%;*/
 }
 
 .navHome, .manageProfile {

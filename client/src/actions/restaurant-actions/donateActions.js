@@ -6,3 +6,7 @@ export function makeDonation(donation) {
 		console.log('resp:', data)
 	})
 }
+
+export function addNewItem() {
+	
+}

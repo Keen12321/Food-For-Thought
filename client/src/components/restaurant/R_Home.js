@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import { withAuth } from '../Authentication'
+import { Button, Modal } from 'semantic-ui-react'
+
 import HomeBar from './R_HomeBar'
 
 class R_Home extends Component {
@@ -13,13 +15,13 @@ class R_Home extends Component {
             </div>
             <div className="R_HomeContainer">
                <div>
-                  <Link to="restaurant/donate"><button type="submit" className="requestPickup">Donate Food</button></Link>
+                  <Link to="restaurant/donate"><Button color="green" type="submit" className="requestPickup">Donate Food</Button></Link>
                </div>
                <div>
-                  <Link to="/restaurant/reports"><button type="submit" className="manageReports">Manage Reports</button></Link>
+                  <Link to="/restaurant/reports"><Button color="red" type="submit" className="manageReports">Manage Reports</Button></Link>
                </div>
                <div>
-                  <Link to="/restaurant/profile"><button type="submit" className="manageProfile">Manage Profile</button></Link>
+                  <Link to="/restaurant/profile"><Button color="blue" type="submit" className="manageProfile">Manage Profile</Button></Link>
                </div>
             </div>
          </div>
