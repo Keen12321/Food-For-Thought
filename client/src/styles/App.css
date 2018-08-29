@@ -1,10 +1,4 @@
 
-
-html {box-sizing: border-box;}
-*, *:before, *:after {box-sizing: inherit;}
-
-
-
 .startPickup {
 	background: rgb(33,172,162);
 	color: white;
@@ -16,7 +10,9 @@ html {box-sizing: border-box;}
 	height: 100%;
 }
 
-
+.pickupsContainer {
+	display: flex;
+}
 /*
 mockup colors
 red - rgb(202,23,26)

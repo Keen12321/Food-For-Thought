@@ -1,8 +1,9 @@
 /*global google*/
 import React, { Component } from 'react'
 import D_HomeBar from './D_HomeBar'
+import D_Pickups from './D_Pickups'
 import  { compose, withProps, lifecycle, withStateHandlers } from 'recompose'
-import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer, Marker} from 'react-google-maps'
+import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-google-maps'
 import InfoBox from "react-google-maps/lib/components/addons/InfoBox"
 
 
@@ -10,9 +11,17 @@ class D_Map extends Component {
 	state = {
 		show: false
 	}
-  // constructor(props){
-  //   super(props)
-  // }
+  showPickupModal = () => {
+		this.setState({
+			show1: true
+		})
+	}
+
+	hidePickupModal = () => {
+		this.setState({
+			show1: false
+		})
+	}
 
   showDeleteModal = () => {
 		this.setState({
@@ -25,6 +34,7 @@ class D_Map extends Component {
 			show2: false
 		})
 	}
+
   
 render() {
     const DirectionsComponent = compose(
@@ -72,7 +82,7 @@ this.setState({
       })
     )(props =>
       <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
-			<InfoBox key="i"
+		{/*	<InfoBox key="i"
 			defaultPosition={new google.maps.LatLng(36.1699, -115.1398)}
 			options={{
 				enableEventPropagation: true,
@@ -88,15 +98,15 @@ this.setState({
 				<h3>Restaurant Name</h3>
 				<p>___ Main Trays</p>
 				<p>___ Side Trays</p>
-				<button className="ui green button">
+				<button className="ui green button" onClick={this.showPickupModal}>
 					<i className="check circle icon"></i>Confirm Receipt
 				</button>
 				<button className="ui red button" onClick={this.showDeleteModal}>
 					<i className="trash alternate icon"></i>Delete
 				</button>
 			</div>
-			</InfoBox>
-	
+			</InfoBox> */}
+		
       	{/*<Marker position={{lat: 36.1699, lng: 115.1100}} onClick={props.onToggleOpen} > */}
        		 {props.directions && <DirectionsRenderer directions={props.directions} suppressMarkers={props.markers}/>}
        		{/* {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
@@ -106,12 +116,19 @@ this.setState({
       </GoogleMap>
     )
 return (
-	<div>
-		<D_HomeBar />
+	<div className="pickupsContainer">
+        <D_Pickups />
+		<Modal show={this.state.show1} handleClose={this.hidePickupModal}>
+			<h2>Please confirm this pickup and add it to the map</h2>
+			<p>Restaurant Name</p>
+			<p>___ Trays for pickup</p>
+			<p>Distance From Location</p>
+			<button className="ui grey button">I don't work</button>
+         </Modal>
 		<Modal show={this.state.show2} handleClose={this.hideDeleteModal}>
 			<h2>Are you sure you want to delete this pickup?</h2>
 			<p>Restaurant Name</p>
-			<p>Restaurant Address</p>
+			<p>___ Trays for pickup</p>
 			<p>Distance From Location</p>
 			<div className="cxlreason">
 				<textarea placeholder="Must provide reason for cancellation">

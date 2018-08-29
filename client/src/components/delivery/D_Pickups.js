@@ -34,7 +34,6 @@ class D_Pickups extends Component {
  render() {
    return (
       <div>
-         <HomeBar />
          <Modal show={this.state.show1} handleClose={this.hidePickupModal}>
 			<h2>Please confirm this pickup and add it to the map</h2>
 			<p>Restaurant Name</p>
