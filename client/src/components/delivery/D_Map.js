@@ -7,9 +7,24 @@ import InfoBox from "react-google-maps/lib/components/addons/InfoBox"
 
 
 class D_Map extends Component {
+	state = {
+		show: false
+	}
   // constructor(props){
   //   super(props)
   // }
+
+  showDeleteModal = () => {
+		this.setState({
+			show2: true
+		})
+	}
+
+	hideDeleteModal = () => {
+		this.setState({
+			show2: false
+		})
+	}
   
 render() {
     const DirectionsComponent = compose(
@@ -76,7 +91,7 @@ this.setState({
 				<button className="ui green button">
 					<i className="check circle icon"></i>Confirm Receipt
 				</button>
-				<button className="ui red button">
+				<button className="ui red button" onClick={this.showDeleteModal}>
 					<i className="trash alternate icon"></i>Delete
 				</button>
 			</div>
@@ -93,10 +108,35 @@ this.setState({
 return (
 	<div>
 		<D_HomeBar />
+		<Modal show={this.state.show2} handleClose={this.hideDeleteModal}>
+			<h2>Are you sure you want to delete this pickup?</h2>
+			<p>Restaurant Name</p>
+			<p>Restaurant Address</p>
+			<p>Distance From Location</p>
+			<div className="cxlreason">
+				<textarea placeholder="Must provide reason for cancellation">
+				</textarea>
+			</div>
+			<button className="ui grey button">I don't work</button>
+         </Modal>
         <DirectionsComponent
         />
      </div>
     )
   }
+}
+
+const Modal = ({ handleClose, show, children}) => {
+	const showHideClassName = show ? 'modal modal-show' : 'modal modal-hidden'
+
+
+return (
+	<div className={showHideClassName}>
+		<section className='modal-main'>
+			{children}
+			<button className="ui orange button" onClick={handleClose}>No, Cancel</button>
+		</section>
+	</div>
+	)
 }
 export default D_Map
