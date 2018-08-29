@@ -1,22 +1,3 @@
-
-
-html {box-sizing: border-box;}
-*, *:before, *:after {box-sizing: inherit;}
-
-
-
-.startPickup {
-	background: rgb(33,172,162);
-	color: white;
-	text-align: center;
-	padding: 10px;
-	font-family: sans-serif;
-	border-radius: 5px;
-	cursor: pointer;
-	height: 100%;
-}
-
-
 /*
 mockup colors
 red - rgb(202,23,26)
@@ -27,10 +8,8 @@ light gray - rgb(247,247,247)
 dark gray - rgb(30,30,30)
 */
 
-
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
-
 
 a {
 	text-decoration: none;
@@ -41,10 +20,6 @@ a {
 * {
 	margin:0;
 	padding:0;
-}
-
-html {
-	font-family: 'Lato', sans-serif;
 }
 
 *:active {
@@ -75,32 +50,19 @@ html {
 	border-radius: 50%;
 }
 
-
-.D_navbar{
+.navbar {
 	background: #232323;
 	display: flex;
 	justify-content: space-between;
 	padding: 20px;
-
 }
 
-.fa{
-	margin: 3px;
-}
-
-
-
-.fa-map-marker{
+.fa-map-marker {
 	border:2px solid #fff;
 	padding: 5px;
 	border-radius: 50%;
 	font-weight: bold;
 }
-
-
-
-
-
 
 .manageReports {
 	background: rgb(202,23,26);
@@ -136,79 +98,18 @@ html {
 	margin: 10px;
 }
 
-/*
-mockup colors
-red - rgb(202,23,26)
-orange - rgb(251,100,79)
-green - rgb(33,172,162)
-blue - rgb(35,123,202)
-light gray - rgb(247,247,247)
-dark gray - rgb(30,30,30)
-*/
-
-.container {
-	display:flex;
-	flex-direction:column;
-	flex-wrap:wrap;
-	font-family:sans-serif;
-	text-align:center;
-	color:rgb(30,30,30);
+.profileContain {
+	width: 100%;	
 }
 
-.container > div {
-	margin:5px auto;
-}
-
-.container > div > h1 {
-	font-size:1.5em;
-}
-
-.container > div > h2 {
-	font-size:1.25em;
-}
-
-.container > div > a {
-	text-decoration:none;
-	color:rgb(247,247,247);
-
-}
-
-.restaurantButton {
-	width:200px;
-	margin:10px;
-	padding:10px;
-	text-align:center;
-	border-radius:5px;
-	background-color:rgb(202,23,26);
-}
-
-.deliveryButton {
-	width:200px;
-	margin:10px;
-	padding:10px;
-	text-align:center;
-	border-radius:5px;
-	background-color:rgb(35,123,202);
-
-}
-
-
-
-
-
-.profileContain{
-	width: 100%;
-	
-}
-
-#head{
+#head {
 	width: 100%;
 	padding: 10px;
 	background: #ccc;
 	display: flex;
 }
 
-#head button{
+#head button {
 	border: none;
 	outline: none;
 	background: none;
@@ -216,12 +117,12 @@ dark gray - rgb(30,30,30)
 	margin-right: 40%;
 }
 
-.D_navbar a:hover{
+.navbar a:hover {
 	transform:scale(1.2);
 	color: #fff;
 }
 
-#prof{
+#prof {
 	margin: 15px;
 	padding: 15px;
 	display: flex;
@@ -230,12 +131,12 @@ dark gray - rgb(30,30,30)
 /*	border-bottom: 1px solid #232323;*/
 }
 
-#prof h2{
+#prof h2 {
 	padding: 5px;
 	border-bottom: 2px solid #232323;
 }
 
-#option{
+#option {
 	margin: 30px;
 	border-top: 1px solid #232323;
 	border-bottom: 1px solid #232323;
@@ -243,18 +144,18 @@ dark gray - rgb(30,30,30)
 	display: flex;
 }
 
-#option button{
+#option button {
 	margin-right:5%;
 }
 
-#itemsD{
+#itemsD {
 	display: flex;
 	/*flex-direction: column;*/
 	justify-content: flex-start;
 	padding: 20px;
 }
 
-#dd{
+#dd {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -262,17 +163,14 @@ dark gray - rgb(30,30,30)
 	padding: 10px;
 }
 
-#amount{
+#amount {
 	font-size: 2.5em;
 	margin-bottom: 30px;
 }
 
-#numberr{
+#numberr {
 	font-size: 2.4em;
 }
-
-
-
 
 /*******************************************
 	MAKING DONATIONS
@@ -298,4 +196,3 @@ dark gray - rgb(30,30,30)
 .donate__details-submit {
 	padding: 10px;
 }
-

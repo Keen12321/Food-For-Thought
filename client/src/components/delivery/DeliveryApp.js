@@ -22,4 +22,3 @@ class DeliveryApp extends Component {
 }
 
 export default DeliveryApp
-
