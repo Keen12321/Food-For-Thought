@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import {Route} from 'react-router-dom'
 
 import D_Pickups from './D_Pickups'
-import { Authentication, AuthRoute } from '../Authentication'
+// import { Authentication, AuthRoute } from '../Authentication'
 import D_Home from './D_Home'
-import D_Map from './D_Map'
+// import D_Map from './D_Map's
 import D_Reports from './D_Reports'
 import D_Profile from './D_Profile'
 

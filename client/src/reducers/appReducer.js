@@ -1,11 +1,14 @@
 const initialState = {
-  //add props here
+	// huh?
+	donate: ''
 }
 
 export default function (state = initialState, action) {
-  switch (action.type) {
-    //add cases here
+  // put magic here
+ switch (action.type) {
+    case 'MAKE_DONATION':
+    	return {...state, donate: action.payload}
     default:
-    return state
+    	return state
   }
 }
