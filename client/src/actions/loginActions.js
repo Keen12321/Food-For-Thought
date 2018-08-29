@@ -7,3 +7,8 @@ export function registerUser(user, cb) {
 		})
 	})
 }
+
+export function changeUserInfo(user, cb) {
+	api.patch('/api/register', user).then(data => {
+	})
+}

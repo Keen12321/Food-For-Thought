@@ -12,7 +12,7 @@ class DeliveryApp extends Component {
   render() {
     return (
       <div>
-        <Route path="/delivery" component={D_Home} />
+        <Route exact path="/delivery" component={D_Home} />
         <Route path="/delivery/pickups" component={D_Pickups} />
         <Route path="/delivery/reports" component={D_Reports} />
         <Route path="/delivery/profile" component={D_Profile} />

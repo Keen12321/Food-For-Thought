@@ -71,10 +71,16 @@ html {
 	width: 30px;
 	padding: 5px;
 	margin: 5px;
+}
+
+.fa-nav {
+	text-align: center;
+	color: white;
+	padding: 5px;
+	margin: 5px;
 	border: 2px solid white;
 	border-radius: 50%;
 }
-
 
 .D_navbar{
 	background: #232323;
@@ -170,25 +176,6 @@ dark gray - rgb(30,30,30)
 .container > div > a {
 	text-decoration:none;
 	color:rgb(247,247,247);
-
-}
-
-.restaurantButton {
-	width:200px;
-	margin:10px;
-	padding:10px;
-	text-align:center;
-	border-radius:5px;
-	background-color:rgb(202,23,26);
-}
-
-.deliveryButton {
-	width:200px;
-	margin:10px;
-	padding:10px;
-	text-align:center;
-	border-radius:5px;
-	background-color:rgb(35,123,202);
 
 }
 

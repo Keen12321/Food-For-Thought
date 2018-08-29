@@ -11,14 +11,14 @@ router.post('/login', (req, res, next) => {
 	const password = sha512(req.body.password).toString()
 
 	const sql = `
-		SELECT email, type
+		SELECT id, email, address, phone, type
 		FROM users 
 		WHERE email = ? AND password = ?
 	`
 
 	conn.query(sql, [email, password], (err, results, fields) => {
 		if (results.length > 0) {
-			const token = jwt.sign({"email":email, "type":results[0].type}, config.get('jwt.secret'))
+			const token = jwt.sign({"id":results[0].id, "email":email, "address":results[0].address, "phone":results[0].phone, "type":results[0].type}, config.get('jwt.secret'))
 
 			res.json({
 				token: token

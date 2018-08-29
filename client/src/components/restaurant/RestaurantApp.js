@@ -15,7 +15,7 @@ class RestaurantApp extends Component {
         redirectUrl='/login'
         defaultRedirect='/'
       >
-        <Route path="/restaurant" component={R_Home} />
+        <Route exact path="/restaurant" component={R_Home} />
 				<Route path="/restaurant/donating" component={Donate} />
         <Route path="/restaurant/pickup" component={R_Pickup} />
         <Route path="/restaurant/reports" component={R_Reports} />
