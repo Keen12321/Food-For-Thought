@@ -37,7 +37,6 @@ if (env === 'development') {
   })
 }
 
-
 if (env === 'production') {
   app.use((err, req, res, next) => {
     res.status(err.status || 500)
@@ -46,6 +45,5 @@ if (env === 'production') {
     })
   })
 }
-
 
 module.exports = app

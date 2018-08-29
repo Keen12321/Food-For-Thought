@@ -12,13 +12,15 @@ router.post('/donating', (req, res, next) => {
 	const trays = req.body.trays
 	const sql = `
 		INSERT INTO
-			donations (name, tray)
+			donations (name, trays)
 		VALUES
-			(?, ?, ?)
+			(?, ?)
 	`
 
 	conn.query(sql, [name, trays], (error, results, fields) => {
-		console.log(req.body)
+		let donation = req.body
+		console.log(donation)
+		
 	})
 })
 

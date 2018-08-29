@@ -32,7 +32,7 @@ class Donate extends Component {
 						onChange={this.handleChange} value={this.state.name} />
 
 			    <Form.Field label='How Many?' control='select' name='trays'
-			    	onChange={this.handleChange} value={this.state.mainTray}>
+			    	onChange={this.handleChange} value={this.state.trays}>
 		        <option value='0'>0</option>
 		        <option value='1'>1</option>
 		        <option value='2'>2</option>
