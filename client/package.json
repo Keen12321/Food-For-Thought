@@ -14,10 +14,10 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^1.1.5",
+    "recompose": "^0.29.0",
     "redux": "^4.0.0",
     "semantic-ui-react": "^0.82.3",
-    "validator": "^10.7.0",
-    "recompose": "^0.29.0"
+    "validator": "^10.7.0"
   },
   "scripts": {
     "start": "react-scripts start",
