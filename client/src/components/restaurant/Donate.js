@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
+import HomeBar from './R_HomeBar'
 
 class Donate extends Component {
 	state = {
@@ -19,23 +20,26 @@ class Donate extends Component {
 	
 	render() {
 		return (
-			<div className="donate-container">
-				<Form>
-			    
-				<Form.Input label='Food Item' type='text' placeholder='Food Item' />
-			    <Form.Field>
-			      <label>Food Size</label>
-			      <input placeholder='Main Trays' />
-			    </Form.Field>
-						<label>Food Size</label>
-			      <input placeholder='Side Trays' />
-			    <Form.Field>
-			      <Checkbox label='I agree to the Terms and Conditions' />
-			    </Form.Field>
-			    <Button type='submit'>Submit</Button>
-			  </Form>
+			<div>
+				<HomeBar />
+				<div className="donate-container">
+					<Form>
+				    
+					<Form.Input label='Food Item' type='text' placeholder='Food Item' />
+				    <Form.Field>
+				      <label>Food Size</label>
+				      <input placeholder='Main Trays' />
+				    </Form.Field>
+							<label>Food Size</label>
+				      <input placeholder='Side Trays' />
+				    <Form.Field>
+				      <Checkbox label='I agree to the Terms and Conditions' />
+				    </Form.Field>
+				    <Button type='submit'>Submit</Button>
+				  </Form>
 
-			  <Button>Click Here</Button>
+				  <Button>Click Here</Button>
+				</div>
 			</div>
 		)
 	}
