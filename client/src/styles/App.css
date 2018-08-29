@@ -282,8 +282,9 @@ dark gray - rgb(30,30,30)
 	padding: 20px;
 	border: 2px solid #eee;
 	border-radius: 3px;
-	width: 500px;
+	width: 40%;
 	margin: 0 auto;
+	margin-top: 50px;
 }
 
 .donate__food-type {
