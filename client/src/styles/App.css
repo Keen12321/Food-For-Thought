@@ -67,8 +67,6 @@ html {
 }
 
 .fa {
-	color: grey;
-	width: 30px;
 	padding: 5px;
 	margin: 5px;
 	border: 2px solid white;
@@ -84,8 +82,8 @@ html {
 
 }
 
-.fa{
-	margin: 3px;
+.fa-calendar-check{
+	color: #fff;
 }
 
 

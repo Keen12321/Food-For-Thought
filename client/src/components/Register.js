@@ -42,7 +42,7 @@ class Register extends Component {
 						if (this.state.type === 'Restaurant') {
 							this.setState({
 								redirect: true,
-								redirectTo: '/restaurant'
+								redirectTo: '/restauranthome'
 							})
 						} else {
 							this.setState({
