@@ -1,26 +1,36 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
 import { makeDonation } from '../../actions/restaurant-actions/donateActions'
 import { Button, Form, Container, Header } from 'semantic-ui-react'
+=======
+import { makeDonation, getCurrentDate } from '../../actions/restaurant-actions/donateActions'
+import { Button, Form } from 'semantic-ui-react'
+>>>>>>> donate-feature
 import HomeBar from './R_HomeBar'
 
 class Donate extends Component {
 	state = {
 		name: '',
-		trays: ''
+		trays: '',
+		value: '',
+		date: ''
 	}
 
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
-		console.log('is changed')
 	}
 
 	handleSubmit = (e) => {
 		e.preventDefault()
 		makeDonation({
 			name: this.state.name,
-			trays: this.state.trays
+			trays: this.state.trays,
+			value: this.state.value,
+		})
+		getCurrentDate({
+			date: this.state.date
 		})
 	}
 	
@@ -62,9 +72,16 @@ class Donate extends Component {
 				      </Form.Field>
 			      </Form.Field>
 
+			      <Form.Input label='Value' type='text' placeholder='$$' name='value'
+								onChange={this.handleChange} value={this.state.value} />
+
 						<Form.Field>
+<<<<<<< HEAD
 				    	<Button color="orange" type='button' onClick={this.newitem}>More +</Button>
 				    	<Button color="green" type='submit'>Submit</Button>
+=======
+				    	<Button type='submit'>Submit</Button>
+>>>>>>> donate-feature
 			    	</Form.Field>
 				  </Form>
 				</Container>

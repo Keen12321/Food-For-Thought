@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import { withAuth } from '../Authentication'
+<<<<<<< HEAD
 import { Container, Button, Header } from 'semantic-ui-react'
+=======
+import { Button } from 'semantic-ui-react'
+>>>>>>> donate-feature
 
 import HomeBar from './R_HomeBar'
 
