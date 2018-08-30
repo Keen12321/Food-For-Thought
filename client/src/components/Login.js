@@ -23,12 +23,12 @@ class D_Login extends Component {
 			if (api.getProfile().type === 'Restaurant') {
 				this.setState({
 					redirect: true,
-					redirectTo: '/restaurant/'
+					redirectTo: '/restaurant'
 				})
 			} else {
 				this.setState({
 					redirect: true,
-					redirectTo: '/delivery/'
+					redirectTo: '/delivery'
 				})
 			}
 		})
