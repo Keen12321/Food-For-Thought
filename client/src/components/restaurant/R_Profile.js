@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
 import {changeUserInfo} from '../../actions/loginActions'
-import { Button, Header, Form, Modal } from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
-import HomeBar from './R_HomeBar'
+import { Button, Form, Modal } from 'semantic-ui-react'
 
 class R_Profile extends Component {
 	state = {
@@ -32,7 +30,6 @@ class R_Profile extends Component {
 	render() {
 		return (
 			<div>
-				<HomeBar />
 				<div>
 					<div>{api.getProfile().email}</div>
 					<div>{api.getProfile().address}</div>

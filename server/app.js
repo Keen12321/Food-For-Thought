@@ -19,8 +19,8 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', authRoutes)
-app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRoutes)
-
+app.use('/api',  protectedRoutes)
+// jwt({secret: config.get('jwt.secret')}),
 
 app.use((req, res, next) => {
   let err = new Error('Not Found')
@@ -37,7 +37,6 @@ if (env === 'development') {
   })
 }
 
-
 if (env === 'production') {
   app.use((err, req, res, next) => {
     res.status(err.status || 500)
@@ -46,6 +45,5 @@ if (env === 'production') {
     })
   })
 }
-
 
 module.exports = app

@@ -1,9 +1,9 @@
 /*global google*/
 import React, { Component } from 'react'
-import D_HomeBar from './D_HomeBar'
-import  { compose, withState, withProps, lifecycle, withStateHandlers } from 'recompose'
-import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer, Marker} from 'react-google-maps'
-import InfoBox from "react-google-maps/lib/components/addons/InfoBox"
+import  { compose, withProps, lifecycle } from 'recompose'
+import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-google-maps'
+
+import Pickups from './D_Pickups'
 
 
 class D_Map extends Component {
@@ -54,7 +54,7 @@ render() {
         const DirectionsService = new google.maps.DirectionsService()
         DirectionsService.route({
           origin: new google.maps.LatLng({lat:lat, lng:lng}),
-          destination: `Raku, Las Vegas, nv`,
+          destination: `Raku, Las Vegas, NV`,
           travelMode: google.maps.TravelMode.DRIVING,
         }, (result, status) => {
           
@@ -81,18 +81,13 @@ render() {
     </GoogleMap>
   )
 return (
-	<div>
-		<D_HomeBar />
-			<h2>Are you sure you want to delete this pickup?</h2>
-			<p>Restaurant Name</p>
-			<p>Restaurant Address</p>
-			<p>Distance From Location</p>
-			<div className="cxlreason">
-				<textarea placeholder="Must provide reason for cancellation">
-				</textarea>
-			</div>
-			<button className="ui grey button">I don't work</button>
+	   <div className="pickupsContainer">
+        <Pickups />
         <DirectionsComponent
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKvcSq2gVj-NCb4SYr2FCfuic3Wq4zZFE"
+        loadingElement={<div style={{ height: `400px` }} />}
+        containerElement={<div style={{ width: `100%` }} />}
+        mapElement={<div style={{height: `600px`, width: `100%` }}  />}
         />
      </div>
     )

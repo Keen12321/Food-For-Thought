@@ -40,4 +40,22 @@ router.patch('/register', (req, res, next) => {
 	})
 })
 
+// POSTING DONATIONS
+router.post('/donating', (req, res, next) => {
+	const name = req.body.name
+	const trays = req.body.trays
+	const sql = `
+		INSERT INTO
+			donations (name, trays)
+		VALUES
+			(?, ?)
+	`
+
+	conn.query(sql, [name, trays], (error, results, fields) => {
+		let donation = req.body
+		console.log(donation)
+		
+	})
+})
+
 export default router

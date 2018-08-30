@@ -1,22 +1,3 @@
-
-
-html {box-sizing: border-box;}
-*, *:before, *:after {box-sizing: inherit;}
-
-
-
-.startPickup {
-	background: rgb(33,172,162);
-	color: white;
-	text-align: center;
-	padding: 10px;
-	font-family: sans-serif;
-	border-radius: 5px;
-	cursor: pointer;
-	height: 100%;
-}
-
-
 /*
 mockup colors
 red - rgb(202,23,26)
@@ -27,10 +8,8 @@ light gray - rgb(247,247,247)
 dark gray - rgb(30,30,30)
 */
 
-
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
-
 
 a {
 	text-decoration: none;
@@ -41,10 +20,6 @@ a {
 * {
 	margin:0;
 	padding:0;
-}
-
-html {
-	font-family: 'Lato', sans-serif;
 }
 
 *:active {
@@ -66,9 +41,11 @@ html {
 	height: 100%;
 }
 
+.pickupsContainer {
+	display: flex;
+}
+
 .fa {
-	color: grey;
-	width: 30px;
 	padding: 5px;
 	margin: 5px;
 }
@@ -81,10 +58,7 @@ html {
 	border: 2px solid white;
 	border-radius: 50%;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> a472e0216b3f50ae14209ef105024600bdccf0ba
 .D_navbar{
 	background: #232323;
 	display: flex;
@@ -95,25 +69,20 @@ html {
 	margin: auto;
 	margin-right: 15px;
 
+
 }
 
-.fa{
-	margin: 3px;
+.fa-calendar-check{
+	color: #fff;
 }
 
 
-
-.fa-map-marker{
+.fa-map-marker {
 	border:2px solid #fff;
 	padding: 5px;
 	border-radius: 50%;
 	font-weight: bold;
 }
-
-
-
-
-
 
 .manageReports {
 	background: rgb(202,23,26);
@@ -195,14 +164,18 @@ dark gray - rgb(30,30,30)
 	
 }
 
-#head{
+.profileContain {
+	width: 100%;	
+}
+
+#head {
 	width: 100%;
 	padding: 10px;
 	background: #ccc;
 	display: flex;
 }
 
-#head button{
+#head button {
 	border: none;
 	outline: none;
 	background: none;
@@ -210,12 +183,12 @@ dark gray - rgb(30,30,30)
 	margin-right: 40%;
 }
 
-.D_navbar a:hover{
+.D_navbar a:hover {
 	transform:scale(1.2);
 	color: #fff;
 }
 
-#prof{
+#prof {
 	margin: 15px;
 	padding: 15px;
 	display: flex;
@@ -224,12 +197,12 @@ dark gray - rgb(30,30,30)
 /*	border-bottom: 1px solid #232323;*/
 }
 
-#prof h2{
+#prof h2 {
 	padding: 5px;
 	border-bottom: 2px solid #232323;
 }
 
-#option{
+#option {
 	margin: 30px;
 	border-top: 1px solid #232323;
 	border-bottom: 1px solid #232323;
@@ -237,18 +210,18 @@ dark gray - rgb(30,30,30)
 	display: flex;
 }
 
-#option button{
+#option button {
 	margin-right:5%;
 }
 
-#itemsD{
+#itemsD {
 	display: flex;
 	/*flex-direction: column;*/
 	justify-content: flex-start;
 	padding: 20px;
 }
 
-#dd{
+#dd {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -256,28 +229,26 @@ dark gray - rgb(30,30,30)
 	padding: 10px;
 }
 
-#amount{
+#amount {
 	font-size: 2.5em;
 	margin-bottom: 30px;
 }
 
-#numberr{
+#numberr {
 	font-size: 2.4em;
 }
-
-
-
 
 /*******************************************
 	MAKING DONATIONS
 *******************************************/
 
 .donate-container {
-	display: flex;
+	padding: 20px;
 	border: 2px solid #eee;
 	border-radius: 3px;
-	width: 500px;
+	width: 40%;
 	margin: 0 auto;
+	margin-top: 50px;
 }
 
 .donate__food-type {

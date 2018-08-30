@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 
 class D_HomeBar extends Component {
+
  render() {
    return (
    	<div className="D_navbar">
@@ -17,6 +18,7 @@ class D_HomeBar extends Component {
      
    )
  }
+
 }
 
 export default D_HomeBar
