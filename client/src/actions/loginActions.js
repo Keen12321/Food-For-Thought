@@ -8,7 +8,11 @@ export function registerUser(user, cb) {
 	})
 }
 
-export function changeUserInfo(user, cb) {
+export function getUserInfo() {
+	api.get('/api/register')
+}
+
+export function changeUserInfo(user) {
 	api.patch('/api/register', user).then(data => {
 	})
 }

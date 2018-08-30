@@ -40,8 +40,8 @@ router.post('/register', (req, res, next) => {
 	const type = req.body.type
 
 	const sql = `
-	INSERT INTO users (email, password, address, phone, type)
-	VALUES (?, ?, ?, ?, ?)
+		INSERT INTO users (email, password, address, phone, type)
+		VALUES (?, ?, ?, ?, ?)
 	`
 
 	conn.query(sql, [email, password, address, phone, type], (err, results, fields) => {
@@ -50,5 +50,6 @@ router.post('/register', (req, res, next) => {
 		})
 	})
 })
+
 
 export default router

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {Route} from 'react-router-dom'
 import {Authentication} from '../Authentication'
-
 import Donate from './Donate'
 import R_Home from './R_Home'
 import R_Pickup from './R_Pickup'

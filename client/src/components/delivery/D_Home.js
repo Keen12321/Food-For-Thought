@@ -10,7 +10,7 @@ class D_Home extends Component {
    		<div>
    			<HomeBar />
           <div className="pickupnotification">
-             <h3>There are 3 restaurants with food ready for pickup</h3>
+             <h3>Pickups available for today: ___</h3>
           </div>
    		<div className="D_HomeContainer">
    			<div>
