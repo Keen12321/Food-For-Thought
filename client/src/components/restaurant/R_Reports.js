@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {withAuth} from '../Authentication'
-import HomeBar from './R_HomeBar'
 import {getReport} from '../../actions/reportActions'
 // import Chart from 'chart.js'
 import {connect} from 'react-redux'
@@ -14,7 +13,6 @@ class R_Reports extends Component {
 	render() {
 		return (
 			<div>
-				<HomeBar />
 				<div className="reportTable">
 					<table>
 						<thead>
