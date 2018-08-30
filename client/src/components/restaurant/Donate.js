@@ -16,12 +16,50 @@ class Donate extends Component {
 		console.log('is changed')
 	}
 
+
+
+	handleClick = (e) =>{
+		document.getElementById('mySelect').style.background = "#fff"
+	}
+
+	handleClick2 = (e) =>{
+		document.getElementById('myInp').style.background = "#fff"
+	}
+
+
+
 	handleSubmit = (e) => {
 		e.preventDefault()
-		makeDonation({
-			name: this.state.name,
-			trays: this.state.trays
-		})
+		const selector = document.getElementById('mySelect')
+		const val = selector[selector.selectedIndex].value
+		const name = e.target.elements.name.value
+		
+		if(name === '' || val === '0')
+		{
+			document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
+			document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
+		}
+
+		else if(name === '')
+		{
+			document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
+		}
+
+		else if(val === '0')
+		{
+			document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
+		}
+
+		else
+		{
+			makeDonation({
+				name: this.state.name,
+				trays: this.state.trays
+			})
+
+			this.props.history.push('/restaurant/thankyou') //re-routes page
+		}
+	
 	}
 	
 	
@@ -31,16 +69,16 @@ class Donate extends Component {
 				<HomeBar />
 				<div className="donate-container">
 
-					<Form onSubmit={this.handleSubmit}>
+					<Form onSubmit={this.handleSubmit.bind(this)} >
 						<Form.Input label='Title' type='text' placeholder='Food Item' name='name'
-							onChange={this.handleChange} value={this.state.name} />
+							onChange={this.handleChange} value={this.state.name} id = 'myInp' onClick={this.handleClick2}/>
 
 				    <Form.Field label='How Many?' control='select' name='trays'
-				    	onChange={this.handleChange} value={this.state.trays}>
-			        <option value='0'>0</option>
-			        <option value='1'>1</option>
-			        <option value='2'>2</option>
-			        <option value='3'>3</option>
+				    	onChange={this.handleChange} value={this.state.trays} id='mySelect' onClick={this.handleClick}>
+					    	<option value='0'>0</option>
+					        <option value='1'>1</option>
+					        <option value='2'>2</option>
+					        <option value='3'>3</option>
 							<option value='4'>4</option>
 							<option value='5'>5</option>
 							<option value='6'>6</option>

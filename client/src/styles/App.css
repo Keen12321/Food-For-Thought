@@ -201,3 +201,35 @@ a {
 .donate__details-submit {
 	padding: 10px;
 }
+
+
+#thanks{
+	width: 40%;
+	border:1px solid #232323;
+	margin:100px auto;
+	text-align: center;
+	background: rgba(255,255,200,.2);
+	padding: 50px;
+}
+
+#thanks h1{
+	margin-bottom: 50px;
+	text-transform: capitalize;
+	font-family: sans-serif;
+}
+
+#thanks p{
+	line-height: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
