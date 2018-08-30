@@ -7,7 +7,7 @@ class ThankYou extends Component{
 	render(){
 		return(
 			<div>
-				<HomeBar/>
+				
 					<div id="thanks">
 						<h1>Thank you for your donation</h1>
 						<p>
