@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {Route} from 'react-router-dom'
-import {Authentication} from '../Authentication'
+import { Route } from 'react-router-dom'
+import { Authentication } from '../Authentication'
 import R_Home from './R_Home'
 import Donate from './Donate'
 import R_Reports from './R_Reports'

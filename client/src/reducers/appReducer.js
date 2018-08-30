@@ -1,6 +1,6 @@
 const initialState = {
-	donations: [],
-	donate: ''
+	donate: '',
+	donations: []
 }
 
 export default function (state = initialState, action) {
