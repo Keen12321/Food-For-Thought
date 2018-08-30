@@ -10,14 +10,15 @@ const router = express.Router()
 router.post('/donate', (req, res, next) => {
 	const name = req.body.name
 	const trays = req.body.trays
+	const value = req.body.value
 	const sql = `
 		INSERT INTO
-			donations (name, trays)
+			donations (name, trays, value)
 		VALUES
-			(?, ?)
+			(?, ?, ?)
 	`
 
-	conn.query(sql, [name, trays], (error, results, fields) => {
+	conn.query(sql, [name, trays, value], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
 	})
