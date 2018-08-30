@@ -33,16 +33,16 @@ class Donate extends Component {
 		return (
 			<div>
 				<HomeBar />
-				<Container className="donate-container">
+				<Container text className="donate-container">
 
 					<Form onSubmit={this.handleSubmit}>
 						<Header as='h3'>Make a Donation</Header>
 						<Form.Field>
-							<Form.Input label='Title' type='text' placeholder='Food Item' name='name'
+							<Form.Input label='Dish' type='text' placeholder='Food Item' name='name'
 								onChange={this.handleChange} value={this.state.name} />
 
 					    <Form.Field label='How Many?' control='select' name='trays'
-					    	onChange={this.handleChange} value={this.state.trays}>
+					    	onChange={<this className=""></this>handleChange} value={this.state.trays}>
 				        <option value='0'>0</option>
 				        <option value='1'>1</option>
 				        <option value='2'>2</option>
@@ -71,8 +71,8 @@ class Donate extends Component {
 								onChange={this.handleChange} value={this.state.value} />
 
 						<Form.Field>
-				    	<Button color="orange" type='button' onClick={this.newitem}>More +</Button>
-				    	<Button color="green" type='submit'>Submit</Button>
+				    	<Button color="orange" type='button' onClick={this.newitem}>Add More +</Button>
+				    	<Button color="green" floated='right' type='submit'>Submit</Button>
 			    	</Form.Field>
 				  </Form>
 				</Container>
