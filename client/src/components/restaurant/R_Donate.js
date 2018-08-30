@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { makeDonation } from '../../actions/restaurant-actions/donateActions'
+import { makeDonation } from '../../actions/donateActions'
 import { Button, Form } from 'semantic-ui-react'
-import HomeBar from './R_HomeBar'
 
 class Donate extends Component {
 	state = {
-		dish: '',
+		name: '',
 		trays: ''
 	}
 
@@ -66,7 +65,6 @@ class Donate extends Component {
 	render() {
 		return (
 			<div>
-				<HomeBar />
 				<div className="donate-container">
 
 					<Form onSubmit={this.handleSubmit.bind(this)} >
@@ -97,7 +95,6 @@ class Donate extends Component {
 							<option value='19'>19</option>
 							<option value='20'>20</option>
 			      </Form.Field>
-
 						<Form.Field>
 				    	<Button type='submit'>Submit</Button>
 			    	</Form.Field>

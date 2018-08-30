@@ -1,10 +1,44 @@
 import express from 'express'
-import sha512 from 'sha512'
+import sha512 from 'js-sha512'
 import conn from '../db/conn'
 import jwt from 'jsonwebtoken'
 import config from 'config'
 
 const router = express.Router()
+
+router.get('/register', (req, res, next) => {
+	const sql = `
+		SELECT
+			email, password, address, phone
+		FROM
+			users
+	`
+
+	conn.query(sql, (err, results, fields) => {
+		res.json(results)
+	})
+})
+
+router.patch('/register', (req, res, next) => {
+	console.log(req.body)
+	const id = req.body.id
+	const password = sha512(req.body.password).toString()
+	const email = req.body.email
+	const address = req.body.address
+	const phone = req.body.phone
+
+	const sql = `
+		UPDATE users
+		SET email = ?, password = ?, address = ?, phone = ?
+		WHERE id = ?
+	`
+
+	conn.query(sql, [email, password, address, phone, id], (err, results, fields) => {
+		res.json({
+			message: 'User updated'
+		})
+	})
+})
 
 // POSTING DONATIONS
 router.post('/donating', (req, res, next) => {
