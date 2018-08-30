@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { withAuth } from '../Authentication'
-import HomeBar from './D_HomeBar'
 
 
 class D_Pickups extends Component {
@@ -38,16 +37,14 @@ class D_Pickups extends Component {
 			<h2>Please confirm this pickup and add it to the map</h2>
 			<p>Restaurant Name</p>
 			<p>Restaurant Address</p>
-			<p>__ Main Trays</p>
-  			<p>__ Side Trays</p>
+			<p>Food Item x ___</p>
 			<p>Distance From Location</p>
 			<button className="ui grey button">I don't work</button>
          </Modal>
          <Modal show={this.state.show2} handleClose={this.hideDeleteModal}>
 			<h2>Are you sure you want to delete this pickup?</h2>
 			<p>Restaurant Name</p>
-			<p>__ Main Trays</p>
-  			<p>__ Side Trays</p>
+			<p>Food Item x ___</p>
 			<div className="cxlreason">
 				<textarea placeholder="Must provide reason for cancellation">
 				</textarea>
@@ -61,8 +58,7 @@ class D_Pickups extends Component {
   				<p>Distance From Location</p>
   			</div>
   			<div>
-  				<p>__ Main Trays</p>
-  				<p>__ Side Trays</p>
+  				<p>Food Item x ___</p>
   			</div>
   			<div>
   				<button className="ui green button" onClick={this.showPickupModal}>
