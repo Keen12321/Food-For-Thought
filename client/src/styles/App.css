@@ -76,14 +76,14 @@ a {
 }
 
 .navHome, .manageProfile {
-	background: rgb(35,123,202);
+	/*background: rgb(35,123,202);
 	color: white;
 	text-align: center;
 	padding: 10px;
 	font-family: sans-serif;
 	border-radius: 5px;
 	cursor: pointer;
-	height: 100%;
+	height: 100%;*/
 }
 
 .D_HomeContainer, .R_HomeContainer {
