@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
-import { makeDonation } from '../../actions/restaurant-actions/donateActions'
 import { Button, Form, Container, Header } from 'semantic-ui-react'
-=======
 import { makeDonation, getCurrentDate } from '../../actions/restaurant-actions/donateActions'
-import { Button, Form } from 'semantic-ui-react'
->>>>>>> donate-feature
 import HomeBar from './R_HomeBar'
 
 class Donate extends Component {
@@ -76,12 +71,8 @@ class Donate extends Component {
 								onChange={this.handleChange} value={this.state.value} />
 
 						<Form.Field>
-<<<<<<< HEAD
 				    	<Button color="orange" type='button' onClick={this.newitem}>More +</Button>
 				    	<Button color="green" type='submit'>Submit</Button>
-=======
-				    	<Button type='submit'>Submit</Button>
->>>>>>> donate-feature
 			    	</Form.Field>
 				  </Form>
 				</Container>
