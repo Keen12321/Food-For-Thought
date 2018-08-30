@@ -6,21 +6,22 @@ import HomeBar from './R_HomeBar'
 class Donate extends Component {
 	state = {
 		name: '',
-		trays: ''
+		trays: '',
+		value: ''
 	}
 
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
-		console.log('is changed')
 	}
 
 	handleSubmit = (e) => {
 		e.preventDefault()
 		makeDonation({
 			name: this.state.name,
-			trays: this.state.trays
+			trays: this.state.trays,
+			value: this.state.value
 		})
 	}
 	
@@ -61,6 +62,9 @@ class Donate extends Component {
 								<option value='20'>20</option>
 				      </Form.Field>
 			      </Form.Field>
+
+			      <Form.Input label='Value' type='text' placeholder='$$' name='value'
+								onChange={this.handleChange} value={this.state.value} />
 
 						<Form.Field>
 				    	<Button type='submit'>Submit</Button>
