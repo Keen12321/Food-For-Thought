@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import HomeBar from './R_HomeBar'
 import { withAuth } from '../Authentication'
-import {Button} from 'semantic-ui-react'
+import { Header, Button } from 'semantic-ui-react'
 
 class RestaurantProfile extends Component{
 	
@@ -11,7 +11,7 @@ class RestaurantProfile extends Component{
 				<HomeBar/>
 				
 				<div id="prof">
-					<h2>Your Restaurants Profile</h2>
+					<Header as='h2'>Your Restaurants Profile</Header>
 				</div>
 				
 				<div id="itemsD">

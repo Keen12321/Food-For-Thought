@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../Authentication'
+import { Container } from 'semantic-ui-react'
+
 import HomeBar from './R_HomeBar'
 
 class R_Profile extends Component {
@@ -7,9 +9,9 @@ class R_Profile extends Component {
 		return (
 			<div>
 				<HomeBar />
-				<div>
+				<Container>
 					Manage Profile Page
-				</div>
+				</Container>
 			</div>
 		)
 	}
