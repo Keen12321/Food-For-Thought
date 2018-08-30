@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { withAuth } from '../Authentication'
 
+// import Chart from 'chart.js'
+
 class R_Reports extends Component {
 	render() {
 		return (
 			<div>
 				<div>
-					Manage Reports Page
+					Reports Page
 				</div>
 			</div>
 		)

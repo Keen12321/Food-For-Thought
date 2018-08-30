@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Route, Switch} from 'react-router-dom'
 import D_Pickups from './D_Pickups'
-import { Authentication, AuthRoute } from '../Authentication'
+// import { Authentication, AuthRoute } from '../Authentication'
 import D_Home from './D_Home'
 import D_Map from './D_Map'
 import D_Reports from './D_Reports'
@@ -26,4 +26,3 @@ class DeliveryApp extends Component {
 }
 
 export default DeliveryApp
-

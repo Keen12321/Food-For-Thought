@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../Authentication'
+import {Button} from 'semantic-ui-react'
+
 class RestaurantProfile extends Component{
 	
 	render(){
@@ -19,23 +21,23 @@ class RestaurantProfile extends Component{
 				
 
 				<div id="option">
-					<button className='ui button' role='button'>
+					<Button className='ui button' role='button'>
   							Dontation History
-					</button>
+					</Button>
 					<p>You will be able to access all of your dontaions from this page.</p>
 				</div>
 
 				<div id="option">
-					<button className="ui button" role='button'>
+					<Button className="ui button" role='button'>
 						Delete Donation
-					</button>
+					</Button>
 					<p>from here you will be able to delete any pre-existing donations.</p> 
 				</div>
 
 				<div id="option">
-					<button className="ui button" role='button'>
+					<Button className="ui button" role='button'>
 						Donate Food
-					</button>
+					</Button>
 					<p>From here you will be able to donate food to people in need</p> 
 				</div>
 			</div>

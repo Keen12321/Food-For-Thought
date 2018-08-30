@@ -4,12 +4,18 @@ import { withAuth } from '../Authentication'
 
 class D_Pickups extends Component {
 	state = {
-		show: false
+		show: false,
+		name: '',
+		address: '',
+		distance: '',
+		food: '',
+		count: ''
 	}
 
 	showPickupModal = () => {
 		this.setState({
 			show1: true
+
 		})
 	}
 
@@ -77,6 +83,7 @@ class D_Pickups extends Component {
   				Delete me when this page is dynamic</p>
 		</div>
       </div> 
+
    )
  }
 }

@@ -7,7 +7,6 @@ class D_Profile extends Component {
  render() {
    return (
       <div>
-         <HomeBar />
    		<div>
    			Delivery Profile
    		</div>

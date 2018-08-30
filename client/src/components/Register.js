@@ -27,7 +27,7 @@ class Register extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		
-		if (this.state.email, this.state.password, this.state.confirmPassword, this.state.address, this.state.phone, this.state.type !== '') {
+		if (this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.address !== '' && this.state.phone !== '' && this.state.type !== '') {
 			if (validator.isEmail(this.state.email)) {
 				if (this.state.password === this.state.confirmPassword) {
 					this.setState({

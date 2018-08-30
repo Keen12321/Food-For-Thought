@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import {Route, Switch} from 'react-router-dom'
 import {Authentication} from '../Authentication'
-import Donate from './Donate'
 import R_Home from './R_Home'
-import R_Pickup from './R_Pickup'
+import Donate from './Donate'
 import R_Reports from './R_Reports'
-import R_Profile from './R_Profile'
 import R_HomeBar from './R_HomeBar'
+import RestaurantProfile from './RestaurantProfile'
 
 class RestaurantApp extends Component {
  	render() {
@@ -14,13 +13,13 @@ class RestaurantApp extends Component {
  			<Authentication
         redirectUrl='/login'
         defaultRedirect='/'
-      ><R_HomeBar />
+      >
+      <R_HomeBar />
       <Switch>
-        <Route path="/restaurant" component={R_Home} />
-				<Route path="/restaurant/donating" component={Donate} />
-        <Route path="/restaurant/pickup" component={R_Pickup} />
+        <Route exact path="/restaurant" component={R_Home} />
+				<Route path="/restaurant/donate" component={Donate} />        
         <Route path="/restaurant/reports" component={R_Reports} />
-        <Route path="/restaurant/profile" component={R_Profile} />
+        <Route path="/restaurant/Rprofile" component={RestaurantProfile} />
       </Switch>
       </Authentication>
    	)
