@@ -24,7 +24,6 @@ class Donate extends Component {
 		})
 	}
 	
-	
 	render() {
 		return (
 			<div>
@@ -64,7 +63,7 @@ class Donate extends Component {
 			      </Form.Field>
 
 						<Form.Field>
-				    	<Button color="orange" type='button' onClick={this.newitem}>Add Item</Button>
+				    	<Button color="orange" type='button' onClick={this.newitem}>More +</Button>
 				    	<Button color="green" type='submit'>Submit</Button>
 			    	</Form.Field>
 				  </Form>
