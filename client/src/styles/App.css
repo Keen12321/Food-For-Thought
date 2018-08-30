@@ -201,3 +201,20 @@ a {
 .donate__details-submit {
 	padding: 10px;
 }
+
+.reportTable {
+	display:flex;
+	justify-content:space-around;
+	margin-top:10px;
+}
+
+th, td {
+	padding:5px 10px;
+	text-align:left;
+	border:1px solid silver;
+}
+
+.reportChart {
+	margin-top:10px;
+	text-align:center;
+}
