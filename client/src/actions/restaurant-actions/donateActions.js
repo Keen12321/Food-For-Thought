@@ -7,6 +7,8 @@ export function makeDonation(donation) {
 	})
 }
 
-export function addNewItem() {
-	
+export function getCurrentDate() {
+	let date = new Date()
+	let currentDate = date.toLocaleDateString()
+	return currentDate
 }

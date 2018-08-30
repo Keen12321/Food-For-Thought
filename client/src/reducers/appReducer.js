@@ -10,9 +10,3 @@ export default function (state = initialState, action) {
     	return state
   }
 }
-
-export function getCurrentDate() {
-	let date = new Date()
-	let currentDate = date.toLocaleDateString()
-	return currentDate
-}
