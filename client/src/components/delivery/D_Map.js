@@ -48,7 +48,7 @@ return (
 	<div className="pickupsContainer">
         <D_Pickups />
         <DirectionsComponent
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U"
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKvcSq2gVj-NCb4SYr2FCfuic3Wq4zZFE"
         loadingElement={<div style={{ height: `400px` }} />}
         containerElement={<div style={{ width: `100%` }} />}
         mapElement={<div style={{height: `600px`, width: `100%` }}  />}

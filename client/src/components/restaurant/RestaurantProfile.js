@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import R_HomeBar from './R_HomeBar'
 import { withAuth } from '../Authentication'
 class RestaurantProfile extends Component{
 	
 	render(){
 		return(
 			<div className="profileContain">
-				<R_HomeBar/>
 				
 				<div id="prof">
 					<h2>Your Restaurants Profile</h2>
