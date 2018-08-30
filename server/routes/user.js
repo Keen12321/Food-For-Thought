@@ -24,4 +24,24 @@ router.post('/donate', (req, res, next) => {
 	})
 })
 
+// DONATION LISTING
+route.get('/pickups', (req, res, next) => {
+	const dish = req.body.dish
+	const address = req.body.address
+	const date = req.body.date
+	const sql = `
+		SELECT 
+			d.dish, u.address, d.date
+		FROM
+			donations d, users u
+		WHERE
+			d.food_id = u.id
+	`
+
+	conn.query(sql, [dish, address, date], (error, results, fields) => {
+		let postings = req.body
+		console.log(postings)
+	})
+})
+
 export default router

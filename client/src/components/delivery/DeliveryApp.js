@@ -7,11 +7,13 @@ import D_Home from './D_Home'
 // import D_Map from './D_Map's
 import D_Reports from './D_Reports'
 import D_Profile from './D_Profile'
+import HomeBar from './D_HomeBar.js'
 
 class DeliveryApp extends Component {
   render() {
     return (
-      <div>
+      <div> 
+        <HomeBar />
         <Route exact path="/delivery" component={D_Home} />
         <Route path="/delivery/pickups" component={D_Pickups} />
         <Route path="/delivery/reports" component={D_Reports} />

@@ -8,10 +8,10 @@ class D_Reports extends Component {
  render() {
    return (
       <div>
-         <HomeBar />
-   		<div>
-   			<Header>Reports Page</Header>
-   		</div>
+         
+	   		<div>
+	   			<Header>Reports Page</Header>
+	   		</div>
       </div>
      
    )

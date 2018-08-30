@@ -8,10 +8,10 @@ class D_Profile extends Component {
  render() {
    return (
       <div>
-         <HomeBar />
-   		<div>
-   			<Header>Delivery Profile</Header>
-   		</div>
+        
+	   		<div>
+	   			<Header>Delivery Profile</Header>
+	   		</div>
       </div>
    )
  }

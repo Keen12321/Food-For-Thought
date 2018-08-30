@@ -13,7 +13,7 @@ class D_Pickups extends Component {
  render() {
    return (
 		<div>
-			<HomeBar />
+
 		
 			<Container>
 				<Header>Pickups List</Header>

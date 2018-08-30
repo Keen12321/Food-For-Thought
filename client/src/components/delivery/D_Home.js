@@ -9,7 +9,7 @@ class D_Home extends Component {
  render() {
    return (
    		<div>
-   			<HomeBar />
+
           <div className="pickupnotification">
              <Header as='h3'>There are 3 restaurants with food ready for pickup</Header>
           </div>
