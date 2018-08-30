@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { makeDonation } from '../../actions/restaurant-actions/donateActions'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Container, Header } from 'semantic-ui-react'
 import HomeBar from './R_HomeBar'
 
 class Donate extends Component {
@@ -29,9 +29,10 @@ class Donate extends Component {
 		return (
 			<div>
 				<HomeBar />
-				<div className="donate-container">
+				<Container className="donate-container">
 
 					<Form onSubmit={this.handleSubmit}>
+						<Header as='h3'>Make a Donation</Header>
 						<Form.Field>
 							<Form.Input label='Title' type='text' placeholder='Food Item' name='name'
 								onChange={this.handleChange} value={this.state.name} />
@@ -63,11 +64,11 @@ class Donate extends Component {
 			      </Form.Field>
 
 						<Form.Field>
-				    	<Button type='submit'>Submit</Button>
-				    	<Button type='button' onClick={this.newitem}>Add Item</Button>
+				    	<Button color="orange" type='button' onClick={this.newitem}>Add Item</Button>
+				    	<Button color="green" type='submit'>Submit</Button>
 			    	</Form.Field>
 				  </Form>
-				</div>
+				</Container>
 			</div>
 		)
 	}

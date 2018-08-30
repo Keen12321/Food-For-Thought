@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import { withAuth } from '../Authentication'
-import { Button, Modal } from 'semantic-ui-react'
+import { Container, Button, Header } from 'semantic-ui-react'
 
 import HomeBar from './R_HomeBar'
 
 class R_Home extends Component {
    render() {
       return (
-         <div>
+         <Container fluid>
             <HomeBar />
-            <div className="pickupnotification">
-               <h3>Pickup Ready</h3>
-            </div>
+
+            <Container className="pickupnotification">
+               <Header as='h3'>Pickup Ready</Header>
+            </Container>
             <div className="R_HomeContainer">
                <div>
                   <Link to="restaurant/donate"><Button color="green" type="submit" className="requestPickup">Donate Food</Button></Link>
@@ -24,7 +25,8 @@ class R_Home extends Component {
                   <Link to="/restaurant/profile"><Button color="blue" type="submit" className="manageProfile">Manage Profile</Button></Link>
                </div>
             </div>
-         </div>
+
+         </Container>
       )
    }
 }
