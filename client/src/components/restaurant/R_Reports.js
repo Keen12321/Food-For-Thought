@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../Authentication'
 import HomeBar from './R_HomeBar'
+// import Chart from 'chart.js'
 
 class R_Reports extends Component {
 	render() {
@@ -8,7 +9,7 @@ class R_Reports extends Component {
 			<div>
 				<HomeBar />
 				<div>
-					Manage Reports Page
+					Reports Page
 				</div>
 			</div>
 		)
