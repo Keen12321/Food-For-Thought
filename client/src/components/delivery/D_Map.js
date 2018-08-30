@@ -7,8 +7,36 @@ import InfoBox from "react-google-maps/lib/components/addons/InfoBox"
 
 
 class D_Map extends Component {
+  state = {
+    currentLatLng: {
+      lat: 0,
+      lng: 0
+    }
+  }
+
+  showCurrentLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition( position => {
+        this.setState({
+          currentLatLng: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          }
+        })
+      })
+      console.log(this)
+    } else {
+      error => console.log(error)
+    }
+  }
+
+  componentDidMount() {
+    this.showCurrentLocation()
+  }
 
 render() {
+  const lat = this.state.currentLatLng.lat
+  const lng = this.state.currentLatLng.lng
   const DirectionsComponent = compose(
 
     withProps({
@@ -22,29 +50,11 @@ render() {
     withGoogleMap,
 
     lifecycle({
-      showCurrentLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition( position => {
-            this.setState({
-              currentLatLng: {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              }
-            })
-          })
-          console.log(this)
-        } else {
-          error => console.log(error)
-        }
-      },
       componentDidMount() { 
-        this.showCurrentLocation()
-        console.log(this.props.currentLatLng)
         const DirectionsService = new google.maps.DirectionsService()
-        console.log(this)
         DirectionsService.route({
-          origin: new google.maps.LatLng(this.props.currentLatLng),
-          destination: `Las Vegas Rescue Mission`,
+          origin: new google.maps.LatLng({lat:lat, lng:lng}),
+          destination: `Raku, Las Vegas, nv`,
           travelMode: google.maps.TravelMode.DRIVING,
         }, (result, status) => {
           
@@ -58,7 +68,6 @@ render() {
           }
         })
       }
-     
     })
   )(props =>
     <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
