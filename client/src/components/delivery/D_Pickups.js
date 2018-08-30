@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
-import { withAuth } from '../Authentication'
+import { withAuth, api } from '../Authentication'
+import { getDonations } from '../../actions/donateActions'
+import {connect} from 'react-redux'
+
 
 
 class D_Pickups extends Component {
 	state = {
 		show: false,
-		name: '',
-		address: '',
-		distance: '',
-		food: '',
-		count: ''
 	}
 
 	showPickupModal = () => {
@@ -36,6 +34,11 @@ class D_Pickups extends Component {
 			show2: false
 		})
 	}
+
+	componentDidMount() {
+		getDonations()
+	}
+
  render() {
    return (
       <div>
@@ -57,30 +60,34 @@ class D_Pickups extends Component {
 			</div>
 			<button className="ui grey button">I don't work</button>
          </Modal>
-   		<div className="pickups ui vertical segment">
-   			<div>
-  				<p>Restaurant Name</p>
-  				<p>Restaurant Address</p>
-  				<p>Distance From Location</p>
-  			</div>
-  			<div>
-  				<p>Food Item x ___</p>
-  			</div>
-  			<div>
-  				<button className="ui green button" onClick={this.showPickupModal}>
-					<i className="map pin icon"></i>Confirm Receipt
-				</button>
-  				<button className="ui blue button" onClick={this.showPickupModal}>
-					<i className="map pin icon"></i>Add to Map
-				</button>
-				<button className="ui red button" onClick={this.showDeleteModal}>
-					<i className="trash alternate icon"></i>Delete
-				</button>
-  			</div>
-		</div>
+         {this.props.donate.map(user => (
+         	<div className="pickups ui vertical segment">
+	   			<div>
+	  				<p>{user.dish}</p>
+	  				<p>{user.dish}</p>
+	  				<p>Distance From Location</p>
+	  			</div>
+	  			<div>
+	  				<p>{user.dish} x {user.trays}</p>
+	  			</div>
+	  			<div>
+	  				<button className="ui green button" onClick={this.showPickupModal}>
+						<i className="map pin icon"></i>Confirm Receipt
+					</button>
+	  				<button className="ui blue button" onClick={this.showPickupModal}>
+						<i className="map pin icon"></i>Add to Map
+					</button>
+					<button className="ui red button" onClick={this.showDeleteModal}>
+						<i className="trash alternate icon"></i>Delete
+					</button>
+	  			</div>
+			</div>
+		))}
+   		
 		<div className="ui vertical segment">
-  			<p>I'm here just to show how these divs are separated.
-  				Delete me when this page is dynamic</p>
+  			<h3>Home</h3>
+  			<p>{api.getProfile().email}</p>
+  			<p>{api.getProfile().address}</p>
 		</div>
       </div> 
 
@@ -101,4 +108,11 @@ return (
 	</div>
 	)
 }
-export default withAuth(D_Pickups)
+
+function mapStateToProps(appState) {
+	console.log('appstate', appState)
+	return {
+		donate: appState.appReducer.donate
+	}
+}
+export default withAuth(connect(mapStateToProps)(D_Pickups))

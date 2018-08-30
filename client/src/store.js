@@ -5,7 +5,7 @@ import appReducer from './reducers/appReducer.js'
 
 const rootReducer = combineReducers({
 	//put reducers
-	 appReduce: appReducer
+	 appReducer: appReducer
 })
 
 const store = createStore(rootReducer)

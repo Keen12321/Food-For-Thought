@@ -1,4 +1,8 @@
-
+#scroll {
+	max-height: 700px;
+	overflow-y: hidden;
+	overflow: auto;
+}
 /*
 mockup colors
 red - rgb(202,23,26)
@@ -45,7 +49,18 @@ a {
 	display: flex;
 }
 
+.pickupsContainer {
+	display: flex;
+}
+
 .fa {
+	padding: 5px;
+	margin: 5px;
+}
+
+.fa-nav {
+	text-align: center;
+	color: white;
 	padding: 5px;
 	margin: 5px;
 	border: 2px solid white;
@@ -53,7 +68,7 @@ a {
 }
 
 .D_navbar {
-	background: #232323;
+background: #232323;
 	display: flex;
 	justify-content: space-between;
 	padding: 5px;
@@ -109,6 +124,52 @@ a {
 	text-align: center;
 	font-family: sans-serif;
 	margin: 10px;
+}
+
+/*
+mockup colors
+red - rgb(202,23,26)
+orange - rgb(251,100,79)
+green - rgb(33,172,162)
+blue - rgb(35,123,202)
+light gray - rgb(247,247,247)
+dark gray - rgb(30,30,30)
+*/
+
+.container {
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+	font-family:sans-serif;
+	text-align:center;
+	color:rgb(30,30,30);
+}
+
+.container > div {
+	margin:5px auto;
+}
+
+.container > div > h1 {
+	font-size:1.5em;
+}
+
+.container > div > h2 {
+	font-size:1.25em;
+}
+
+.container > div > a {
+	text-decoration:none;
+	color:rgb(247,247,247);
+
+}
+
+
+
+
+
+.profileContain{
+	width: 100%;
+	
 }
 
 .profileContain {
