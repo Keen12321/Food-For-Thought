@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { withAuth } from '../Authentication'
-import HomeBar from './D_HomeBar'
+import { Header } from 'semantic-ui-react'
 
+import HomeBar from './D_HomeBar'
 
 class D_Profile extends Component {
  render() {
@@ -9,10 +10,9 @@ class D_Profile extends Component {
       <div>
          <HomeBar />
    		<div>
-   			Delivery Profile
+   			<Header>Delivery Profile</Header>
    		</div>
       </div>
-     
    )
  }
 }

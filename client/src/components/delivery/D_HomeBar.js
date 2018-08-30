@@ -34,7 +34,7 @@ class D_HomeBar extends Component {
                   <Icon size='large' fitted name='circle outline' />
                   <Icon size='tiny' name='user' />
                </Icon.Group>
-               <p>LV Rescue Mission</p>
+               <p>Profile</p>
             </Link>
             
    	  </div>
