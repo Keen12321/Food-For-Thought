@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth } from '../Authentication'
+import { Header } from 'semantic-ui-react'
 import HomeBar from './D_HomeBar'
 
 
@@ -9,7 +10,7 @@ class D_Reports extends Component {
       <div>
          <HomeBar />
    		<div>
-   			Reports Page
+   			<Header>Reports Page</Header>
    		</div>
       </div>
      
