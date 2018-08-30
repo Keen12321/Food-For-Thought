@@ -5,7 +5,7 @@ import HomeBar from './R_HomeBar'
 
 class Donate extends Component {
 	state = {
-		name: '',
+		dish: '',
 		trays: ''
 	}
 

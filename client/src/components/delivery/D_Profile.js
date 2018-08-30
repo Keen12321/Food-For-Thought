@@ -5,6 +5,7 @@ class D_Profile extends Component {
  render() {
    return (
       <div>
+
    		<div>
    			Delivery Profile
    		</div>
