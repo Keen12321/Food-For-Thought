@@ -31,8 +31,6 @@ class Register extends Component {
 		if (this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.address !== '' && this.state.phone !== '' && this.state.type !== '') {
 			if (validator.isEmail(this.state.email)) {
 				if (this.state.password === this.state.confirmPassword) {
-					this.setState({
-					})
 					registerUser({
 						name: this.state.name,
 						email: this.state.email,

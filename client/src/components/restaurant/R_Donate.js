@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { makeDonation } from '../../actions/donateActions'
 import { Button, Form } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 class Donate extends Component {
 	state = {
-		name: '',
+		dish: '',
 		trays: ''
 	}
 
@@ -18,7 +19,7 @@ class Donate extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		makeDonation({
-			name: this.state.name,
+			dish: this.state.dish,
 			trays: this.state.trays
 		})
 	}
@@ -30,8 +31,8 @@ class Donate extends Component {
 				<div className="donate-container">
 
 					<Form onSubmit={this.handleSubmit}>
-						<Form.Input label='Title' type='text' placeholder='Food Item' name='name'
-							onChange={this.handleChange} value={this.state.name} />
+						<Form.Input label='Title' type='text' placeholder='Food Item' name='dish'
+							onChange={this.handleChange} value={this.state.dish} />
 
 				    <Form.Field label='How Many?' control='select' name='trays'
 				    	onChange={this.handleChange} value={this.state.trays}>
@@ -58,7 +59,9 @@ class Donate extends Component {
 							<option value='20'>20</option>
 			      </Form.Field>
 						<Form.Field>
-				    	<Button type='submit'>Submit</Button>
+							<Link to="/restaurant">
+				    		<Button type='submit'>Submit</Button>
+				    	</Link>
 			    	</Form.Field>
 				  </Form>
 				</div>
