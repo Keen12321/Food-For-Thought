@@ -65,6 +65,7 @@ a {
 	justify-content: space-between;
 	padding: 5px;
 }
+
 .left > a, .right > a {
 	margin: auto;
 	margin-right: 15px;
