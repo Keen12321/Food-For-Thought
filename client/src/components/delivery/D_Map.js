@@ -4,6 +4,9 @@ import D_Pickups from './D_Pickups'
 import  { compose, withProps, lifecycle } from 'recompose'
 import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-google-maps'
 import { withAuth, api } from '../Authentication'
+import { getDonations } from '../../actions/donateActions'
+import {connect} from 'react-redux'
+
 
 
 class D_Map extends Component {
@@ -32,11 +35,13 @@ class D_Map extends Component {
 
   componentDidMount() {
     this.showCurrentLocation()
+    getDonations()
   }
 
 render() {
   const lat = this.state.currentLatLng.lat
   const lng = this.state.currentLatLng.lng
+
   const DirectionsComponent = compose(
 
     withProps({
@@ -53,9 +58,10 @@ render() {
       componentDidMount() { 
         const DirectionsService = new google.maps.DirectionsService()
         DirectionsService.route({
+        	 
           origin: new google.maps.LatLng({lat:lat, lng:lng}),
           destination: api.getProfile().address,
-          waypoints: [{location: '470 Windmill Lane', stopover: true},
+          waypoints: [{location: 'Raku, Las Vegas, NV', stopover: true},
           				],
           optimizeWaypoints: true,
           travelMode: google.maps.TravelMode.DRIVING,
@@ -66,7 +72,8 @@ render() {
               directions: {...result},
               markers: true
             })
-          } else {
+          }
+           else {
             console.error(`error fetching directions ${result}`)
           }
         })
@@ -82,14 +89,17 @@ return (
 	   <div id="scroll">
         <D_Pickups />
         </div>
-        <DirectionsComponent
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKvcSq2gVj-NCb4SYr2FCfuic3Wq4zZFE"
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ width: `100%` }} />}
-        mapElement={<div style={{height: `100%`, width: `100%` }}  />}
-        />
+        <DirectionsComponent />
      </div>
     )
   }
 }
-export default withAuth(D_Map)
+function mapStateToProps(appState) {
+	console.log('appstate', appState)
+	return {
+		donate: appState.appReducer.donate
+	}
+}
+export default withAuth(connect(mapStateToProps)(D_Map))
+
+

@@ -63,9 +63,11 @@ router.post('/donating', (req, res, next) => {
 router.get('/donating', (req, res, next) => {
 	const sql = `
 		SELECT
-			dish, trays, food_id, accepted
+		donations.dish, donations.trays, donations.food_id, donations.accepted, users.address, users.name
 		FROM
-			donations
+		donations
+		LEFT JOIN
+		users ON users.id = donations.food_id
 	`
 
 	conn.query(sql, (err, results, fields) => {

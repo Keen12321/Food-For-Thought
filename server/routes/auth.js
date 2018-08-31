@@ -51,5 +51,21 @@ router.post('/register', (req, res, next) => {
 	})
 })
 
+router.patch('/donating', (req, res, next) => {
+	const accepted = req.body.accepted
+	const food_id = req.body.food_id
+
+	const sql = `
+		UPDATE donations
+		SET accepted = ?
+		Where food_id = ?
+	`
+	conn.query(sql, [accepted, food_id], (err, results, fields) => {
+		res.json({
+			message: 'Order updated'
+		})
+	})
+})
+
 
 export default router

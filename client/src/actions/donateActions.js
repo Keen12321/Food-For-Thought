@@ -15,3 +15,9 @@ export function getDonations() {
 		})
 	})
 }
+
+export function updatePickup(state) {
+	api.patch('/api/donating', state).then(data => {
+
+	})
+}
