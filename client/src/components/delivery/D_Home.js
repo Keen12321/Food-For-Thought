@@ -4,11 +4,11 @@ import { withAuth } from '../Authentication'
 import { Header, Button } from 'semantic-ui-react'
 
 class D_Home extends Component {
- render() {
-   return (
+  render() {
+    return (
    		<div>
         <div className="pickupnotification">
-           <Header as='h3'>There are 3 restaurants with food ready for pickup</Header>
+           <Header as='h3'>Pickups available for today: ___</Header>
         </div>
      		<div className="D_HomeContainer">
      			<div>
@@ -28,8 +28,8 @@ class D_Home extends Component {
      			</div>
      		</div>
      	</div>
-   )
- }
+    )
+  }
 }
 
 export default withAuth(D_Home)

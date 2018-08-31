@@ -1,4 +1,4 @@
-import { api } from '../../components/Authentication'
+import { api } from '../components/Authentication'
 // import store from '../../store'
 
 export function makeDonation(donation) {

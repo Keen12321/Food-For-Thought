@@ -11,14 +11,14 @@ router.post('/login', (req, res, next) => {
 	const password = sha512(req.body.password).toString()
 
 	const sql = `
-		SELECT email, type
+		SELECT id, name, email, address, phone, type
 		FROM users 
 		WHERE email = ? AND password = ?
 	`
 
 	conn.query(sql, [email, password], (err, results, fields) => {
 		if (results.length > 0) {
-			const token = jwt.sign({"email":email, "type":results[0].type}, config.get('jwt.secret'))
+			const token = jwt.sign({"id":results[0].id, "name":results[0].name, "email":email, "address":results[0].address, "phone":results[0].phone, "type":results[0].type}, config.get('jwt.secret'))
 
 			res.json({
 				token: token
@@ -33,6 +33,7 @@ router.post('/login', (req, res, next) => {
 
 router.post('/register', (req, res, next) => {
 	console.log(req.body)
+	const name = req.body.name
 	const email = req.body.email
 	const password = sha512(req.body.password).toString()
 	const address = req.body.address
@@ -40,15 +41,16 @@ router.post('/register', (req, res, next) => {
 	const type = req.body.type
 
 	const sql = `
-	INSERT INTO users (email, password, address, phone, type)
-	VALUES (?, ?, ?, ?, ?)
+		INSERT INTO users (name, email, password, address, phone, type)
+		VALUES (?, ?, ?, ?, ?, ?)
 	`
 
-	conn.query(sql, [email, password, address, phone, type], (err, results, fields) => {
+	conn.query(sql, [name, email, password, address, phone, type], (err, results, fields) => {
 		res.json({
 			message: 'User created'
 		})
 	})
 })
+
 
 export default router
