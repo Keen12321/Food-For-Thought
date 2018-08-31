@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {withAuth, api} from '../Authentication'
 import {getReport} from '../../actions/reportActions'
-// import Chart from 'chart.js'
+import Chart from 'chart.js'
 import {connect} from 'react-redux'
 
 class R_Reports extends Component {
@@ -13,6 +13,35 @@ class R_Reports extends Component {
 
 	componentDidMount() {
 		getReport(this.state.id)
+		var ctx = document.getElementById("rptChart");
+		var rptChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["2018-08-31", "2018-09-01"],
+				datasets: [{
+					label: '# of Trays',
+					data: [2, 2],
+					/*backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)'
+					],
+					borderColor: [
+						'rgba(255,99,132,1)',
+						'rgba(54, 162, 235, 1)'
+					],*/
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
 	}
 
 	render() {
@@ -43,13 +72,13 @@ class R_Reports extends Component {
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colSpan="4">Export Report</td>
+								<td colSpan="4">Export Report (Icebox)</td>
 							</tr>
 						</tfoot>
 					</table>
 				</div>
 				<div className="reportChart">
-					<p>INSERT CHART HERE!</p>
+					<canvas id="rptChart"></canvas>
 				</div>
 			</div>
 		)
