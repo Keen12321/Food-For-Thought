@@ -47,9 +47,9 @@ router.post('/donating', (req, res, next) => {
 	const trays = req.body.trays
 	const sql = `
 		INSERT INTO
-			donations (dish, trays)
+			donations (dish, trays, accepted)
 		VALUES
-			(?, ?)
+			(?, ?, 'false')
 	`
 
 	conn.query(sql, [dish, trays], (error, results, fields) => {
@@ -70,10 +70,32 @@ router.get('/report', (req, res, next) => {
 	`
 	conn.query(sql, (error, results, fields) => {
 
-		res.json(results)
+		res.json(results) 
 		console.log(results)
 	})
 })
+
+//GET CURRENT LISTINGS
+	router.get('/current', (req, res, next) =>{
+		const sql = `
+			SELECT dish, trays, accepted
+				FROM donations
+				WHERE accepted = false
+		`
+
+		conn.query(sql, (error, results, fields) =>{
+			res.json(results)
+			console.log(results)
+		})
+	})
+
+	router.post('/accepted', (req, res, next) =>{
+		const sql = `
+					INSTERT INTO 
+						donations (accepted, userkey)
+					VALUES ('true', {whatever your user key is})
+				`
+	})
 
 
 
