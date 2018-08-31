@@ -61,17 +61,29 @@ router.post('/donating', (req, res, next) => {
 
 
 // GETTING REPORTS
-router.get('/report', (req, res, next) => {
+router.get('/reports/:id', (req, res, next) => {
 	const sql = `
-		SELECT users.name, donations.date, donations.dish, donations.trays, donations.value
+		SELECT users.name, donations.date, donations.dish, donations.trays, donations.value, users.id
 		FROM donations
 		LEFT JOIN users ON donations.food_id = users.id
 		WHERE donations.food_id = users.id;
 	`
 	conn.query(sql, (error, results, fields) => {
+		let report = []
+		let id = req.params.id
 
+<<<<<<< HEAD
 		res.json(results) 
 		console.log(results)
+=======
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].id == id) {
+				report.push(results[i])
+			}
+		}
+
+		res.json(report)
+>>>>>>> d30f58ebcac98bc1a71c2b351f4f64615a9aa082
 	})
 })
 

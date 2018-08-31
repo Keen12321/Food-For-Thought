@@ -1,12 +1,16 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import { withAuth } from '../Authentication'
-
+import {withAuth, api} from '../Authentication'
 
 class D_Home extends Component {
- render() {
-   return (
-   		<div>
+
+  state = {
+      id:api.getProfile().id
+   }
+
+  render() {
+    return (
+      <div>
         <div className="pickupnotification">
           <h3>Pickups available for today: ___</h3>
         </div>
@@ -15,7 +19,7 @@ class D_Home extends Component {
    				<Link to="/delivery/pickups"><button type="submit" className="startPickup">Start Pickups</button></Link>
    			</div>
    			<div>
-   				<Link to="/delivery/pickups"><button type="submit" className="manageReports">Manage Pickups</button></Link>
+   				<Link to={`/delivery/reports/${this.state.id}`}><button type="submit" className="manageReports">Manage Reports</button></Link>
    			</div>
    			<div>
    				<Link to="/delivery/map"><button type="submit" className="navHome">Food Map</button></Link>

@@ -1,13 +1,18 @@
 import React, {Component} from 'react'
-import {withAuth} from '../Authentication'
+import {withAuth, api} from '../Authentication'
 import {getReport} from '../../actions/reportActions'
 // import Chart from 'chart.js'
 import {connect} from 'react-redux'
 
 class R_Reports extends Component {
 
+	state = {
+		id:api.getProfile().id,
+		name:api.getProfile().name
+	}
+
 	componentDidMount() {
-		getReport()
+		getReport(this.state.id)
 	}
 
 	render() {
@@ -17,13 +22,12 @@ class R_Reports extends Component {
 					<table>
 						<thead>
 							<tr>
-								<th colSpan="5">Restaurant Report</th>
+								<th colSpan="4">{this.state.name} Report</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<th>Date</th>
-								<th>Restaurant</th>
 								<th>Dish</th>
 								<th>Trays</th>
 								<th>Value</th>
@@ -31,7 +35,6 @@ class R_Reports extends Component {
 							{this.props.report.map((item, i) => (
 							<tr key={"key" + i}>
 								<td>{item.date}</td>
-								<td>{item.name}</td>
 								<td>{item.dish}</td>
 								<td>{item.trays}</td>
 								<td>${item.value}</td>
@@ -40,7 +43,7 @@ class R_Reports extends Component {
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colSpan="5">Export Report</td>
+								<td colSpan="4">Export Report</td>
 							</tr>
 						</tfoot>
 					</table>
