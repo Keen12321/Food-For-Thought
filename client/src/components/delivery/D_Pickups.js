@@ -41,4 +41,4 @@ function mapStateToProps(appState) {
 	}
 }
 
-export default withAuth(connect(mapStateToProps)(D_Pickups))
+export default withAuth( connect(mapStateToProps)(D_Pickups) )

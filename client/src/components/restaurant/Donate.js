@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
+import { withAuth } from '../Authentication'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { Button, Form, Container, Header } from 'semantic-ui-react'
-import { makeDonation, getCurrentDate } from '../../actions/restaurant-actions/donateActions'
-import HomeBar from './R_HomeBar'
+import { makeDonation } from '../../actions/restaurant-actions/donateActions'
 
 class Donate extends Component {
 	state = {
 		name: '',
 		trays: '',
-		value: '',
-		date: ''
+		value: ''
 	}
 
 	handleChange = (e) => {
@@ -25,15 +25,16 @@ class Donate extends Component {
 			trays: this.state.trays,
 			value: this.state.value,
 		})
-		getCurrentDate({
-			date: this.state.date
-		})
 	}
 	
 	render() {
+		let forward = true
+		if (forward) {
+			console.log('this is true')
+		}
 		return (
 			<div>
-				<HomeBar />
+
 				<Container text className="donate-container">
 
 					<Form onSubmit={this.handleSubmit}>
@@ -45,8 +46,8 @@ class Donate extends Component {
 					    <Form.Field label='How Many?' control='select' name='trays'
 					    	onChange={this.handleChange} value={this.state.trays}>
 				        <option value='0'>0</option>
-				        <option value='1'>1</option>
-				        <option value='2'>2</option>
+				        <option value='1'>1 tray</option>
+				        <option value='2'>2 trays</option>
 				        <option value='3'>3</option>
 								<option value='4'>4</option>
 								<option value='5'>5</option>
@@ -82,4 +83,10 @@ class Donate extends Component {
 	}
 }
 
-export default Donate
+function mapStateToProps(appState) {
+	return {
+		donations: appState.appReduce.donations
+	}
+}
+
+export default withAuth( connect(mapStateToProps)(Donate) )
