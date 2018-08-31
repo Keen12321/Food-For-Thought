@@ -42,19 +42,34 @@ router.patch('/register', (req, res, next) => {
 
 // POSTING DONATIONS
 router.post('/donating', (req, res, next) => {
-	const name = req.body.name
+	const dish = req.body.dish
 	const trays = req.body.trays
 	const sql = `
 		INSERT INTO
-			donations (name, trays)
+			donations (dish, trays)
 		VALUES
 			(?, ?)
 	`
 
-	conn.query(sql, [name, trays], (error, results, fields) => {
+	conn.query(sql, [dish, trays], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
 		
+	})
+})
+
+// GETTING REPORTS
+router.get('/report', (req, res, next) => {
+	const sql = `
+		SELECT users.name, donations.date, donations.dish, donations.trays, donations.value
+		FROM donations
+		LEFT JOIN users ON donations.food_id = users.id
+		WHERE donations.food_id = users.id;
+	`
+	conn.query(sql, (error, results, fields) => {
+
+		res.json(results)
+		console.log(results)
 	})
 })
 
