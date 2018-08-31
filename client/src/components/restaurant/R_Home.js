@@ -1,8 +1,13 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import { withAuth } from '../Authentication'
+import {withAuth, api} from '../Authentication'
 
 class R_Home extends Component {
+
+   state = {
+      id:api.getProfile().id
+   }
+
    render() {
       return (
          <div>
@@ -14,7 +19,7 @@ class R_Home extends Component {
                   <Link to="/restaurant/donate"><button type="submit" className="requestPickup">Donate Food</button></Link>
                </div>
                <div>
-                  <Link to="/restaurant/reports"><button type="submit" className="manageReports">Manage Reports</button></Link>
+                  <Link to={`/restaurant/reports/${this.state.id}`}><button type="submit" className="manageReports">Manage Reports</button></Link>
                </div>
                <div>
                   <Link to="/restaurant/profile"><button type="submit" className="manageProfile">Manage Profile</button></Link>
