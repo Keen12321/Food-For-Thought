@@ -18,7 +18,7 @@ class D_Home extends Component {
    				<Link to="/delivery/pickups"><button type="submit" className="manageReports">Manage Pickups</button></Link>
    			</div>
    			<div>
-   				<Link to="/delivery/pickups"><button type="submit" className="navHome">Navigate Home</button></Link>
+   				<Link to="/delivery/map"><button type="submit" className="navHome">Food Map</button></Link>
    			</div>
    		</div>
      	</div>

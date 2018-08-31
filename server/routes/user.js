@@ -22,6 +22,7 @@ router.get('/register', (req, res, next) => {
 router.patch('/register', (req, res, next) => {
 	console.log(req.body)
 	const id = req.body.id
+	const name = req.body.name
 	const password = sha512(req.body.password).toString()
 	const email = req.body.email
 	const address = req.body.address
@@ -29,11 +30,11 @@ router.patch('/register', (req, res, next) => {
 
 	const sql = `
 		UPDATE users
-		SET email = ?, password = ?, address = ?, phone = ?
+		SET name = ?, email = ?, password = ?, address = ?, phone = ?
 		WHERE id = ?
 	`
 
-	conn.query(sql, [email, password, address, phone, id], (err, results, fields) => {
+	conn.query(sql, [name, email, password, address, phone, id], (err, results, fields) => {
 		res.json({
 			message: 'User updated'
 		})
@@ -58,6 +59,7 @@ router.post('/donating', (req, res, next) => {
 	})
 })
 
+
 // GETTING REPORTS
 router.get('/report', (req, res, next) => {
 	const sql = `
@@ -73,4 +75,9 @@ router.get('/report', (req, res, next) => {
 	})
 })
 
+
+
+
+
 export default router
+

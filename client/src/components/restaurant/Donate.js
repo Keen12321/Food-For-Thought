@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { makeDonation } from '../../actions/restaurant-actions/donateActions'
+// import { makeDonation } from '../../actions/restaurant-actions/donateActions'
+import { makeDonation } from '../../actions/donateActions'
 import { Button, Form } from 'semantic-ui-react'
 import HomeBar from './R_HomeBar'
 
@@ -65,8 +66,7 @@ class Donate extends Component {
 	
 	render() {
 		return (
-			<div>
-				<HomeBar />
+			<div>				
 				<div className="donate-container">
 
 					<Form onSubmit={this.handleSubmit.bind(this)} >

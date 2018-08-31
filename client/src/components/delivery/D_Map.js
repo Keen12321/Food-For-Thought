@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import  { compose, withProps, lifecycle } from 'recompose'
 import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-google-maps'
+import {api} from '../Authentication'
 
 import Pickups from './D_Pickups'
 
@@ -54,7 +55,7 @@ render() {
         const DirectionsService = new google.maps.DirectionsService()
         DirectionsService.route({
           origin: new google.maps.LatLng({lat:lat, lng:lng}),
-          destination: `Raku, Las Vegas, NV`,
+          destination: api.getProfile().address,
           travelMode: google.maps.TravelMode.DRIVING,
         }, (result, status) => {
           
