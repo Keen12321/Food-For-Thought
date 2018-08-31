@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {withAuth, api} from '../Authentication'
 import {getReport} from '../../actions/reportActions'
-// import Chart from 'chart.js'
 import {connect} from 'react-redux'
 
 class R_Reports extends Component {

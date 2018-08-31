@@ -52,5 +52,23 @@ router.post('/register', (req, res, next) => {
 	})
 })
 
+router.patch('/donating', (req, res, next) => {
+	const accepted = req.body.accepted
+	const id = req.body.id
+	const reason = req.body.reason
+	console.log(accepted, id, reason)
+
+	const sql = `
+		UPDATE donations
+		SET accepted = ?, reason = ?
+		Where id = ?
+	`
+	conn.query(sql, [accepted, reason, id], (err, results, fields) => {
+		res.json({
+			message: 'Order updated'
+		})
+	})
+})
+
 
 export default router

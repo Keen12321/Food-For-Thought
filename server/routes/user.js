@@ -19,6 +19,7 @@ router.get('/register', (req, res, next) => {
 	})
 })
 
+
 router.patch('/register', (req, res, next) => {
 	console.log(req.body)
 	const id = req.body.id
@@ -60,6 +61,7 @@ router.post('/donating', (req, res, next) => {
 })
 
 
+
 // GETTING REPORTS
 router.get('/reports/:id', (req, res, next) => {
 	const sql = `
@@ -72,10 +74,10 @@ router.get('/reports/:id', (req, res, next) => {
 		let report = []
 		let id = req.params.id
 
-<<<<<<< HEAD
+
 		res.json(results) 
 		console.log(results)
-=======
+
 		for (let i = 0; i < results.length; i++) {
 			if (results[i].id == id) {
 				report.push(results[i])
@@ -83,9 +85,11 @@ router.get('/reports/:id', (req, res, next) => {
 		}
 
 		res.json(report)
->>>>>>> d30f58ebcac98bc1a71c2b351f4f64615a9aa082
+
 	})
 })
+
+
 
 //GET CURRENT LISTINGS
 	router.get('/current', (req, res, next) =>{
@@ -111,6 +115,25 @@ router.get('/reports/:id', (req, res, next) => {
 
 
 
+
+
+
+//GETTING THE DONATIONS MAPPED TO PICKUPS PAGE
+router.get('/donating', (req, res, next) => {
+	const sql = `
+		SELECT
+		donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, users.address, users.name
+		FROM
+		donations
+		LEFT JOIN
+		users ON users.id = donations.food_id
+	`
+
+	conn.query(sql, (err, results, fields) => {
+		console.log('results',results)
+		res.json(results)
+	})
+})
 
 
 export default router

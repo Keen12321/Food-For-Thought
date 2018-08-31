@@ -6,12 +6,8 @@ import reportReducer from './reducers/reportReducer.js'
 
 const rootReducer = combineReducers({
 
-
-	 appReduce: appReducer,
-	 reportReduce: reportReducer
-
-	
-
+	appReducer: appReducer,
+	reportReduce: reportReducer
 })
 
 const store = createStore(rootReducer)
