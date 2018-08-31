@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import {api} from '../Authentication'
+import {withAuth, api} from '../Authentication'
 import { Dropdown } from 'semantic-ui-react'
 
 class D_HomeBar extends Component {
+
+  logout = (e) => {
+      this.props.signout()
+    }
+
   render() {
     const trigger = (
       <span>
-        {api.getProfile().name}
+        Account
       </span>
     )
-
-    const options = [
-      { key: 'user', text: 'Account', icon: 'user' },
-      { key: 'sign-out', text: 'Sign Out', icon: 'sign out' },
-    ]
 
     return (
     	<div className="D_navbar">
@@ -24,11 +24,22 @@ class D_HomeBar extends Component {
     			<Link to="/delivery/pickups">Pickups</Link>
     		</div>
     		<div className="D_navbar right">
-    			<Dropdown trigger={trigger} options={options} pointing='top right' icon={null} />
+    			<Dropdown trigger={trigger} pointing='top right' icon={null}>
+            <Dropdown.Menu>
+              <Dropdown.Item key='username'>
+                <span>
+                  Signed in as <strong>{api.getProfile().name}</strong>
+                </span>
+              </Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item as={Link} to='/delivery/profile' key='user' text='Edit Profile' icon='user'/>
+              <Dropdown.Item as={Link} to='/login' onClick={this.logout} key='sign-out' text='Sign Out' icon='sign out' />   
+            </Dropdown.Menu>
+          </Dropdown>
     		</div>
     	</div>
     )
   }
 }
 
-export default D_HomeBar
+export default withAuth(D_HomeBar)

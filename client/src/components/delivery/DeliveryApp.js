@@ -13,7 +13,7 @@ class DeliveryApp extends Component {
   render() {
     return (
       <Authentication
-        redirectUrl='/login'
+        redirectUrl='/delivery'
         defaultRedirect='/'
       >
         <div>

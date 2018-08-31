@@ -12,7 +12,7 @@ class RestaurantApp extends Component {
  	render() {
    	return (
  			<Authentication
-        redirectUrl='/login'
+        redirectUrl='/restaurant'
         defaultRedirect='/'
       >
         <Homebar />
