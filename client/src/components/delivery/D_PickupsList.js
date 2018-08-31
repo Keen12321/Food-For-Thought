@@ -81,12 +81,21 @@ class D_PickupsList extends Component {
 
 deletePickup = (e) => {
 	e.preventDefault()
-	updatePickup({
-		accepted: "false",
-		id: this.props.user.id,
-		reason: this.state.reason
-	})
-	this.hideDeleteModal()
+	var textA = document.getElementById('text').value
+	if(textA === ''){
+		document.getElementById('text').style.background = "rgba(255,0,29,.2)"
+		document.getElementById('title').innerHTML = 'You need to provide a reason for cancellation.'
+	}
+		else{
+		updatePickup({
+			accepted: "false",
+			id: this.props.user.id,
+			reason: this.state.reason
+		})
+		document.getElementById('text').style.background = "#fff"
+		document.getElementById('title').innerHTML = 'Are you sure you want to delete this pickup?'
+		this.hideDeleteModal()
+	}	
 }
 
 
@@ -130,11 +139,11 @@ deletePickup = (e) => {
 	  						<button className="ui blue button" id="confirmpickup" onClick={this.addPickup}>Add to Map</button>
 	  			         </Modal>
 	  			         <Modal show={this.state.show2} handleClose={this.hideDeleteModal}>
-	  						<h2>Are you sure you want to delete this pickup?</h2>
+	  						<h2 id='title'>Are you sure you want to delete this pickup?</h2>
 	  						<p>{this.props.user.name}</p>
 	  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
 	  						<div className="cxlreason">
-	  							<textarea name="reason" type="text" value={this.state.reason} onChange={this.handleChange} placeholder="Must provide reason for cancellation">
+	  							<textarea id='text' name="reason" type="text" value={this.state.reason} onChange={this.handleChange} placeholder="Must provide reason for cancellation">
 	  							</textarea>
 	  						</div>
 	  						<button className="ui red button" id="confirmcxl" onSubmit={this.handleSubmit} onClick={this.deletePickup}>Delete Pickup</button>
