@@ -56,12 +56,14 @@ router.patch('/donating', (req, res, next) => {
 	const id = req.body.id
 	const reason = req.body.reason
 
+	console.log(accepted,id,reason)
+
 	const sql = `
 		UPDATE donations
-		SET accepted = ? 
+		SET accepted = ?, reason = ? 
 		Where id = ?
 	`
-	conn.query(sql, [accepted, id, reason], (err, results, fields) => {
+	conn.query(sql, [accepted, reason, id], (err, results, fields) => {
 		res.json({
 			message: 'Order updated'
 		})

@@ -17,12 +17,11 @@ const Modal = ({ handleClose, show, children}) => {
 	)
 }
 
-class D_PickupsList extends Component {
+class D_ManagePickupsList extends Component {
 	state = {
 		show: false,
-		show1: false,
+		show3: false,
 		show2: false,
-		accepted: null,
 		reason: '',
 		id: ''
 	}
@@ -33,15 +32,15 @@ class D_PickupsList extends Component {
 		})
 	}
 
-	showPickupModal = () => {
+	showAddModal = () => {
 		this.setState({
-			show1: true
+			show3: true
 		})
 	}
 
-	hidePickupModal = () => {
+	hideAddModal = () => {
 		this.setState({
-			show1: false
+			show3: false
 		})
 	}
 
@@ -56,16 +55,6 @@ class D_PickupsList extends Component {
 			show2: false
 		})
 	}
-
-	addPickup = () => {
-	
-	updatePickup({
-		accepted: "true",
-		id: this.props.user.id
-		
-	})
-	this.hidePickupModal()
-}
 
 deletePickup = (e) => {
 	e.preventDefault()
@@ -91,20 +80,20 @@ deletePickup = (e) => {
 	  				<p>{this.props.user.dish} x {this.props.user.trays}</p>
 	  			</div>
 	  			<div>
-	  				<button className="ui green button" onClick={this.showPickupModal}>
-						<i className="check icon"></i>Confirm Pickup
+	  				<button className="ui blue button" onClick={this.showAddModal}>
+						<i className="map icon"></i>Add to Map
 					</button>
 					<button className="ui red button" onClick={this.showDeleteModal}>
 						<i className="trash alternate icon"></i>Delete
 					</button>
 	  			</div>
-	  			         <Modal show={this.state.show1} handleClose={this.hidePickupModal}>
-	  						<h2>Please confirm that you have picked up the following:</h2>
+	  			         <Modal show={this.state.show3} handleClose={this.hideAddModal}>
+	  						<h2>Add the following pickup to your route:</h2>
 	  						<p>{this.props.user.name}</p>
 	  						<p>{this.props.user.address}</p>
 	  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
 	  						<p>Distance From Location</p>
-	  						<button className="ui green button" onClick={this.addPickup} id="confirmpickup">Confirm Pickup</button>
+	  						<button className="ui blue button" id="confirmpickup">Add to Map</button>
 	  			         </Modal>
 	  			         <Modal show={this.state.show2} handleClose={this.hideDeleteModal}>
 	  						<h2>Are you sure you want to delete this pickup?</h2>
@@ -129,4 +118,4 @@ function mapStateToProps(appState) {
 		donate: appState.appReducer.donate
 	}
 }
-export default withAuth(connect(mapStateToProps)(D_PickupsList))
+export default withAuth(connect(mapStateToProps)(D_ManagePickupsList))

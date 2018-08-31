@@ -62,6 +62,7 @@ render() {
           origin: new google.maps.LatLng({lat:lat, lng:lng}),
           destination: api.getProfile().address,
           waypoints: [{location: 'Raku, Las Vegas, NV', stopover: true},
+                      {location: 'Joel Robuchon, Las Vegas, NV', stopover: true}
           				],
           optimizeWaypoints: true,
           travelMode: google.maps.TravelMode.DRIVING,
