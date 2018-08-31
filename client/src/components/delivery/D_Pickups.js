@@ -1,32 +1,36 @@
 import React, { Component } from 'react'
 import { withAuth } from '../Authentication'
 import { connect } from 'react-redux'
-
 import { getDonations } from '../../actions/delivery-actions/deliveryActions'
-import { Container, Header } from 'semantic-ui-react'
+import { Container, Header, Grid } from 'semantic-ui-react'
 
 class D_Pickups extends Component {
 	componentDidMount() {
 		getDonations()
 	}
 
- render() {
-   return (
-		<div>
+	render() {
+		return (
 			<Container>
 				<Header>Pickups List</Header>
-				{this.props.donations.map( data => (
-					<div key={data.id}>
-						{data.dish}
-						{data.address}
-						{data.date}
-					</div>
-				))}
+
+				<Grid columns="eqaul">	
+					{this.props.donations.map( data => (
+						<div key={data.id}>
+							<Grid.Row>
+								<Grid.Column>
+									{data.dish}
+									{data.address}
+									{data.date}
+								</Grid.Column>
+							</Grid.Row>
+						</div>
+					))}
+				</Grid>
 
 			</Container>
-		</div>
-   )
- }
+		)
+	}
 }
 
 function mapStateToProps(appState) {

@@ -36,8 +36,6 @@ router.get('/pickups', (req, res, next) => {
 	`
 
 	conn.query(sql, (error, results, fields) => {
-		let postings = req.body
-		console.log(postings)
 		res.json(results)
 	})
 })
