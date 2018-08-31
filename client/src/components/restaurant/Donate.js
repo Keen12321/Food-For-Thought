@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { Button, Form, Container, Header } from 'semantic-ui-react'
 import { makeDonation, getCurrentDate } from '../../actions/restaurant-actions/donateActions'
 import HomeBar from './R_HomeBar'
@@ -20,7 +21,7 @@ class Donate extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		makeDonation({
-			name: this.state.name,
+			dish: this.state.dish,
 			trays: this.state.trays,
 			value: this.state.value,
 		})
@@ -38,8 +39,8 @@ class Donate extends Component {
 					<Form onSubmit={this.handleSubmit}>
 						<Header as='h3'>Make a Donation</Header>
 						<Form.Field>
-							<Form.Input label='Dish' type='text' placeholder='Food Item' name='name'
-								onChange={this.handleChange} value={this.state.name} />
+							<Form.Input label='Dish' type='text' placeholder='Food Item' name='dish'
+								onChange={this.handleChange} value={this.state.dish} />
 
 					    <Form.Field label='How Many?' control='select' name='trays'
 					    	onChange={this.handleChange} value={this.state.trays}>
@@ -72,7 +73,7 @@ class Donate extends Component {
 
 						<Form.Field>
 				    	<Button color="orange" type='button' onClick={this.newitem}>Add More +</Button>
-				    	<Button color="green" floated='right' type='submit'>Submit</Button>
+				    	<Link to='/restaurant'><Button color="green" floated='right' type='submit'>Submit</Button></Link>
 			    	</Form.Field>
 				  </Form>
 				</Container>

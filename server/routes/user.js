@@ -8,27 +8,24 @@ const router = express.Router()
 
 // POSTING DONATIONS
 router.post('/donate', (req, res, next) => {
-	const name = req.body.name
+	const dish = req.body.dish
 	const trays = req.body.trays
 	const value = req.body.value
 	const sql = `
 		INSERT INTO
-			donations (name, trays, value)
+			donations (dish, trays, value)
 		VALUES
 			(?, ?, ?)
 	`
 
-	conn.query(sql, [name, trays, value], (error, results, fields) => {
+	conn.query(sql, [dish, trays, value], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
 	})
 })
 
 // DONATION LISTING
-route.get('/pickups', (req, res, next) => {
-	const dish = req.body.dish
-	const address = req.body.address
-	const date = req.body.date
+router.get('/pickups', (req, res, next) => {
 	const sql = `
 		SELECT 
 			d.dish, u.address, d.date
@@ -38,9 +35,10 @@ route.get('/pickups', (req, res, next) => {
 			d.food_id = u.id
 	`
 
-	conn.query(sql, [dish, address, date], (error, results, fields) => {
+	conn.query(sql, (error, results, fields) => {
 		let postings = req.body
 		console.log(postings)
+		res.json(results)
 	})
 })
 
