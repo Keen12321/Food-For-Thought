@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/App.css'
 import '../styles/Login.css'
+import '../styles/D_Pickups.css'
 import store from '../store'
 import {Provider} from 'react-redux'
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'

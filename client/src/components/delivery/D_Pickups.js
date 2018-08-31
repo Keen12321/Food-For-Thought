@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withAuth } from '../Authentication'
 import { connect } from 'react-redux'
 import { getDonations } from '../../actions/delivery-actions/deliveryActions'
-import { Container, Header, Grid } from 'semantic-ui-react'
+import { Container, Header, Grid, Button } from 'semantic-ui-react'
 
 class D_Pickups extends Component {
 	componentDidMount() {
@@ -14,7 +14,7 @@ class D_Pickups extends Component {
 			<Container>
 				<Header>Pickups List</Header>
 
-				<Grid columns="eqaul">	
+				<Grid>	
 					{this.props.donations.map( data => (
 						<div key={data.id}>
 							<Grid.Row>
@@ -23,6 +23,8 @@ class D_Pickups extends Component {
 									{data.address}
 									{data.date}
 								</Grid.Column>
+								<Button color='green' type='submit'>Accept</Button>
+								<Button color='red' type='submit'>Decline</Button>
 							</Grid.Row>
 						</div>
 					))}
