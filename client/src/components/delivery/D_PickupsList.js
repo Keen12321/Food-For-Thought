@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
 import {connect} from 'react-redux'
 import { getDonations, updatePickup } from '../../actions/donateActions'
+import {Form} from 'semantic-ui-react'
 
 
 const Modal = ({ handleClose, show, children}) => {
@@ -23,7 +24,7 @@ class D_PickupsList extends Component {
 		show2: false,
 		show3: false,
 		accepted: null,
-		food_id: ''
+		id: ''
 	}
 
 	showPickupModal = () => {
@@ -62,29 +63,28 @@ class D_PickupsList extends Component {
 	}
 
 	addPickup = () => {
-	this.setState({
-		accepted: true,
-		food_id: this.props.user.food_id
-	})
+	
 	updatePickup({
-		accepted: this.state.accepted
+		accepted: "true",
+		id: this.props.user.id
+		
 	})
+	this.hidePickupModal()
 }
 
-deletePickup = () => {
-	this.setState({
-		accepted: false,
-		food_id: this.props.user.food_id
-	})
+deletePickup = (e) => {
 	updatePickup({
-		accepted: this.state.accepted,
-		food_id: this.props.user.food_id
-	})
+		accepted: "false",
+		id: this.props.user.id
+			})
+	this.hideDeleteModal()
 }
+
+
  render() {
    return (
    		<div>
-         	<div key={this.props.user.food_id} className="pickups ui vertical segment">
+         	<div key={this.props.user.id} className="pickups ui vertical segment">
 	   			<div>
 	  				<p>{this.props.user.name}</p>
 	  				<p>{this.props.user.address}</p>
@@ -95,7 +95,7 @@ deletePickup = () => {
 	  			</div>
 	  			<div>
 	  				<button className="ui green button" onClick={this.showPickupModal}>
-						<i className="check icon"></i>Confirm Receipt
+						<i className="check icon"></i>Confirm Pickup
 					</button>
 	  				<button className="ui blue button" onClick={this.showAddModal}>
 						<i className="map pin icon"></i>Add to Map
@@ -110,7 +110,7 @@ deletePickup = () => {
 	  						<p>{this.props.user.address}</p>
 	  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
 	  						<p>Distance From Location</p>
-	  						<button className="ui green button" onClick={this.addPickup}id="confirmpickup">Confirm Pickup</button>
+	  						<button className="ui green button" onClick={this.addPickup} id="confirmpickup">Confirm Pickup</button>
 	  			         </Modal>
 	  			         <Modal show={this.state.show3} handleClose={this.hideAddModal}>
 	  						<h2>Please confirm this pickup and add it to the map</h2>
@@ -125,7 +125,7 @@ deletePickup = () => {
 	  						<p>{this.props.user.name}</p>
 	  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
 	  						<div className="cxlreason">
-	  							<textarea placeholder="Must provide reason for cancellation">
+	  							<textarea name="reason" type="text" placeholder="Must provide reason for cancellation">
 	  							</textarea>
 	  						</div>
 	  						<button className="ui red button" id="confirmcxl" onClick={this.deletePickup}>Delete Pickup</button>
