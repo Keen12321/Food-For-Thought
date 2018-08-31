@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { makeDonation } from '../../actions/restaurant-actions/donateActions'
+// import { makeDonation } from '../../actions/restaurant-actions/donateActions'
+import { makeDonation } from '../../actions/donateActions'
 import { Button, Form } from 'semantic-ui-react'
 import HomeBar from './R_HomeBar'
 
@@ -32,7 +33,7 @@ class Donate extends Component {
 		e.preventDefault()
 		const selector = document.getElementById('mySelect')
 		const val = selector[selector.selectedIndex].value
-		const name = e.target.elements.name.value
+		const name = e.target.elements.dish.value
 		
 		if(name === '' || val === '0')
 		{
@@ -53,7 +54,7 @@ class Donate extends Component {
 		else
 		{
 			makeDonation({
-				name: this.state.name,
+				dish: this.state.dish,
 				trays: this.state.trays
 			})
 
@@ -65,13 +66,12 @@ class Donate extends Component {
 	
 	render() {
 		return (
-			<div>
-				<HomeBar />
+			<div>				
 				<div className="donate-container">
 
 					<Form onSubmit={this.handleSubmit.bind(this)} >
-						<Form.Input label='Title' type='text' placeholder='Food Item' name='name'
-							onChange={this.handleChange} value={this.state.name} id = 'myInp' onClick={this.handleClick2}/>
+						<Form.Input label='Title' type='text' placeholder='Food Item' name='dish'
+							onChange={this.handleChange} value={this.state.dish} id = 'myInp' onClick={this.handleClick2}/>
 
 				    <Form.Field label='How Many?' control='select' name='trays'
 				    	onChange={this.handleChange} value={this.state.trays} id='mySelect' onClick={this.handleClick}>

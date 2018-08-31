@@ -1,9 +1,13 @@
 /*global google*/
 import React, { Component } from 'react'
+import D_Pickups from './D_Pickups'
 import  { compose, withProps, lifecycle } from 'recompose'
 import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-google-maps'
+import { withAuth, api } from '../Authentication'
+import { getDonations } from '../../actions/donateActions'
+import {connect} from 'react-redux'
 
-import Pickups from './D_Pickups'
+
 
 
 class D_Map extends Component {
@@ -32,18 +36,20 @@ class D_Map extends Component {
 
   componentDidMount() {
     this.showCurrentLocation()
+    getDonations()
   }
 
 render() {
   const lat = this.state.currentLatLng.lat
   const lng = this.state.currentLatLng.lng
+
   const DirectionsComponent = compose(
 
     withProps({
       googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U",
-      loadingElement: <div style={{ height: `400px` }} />,
+      loadingElement: <div style={{ height: `100%` }} />,
       containerElement: <div style={{ width: `100%` }} />,
-      mapElement: <div style={{height: `600px`, width: `100%` }}  />,
+      mapElement: <div style={{height: `100%`, width: `100%` }}  />,
     }),
 
     withScriptjs,
@@ -53,8 +59,14 @@ render() {
       componentDidMount() { 
         const DirectionsService = new google.maps.DirectionsService()
         DirectionsService.route({
+        	 
           origin: new google.maps.LatLng({lat:lat, lng:lng}),
-          destination: `Raku, Las Vegas, NV`,
+          destination: api.getProfile().address,
+
+
+          waypoints: [{location: 'Raku, Las Vegas, NV', stopover: true},
+          				],
+          optimizeWaypoints: true,
           travelMode: google.maps.TravelMode.DRIVING,
         }, (result, status) => {
           
@@ -63,7 +75,8 @@ render() {
               directions: {...result},
               markers: true
             })
-          } else {
+          }
+           else {
             console.error(`error fetching directions ${result}`)
           }
         })
@@ -71,27 +84,25 @@ render() {
     })
   )(props =>
     <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
-
-      {/*<Marker position={{lat: 36.1699, lng: 115.1100}} onClick={props.onToggleOpen} > */}
          {props.directions && <DirectionsRenderer directions={props.directions} suppressMarkers={props.markers}/>}
-        {/* {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
-         <p>here is some window stuff</p>
-         </InfoWindow>}
-      </Marker> */}
     </GoogleMap>
   )
 return (
 	   <div className="pickupsContainer">
-        <Pickups />
-        <DirectionsComponent
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKvcSq2gVj-NCb4SYr2FCfuic3Wq4zZFE"
-        loadingElement={<div style={{ height: `400px` }} />}
-        containerElement={<div style={{ width: `100%` }} />}
-        mapElement={<div style={{height: `600px`, width: `100%` }}  />}
-        />
+	   <div id="scroll">
+        <D_Pickups />
+        </div>
+        <DirectionsComponent />
      </div>
     )
   }
 }
+function mapStateToProps(appState) {
+	console.log('appstate', appState)
+	return {
+		donate: appState.appReducer.donate
+	}
+}
+export default withAuth(connect(mapStateToProps)(D_Map))
 
-export default D_Map
+

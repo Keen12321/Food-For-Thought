@@ -1,3 +1,8 @@
+#scroll {
+	max-height: 700px;
+	overflow-y: hidden;
+	overflow: auto;
+}
 /*
 mockup colors
 red - rgb(202,23,26)
@@ -40,6 +45,9 @@ a {
 	cursor: pointer;
 	height: 100%;
 }
+.pickupsContainer {
+	display: flex;
+}
 
 .pickupsContainer {
 	display: flex;
@@ -59,8 +67,8 @@ a {
 	border-radius: 50%;
 }
 
-.D_navbar{
-	background: #232323;
+.D_navbar {
+background: #232323;
 	display: flex;
 	justify-content: space-between;
 	padding: 10px 25px;
@@ -262,6 +270,7 @@ dark gray - rgb(30,30,30)
 .donate__details-submit {
 	padding: 10px;
 }
+<<<<<<< HEAD
 
 .reportTable {
 	display:flex;
@@ -313,6 +322,8 @@ th, td {
 
 
 
+=======
+>>>>>>> 850fd0d12161400a4cb810f5b3bdc52d968cc53e
 .pickups {
 	display: flex;
 	justify-content: space-between;

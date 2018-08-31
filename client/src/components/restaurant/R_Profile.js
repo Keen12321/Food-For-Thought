@@ -30,11 +30,6 @@ class R_Profile extends Component {
 	render() {
 		return (
 			<div>
-				<div>
-					<div>{api.getProfile().email}</div>
-					<div>{api.getProfile().address}</div>
-					<div>{api.getProfile().phone}</div>
-				</div>
 				<Modal trigger={<Button>
 					<div>Edit Profile</div>
 					<i className="fa fa-edit"/>
