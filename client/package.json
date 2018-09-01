@@ -9,6 +9,7 @@
     "jsonwebtoken": "^8.3.0",
     "normalize.css": "^8.0.0",
     "react": "^16.4.2",
+    "react-chartjs2": "^1.2.1",
     "react-dom": "^16.4.2",
     "react-google-maps": "^9.4.5",
     "react-redux": "^5.0.7",
@@ -16,6 +17,7 @@
     "react-scripts": "^1.1.5",
     "recompose": "^0.29.0",
     "redux": "^4.0.0",
+    "save": "^2.3.2",
     "semantic-ui-react": "^0.82.3",
     "validator": "^10.7.0"
   },

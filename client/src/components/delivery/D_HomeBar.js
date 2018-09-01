@@ -4,24 +4,6 @@ import {withAuth, api} from '../Authentication'
 import { Dropdown } from 'semantic-ui-react'
 
 class D_HomeBar extends Component {
-
-// <<<<<<< HEAD
-//  render() {
-//    return (
-//    	<div className="D_navbar">
-//    		<div className="D_navbar left">
-//    			<Link to="/delivery"><i className="fa-nav fa fa-truck" />Home</Link>
-//    			<Link to="/delivery/map">Map</Link>
-//    			<Link to="/delivery/pickups">Pickups</Link>
-//    		</div>
-//    		<div className="D_navbar right">
-//    			<Link to="/delivery/profile">LV Rescue Mission<i className="fa-nav fa fa-user" /></Link>
-//    		</div>
-//    	</div>
-     
-//    )
-//  }
-
   logout = (e) => {
       this.props.signout()
     }

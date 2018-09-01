@@ -8,7 +8,7 @@ class R_Profile extends Component {
 	state = {
 		name: api.getProfile().name,
 		email: api.getProfile().email,
-		address: api.getProfile().address,
+		location: api.getProfile().location,
 		phone: api.getProfile().phone,
 	}
 
@@ -24,7 +24,7 @@ class R_Profile extends Component {
 			id: api.getProfile().id,
 			name: this.state.name,
 			email: this.state.email,
-			address: this.state.address,
+			location: this.state.location,
 			phone: this.state.phone
 		})
 		this.props.signout()
@@ -46,7 +46,7 @@ class R_Profile extends Component {
 	 						<Button className="loginSubmit" size='huge' type="submit">Change Info</Button>
 	 					</Link>
 	 				</Form>
-	 			</Segment>
+	 			</Segment>	
 			</div>
 		)
 	}

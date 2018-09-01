@@ -270,26 +270,6 @@ dark gray - rgb(30,30,30)
 .donate__details-submit {
 	padding: 10px;
 }
-<<<<<<< HEAD
-
-.reportTable {
-	display:flex;
-	justify-content:space-around;
-	margin-top:10px;
-}
-
-th, td {
-	padding:5px 10px;
-	text-align:left;
-	border:1px solid silver;
-}
-
-.reportChart {
-	display:flex;
-	justify-content:center;
-	margin:10px auto;
-	width:500px;
-}
 
 #thanks{
 	width: 40%;
@@ -310,20 +290,6 @@ th, td {
 	line-height: 50px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> 850fd0d12161400a4cb810f5b3bdc52d968cc53e
 .pickups {
 	display: flex;
 	justify-content: space-between;

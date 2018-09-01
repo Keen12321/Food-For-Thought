@@ -10,7 +10,7 @@ class Register extends Component {
 		email: '',
 		password: '',
 		confirmPassword: '',
-		address: '',
+		location: '',
 		phone: '',
 		type: '',
 		buttonColor: 'light-grey',
@@ -35,14 +35,14 @@ class Register extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		
-		if (this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.address !== '' && this.state.phone !== '' && this.state.type !== '') {
+		if (this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '') {
 			if (validator.isEmail(this.state.email)) {
 				if (this.state.password === this.state.confirmPassword) {
 					registerUser({
 						name: this.state.name,
 						email: this.state.email,
 						password: this.state.password,
-						address: this.state.address,
+						location: this.state.location,
 						phone: this.state.phone,
 						type: this.state.type
 					}, () => {
