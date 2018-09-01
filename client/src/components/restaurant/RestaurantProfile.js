@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth } from '../Authentication'
-import { Header, Button } from 'semantic-ui-react'
+import {Button} from 'semantic-ui-react'
 
 class RestaurantProfile extends Component{
 	
@@ -9,7 +9,7 @@ class RestaurantProfile extends Component{
 			<div className="profileContain">
 				
 				<div id="prof">
-					<Header as='h2'>Your Restaurants Profile</Header>
+					<h2>Your Restaurants Profile</h2>
 				</div>
 				
 				<div id="itemsD">

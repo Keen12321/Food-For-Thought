@@ -1,16 +1,13 @@
 const initialState = {
-	donate: '',
-	donations: [],
-	// donate: []
+	donate: []
 }
 
 export default function (state = initialState, action) {
-	switch (action.type) {
-	  case 'MAKE_DONATION':
-			return {...state, donate: action.payload}
-		case 'GET_DONATIONS':
-			return {...state, donations: action.payload}
-		default:
-			return state
+  // put magic here
+ switch (action.type) {
+    case 'GET_DONATIONS':
+    	return {...state, donate: action.payload}
+    default:
+    	return state
   }
 }
