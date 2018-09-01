@@ -6,6 +6,7 @@ import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-
 import { withAuth, api } from '../Authentication'
 import { getDonations } from '../../actions/donateActions'
 import {connect} from 'react-redux'
+import Stuff from './Stuff'
 
 
 
@@ -61,9 +62,7 @@ render() {
         	 
           origin: new google.maps.LatLng({lat:lat, lng:lng}),
           destination: api.getProfile().address,
-          waypoints: [{location: 'Raku, Las Vegas, NV', stopover: true},
-                      {location: 'Joel Robuchon, Las Vegas, NV', stopover: true}
-          				],
+          waypoints: [], //empty array is ok. array of objects with location and stopover
           optimizeWaypoints: true,
           travelMode: google.maps.TravelMode.DRIVING,
         }, (result, status) => {

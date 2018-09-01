@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
 import {connect} from 'react-redux'
 import { getDonations, updatePickup } from '../../actions/donateActions'
-import {Form} from 'semantic-ui-react'
 
 
 const Modal = ({ handleClose, show, children}) => {
@@ -24,6 +23,7 @@ class D_PickupsList extends Component {
 		show2: false,
 		accepted: null,
 		reason: '',
+		pickup_by: '',
 		id: ''
 	}
 
@@ -61,8 +61,8 @@ class D_PickupsList extends Component {
 	
 	updatePickup({
 		accepted: "true",
-		id: this.props.user.id
-		
+		id: this.props.user.id,
+		pickup_by: api.getProfile().email
 	})
 	this.hidePickupModal()
 }
@@ -72,7 +72,8 @@ deletePickup = (e) => {
 	updatePickup({
 		accepted: "false",
 		id: this.props.user.id,
-		reason: this.state.reason
+		reason: this.state.reason,
+		pickup_by: api.getProfile().email
 	})
 	this.hideDeleteModal()
 }
@@ -101,7 +102,7 @@ deletePickup = (e) => {
 	  			         <Modal show={this.state.show1} handleClose={this.hidePickupModal}>
 	  						<h2>Please confirm that you have picked up the following:</h2>
 	  						<p>{this.props.user.name}</p>
-	  						<p>{this.props.user.address}</p>
+	  						<p id="waypoints">{this.props.user.address}</p>
 	  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
 	  						<p>Distance From Location</p>
 	  						<button className="ui green button" onClick={this.addPickup} id="confirmpickup">Confirm Pickup</button>

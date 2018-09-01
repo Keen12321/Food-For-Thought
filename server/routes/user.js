@@ -63,11 +63,13 @@ router.post('/donating', (req, res, next) => {
 router.get('/donating', (req, res, next) => {
 	const sql = `
 		SELECT
-		donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, users.address, users.name
+		donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, donations.pickup_by, users.address, users.name
 		FROM
 		donations
 		LEFT JOIN
 		users ON users.id = donations.food_id
+		WHERE
+		donations.accepted <> "pending"
 	`
 
 	conn.query(sql, (err, results, fields) => {
@@ -75,5 +77,7 @@ router.get('/donating', (req, res, next) => {
 		res.json(results)
 	})
 })
+
+
 
 export default router

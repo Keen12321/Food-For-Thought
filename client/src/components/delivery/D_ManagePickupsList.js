@@ -21,8 +21,9 @@ class D_ManagePickupsList extends Component {
 	state = {
 		show: false,
 		show3: false,
-		show2: false,
+		accepted: null,
 		reason: '',
+		pickup_by: '',
 		id: ''
 	}
 
@@ -44,26 +45,15 @@ class D_ManagePickupsList extends Component {
 		})
 	}
 
-	showDeleteModal = () => {
-		this.setState({
-			show2: true
-		})
-	}
 
-	hideDeleteModal = () => {
-		this.setState({
-			show2: false
-		})
-	}
-
-deletePickup = (e) => {
+addPickup = (e) => {
 	e.preventDefault()
 	updatePickup({
-		accepted: "false",
+		accepted: 'pending',
 		id: this.props.user.id,
-		reason: this.state.reason
+		pickup_by: api.getProfile().email
 	})
-	this.hideDeleteModal()
+	this.hideAddModal()
 }
 
 
@@ -83,9 +73,7 @@ deletePickup = (e) => {
 	  				<button className="ui blue button" onClick={this.showAddModal}>
 						<i className="map icon"></i>Add to Map
 					</button>
-					<button className="ui red button" onClick={this.showDeleteModal}>
-						<i className="trash alternate icon"></i>Delete
-					</button>
+					
 	  			</div>
 	  			         <Modal show={this.state.show3} handleClose={this.hideAddModal}>
 	  						<h2>Add the following pickup to your route:</h2>
@@ -93,18 +81,9 @@ deletePickup = (e) => {
 	  						<p>{this.props.user.address}</p>
 	  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
 	  						<p>Distance From Location</p>
-	  						<button className="ui blue button" id="confirmpickup">Add to Map</button>
+	  						<button className="ui blue button" id="addtomap" onClick={this.addPickup}>Add to Map</button>
 	  			         </Modal>
-	  			         <Modal show={this.state.show2} handleClose={this.hideDeleteModal}>
-	  						<h2>Are you sure you want to delete this pickup?</h2>
-	  						<p>{this.props.user.name}</p>
-	  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
-	  						<div className="cxlreason">
-	  							<textarea name="reason" type="text" value={this.state.reason} onChange={this.handleChange} placeholder="Must provide reason for cancellation">
-	  							</textarea>
-	  						</div>
-	  						<button className="ui red button" id="confirmcxl" onSubmit={this.handleSubmit} onClick={this.deletePickup}>Delete Pickup</button>
-	  			         </Modal>
+	  			         
 			</div>
    		</div>
    )

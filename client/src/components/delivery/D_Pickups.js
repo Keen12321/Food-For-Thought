@@ -22,7 +22,7 @@ class D_Pickups extends Component {
    		
 		<div className="ui vertical segment">
   			<h3>Home</h3>
-  			<p>{api.getProfile().name}</p>
+  			<p>{api.getProfile().email}</p>
   			<p>{api.getProfile().address}</p>
 		</div>
       </div> 
