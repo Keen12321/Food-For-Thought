@@ -56,11 +56,8 @@ router.post('/donating', (req, res, next) => {
 	conn.query(sql, [dish, trays], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
-		
 	})
 })
-
-
 
 // GET REPORTS
 router.get('/reports/:id', (req, res, next) => {
@@ -80,44 +77,46 @@ router.get('/reports/:id', (req, res, next) => {
 				report.push(results[i])
 			}
 		}
-
 		res.json(report)
 	})
 })
 
-
-
 //GET CURRENT LISTINGS
-	router.get('/current', (req, res, next) =>{
-		const sql = `
-			SELECT dish, trays, accepted
-				FROM donations
-				WHERE accepted = false
-		`
+router.get('/current', (req, res, next) =>{
+	const sql = `
+		SELECT 
+			dish, trays, accepted
+		FROM 
+			donations
+		WHERE 
+			accepted = false
+	`
 
-		conn.query(sql, (error, results, fields) =>{
-			res.json(results)
-			console.log(results)
-		})
+	conn.query(sql, (error, results, fields) =>{
+		res.json(results)
+		console.log(results)
 	})
+})
 
-	router.post('/accepted', (req, res, next) =>{
-		const sql = `
-					INSTERT INTO 
-						donations (accepted, userkey)
-					VALUES ('true', {whatever your user key is})
-				`
-	})
+// TO-DO: @Mason to update this request
+router.post('/accepted', (req, res, next) =>{
+	const sql = `
+		INSTERT INTO 
+			donations (accepted, userkey)
+		VALUES 
+			('true', {whatever your user key is})
+	`
+})
 
 //GETTING THE DONATIONS MAPPED TO PICKUPS PAGE
 router.get('/donating', (req, res, next) => {
 	const sql = `
 		SELECT
-		donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, users.address, users.name
+			donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, users.address, users.name
 		FROM
-		donations
+			donations
 		LEFT JOIN
-		users ON users.id = donations.food_id
+			users ON users.id = donations.food_id
 	`
 
 	conn.query(sql, (err, results, fields) => {

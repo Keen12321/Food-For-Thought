@@ -17,8 +17,6 @@ class Donate extends Component {
 		console.log('is changed')
 	}
 
-
-
 	handleClick = (e) =>{
 		document.getElementById('mySelect').style.background = "#fff"
 	}
@@ -26,8 +24,6 @@ class Donate extends Component {
 	handleClick2 = (e) =>{
 		document.getElementById('myInp').style.background = "#fff"
 	}
-
-
 
 	handleSubmit = (e) => {
 		e.preventDefault()
@@ -57,12 +53,9 @@ class Donate extends Component {
 				dish: this.state.dish,
 				trays: this.state.trays
 			})
-
 			this.props.history.push('/restaurant/thankyou') //re-routes page
 		}
-	
 	}
-	
 	
 	render() {
 		return (
@@ -75,10 +68,10 @@ class Donate extends Component {
 
 				    <Form.Field label='How Many?' control='select' name='trays'
 				    	onChange={this.handleChange} value={this.state.trays} id='mySelect' onClick={this.handleClick}>
-					    	<option value='0'>0</option>
-					        <option value='1'>1</option>
-					        <option value='2'>2</option>
-					        <option value='3'>3</option>
+				    	<option value='0'>0</option>
+			        <option value='1'>1</option>
+			        <option value='2'>2</option>
+			        <option value='3'>3</option>
 							<option value='4'>4</option>
 							<option value='5'>5</option>
 							<option value='6'>6</option>
