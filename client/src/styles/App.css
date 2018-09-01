@@ -1,3 +1,8 @@
+#scroll {
+	max-height: 700px;
+	overflow-y: hidden;
+	overflow: auto;
+}
 /*
 mockup colors
 red - rgb(202,23,26)
@@ -40,6 +45,9 @@ a {
 	cursor: pointer;
 	height: 100%;
 }
+.pickupsContainer {
+	display: flex;
+}
 
 .pickupsContainer {
 	display: flex;
@@ -59,13 +67,12 @@ a {
 	border-radius: 50%;
 }
 
-.D_navbar{
-	background: #232323;
+.D_navbar {
+background: #232323;
 	display: flex;
 	justify-content: space-between;
-	padding: 5px;
+	padding: 10px 25px;
 }
-
 .left > a, .right > a {
 	margin: auto;
 	margin-right: 15px;
@@ -263,7 +270,60 @@ dark gray - rgb(30,30,30)
 .donate__details-submit {
 	padding: 10px;
 }
+<<<<<<< HEAD
 
+.reportTable {
+	display:flex;
+	justify-content:space-around;
+	margin-top:10px;
+}
+
+th, td {
+	padding:5px 10px;
+	text-align:left;
+	border:1px solid silver;
+}
+
+.reportChart {
+	display:flex;
+	justify-content:center;
+	margin:10px auto;
+	width:500px;
+}
+
+#thanks{
+	width: 40%;
+	border:1px solid #232323;
+	margin:100px auto;
+	text-align: center;
+	background: rgba(255,255,200,.2);
+	padding: 50px;
+}
+
+#thanks h1{
+	margin-bottom: 50px;
+	text-transform: capitalize;
+	font-family: sans-serif;
+}
+
+#thanks p{
+	line-height: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+>>>>>>> 850fd0d12161400a4cb810f5b3bdc52d968cc53e
 .pickups {
 	display: flex;
 	justify-content: space-between;

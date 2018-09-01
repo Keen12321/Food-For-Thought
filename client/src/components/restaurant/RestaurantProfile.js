@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import HomeBar from './R_HomeBar'
 import { withAuth } from '../Authentication'
 import {Button} from 'semantic-ui-react'
 
@@ -8,7 +7,6 @@ class RestaurantProfile extends Component{
 	render(){
 		return(
 			<div className="profileContain">
-				<HomeBar/>
 				
 				<div id="prof">
 					<h2>Your Restaurants Profile</h2>

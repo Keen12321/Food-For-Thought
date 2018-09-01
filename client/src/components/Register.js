@@ -13,6 +13,7 @@ class Register extends Component {
 		address: '',
 		phone: '',
 		type: '',
+		buttonColor: 'light-grey',
 		validateEmpty: true,
 		validateEmail: true,
 		validatePassword: true,
@@ -24,6 +25,11 @@ class Register extends Component {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
+		if(this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.address !== '' && this.state.phone !== '' && this.state.type !== '') {
+			this.setState({
+				buttonColor:'blue'
+			})
+		}
 	}
 
 	handleSubmit = (e) => {
@@ -99,7 +105,7 @@ class Register extends Component {
 	   				<i id="loginLogo" className="fa fa-cutlery" />
 	   				<div id="loginTitle">Register</div>
 	   			</div>
-	 				<Form size='huge' className="loginForm" onSubmit={this.handleSubmit}>
+	 				<Form className="loginForm" size='huge' onSubmit={this.handleSubmit}>
 	 					<div className="userTypeContainer">
 		 					<label className="userType" forhtml="type">
 		 						<input className="userTypeRadio" type="radio" name="type" value="Delivery" checked={this.state.type === "Delivery"} onChange={this.handleChange} />
@@ -120,7 +126,7 @@ class Register extends Component {
 	 					{incorrectPasswordValidation}
 	 					<Form.Input fluid icon='home' iconPosition='left' name='address' onChange={this.handleChange} value={this.state.address} placeholder='Address' />
 	 					<Form.Input fluid icon='mobile' iconPosition='left' name='phone' onChange={this.handleChange} value={this.state.phone} placeholder='Phone #' />
-	 					<Button className="loginSubmit" type="submit">Register</Button>
+	 					<Button className="loginSubmit" size="huge" color={this.state.buttonColor} type="submit">Register</Button>
 	 					{fieldEmpty}
 	 				</Form>
 	 			</div>
