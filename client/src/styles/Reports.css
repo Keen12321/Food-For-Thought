@@ -12,7 +12,14 @@ th, td {
 
 .reportChart {
 	display:flex;
+	flex-direction:column;
 	justify-content:center;
-	margin:10px auto;
-	width:500px;
+	margin:20px auto;
+	width:1000px;
+}
+
+p {
+	margin-bottom:0;
+	font-weight:bold;
+	text-align:center;
 }
