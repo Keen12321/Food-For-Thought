@@ -4,6 +4,7 @@ import { changeUserInfo } from '../../actions/loginActions'
 import { Button, Form, Modal } from 'semantic-ui-react'
 
 class D_Profile extends Component {
+
 	state = {
 		show: false,
 		email: api.getProfile().email,
@@ -56,6 +57,7 @@ class D_Profile extends Component {
 			</div>
 		)
 	}
+
 }
 
 export default withAuth(D_Profile)

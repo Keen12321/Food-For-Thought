@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { withAuth } from '../Authentication'
+import { withAuth, api } from '../Authentication'
 import { Header, Button } from 'semantic-ui-react'
 
 class D_Home extends Component {
+  state = {
+    id: api.getProfile().id
+  }
+
   render() {
     return (
-   		<div>
+      <div>
         <div className="pickupnotification">
            <Header as='h3'>Pickups available for today: ___</Header>
         </div>
@@ -17,7 +21,7 @@ class D_Home extends Component {
             </Link>
      			</div>
      			<div>
-     				<Link to="/delivery/pickups">
+     				<Link to={`/delivery/reports/${this.state.id}`}>
               <Button color='red' type="submit" className="manageReports">Manage Pickups</Button>
             </Link>
      			</div>
@@ -27,7 +31,7 @@ class D_Home extends Component {
             </Link>
      			</div>
      		</div>
-     	</div>
+      </div>
     )
   }
 }

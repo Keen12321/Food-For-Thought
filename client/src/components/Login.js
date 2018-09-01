@@ -41,17 +41,25 @@ class D_Login extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		this.props.signin(this.state.email, this.state.password, () => {
-			if (api.getProfile().type === 'Restaurant') {
+			 if (api.getProfile().type === 'Restaurant') 
+			 {
 				this.setState({
 					redirect: true,
 					redirectTo: '/restaurant'
 				})
-			} else {
+			}
+
+			else if(api.getProfile().type === 'Delivery')
+			{
 				this.setState({
 					redirect: true,
 					redirectTo: '/delivery'
 				})
 			}
+			else{
+				document.getElementsByClassName('loginInputBox').style.background = 'rgba(255,0,29,.2)'
+			}
+
 		})
 	}
 
@@ -65,7 +73,7 @@ class D_Login extends Component {
 
  		if (redirect) {
  			return <Redirect to={redirectTo} />
- 		} else {
+ 		} else { 			
 	   	return (
 	 			<div className="loginContainer">
 	   			<div className="loginTitleContainer">

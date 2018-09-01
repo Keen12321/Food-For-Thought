@@ -19,6 +19,7 @@ router.get('/register', (req, res, next) => {
 	})
 })
 
+
 router.patch('/register', (req, res, next) => {
 	console.log(req.body)
 	const id = req.body.id
@@ -48,9 +49,15 @@ router.post('/donate', (req, res, next) => {
 	const value = req.body.value
 	const sql = `
 		INSERT INTO
+<<<<<<< HEAD
 			donations (dish, trays, value)
 		VALUES
 			(?, ?, ?)
+=======
+			donations (dish, trays, accepted)
+		VALUES
+			(?, ?, 'false')
+>>>>>>> ec0ea7a2dadc00c42012143bf9f222f4b12da598
 	`
 
 	conn.query(sql, [dish, trays, value], (error, results, fields) => {
@@ -77,4 +84,79 @@ router.get('/pickups', (req, res, next) => {
 
 
 
+// GETTING REPORTS
+router.get('/reports/:id', (req, res, next) => {
+	const sql = `
+		SELECT users.name, donations.date, donations.dish, donations.trays, donations.value, users.id
+		FROM donations
+		LEFT JOIN users ON donations.food_id = users.id
+		WHERE donations.food_id = users.id;
+	`
+	conn.query(sql, (error, results, fields) => {
+		let report = []
+		let id = req.params.id
+
+
+		res.json(results) 
+		console.log(results)
+
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].id == id) {
+				report.push(results[i])
+			}
+		}
+
+		res.json(report)
+
+	})
+})
+
+
+
+//GET CURRENT LISTINGS
+	router.get('/current', (req, res, next) =>{
+		const sql = `
+			SELECT dish, trays, accepted
+				FROM donations
+				WHERE accepted = false
+		`
+
+		conn.query(sql, (error, results, fields) =>{
+			res.json(results)
+			console.log(results)
+		})
+	})
+
+	router.post('/accepted', (req, res, next) =>{
+		const sql = `
+					INSTERT INTO 
+						donations (accepted, userkey)
+					VALUES ('true', {whatever your user key is})
+				`
+	})
+
+
+
+
+
+
+//GETTING THE DONATIONS MAPPED TO PICKUPS PAGE
+router.get('/donating', (req, res, next) => {
+	const sql = `
+		SELECT
+		donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, users.address, users.name
+		FROM
+		donations
+		LEFT JOIN
+		users ON users.id = donations.food_id
+	`
+
+	conn.query(sql, (err, results, fields) => {
+		console.log('results',results)
+		res.json(results)
+	})
+})
+
+
 export default router
+

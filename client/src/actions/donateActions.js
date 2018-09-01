@@ -1,5 +1,5 @@
 import { api } from '../components/Authentication'
-// import store from '../../store'
+import store from '../store'
 
 export function makeDonation(donation) {
 	api.post('/api/donate', donation).then(data => {
@@ -7,8 +7,17 @@ export function makeDonation(donation) {
 	})
 }
 
-export function getCurrentDate() {
-	let date = new Date()
-	let currentDate = date.toLocaleDateString()
-	return currentDate
+export function getDonations() {
+	api.get('/api/donating').then(data => {
+		store.dispatch({
+			type: 'GET_DONATIONS',
+			payload: data
+		})
+	})
+}
+
+export function updatePickup(state) {
+	api.patch('/api/donating', state).then(data => {
+
+	})
 }

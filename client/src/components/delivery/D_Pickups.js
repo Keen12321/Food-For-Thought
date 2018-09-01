@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { withAuth } from '../Authentication'
+import { withAuth, api } from '../Authentication'
 import { connect } from 'react-redux'
-import { getDonations } from '../../actions/delivery-actions/deliveryActions'
+import { getDonations, updatePickup } from '../../actions/donateActions.js'
 import { Container, Header, Grid, Button } from 'semantic-ui-react'
+
+import D_PickupsList from './D_PickupsList'
 
 class D_Pickups extends Component {
 	state = {
@@ -19,16 +21,10 @@ class D_Pickups extends Component {
 		})
 	}
 
-	hidePickupModal = () => {
-		this.setState({
-			show1: false
-		})
-	}
-
-	showDeleteModal = () => {
-		this.setState({
-			show2: true
-		})
+	componentDidMount() {
+		getDonations()
+		updatePickup()
+		console.log(this.props)
 	}
 
 	hideDeleteModal = () => {
@@ -94,18 +90,22 @@ class D_Pickups extends Component {
 					</button>
 	  			</div>
 				</div>
+
+				<div>
+	      	{this.props.donate.map(user => (
+	        	<D_PickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
+	        ))}
+	   		
+					<div className="ui vertical segment">
+						<h3>Home</h3>
+						<p>{api.getProfile().name}</p>
+						<p>{api.getProfile().address}</p>
+					</div>
+	      </div> 
       </Container>    
    	)
  	}
 }
-
-function mapStateToProps(appState) {
-	return {
-		donations: appState.appReduce.donations
-	}
-}
-
-export default withAuth( connect(mapStateToProps)(D_Pickups) )
 
 const Modal = ({ handleClose, show, children }) => {
 	const showHideClassName = show ? 'modal modal-show' : 'modal modal-hidden'
@@ -119,3 +119,12 @@ const Modal = ({ handleClose, show, children }) => {
 		</div>
 	)
 }
+
+function mapStateToProps(appState) {
+	console.log('appstate', appState)
+	return {
+		donate: appState.appReduce.donate
+	}
+}
+
+export default withAuth( connect(mapStateToProps)(D_Pickups) )

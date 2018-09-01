@@ -1,4 +1,4 @@
-import express from 'express'
+ import express from 'express'
 import sha512 from 'js-sha512'
 import conn from '../db/conn'
 import jwt from 'jsonwebtoken'
@@ -48,6 +48,24 @@ router.post('/register', (req, res, next) => {
 	conn.query(sql, [name, email, password, address, phone, type], (err, results, fields) => {
 		res.json({
 			message: 'User created'
+		})
+	})
+})
+
+router.patch('/donating', (req, res, next) => {
+	const accepted = req.body.accepted
+	const id = req.body.id
+	const reason = req.body.reason
+	console.log(accepted, id, reason)
+
+	const sql = `
+		UPDATE donations
+		SET accepted = ?, reason = ?
+		Where id = ?
+	`
+	conn.query(sql, [accepted, reason, id], (err, results, fields) => {
+		res.json({
+			message: 'Order updated'
 		})
 	})
 })

@@ -1,8 +1,10 @@
 import { createStore, combineReducers } from 'redux'
 import appReducer from './reducers/appReducer.js'
+import reportReducer from './reducers/reportReducer.js'
 
 const rootReducer = combineReducers({
-	appReduce: appReducer
+	appReducer: appReducer,
+	reportReduce: reportReducer
 })
 
 const store = createStore(

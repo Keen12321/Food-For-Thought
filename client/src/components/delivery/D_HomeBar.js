@@ -6,8 +6,8 @@ import { Dropdown } from 'semantic-ui-react'
 
 class D_HomeBar extends Component {
   logout = (e) => {
-      this.props.signout()
-    }
+    this.props.signout()
+  }
 
   render() {
     const trigger = (
