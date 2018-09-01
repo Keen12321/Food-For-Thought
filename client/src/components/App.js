@@ -1,14 +1,11 @@
 import React from 'react'
 import '../styles/App.css'
 import '../styles/Login.css'
-import '../styles/D_Pickups.css'
 import '../styles/EditProfile.css'
 import store from '../store'
-
-import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import {Provider} from 'react-redux'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import { Authentication, AuthRoute } from './Authentication'
-
 import Login from './Login'
 import Register from './Register'
 import DeliveryApp from './delivery/DeliveryApp'
