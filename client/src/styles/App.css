@@ -1,3 +1,8 @@
+#scroll {
+	max-height: 700px;
+	overflow-y: hidden;
+	overflow: auto;
+}
 /*
 mockup colors
 red - rgb(202,23,26)
@@ -40,22 +45,45 @@ a {
 	cursor: pointer;
 	height: 100%;
 }
+.pickupsContainer {
+	display: flex;
+}
+
+.pickupsContainer {
+	display: flex;
+}
 
 .fa {
-	color: grey;
-	width: 30px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.fa-nav {
+	text-align: center;
+	color: white;
 	padding: 5px;
 	margin: 5px;
 	border: 2px solid white;
 	border-radius: 50%;
 }
 
-.navbar {
-	background: #232323;
+.D_navbar {
+background: #232323;
 	display: flex;
 	justify-content: space-between;
-	padding: 20px;
+	padding: 10px 25px;
 }
+.left > a, .right > a {
+	margin: auto;
+	margin-right: 15px;
+
+
+}
+
+.fa-calendar-check{
+	color: #fff;
+}
+
 
 .fa-map-marker {
 	border:2px solid #fff;
@@ -65,25 +93,25 @@ a {
 }
 
 .manageReports {
-	/*background: rgb(202,23,26);*/
-	/*color: white;*/
-	/*text-align: center;*/
-	/*padding: 10px;*/
-	/*font-family: sans-serif;*/
-	/*border-radius: 5px;*/
-	/*cursor: pointer;*/
-	/*height: 100%;*/
-}
-
-.navHome, .manageProfile {
-	/*background: rgb(35,123,202);
+	background: rgb(202,23,26);
 	color: white;
 	text-align: center;
 	padding: 10px;
 	font-family: sans-serif;
 	border-radius: 5px;
 	cursor: pointer;
-	height: 100%;*/
+	height: 100%;
+}
+
+.navHome, .manageProfile {
+	background: rgb(35,123,202);
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-family: sans-serif;
+	border-radius: 5px;
+	cursor: pointer;
+	height: 100%;
 }
 
 .D_HomeContainer, .R_HomeContainer {
@@ -96,6 +124,52 @@ a {
 	text-align: center;
 	font-family: sans-serif;
 	margin: 10px;
+}
+
+/*
+mockup colors
+red - rgb(202,23,26)
+orange - rgb(251,100,79)
+green - rgb(33,172,162)
+blue - rgb(35,123,202)
+light gray - rgb(247,247,247)
+dark gray - rgb(30,30,30)
+*/
+
+.container {
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+	font-family:sans-serif;
+	text-align:center;
+	color:rgb(30,30,30);
+}
+
+.container > div {
+	margin:5px auto;
+}
+
+.container > div > h1 {
+	font-size:1.5em;
+}
+
+.container > div > h2 {
+	font-size:1.25em;
+}
+
+.container > div > a {
+	text-decoration:none;
+	color:rgb(247,247,247);
+
+}
+
+
+
+
+
+.profileContain{
+	width: 100%;
+	
 }
 
 .profileContain {
@@ -117,7 +191,7 @@ a {
 	margin-right: 40%;
 }
 
-.navbar a:hover {
+.D_navbar a:hover {
 	transform:scale(1.2);
 	color: #fff;
 }
@@ -195,4 +269,67 @@ a {
 
 .donate__details-submit {
 	padding: 10px;
+}
+
+#thanks{
+	width: 40%;
+	border:1px solid #232323;
+	margin:100px auto;
+	text-align: center;
+	background: rgba(255,255,200,.2);
+	padding: 50px;
+}
+
+#thanks h1{
+	margin-bottom: 50px;
+	text-transform: capitalize;
+	font-family: sans-serif;
+}
+
+#thanks p{
+	line-height: 50px;
+}
+
+.pickups {
+	display: flex;
+	justify-content: space-between;
+}
+
+.pickups > div {
+	margin: 5px;
+}
+.modal-show {
+	display: block;
+	z-index: 100;
+}
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+}
+.modal-hidden {
+	display: none;
+}
+.modal-main {
+	box-shadow: 2px 2px 1px #000;
+	padding: 10px;
+	text-align: center;
+	background: white;
+}
+.cxlreason {
+	width: 50%;
+	height: 20vh;
+	display: block;
+	border: 2px solid #ccc;
+	margin: 10px auto;
+
+}
+.cxlreason > textarea {
+	width: 100%;
+	height: 100%;
+	font-family: sans-serif;
+	text-align: center;
 }

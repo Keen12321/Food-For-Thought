@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { makeDonation } from '../../actions/donateActions'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Container, Header } from 'semantic-ui-react'
 
 class Donate extends Component {
 	state = {
@@ -15,11 +16,11 @@ class Donate extends Component {
 		console.log('is changed')
 	}
 
-	handleClick = (e) =>{
+	handleClick = (e) => {
 		document.getElementById('mySelect').style.background = "#fff"
 	}
 
-	handleClick2 = (e) =>{
+	handleClick2 = (e) => {
 		document.getElementById('myInp').style.background = "#fff"
 	}
 
@@ -29,7 +30,7 @@ class Donate extends Component {
 		const val = selector[selector.selectedIndex].value
 		const name = e.target.elements.dish.value
 		
-		if(name === '' || val === '0')
+		if (name === '' || val === '0')
 		{
 			document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
 			document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
@@ -51,10 +52,11 @@ class Donate extends Component {
 				dish: this.state.dish,
 				trays: this.state.trays
 			})
+			
 			this.props.history.push('/restaurant/thankyou') //re-routes page
 		}
 	}
-	
+
 	render() {
 		return (
 			<div>				
@@ -89,8 +91,12 @@ class Donate extends Component {
 							<option value='20'>20</option>
 			      </Form.Field>
 
+						<Form.Input label='Value' type='text' placeholder='$$' name='value'
+								onChange={this.handleChange} value={this.state.value} />
+
 						<Form.Field>
-				    	<Button type='submit'>Submit</Button>
+				    	<Button color="orange" type='button' onClick={this.newitem}>Add More +</Button>
+				    	<Link to='/restaurant'><Button color="green" floated='right' type='submit'>Submit</Button></Link>
 			    	</Form.Field>
 				  </Form>
 				</div>

@@ -1,0 +1,25 @@
+.reportTable {
+	display:flex;
+	justify-content:space-around;
+	margin-top:10px;
+}
+
+th, td {
+	padding:5px 10px;
+	text-align:left;
+	border:1px solid silver;
+}
+
+.reportChart {
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	margin:20px auto;
+	width:1000px;
+}
+
+p {
+	margin-bottom:0;
+	font-weight:bold;
+	text-align:center;
+}

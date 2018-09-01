@@ -1,32 +1,30 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { withAuth } from '../Authentication'
-import { Header, Button } from 'semantic-ui-react'
+import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
+import {withAuth, api} from '../Authentication'
 
 class D_Home extends Component {
- render() {
-   return (
-   		<div>
+
+  state = {
+      id:api.getProfile().id
+   }
+
+  render() {
+    return (
+      <div>
         <div className="pickupnotification">
-           <Header as='h3'>There are 3 restaurants with food ready for pickup</Header>
+          <h3>Pickups available for today: ___</h3>
         </div>
-     		<div className="D_HomeContainer">
-     			<div>
-     				<Link to="/delivery/pickups">
-              <Button color='green' type="submit" className="startPickup">Start Pickups</Button>
-            </Link>
-     			</div>
-     			<div>
-     				<Link to="/delivery/pickups">
-              <Button color='red' type="submit" className="manageReports">Manage Pickups</Button>
-            </Link>
-     			</div>
-     			<div>
-     				<Link to="/delivery/pickups">
-              <Button color='blue' type="submit" className="navHome">Navigate Home</Button>
-            </Link>
-     			</div>
-     		</div>
+   		<div className="D_HomeContainer">
+   			<div>
+   				<Link to="/delivery/map"><button type="submit" className="startPickup">Start Pickups</button></Link>
+   			</div>
+   			<div>
+   				<Link to={`/delivery/reports/${this.state.id}`}><button type="submit" className="manageReports">Manage Reports</button></Link>
+   			</div>
+   			<div>
+   				<Link to="/delivery/map"><button type="submit" className="navHome">Food Map</button></Link>
+   			</div>
+   		</div>
      	</div>
    )
  }

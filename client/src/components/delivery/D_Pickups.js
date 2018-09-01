@@ -1,44 +1,43 @@
 import React, { Component } from 'react'
-import { withAuth } from '../Authentication'
-import { connect } from 'react-redux'
-import { getDonations } from '../../actions/delivery-actions/deliveryActions'
-import { Container, Header, Grid, Button } from 'semantic-ui-react'
+import { withAuth, api } from '../Authentication'
+import { getDonations, updatePickup } from '../../actions/donateActions'
+import {connect} from 'react-redux'
+import D_PickupsList from './D_PickupsList'
 
 class D_Pickups extends Component {
+
+
 	componentDidMount() {
 		getDonations()
+		updatePickup()
+		console.log(this.props)
 	}
 
-	render() {
-		return (
-			<Container>
-				<Header>Pickups List</Header>
+ render() {
+   return (
+      <div>
+      	{this.props.donate.map(user => (
+        	<D_PickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
+        ))}
+   		
+		<div className="ui vertical segment">
+  			<h3>Home</h3>
+  			<p>{api.getProfile().name}</p>
+  			<p>{api.getProfile().address}</p>
+		</div>
+      </div> 
 
-				<Grid>	
-					{this.props.donations.map( data => (
-						<div key={data.id}>
-							<Grid.Row>
-								<Grid.Column>
-									{data.dish}
-									{data.address}
-									{data.date}
-								</Grid.Column>
-								<Button color='green' type='submit'>Accept</Button>
-								<Button color='red' type='submit'>Decline</Button>
-							</Grid.Row>
-						</div>
-					))}
-				</Grid>
-
-			</Container>
-		)
-	}
+   )
+ }
 }
+
+
+
 
 function mapStateToProps(appState) {
+	console.log('appstate', appState)
 	return {
-		donations: appState.appReduce.donations
+		donate: appState.appReducer.donate
 	}
 }
-
-export default withAuth( connect(mapStateToProps)(D_Pickups) )
+export default withAuth(connect(mapStateToProps)(D_Pickups))

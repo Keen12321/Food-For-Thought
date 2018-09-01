@@ -1,42 +1,44 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import { Icon } from 'semantic-ui-react'
+import {withAuth, api} from '../Authentication'
+import { Dropdown } from 'semantic-ui-react'
 
 class D_HomeBar extends Component {
-   render() {
-      return (
-         <div className="navbar">
-            <Link to="/delivery">
-               <Icon.Group size='large'>
-                  <Icon size='large' fitted name='circle outline' />
-                  <Icon size='tiny' name='truck' />
-               </Icon.Group>
-               <p>Home</p>
-            </Link>
-            <Link to="/delivery/map">
-               <Icon.Group size='large'>
-                  <Icon size='large' fitted name='circle outline' />
-                  <Icon size='tiny' name='map marker alternate' />
-               </Icon.Group>
-               <p>Map</p>
-            </Link>
-            <Link to="/delivery/pickups">
-               <Icon.Group size='large'>
-                  <Icon size='large' fitted name='circle outline' />
-                  <Icon size='tiny' name='map marker alternate' />
-               </Icon.Group>
-               <p>Pickups</p>
-            </Link>
-            <Link to="/delivery/profile">
-               <Icon.Group size='large'>
-                  <Icon size='large' fitted name='circle outline' />
-                  <Icon size='tiny' name='user' />
-               </Icon.Group>
-               <p>Profile</p>
-            </Link>            
-   	  </div>
+  logout = (e) => {
+    this.props.signout()
+  }
+
+  render() {
+    const trigger = (
+      <span>
+        Account
+      </span>
+    )
+
+    return (
+    	<div className="D_navbar">
+    		<div className="D_navbar left">
+    			<Link to="/delivery"><i className="fa-nav fa fa-truck" />Home</Link>
+    			<Link to="/delivery/map">Map</Link>
+    			<Link to="/delivery/pickups">Pickups</Link>
+    		</div>
+    		<div className="D_navbar right">
+    			<Dropdown trigger={trigger} pointing='top right' icon={null}>
+            <Dropdown.Menu>
+              <Dropdown.Item key='username'>
+                <span>
+                  Signed in as <strong>{api.getProfile().name}</strong>
+                </span>
+              </Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item as={Link} to='/delivery/profile' key='user' text='Edit Profile' icon='user'/>
+              <Dropdown.Item as={Link} to='/login' onClick={this.logout} key='sign-out' text='Sign Out' icon='sign out' />   
+            </Dropdown.Menu>
+          </Dropdown>
+    		</div>
+    	</div>
     )
   }
 }
 
-export default D_HomeBar
+export default withAuth(D_HomeBar)
