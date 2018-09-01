@@ -7,7 +7,7 @@ class R_Profile extends Component {
 	state = {
 		show: false,
 		email: api.getProfile().email,
-		address: api.getProfile().address,
+		location: api.getProfile().location,
 		phone: api.getProfile().phone,
 	}
 
@@ -22,7 +22,7 @@ class R_Profile extends Component {
 		changeUserInfo({
 			id: api.getProfile().id,
 			email: this.state.email,
-			address: this.state.address,
+			location: this.state.location,
 			phone: this.state.phone
 		})
 	}
@@ -37,20 +37,20 @@ class R_Profile extends Component {
 			    <Modal.Header>Edit Profile</Modal.Header>
 			      <Modal.Content>
 			        <Form className="loginForm" onSubmit={this.handleSubmit}>
-			 					<Form.Field className="loginInputField">
-			 						<i className="fa fa-user" />
-				 					<input className="loginInputBox" type="text" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Email" />
-				 				</Form.Field>
-			 					<Form.Field className="loginInputField">
-			 						<i className="fa fa-home" />
-			 						<input className="loginInputBox" type="text" name="address" onChange={this.handleChange} value={this.state.address} placeholder="Address" />
-			 					</Form.Field>
-			 					<Form.Field className="loginInputField">
-			 						<i className="fa fa-mobile" />
-			 						<input className="loginInputBox" type="tel" name="phone" onChange={this.handleChange} value={this.state.phone} placeholder="Phone #" />
-			 					</Form.Field>
-			 						<Button className="loginSubmit" type="submit">Change Info</Button>
-			 				</Form>
+	 					<Form.Field className="loginInputField">
+	 						<i className="fa fa-user" />
+		 					<input className="loginInputBox" type="text" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Email" />
+		 				</Form.Field>
+	 					<Form.Field className="loginInputField">
+	 						<i className="fa fa-home" />
+	 						<input className="loginInputBox" type="text" name="location" onChange={this.handleChange} value={this.state.location} placeholder="Address" />
+	 					</Form.Field>
+	 					<Form.Field className="loginInputField">
+	 						<i className="fa fa-mobile" />
+	 						<input className="loginInputBox" type="tel" name="phone" onChange={this.handleChange} value={this.state.phone} placeholder="Phone #" />
+	 					</Form.Field>
+	 						<Button className="loginSubmit" type="submit">Change Info</Button>
+	 				</Form>
 			      </Modal.Content>
 			  </Modal>
 			</div>

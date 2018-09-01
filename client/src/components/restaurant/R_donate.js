@@ -3,11 +3,14 @@ import React, { Component } from 'react'
 import { makeDonation } from '../../actions/donateActions'
 import { Button, Form } from 'semantic-ui-react'
 import HomeBar from './R_HomeBar'
+import { api } from '../Authentication'
+
 
 class Donate extends Component {
 	state = {
 		dish: '',
-		trays: ''
+		trays: '',
+		food_id: ''
 	}
 
 	handleChange = (e) => {
@@ -55,7 +58,8 @@ class Donate extends Component {
 		{
 			makeDonation({
 				dish: this.state.dish,
-				trays: this.state.trays
+				trays: this.state.trays,
+				food_id: api.getProfile().id
 			})
 
 			this.props.history.push('/restaurant/thankyou') //re-routes page
