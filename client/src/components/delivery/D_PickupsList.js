@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { withAuth, api } from '../Authentication'
-import {connect} from 'react-redux'
-import { getDonations, updatePickup } from '../../actions/donateActions'
-import {Form} from 'semantic-ui-react'
-
+import { withAuth } from '../Authentication'
+import { connect } from 'react-redux'
+import { updatePickup } from '../../actions/donateActions'
+// import { Form } from 'semantic-ui-react'
 
 const Modal = ({ handleClose, show, children}) => {
 	const showHideClassName = show ? 'modal modal-show' : 'modal modal-hidden'
@@ -57,6 +56,7 @@ class D_PickupsList extends Component {
 			show2: false
 		})
 	}
+
 	showAddModal = () => {
 		this.setState({
 			show3: true
@@ -85,8 +85,7 @@ deletePickup = (e) => {
 	if(textA === ''){
 		document.getElementById('text').style.background = "rgba(255,0,29,.2)"
 		document.getElementById('title').innerHTML = 'You need to provide a reason for cancellation.'
-	}
-		else{
+	}	else {
 		updatePickup({
 			accepted: "false",
 			id: this.props.user.id,

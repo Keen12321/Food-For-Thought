@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { withAuth, api } from '../Authentication'
-import { Container, Button, Header } from 'semantic-ui-react'
+// import { Container, Button, Header } from 'semantic-ui-react'
 
 class R_Home extends Component {
    state = {

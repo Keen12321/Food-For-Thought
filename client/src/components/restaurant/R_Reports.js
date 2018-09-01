@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
-import { Header } from 'semantic-ui-react'
+// import { Header } from 'semantic-ui-react'
 import { getReport } from '../../actions/reportActions'
 import RC2 from 'react-chartjs2'
 import { connect } from 'react-redux'

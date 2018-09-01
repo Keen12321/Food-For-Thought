@@ -1,14 +1,12 @@
 /*global google*/
 import React, { Component } from 'react'
-import D_Pickups from './D_Pickups'
-import  { compose, withProps, lifecycle } from 'recompose'
-import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-google-maps'
+import { compose, withProps, lifecycle } from 'recompose'
+import { withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer } from 'react-google-maps'
 import { withAuth, api } from '../Authentication'
 import { getDonations } from '../../actions/donateActions'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
-
-
+import Pickups from './D_Pickups'
 
 class D_Map extends Component {
   state = {
@@ -30,7 +28,7 @@ class D_Map extends Component {
       })
       console.log(this)
     } else {
-      error => console.log(error)
+      // error => console.log(error)
     }
   }
 
@@ -90,7 +88,7 @@ render() {
 return (
 	   <div className="pickupsContainer">
 	   <div id="scroll">
-        <D_Pickups />
+        <Pickups />
         </div>
         <DirectionsComponent />
      </div>

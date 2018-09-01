@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { makeDonation } from '../../actions/donateActions'
-import { Button, Form, Container, Header } from 'semantic-ui-react'
+import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
 
 class Donate extends Component {
 	state = {
@@ -60,9 +60,11 @@ class Donate extends Component {
 	render() {
 		return (
 			<div>				
-				<div className="donate-container">
+				<Container className="donate-container">
 
-					<Form onSubmit={this.handleSubmit.bind(this)} >
+					<Header>Make a Donation</Header>
+
+					<Form onSubmit={this.handleSubmit.bind(this)} success>
 						<Form.Input label='Title' type='text' placeholder='Food Item' name='dish'
 							onChange={this.handleChange} value={this.state.dish} id = 'myInp' onClick={this.handleClick2}/>
 
@@ -92,14 +94,17 @@ class Donate extends Component {
 			      </Form.Field>
 
 						<Form.Input label='Value' type='text' placeholder='$$' name='value'
-								onChange={this.handleChange} value={this.state.value} />
+							onChange={this.handleChange} value={this.state.value} />
 
 						<Form.Field>
 				    	<Button color="orange" type='button' onClick={this.newitem}>Add More +</Button>
 				    	<Link to='/restaurant'><Button color="green" floated='right' type='submit'>Submit</Button></Link>
 			    	</Form.Field>
+
+			    	<Message success header='Form Completed' content="You've successfully added your donation, thank you!" />
 				  </Form>
-				</div>
+
+				</Container>
 			</div>
 		)
 	}
