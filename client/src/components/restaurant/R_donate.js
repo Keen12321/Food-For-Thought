@@ -13,15 +13,6 @@ class Donate extends Component {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
-		console.log('is changed')
-	}
-
-	handleClick = (e) => {
-		document.getElementById('mySelect').style.background = "#fff"
-	}
-
-	handleClick2 = (e) => {
-		document.getElementById('myInp').style.background = "#fff"
 	}
 
 	handleSubmit = (e) => {
@@ -57,6 +48,14 @@ class Donate extends Component {
 		}
 	}
 
+	// handleClick = (e) => {
+	// 	document.getElementById('mySelect').style.background = "#fff"
+	// }
+
+	// handleClick2 = (e) => {
+	// 	document.getElementById('myInp').style.background = "#fff"
+	// }
+
 	render() {
 		return (
 			<div>				
@@ -64,12 +63,34 @@ class Donate extends Component {
 
 					<Header>Make a Donation</Header>
 
-					<Form onSubmit={this.handleSubmit.bind(this)} success small>
-						<Form.Input label='Title' type='text' placeholder='Food Item' name='dish'
-							onChange={this.handleChange} value={this.state.dish} id = 'myInp' onClick={this.handleClick2}/>
+					<Form onSubmit={this.handleSubmit.bind(this)} success warning>
+						<Form.Input 
+							label='Title' 
+							type='text' 
+							placeholder='Food Item' 
+							name='dish'
+							id = 'myInp'
+							value={this.state.dish}
+							onChange={this.handleChange} 
+							/* onClick={this.handleClick2} */
+						/>
 
-				    <Form.Field label='How Many?' control='select' name='trays'
-				    	onChange={this.handleChange} value={this.state.trays} id='mySelect' onClick={this.handleClick}>
+						{/* Dish Error Message */}
+						<Message
+				      warning
+				      header='Action Forbidden'
+				      content='Plus input a valid dish name.'
+				    />
+
+				    <Form.Field 
+				    	label='How Many?' 
+				    	control='select' 
+				    	name='trays'
+				    	id='mySelect'
+				    	onChange={this.handleChange} 
+				    	value={this.state.trays} 
+				    	/* onClick={this.handleClick} */
+			    	>
 				    	<option value='0'>0</option>
 			        <option value='1'>1</option>
 			        <option value='2'>2</option>
@@ -93,15 +114,47 @@ class Donate extends Component {
 							<option value='20'>20</option>
 			      </Form.Field>
 
-						<Form.Input label='Value' type='text' placeholder='$$' name='value'
-							onChange={this.handleChange} value={this.state.value} />
+						<Form.Input 
+							label='Value' 
+							type='text' 
+							placeholder='$$' 
+							name='value'
+							onChange={this.handleChange} 
+							value={this.state.value} 
+						/>
+
+					{/* Value Error Message */}
+						<Message
+				      warning
+				      header='Action Forbidden'
+				      content='Plus input a valid currency amount.'
+				    />
 
 						<Form.Field>
-				    	<Button color="orange" type='button' onClick={this.newitem}>Add More +</Button>
-				    	<Link to='/restaurant'><Button color="green" floated='right' type='submit'>Submit</Button></Link>
+				    	<Button 
+				    		color="orange" 
+				    		type='button' 
+				    		onClick={this.newitem}
+			    		>
+				    		Add More +
+			    		</Button>
+				    	
+				    	<Link to='/restaurant'>
+				    		<Button 
+				    			color="green" 
+				    			floated='right' 
+				    			type='submit'
+			    			>
+			    				Submit
+		    				</Button>
+	    				</Link>
 			    	</Form.Field>
 
-			    	<Message success header='Form Completed' content="You've successfully added your donation, thank you!" />
+			    	<Message 
+			    		success 
+			    		header='Form Completed' 
+			    		content="You've successfully added your donation, thank you!" 
+		    		/>
 				  </Form>
 
 				</Container>
