@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
-import {changeUserInfo} from '../../actions/loginActions'
+import { changeUserInfo } from '../../actions/loginActions'
 import { Button, Form, Modal } from 'semantic-ui-react'
 
 class D_Profile extends Component {

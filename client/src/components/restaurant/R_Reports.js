@@ -1,11 +1,11 @@
-import React, {Component} from 'react'
-import {withAuth, api} from '../Authentication'
-import {getReport} from '../../actions/reportActions'
+import { Header } from 'semantic-ui-react'
+import { getReport } from '../../actions/reportActions'
+import { connect } from 'react-redux'
+import React, { Component } from 'react'
+import { withAuth, api } from '../Authentication'
 import Chart from 'chart.js'
-import {connect} from 'react-redux'
 
 class R_Reports extends Component {
-
 	state = {
 		id:api.getProfile().id,
 		name:api.getProfile().name
@@ -47,6 +47,7 @@ class R_Reports extends Component {
 	render() {
 		return (
 			<div>
+				<Header>Manage Reports</Header>
 				<div className="reportTable">
 					<table>
 						<thead>
@@ -91,4 +92,4 @@ function mapStateToProps(appState) {
 	}
 }
 
-export default withAuth(connect(mapStateToProps)(R_Reports))
+export default withAuth( connect(mapStateToProps)(R_Reports) )

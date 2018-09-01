@@ -43,20 +43,42 @@ router.patch('/register', (req, res, next) => {
 })
 
 // POSTING DONATIONS
-router.post('/donating', (req, res, next) => {
+router.post('/donate', (req, res, next) => {
 	const dish = req.body.dish
 	const trays = req.body.trays
+	const value = req.body.value
 	const sql = `
 		INSERT INTO
+<<<<<<< HEAD
+			donations (dish, trays, value)
+		VALUES
+			(?, ?, ?)
+=======
 			donations (dish, trays, accepted)
 		VALUES
 			(?, ?, 'false')
+>>>>>>> ec0ea7a2dadc00c42012143bf9f222f4b12da598
 	`
 
-	conn.query(sql, [dish, trays], (error, results, fields) => {
+	conn.query(sql, [dish, trays, value], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
-		
+	})
+})
+
+// DONATION LISTING
+router.get('/pickups', (req, res, next) => {
+	const sql = `
+		SELECT 
+			d.dish, u.address, d.date
+		FROM
+			donations d, users u
+		WHERE
+			d.food_id = u.id
+	`
+
+	conn.query(sql, (error, results, fields) => {
+		res.json(results)
 	})
 })
 
