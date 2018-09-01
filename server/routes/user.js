@@ -46,7 +46,7 @@ router.patch('/register', (req, res, next) => {
 })
 
 // POSTING DONATIONS
-router.post('/donating', (req, res, next) => {
+router.post('/donate', (req, res, next) => {
 	const dish = req.body.dish
 	const trays = req.body.trays
 	const sql = `
@@ -59,7 +59,6 @@ router.post('/donating', (req, res, next) => {
 	conn.query(sql, [dish, trays], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
-		
 	})
 })
 

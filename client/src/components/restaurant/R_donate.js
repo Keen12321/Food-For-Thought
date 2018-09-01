@@ -6,7 +6,8 @@ import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
 class Donate extends Component {
 	state = {
 		dish: '',
-		trays: ''
+		trays: '',
+		value: ''
 	}
 
 	handleChange = (e) => {
@@ -19,8 +20,10 @@ class Donate extends Component {
 		e.preventDefault()
 		makeDonation({
 			dish: this.state.dish,
-			trays: this.state.trays
+			trays: this.state.trays,
+			value: this.state.value
 		})
+	}
 
 		// const selector = document.getElementById('mySelect')
 		// const val = selector[selector.selectedIndex].value
@@ -51,7 +54,7 @@ class Donate extends Component {
 			
 		// 	this.props.history.push('/restaurant/thankyou') //re-routes page
 		// }
-	}
+	// }
 
 	// handleClick = (e) => {
 	// 	document.getElementById('mySelect').style.background = "#fff"
@@ -68,13 +71,14 @@ class Donate extends Component {
 
 					<Header>Make a Donation</Header>
 
+					{/* Dish Name Input Field */}
 					<Form onSubmit={this.handleSubmit.bind(this)} success warning>
 						<Form.Input 
 							label='Title' 
 							type='text' 
 							placeholder='Food Item' 
 							name='dish'
-							id = 'myInp'
+							// id='myInp'
 							value={this.state.dish}
 							onChange={this.handleChange} 
 							/* onClick={this.handleClick2} */
@@ -86,12 +90,13 @@ class Donate extends Component {
 				      header='Action Forbidden'
 				      content='Plus input a valid dish name.'
 				    />
-
+						
+						{/* Tray Amount Selection Field */}
 				    <Form.Field 
 				    	label='How Many?' 
 				    	control='select' 
 				    	name='trays'
-				    	id='mySelect'
+				    	// id='mySelect'
 				    	onChange={this.handleChange} 
 				    	value={this.state.trays} 
 				    	/* onClick={this.handleClick} */
@@ -119,6 +124,7 @@ class Donate extends Component {
 							<option value='20'>20</option>
 			      </Form.Field>
 
+						{/* Value Input Field */}
 						<Form.Input 
 							label='Value' 
 							type='text' 
@@ -135,19 +141,10 @@ class Donate extends Component {
 				      content='Plus input a valid currency amount.'
 				    />
 
-						<Form.Field>
-				    	<Button 
-				    		color="orange" 
-				    		type='button' 
-				    		onClick={this.newitem}
-			    		>
-				    		Add Another Dish
-			    		</Button>
-				    	
+						<Form.Field>				    	
 				    	<Link to='/restaurant'>
 				    		<Button 
-				    			color="green" 
-				    			floated='right' 
+				    			color='green'
 				    			type='submit'
 			    			>
 			    				Submit
