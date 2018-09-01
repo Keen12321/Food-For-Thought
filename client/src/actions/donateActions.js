@@ -23,7 +23,7 @@ export function updatePickup(state) {
 }
 
 export function getAddresses() {
-	api.get('/api/donating/pickups').then(data => {
+	api.get('/api/donating/pending/addresses').then(data => {
 		store.dispatch({
 			type: 'GET_ADDRESSES',
 			payload: data
@@ -32,7 +32,7 @@ export function getAddresses() {
 }
 
 export function getMyPickups() {
-	api.get('/api/donating/pickups').then(data => {
+	api.get('/api/donating/pending').then(data => {
 		store.dispatch({
 			type: 'GET_MYPICKUPS',
 			payload: data

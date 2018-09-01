@@ -7,7 +7,7 @@ class R_Profile extends Component {
 	state = {
 		show: false,
 		email: api.getProfile().email,
-		address: api.getProfile().address,
+		address: api.getProfile().location,
 		phone: api.getProfile().phone,
 	}
 
@@ -22,7 +22,7 @@ class R_Profile extends Component {
 		changeUserInfo({
 			id: api.getProfile().id,
 			email: this.state.email,
-			address: this.state.address,
+			address: this.state.location,
 			phone: this.state.phone
 		})
 	}
@@ -32,7 +32,7 @@ class R_Profile extends Component {
 			<div>
 				<div>
 					<div>{api.getProfile().email}</div>
-					<div>{api.getProfile().address}</div>
+					<div>{api.getProfile().location}</div>
 					<div>{api.getProfile().phone}</div>
 				</div>
 				<Modal trigger={<Button>

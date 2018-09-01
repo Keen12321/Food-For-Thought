@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
 import {connect} from 'react-redux'
-import { getDonations, updatePickup } from '../../actions/donateActions'
+import { updatePickup } from '../../actions/donateActions'
 
 
 const Modal = ({ handleClose, show, children}) => {
@@ -85,7 +85,7 @@ deletePickup = (e) => {
          	<div key={this.props.user.id} className="pickups ui vertical segment">
 	   			<div>
 	  				<p>{this.props.user.name}</p>
-	  				<p>{this.props.user.address}</p>
+	  				<p>{this.props.user.location}</p>
 	  				<p>Distance From Location</p>
 	  			</div>
 	  			<div>
@@ -102,7 +102,7 @@ deletePickup = (e) => {
 	  			         <Modal show={this.state.show1} handleClose={this.hidePickupModal}>
 	  						<h2>Please confirm that you have picked up the following:</h2>
 	  						<p>{this.props.user.name}</p>
-	  						<p id="waypoints">{this.props.user.address}</p>
+	  						<p id="waypoints">{this.props.user.location}</p>
 	  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
 	  						<p>Distance From Location</p>
 	  						<button className="ui green button" onClick={this.addPickup} id="confirmpickup">Confirm Pickup</button>
@@ -125,9 +125,8 @@ deletePickup = (e) => {
 
 
 function mapStateToProps(appState) {
-	console.log('appstate', appState)
 	return {
-		donate: appState.appReducer.donate
+		mypickups: appState.appReducer.mypickups
 	}
 }
 export default withAuth(connect(mapStateToProps)(D_PickupsList))

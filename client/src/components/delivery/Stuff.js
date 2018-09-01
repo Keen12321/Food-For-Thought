@@ -11,7 +11,7 @@ class Stuff extends Component {
    return (
    	<div>
    		{this.props.donate.map(user => (
-			<p>{this.props.user.address}
+			<p>{this.props.user.location}
 			</p>
    			))}
      </div>

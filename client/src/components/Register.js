@@ -8,7 +8,7 @@ class Register extends Component {
 		email: '',
 		password: '',
 		confirmPassword: '',
-		address: '',
+		location: '',
 		phone: '',
 		type: '',
 		validateEmpty: true,
@@ -35,7 +35,7 @@ class Register extends Component {
 					registerUser({
 						email: this.state.email,
 						password: this.state.password,
-						address: this.state.address,
+						location: this.state.location,
 						phone: this.state.phone,
 						type: this.state.type
 					}, () => {
@@ -127,7 +127,7 @@ class Register extends Component {
 	 					{incorrectPasswordValidation}
 	 					<div className="loginInputField">
 	 						<i className="fa fa-home" />
-	 						<input className="loginInputBox" type="text" name="address" onChange={this.handleChange} value={this.state.address} placeholder="Address" />
+	 						<input className="loginInputBox" type="text" name="address" onChange={this.handleChange} value={this.state.location} placeholder="Address" />
 	 					</div>
 	 					<div className="loginInputField">
 	 						<i className="fa fa-mobile" />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withAuth, api } from '../Authentication'
+import { withAuth } from '../Authentication'
 import { getDonations, updatePickup } from '../../actions/donateActions'
 import {connect} from 'react-redux'
 import D_ManagePickupsList from './D_ManagePickupsList'
