@@ -64,7 +64,7 @@ class Donate extends Component {
 
 					<Header>Make a Donation</Header>
 
-					<Form onSubmit={this.handleSubmit.bind(this)} success>
+					<Form onSubmit={this.handleSubmit.bind(this)} success small>
 						<Form.Input label='Title' type='text' placeholder='Food Item' name='dish'
 							onChange={this.handleChange} value={this.state.dish} id = 'myInp' onClick={this.handleClick2}/>
 
