@@ -13,13 +13,7 @@ class R_HomeBar extends Component {
     				</Icon.Group>
     				<p>Home</p>
     			</Link>
-	     		<Link to="/delivery/map">
-	     			<Icon.Group size='large'>
-      				<Icon size='large' fitted name='circle outline' />
-      				<Icon name='map marker alternate' />
-    				</Icon.Group>
-    				<p>Map</p>
-	     		</Link>
+
 	     		<Link to="/restaurant/profile">
 	     			<Icon.Group size='large'>
       				<Icon size='large' fitted name='circle outline' />

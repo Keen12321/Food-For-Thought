@@ -3,13 +3,10 @@ import {Link} from 'react-router-dom'
 import { withAuth } from '../Authentication'
 import { Container, Button, Header } from 'semantic-ui-react'
 
-import HomeBar from './R_HomeBar'
-
 class R_Home extends Component {
    render() {
       return (
          <Container fluid>
-            <HomeBar />
 
             <Container className="pickupnotification">
                <Header as='h3'>Pickup Ready</Header>
