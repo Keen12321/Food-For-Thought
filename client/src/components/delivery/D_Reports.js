@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {withAuth, api} from '../Authentication'
 import {getReport} from '../../actions/reportActions'
 import Chart from 'chart.js'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 class D_Reports extends Component {
 
@@ -41,7 +41,7 @@ class D_Reports extends Component {
 					}]
 				}
 			}
-		});
+		})
 	}
 
 	render() {

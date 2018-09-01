@@ -7,7 +7,6 @@ class RestaurantProfile extends Component{
 	render(){
 		return(
 			<div className="profileContain">
-				
 				<div id="prof">
 					<h2>Your Restaurants Profile</h2>
 				</div>
@@ -18,7 +17,6 @@ class RestaurantProfile extends Component{
 						<span id='numberr'>22</span>
 					</div>
 				</div>
-				
 
 				<div id="option">
 					<Button className='ui button' role='button'>
@@ -46,6 +44,5 @@ class RestaurantProfile extends Component{
 }
 
 export default withAuth(RestaurantProfile)
-
 
 //lines 14 through 19 are optional, but it shouldnt be too hard to make

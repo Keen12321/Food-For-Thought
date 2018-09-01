@@ -1,14 +1,12 @@
 /*global google*/
 import React, { Component } from 'react'
-import D_Pickups from './D_Pickups'
 import  { compose, withProps, lifecycle } from 'recompose'
-import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-google-maps'
+import { withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer } from 'react-google-maps'
 import { withAuth, api } from '../Authentication'
 import { getDonations } from '../../actions/donateActions'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
-
-
+import D_Pickups from './D_Pickups'
 
 class D_Map extends Component {
   state = {
@@ -87,7 +85,7 @@ render() {
          {props.directions && <DirectionsRenderer directions={props.directions} suppressMarkers={props.markers}/>}
     </GoogleMap>
   )
-return (
+  return (
 	   <div className="pickupsContainer">
 	   <div id="scroll">
         <D_Pickups />
@@ -97,6 +95,7 @@ return (
     )
   }
 }
+
 function mapStateToProps(appState) {
 	console.log('appstate', appState)
 	return {
