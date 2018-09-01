@@ -16,13 +16,13 @@ class D_Home extends Component {
         </div>
    		<div className="D_HomeContainer">
    			<div>
-   				<Link to="/delivery/map"><button type="submit" className="startPickup">Donations Map</button></Link>
+   				<Link to="/delivery/map"><button type="submit" className="startPickup">Select Pickups</button></Link>
    			</div>
    			<div>
    				<Link to={`/delivery/reports/${this.state.id}`}><button type="submit" className="manageReports">Manage Reports</button></Link>
    			</div>
    			<div>
-   				<Link to="/delivery/pickups"><button type="submit" className="navHome">Select Pickups</button></Link>
+   				<Link to="/delivery/map"><button type="submit" className="navHome">Donations Map</button></Link>
    			</div>
    		</div>
      	</div>

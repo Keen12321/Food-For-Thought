@@ -24,24 +24,22 @@ router.patch('/register', (req, res, next) => {
 	console.log(req.body)
 	const id = req.body.id
 	const name = req.body.name
-	const password = sha512(req.body.password).toString()
 	const email = req.body.email
 	const location = req.body.location
 	const phone = req.body.phone
 
 	const sql = `
 		UPDATE users
-		SET email = ?, password = ?, location = ?, phone = ?
+		SET name = ?, email = ?, location = ?, phone = ?
 		WHERE id = ?
 	`
-
 	conn.query(sql, [email, password, location, phone, id], (err, results, fields) => {
-
 		res.json({
 			message: 'User updated'
 		})
 	})
 })
+
 
 // POSTING DONATIONS
 router.post('/donating', (req, res, next) => {
@@ -58,10 +56,8 @@ router.post('/donating', (req, res, next) => {
 	conn.query(sql, [dish, trays, food_id], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
-		
 	})
 })
-
 
 
 // GET REPORTS
@@ -88,30 +84,6 @@ router.get('/reports/:id', (req, res, next) => {
 })
 
 
-
-//GET CURRENT LISTINGS
-	router.get('/current', (req, res, next) =>{
-		const sql = `
-			SELECT dish, trays, accepted
-				FROM donations
-				WHERE accepted = false
-		`
-
-		conn.query(sql, (error, results, fields) =>{
-			res.json(results)
-			console.log(results)
-		})
-	})
-
-	router.post('/accepted', (req, res, next) =>{
-		const sql = `
-					INSERT INTO 
-						donations (accepted, userkey)
-					VALUES ('true', {whatever your user key is})
-				`
-	})
-
-
 //GETTING THE DONATIONS MAPPED TO PICKUPS PAGE
 router.get('/donating', (req, res, next) => {
 	const sql = `
@@ -130,6 +102,8 @@ router.get('/donating', (req, res, next) => {
 		res.json(results)
 	})
 })
+
+
 //GETTING ONLY THE DONATIONS THAT ARE FLAGGED FOR PICKUP
 router.get('/donating/pending', (req, res, next) => {
 	const sql = `
@@ -148,6 +122,8 @@ router.get('/donating/pending', (req, res, next) => {
 		res.json(results)
 	})
 })
+
+
 //GETTING ADDRESSES FROM PENDING TO BE THE WAYPOINTS
 router.get('/donating/pending/addresses', (req, res, next) => {
 	const sql = `

@@ -19,12 +19,11 @@ class D_Pickups extends Component {
       	{this.props.mypickups.map(user => (
         	<D_PickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
         ))}
-   		
-		<div className="ui vertical segment">
-  			<h3>Home</h3>
-  			<p>{api.getProfile().email}</p>
-  			<p>{api.getProfile().location}</p>
-		</div>
+				<div className="ui vertical segment">
+						<h3>Home</h3>
+						<p>{api.getProfile().name}</p>
+						<p>{api.getProfile().location}</p>
+				</div>
       </div> 
 
    )

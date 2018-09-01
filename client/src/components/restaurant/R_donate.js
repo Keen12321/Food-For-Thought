@@ -76,13 +76,12 @@ class Donate extends Component {
 					<Form onSubmit={this.handleSubmit.bind(this)} >
 						<Form.Input label='Title' type='text' placeholder='Food Item' name='dish'
 							onChange={this.handleChange} value={this.state.dish} id = 'myInp' onClick={this.handleClick2}/>
-
 				    <Form.Field label='How Many?' control='select' name='trays'
-				    	onChange={this.handleChange} value={this.state.trays} id='mySelect' onClick={this.handleClick}>
-					    	<option value='0'>0</option>
-					        <option value='1'>1</option>
-					        <option value='2'>2</option>
-					        <option value='3'>3</option>
+							onChange={this.handleChange} value={this.state.trays} id='mySelect' onClick={this.handleClick}>
+				    	<option value='0'>0</option>
+			        <option value='1'>1</option>
+			        <option value='2'>2</option>
+			        <option value='3'>3</option>
 							<option value='4'>4</option>
 							<option value='5'>5</option>
 							<option value='6'>6</option>
@@ -101,7 +100,6 @@ class Donate extends Component {
 							<option value='19'>19</option>
 							<option value='20'>20</option>
 			      </Form.Field>
-
 						<Form.Field>
 				    	<Button type='submit'>Submit</Button>
 			    	</Form.Field>
