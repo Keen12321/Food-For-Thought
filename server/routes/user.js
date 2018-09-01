@@ -30,9 +30,12 @@ router.patch('/register', (req, res, next) => {
 	const phone = req.body.phone
 
 	const sql = `
-		UPDATE users
-		SET name = ?, email = ?, password = ?, address = ?, phone = ?
-		WHERE id = ?
+		UPDATE 
+			users
+		SET 
+			name = ?, email = ?, password = ?, address = ?, phone = ?
+		WHERE 
+			id = ?
 	`
 
 	conn.query(sql, [name, email, password, address, phone, id], (err, results, fields) => {

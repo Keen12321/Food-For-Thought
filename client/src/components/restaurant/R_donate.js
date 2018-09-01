@@ -17,35 +17,40 @@ class Donate extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		const selector = document.getElementById('mySelect')
-		const val = selector[selector.selectedIndex].value
-		const name = e.target.elements.dish.value
+		makeDonation({
+			dish: this.state.dish,
+			trays: this.state.trays
+		})
+
+		// const selector = document.getElementById('mySelect')
+		// const val = selector[selector.selectedIndex].value
+		// const name = e.target.elements.dish.value
 		
-		if (name === '' || val === '0')
-		{
-			document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
-			document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
-		}
+		// if (name === '' || val === '0')
+		// {
+		// 	document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
+		// 	document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
+		// }
 
-		else if(name === '')
-		{
-			document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
-		}
+		// else if(name === '')
+		// {
+		// 	document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
+		// }
 
-		else if(val === '0')
-		{
-			document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
-		}
+		// else if(val === '0')
+		// {
+		// 	document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
+		// }
 
-		else
-		{
-			makeDonation({
-				dish: this.state.dish,
-				trays: this.state.trays
-			})
+		// else
+		// {
+		// 	makeDonation({
+		// 		dish: this.state.dish,
+		// 		trays: this.state.trays
+		// 	})
 			
-			this.props.history.push('/restaurant/thankyou') //re-routes page
-		}
+		// 	this.props.history.push('/restaurant/thankyou') //re-routes page
+		// }
 	}
 
 	// handleClick = (e) => {
@@ -136,7 +141,7 @@ class Donate extends Component {
 				    		type='button' 
 				    		onClick={this.newitem}
 			    		>
-				    		Add More +
+				    		Add Another Dish
 			    		</Button>
 				    	
 				    	<Link to='/restaurant'>
