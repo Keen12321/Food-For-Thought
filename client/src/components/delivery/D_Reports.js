@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
 import { Header } from 'semantic-ui-react'
 import { getReport } from '../../actions/reportActions'
+import Chart from 'chart.js'
 import { connect } from 'react-redux'
 
 class D_Reports extends Component {
@@ -12,6 +13,35 @@ class D_Reports extends Component {
 
 	componentDidMount() {
 		getReport(this.state.id)
+		var ctx = document.getElementById("rptChart");
+		var rptChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["2018-08-31", "2018-09-01"],
+				datasets: [{
+					label: '# of Trays',
+					data: [2, 2],
+					/*backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)'
+					],
+					borderColor: [
+						'rgba(255,99,132,1)',
+						'rgba(54, 162, 235, 1)'
+					],*/
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
 	}
 
 	render() {
@@ -55,6 +85,9 @@ class D_Reports extends Component {
 					<div className="reportChart">
 						<p>INSERT CHART HERE!</p>
 					</div>
+				</div>
+				<div className="reportChart">
+					<canvas id="rptChart"></canvas>
 				</div>
 			</div>
 		)

@@ -286,8 +286,10 @@ th, td {
 }
 
 .reportChart {
-	margin-top:10px;
-	text-align:center;
+	display:flex;
+	justify-content:center;
+	margin:10px auto;
+	width:500px;
 }
 
 #thanks{
