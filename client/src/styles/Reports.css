@@ -1,0 +1,14 @@
+.report {
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	margin:0 auto;
+	width:75%;
+}
+
+.report > h1 {
+	margin:20px 0 0 0;
+	font-size:1.25em;
+	font-weight:bold;
+	text-align:center;
+}

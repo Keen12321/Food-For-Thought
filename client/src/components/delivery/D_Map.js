@@ -6,8 +6,6 @@ import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-
 import { withAuth, api } from '../Authentication'
 import { getAddresses } from '../../actions/donateActions'
 import {connect} from 'react-redux'
-import Stuff from './Stuff'
-
 
 
 class D_Map extends Component {

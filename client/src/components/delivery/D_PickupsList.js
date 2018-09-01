@@ -108,7 +108,7 @@ deletePickup = (e) => {
 	  						<button className="ui green button" onClick={this.addPickup} id="confirmpickup">Confirm Pickup</button>
 	  			         </Modal>
 	  			         <Modal show={this.state.show2} handleClose={this.hideDeleteModal}>
-	  						<h2>Are you sure you want to delete this pickup?</h2>
+	  						<h2 id='title'>Are you sure you want to delete this pickup?</h2>
 	  						<p>{this.props.user.name}</p>
 	  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
 	  						<div className="cxlreason">

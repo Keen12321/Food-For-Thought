@@ -5,6 +5,7 @@ import {registerUser} from '../actions/loginActions'
 
 class Register extends Component {
  	state = {
+ 		name: '',
 		email: '',
 		password: '',
 		confirmPassword: '',
@@ -27,12 +28,11 @@ class Register extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		
-		if (this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.address !== '' && this.state.phone !== '' && this.state.type !== '') {
+		if (this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '') {
 			if (validator.isEmail(this.state.email)) {
 				if (this.state.password === this.state.confirmPassword) {
-					this.setState({
-					})
 					registerUser({
+						name: this.state.name,
 						email: this.state.email,
 						password: this.state.password,
 						location: this.state.location,
@@ -110,8 +110,12 @@ class Register extends Component {
 		 						<div>Restaurant</div>
 		 					</label>
 		 				</div>
-	 					<div className="loginInputField">
+		 				<div className="loginInputField">
 	 						<i className="fa fa-user" />
+		 					<input className="loginInputBox" type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder="Username" />
+		 				</div>
+	 					<div className="loginInputField">
+	 						<i className="fa fa-envelope" />
 		 					<input className="loginInputBox" type="text" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Email" />
 		 				</div>
 		 				{incorrectEmailValidation}
@@ -127,7 +131,7 @@ class Register extends Component {
 	 					{incorrectPasswordValidation}
 	 					<div className="loginInputField">
 	 						<i className="fa fa-home" />
-	 						<input className="loginInputBox" type="text" name="address" onChange={this.handleChange} value={this.state.location} placeholder="Address" />
+	 						<input className="loginInputBox" type="text" name="location" onChange={this.handleChange} value={this.state.location} placeholder="Address" />
 	 					</div>
 	 					<div className="loginInputField">
 	 						<i className="fa fa-mobile" />

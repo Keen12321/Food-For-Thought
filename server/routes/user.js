@@ -23,6 +23,7 @@ router.get('/register', (req, res, next) => {
 router.patch('/register', (req, res, next) => {
 	console.log(req.body)
 	const id = req.body.id
+	const name = req.body.name
 	const password = sha512(req.body.password).toString()
 	const email = req.body.email
 	const location = req.body.location
@@ -35,6 +36,7 @@ router.patch('/register', (req, res, next) => {
 	`
 
 	conn.query(sql, [email, password, location, phone, id], (err, results, fields) => {
+
 		res.json({
 			message: 'User updated'
 		})
@@ -43,21 +45,72 @@ router.patch('/register', (req, res, next) => {
 
 // POSTING DONATIONS
 router.post('/donating', (req, res, next) => {
-	const name = req.body.name
+	const dish = req.body.dish
 	const trays = req.body.trays
+	const food_id = req.body.food_id
 	const sql = `
 		INSERT INTO
-			donations (name, trays)
+			donations (dish, trays, food_id)
 		VALUES
-			(?, ?)
+			(?, ?, ?)
 	`
 
-	conn.query(sql, [name, trays], (error, results, fields) => {
+	conn.query(sql, [dish, trays, food_id], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
 		
 	})
 })
+
+
+
+// GET REPORTS
+router.get('/reports/:id', (req, res, next) => {
+	const sql = `
+		SELECT users.name, donations.date, donations.dish, donations.trays, donations.value, users.id
+		FROM donations
+		LEFT JOIN users ON donations.food_id = users.id
+		WHERE donations.food_id = users.id;
+	`
+
+	conn.query(sql, (error, results, fields) => {
+		let report = []
+		let id = req.params.id
+
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].id == id) {
+				report.push(results[i])
+			}
+		}
+
+		res.json(report)
+	})
+})
+
+
+
+//GET CURRENT LISTINGS
+	router.get('/current', (req, res, next) =>{
+		const sql = `
+			SELECT dish, trays, accepted
+				FROM donations
+				WHERE accepted = false
+		`
+
+		conn.query(sql, (error, results, fields) =>{
+			res.json(results)
+			console.log(results)
+		})
+	})
+
+	router.post('/accepted', (req, res, next) =>{
+		const sql = `
+					INSERT INTO 
+						donations (accepted, userkey)
+					VALUES ('true', {whatever your user key is})
+				`
+	})
+
 
 //GETTING THE DONATIONS MAPPED TO PICKUPS PAGE
 router.get('/donating', (req, res, next) => {
@@ -69,7 +122,7 @@ router.get('/donating', (req, res, next) => {
 		LEFT JOIN
 		users ON users.id = donations.food_id
 		WHERE
-		donations.accepted <> "pending"
+		donations.accepted NOT IN ("pending", "false")
 	`
 
 	conn.query(sql, (err, results, fields) => {
@@ -116,4 +169,6 @@ router.get('/donating/pending/addresses', (req, res, next) => {
 
 
 
+
 export default router
+
