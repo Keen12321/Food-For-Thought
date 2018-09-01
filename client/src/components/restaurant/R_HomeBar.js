@@ -18,13 +18,13 @@ class R_HomeBar extends Component {
     return (
     	<div className="D_navbar">
     		<div className="D_navbar left">
-    			<Link to="/delivery"><i className="fa-nav fa fa-truck" />Home</Link>
-    			<Link to="/delivery/donate">Donate</Link>
+    			<Link to="/restaurant"><i className="fa-nav fa fa-truck" />Home</Link>
+    			<Link to="/restaurant/donate">Donate</Link>
     		</div>
     		<div className="D_navbar right">
     			<Dropdown trigger={trigger} pointing='top right' icon={null}>
             <Dropdown.Menu>
-              <Dropdown.Item as={Link} to='/delivery/profile' key='user' text='Edit Profile' icon='user'/>
+              <Dropdown.Item as={Link} to='/restaurant/profile' key='user' text='Edit Profile' icon='user'/>
               <Dropdown.Item as={Link} to='/login' onClick={this.logout} key='sign-out' text='Sign Out' icon='sign out' />   
             </Dropdown.Menu>
           </Dropdown>
