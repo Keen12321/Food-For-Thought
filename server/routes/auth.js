@@ -1,4 +1,4 @@
- import express from 'express'
+import express from 'express'
 import sha512 from 'js-sha512'
 import conn from '../db/conn'
 import jwt from 'jsonwebtoken'
@@ -11,15 +11,25 @@ router.post('/login', (req, res, next) => {
 	const password = sha512(req.body.password).toString()
 
 	const sql = `
-		SELECT id, email, location, phone, type
-		FROM users 
-		WHERE email = ? AND password = ?
+		SELECT 
+			id, email, location, phone, type
+		FROM 
+			users 
+		WHERE 
+			email = ? 
+		AND 
+			password = ?
 	`
 
 	conn.query(sql, [email, password], (err, results, fields) => {
 		if (results.length > 0) {
-			const token = jwt.sign({"id":results[0].id, "email":email, "location":results[0].location, "phone":results[0].phone, "type":results[0].type}, config.get('jwt.secret'))
-
+			const token = jwt.sign({
+				"id":results[0].id, 
+				"email":email, 
+				"location":results[0].location, 
+				"phone":results[0].phone, 
+				"type":results[0].type}, 
+				config.get('jwt.secret'))
 
 			res.json({
 				token: token

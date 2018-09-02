@@ -13,12 +13,6 @@ export function updatePickup(state) {
 	})
 }
 
-export function validDonation(state) {
-	api.patch('/api/donate', state).then(data => {
-
-	})
-}
-
 export function getAddresses() {
 	api.get('/api/donating/pending/addresses').then(data => {
 		store.dispatch({

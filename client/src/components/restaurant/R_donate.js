@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { makeDonation, validDonation } from '../../actions/donateActions'
-import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
+import {makeDonation} from '../../actions/donateActions'
+import {Button, Form, Container, Header, Message} from 'semantic-ui-react'
+import {api} from '../Authentication'
 
 class Donate extends Component {
 	state = {
@@ -9,27 +10,36 @@ class Donate extends Component {
 		trays: '',
 		value: '',
 		food_id: '',
-		valid: true
+		validateDish: true,
+		validateTrays: true,
+		validateValue: true
 	}
 
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
+		console.log('is changed')
 	}
 
 	handleSubmit = (e) => {
 		e.preventDefault()
+		console.log('made donation')
 
-		makeDonation({
-			dish: this.state.dish,
-			trays: this.state.trays,
-			value: this.state.value
-		})
-
-		validDonation({
-			valid: false
-		})
+		if (this.state.dish !== '' && this.state.Trays !== '' && this.state.Value !== '') {
+			makeDonation({
+				dish: this.state.dish,
+				trays: this.state.trays,
+				value: this.state.value,
+				food_id: api.getProfile().id
+			})
+		} else {
+			this.setState({
+				validateDish: false,
+				validateTrays: false,
+				validateValue: false
+			})
+		}
 	}
 
 		// const selector = document.getElementById('mySelect')
@@ -72,9 +82,26 @@ class Donate extends Component {
 	// }
 
 	render() {
-		if (validDonation) {
-			console.log('is valid')
+		let invalidDish
+		let invalidValue
+
+
+		if (!this.state.validateDish) {
+			invalidDish = <Message
+	      warning
+	      header='Action Forbidden'
+	      content='Plus input a valid dish name.'
+	    />
 		}
+
+		if (!this.state.validateValue) {
+			invalidDish = <Message
+	      warning
+	      header='Action Forbidden'
+	      content='Plus input a valid currency amount.'
+	    />
+		}
+
 		return (
 			<div>				
 				<Container className="donate-container">
@@ -82,24 +109,18 @@ class Donate extends Component {
 					<Header>Make a Donation</Header>
 
 					{/* Dish Name Input Field */}
-					<Form onSubmit={this.handleSubmit.bind(this)} success warning>
+					<Form onSubmit={this.handleSubmit} widths='equal'>
 						<Form.Input 
-							label='Title' 
-							type='text' 
-							placeholder='Food Item' 
+							label='Title'
+							type='text'
+							placeholder='Food Item'
 							name='dish'
 							// id='myInp'
 							value={this.state.dish}
 							onChange={this.handleChange} 
 							/* onClick={this.handleClick2} */
 						/>
-
-						{/* Dish Error Message */}
-						<Message
-				      warning
-				      header='Action Forbidden'
-				      content='Plus input a valid dish name.'
-				    />
+						{invalidDish}
 						
 						{/* Tray Amount Selection Field */}
 				    <Form.Field 
@@ -140,27 +161,20 @@ class Donate extends Component {
 							type='text' 
 							placeholder='$$' 
 							name='value'
-							onChange={this.handleChange} 
-							value={this.state.value} 
+							onChange={this.handleChange}
+							value={this.state.value}
 						/>
+						{invalidValue}
 
-						{/* Value Error Message */}
-						<Message
-				      warning
-				      header='Action Forbidden'
-				      content='Plus input a valid currency amount.'
-				    />
-
-						<Form.Field>				    	
-				    	<Link to='/restaurant'>
-				    		<Button 
-				    			color='green'
-				    			type='submit'
-			    			>
-			    				Submit
-		    				</Button>
-	    				</Link>
-			    	</Form.Field>
+						{/* Form Submit Button */}
+		    		<Form.Field>
+			    		<Button 
+			    			color='green'
+			    			type='submit'
+			    			fluid
+			    			as={Link} to='/restaurant'
+		    			>Submit</Button>
+	    			</Form.Field>
 
 			    	<Message 
 			    		success 
