@@ -68,9 +68,9 @@ class D_ManagePickupsList extends Component {
 	  			</div>
 			         <Modal show={this.state.show3} handleClose={this.hideAddModal}>
 						<h2>Add the following pickup to your route:</h2>
-						<p>{this.props.user.name}</p>
+						<h3>{this.props.user.name}</h3>
 						<p>{this.props.user.location}</p>
-						<p>{this.props.user.dish} x {this.props.user.trays}</p>
+						<h4>{this.props.user.dish} x {this.props.user.trays}</h4>
 						<button className="ui blue button" id="addtomap" onClick={this.addPickup}>Add to Map</button>
 			         </Modal>
 			</div>

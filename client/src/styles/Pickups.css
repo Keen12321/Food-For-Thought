@@ -18,7 +18,8 @@
 	font-size: 1.5em;
 }
 #lubba {
-	align-items: flex-start;
+	align-items: flex-end;
+	border-bottom: 1px solid #ccc;
 }
 .modal {
 	position: fixed;
