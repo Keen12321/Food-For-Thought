@@ -21,7 +21,7 @@ class DeliveryApp extends Component {
           <HomeBar />
           <Switch>
             <Route exact path="/delivery" component={D_Home} />
-            <Route path="/delivery/pickups" component={D_Pickups} />
+            <Route path="/delivery/pickups" component={D_ManagePickups} />
             <Route path="/delivery/reports/:id" component={D_Reports} />
             <Route path="/delivery/profile" component={D_Profile} />
             <Route path="/delivery/map" component={D_Map} />

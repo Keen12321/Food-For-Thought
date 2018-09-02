@@ -25,7 +25,6 @@ class R_HomeBar extends Component {
         <Icon name='user' size='big'/>
       </div>
     )
-
     return (
       <Menu size='big' inverted>
         <Menu.Item>

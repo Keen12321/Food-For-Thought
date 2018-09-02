@@ -17,5 +17,4 @@ class ThankYou extends Component {
 		)
 	}
 }
-
 export default ThankYou
