@@ -1,4 +1,4 @@
- import express from 'express'
+import express from 'express'
 import sha512 from 'js-sha512'
 import conn from '../db/conn'
 import jwt from 'jsonwebtoken'
@@ -18,8 +18,7 @@ router.post('/login', (req, res, next) => {
 
 	conn.query(sql, [email, password], (err, results, fields) => {
 		if (results.length > 0) {
-			const token = jwt.sign({"id":results[0].id, "name":name, "email":email, "location":results[0].location, "phone":results[0].phone, "type":results[0].type}, config.get('jwt.secret'))
-
+			const token = jwt.sign({"id":results[0].id, "name":results[0].name, "email":email, "location":results[0].location, "phone":results[0].phone, "type":results[0].type}, config.get('jwt.secret'))
 
 			res.json({
 				token: token
@@ -42,12 +41,11 @@ router.post('/register', (req, res, next) => {
 	const type = req.body.type
 
 	const sql = `
-		INSERT INTO users (email, password, location, phone, type)
-		VALUES (?, ?, ?, ?, ?)
+		INSERT INTO users (name, email, password, location, phone, type)
+		VALUES (?, ?, ?, ?, ?, ?)
 	`
 
-	conn.query(sql, [email, password, location, phone, type], (err, results, fields) => {
-
+	conn.query(sql, [name, email, password, location, phone, type], (err, results, fields) => {
 		res.json({
 			message: 'User created'
 		})
