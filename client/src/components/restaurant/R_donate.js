@@ -9,7 +9,8 @@ class Donate extends Component {
 		dish: '',
 		trays: '',
 		value: '',
-		food_id: ''
+		food_id: '',
+		valid: true
 	}
 
 	handleChange = (e) => {
@@ -20,10 +21,15 @@ class Donate extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
+
 		makeDonation({
 			dish: this.state.dish,
 			trays: this.state.trays,
 			value: this.state.value
+		})
+		
+		valiDonation({
+			valid: false
 		})
 	}
 
