@@ -15,7 +15,7 @@ class D_ManagePickups extends Component {
 
  render() {
    return (
-      <div>
+      <div className="reversepickups">
       	{this.props.donate.map(user => (
         	<D_ManagePickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
         ))}

@@ -16,9 +16,11 @@ class D_Pickups extends Component {
  render() {
    return (
       <div>
+      	<div className="reversepickups" id="scroll">
       	{this.props.mypickups.map(user => (
         	<D_PickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
         ))}
+        </div>
    		
 		<div className="ui vertical segment">
   			<h3>Home</h3>

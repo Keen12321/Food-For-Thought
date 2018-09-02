@@ -68,9 +68,7 @@ render() {
           
           if (status === google.maps.DirectionsStatus.OK) {
             this.setState({
-              directions: {...result},
-              markers: true,
-              infowindow: 'stuff goes here'
+              directions: {...result}
             })
           }
            else {
@@ -84,7 +82,7 @@ render() {
     })
   )(props =>
     <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
-         {props.directions && <DirectionsRenderer directions={props.directions} suppressMarkers={props.markers} />}
+         {props.directions && <DirectionsRenderer directions={props.directions}  />}
          <TrafficLayer autoUpdate />
     </GoogleMap>
   )
