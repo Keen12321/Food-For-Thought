@@ -96,6 +96,7 @@ return (
     )
   }
 }
+
 function mapStateToProps(appState) {
 	return {
 		addresses: appState.appReducer.addresses

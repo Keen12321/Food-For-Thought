@@ -8,9 +8,6 @@ import ThankYou from './ThankYou'
 import R_Profile from './R_Profile'
 import R_HomeBar from './R_HomeBar'
 
-
-
-
 class RestaurantApp extends Component {
  	render() {
    	return (
@@ -18,9 +15,6 @@ class RestaurantApp extends Component {
         redirectUrl='/restaurant'
         defaultRedirect='/'
       >
-
-        
-
       <R_HomeBar />
       <Switch>
         <Route exact path="/restaurant" component={R_Home} />
@@ -29,10 +23,8 @@ class RestaurantApp extends Component {
         <Route path='/restaurant/thankyou' component={ThankYou} />
         <Route path="/restaurant/profile" component={R_Profile} />
       </Switch>
-
       </Authentication>
    	)
  	}
 }
-
 export default RestaurantApp

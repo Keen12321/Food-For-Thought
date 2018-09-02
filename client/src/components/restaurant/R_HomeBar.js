@@ -14,7 +14,6 @@ class R_HomeBar extends Component {
         Welcome, {api.getProfile().name}
       </span>
     )
-
     return (
     	<div className="D_navbar">
     		<div className="D_navbar left">

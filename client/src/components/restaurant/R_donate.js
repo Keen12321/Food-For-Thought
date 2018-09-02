@@ -12,26 +12,18 @@ class Donate extends Component {
 		trays: '',
 		food_id: ''
 	}
-
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
 		console.log('is changed')
 	}
-
-
-
 	handleClick = (e) =>{
 		document.getElementById('mySelect').style.background = "#fff"
 	}
-
 	handleClick2 = (e) =>{
 		document.getElementById('myInp').style.background = "#fff"
 	}
-
-
-
 	handleSubmit = (e) => {
 		e.preventDefault()
 		const selector = document.getElementById('mySelect')
@@ -43,17 +35,14 @@ class Donate extends Component {
 			document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
 			document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
 		}
-
 		else if(name === '')
 		{
 			document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
 		}
-
 		else if(val === '0')
 		{
 			document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
 		}
-
 		else
 		{
 			makeDonation({
@@ -64,10 +53,7 @@ class Donate extends Component {
 
 			this.props.history.push('/restaurant/thankyou') //re-routes page
 		}
-	
 	}
-	
-	
 	render() {
 		return (
 			<div>				
@@ -108,8 +94,8 @@ class Donate extends Component {
 				  </Form>
 				</div>
 			</div>
-		)
+			)
+		}
 	}
-}
 
 export default Donate

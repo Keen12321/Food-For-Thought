@@ -2,12 +2,23 @@
 	display: flex;
 	flex-direction: column-reverse;
 }
+#scroll {
+	max-height: 700px;
+	overflow-y: hidden;
+	overflow: auto;
+}
 .pickupsContainer {
 	display: flex;
 }
-.modal-show {
+.modal-show{
 	display: block;
 	z-index: 100;
+}
+.wubba {
+	font-size: 1.5em;
+}
+#lubba {
+	align-items: flex-start;
 }
 .modal {
 	position: fixed;

@@ -11,13 +11,11 @@ class D_Profile extends Component {
 		address: api.getProfile().address,
 		phone: api.getProfile().phone,
 	}
-
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
 	}
-
 	handleSubmit = (e) => {
 		e.preventDefault()
 		changeUserInfo({
@@ -27,7 +25,6 @@ class D_Profile extends Component {
 			phone: this.state.phone
 		})
 	}
-
 	render() {
 		return (
 			<div>
@@ -38,26 +35,25 @@ class D_Profile extends Component {
 			    <Modal.Header>Edit Profile</Modal.Header>
 			      <Modal.Content>
 			        <Form className="loginForm" onSubmit={this.handleSubmit}>
-			 					<Form.Field className="loginInputField">
-			 						<i className="fa fa-user" />
-				 					<input className="loginInputBox" type="text" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Email" />
-				 				</Form.Field>
-			 					<Form.Field className="loginInputField">
-			 						<i className="fa fa-home" />
-			 						<input className="loginInputBox" type="text" name="address" onChange={this.handleChange} value={this.state.address} placeholder="Address" />
-			 					</Form.Field>
-			 					<Form.Field className="loginInputField">
-			 						<i className="fa fa-mobile" />
-			 						<input className="loginInputBox" type="tel" name="phone" onChange={this.handleChange} value={this.state.phone} placeholder="Phone #" />
-			 					</Form.Field>
-			 						<Button className="loginSubmit" type="submit">Change Info</Button>
-			 				</Form>
+	 					<Form.Field className="loginInputField">
+	 						<i className="fa fa-user" />
+		 					<input className="loginInputBox" type="text" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Email" />
+		 				</Form.Field>
+	 					<Form.Field className="loginInputField">
+	 						<i className="fa fa-home" />
+	 						<input className="loginInputBox" type="text" name="address" onChange={this.handleChange} value={this.state.address} placeholder="Address" />
+	 					</Form.Field>
+	 					<Form.Field className="loginInputField">
+	 						<i className="fa fa-mobile" />
+	 						<input className="loginInputBox" type="tel" name="phone" onChange={this.handleChange} value={this.state.phone} placeholder="Phone #" />
+	 					</Form.Field>
+	 						<Button className="loginSubmit" type="submit">Change Info</Button>
+			 		</Form>
 			      </Modal.Content>
 			  </Modal>
 			</div>
-		)
+			)
+		}
 	}
-
-}
 
 export default withAuth(D_Profile)
