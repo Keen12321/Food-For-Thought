@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { withAuth, api } from '../Authentication'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { updatePickup } from '../../actions/donateActions'
-
+import { withAuth, api } from '../Authentication'
 
 const Modal = ({ handleClose, show, children}) => {
 	const showHideClassName = show ? 'modal modal-show' : 'modal modal-hidden'
@@ -57,6 +56,18 @@ class D_PickupsList extends Component {
 		})
 	}
 
+	showAddModal = () => {
+		this.setState({
+			show3: true
+		})
+	}
+
+	hideAddModal = () => {
+		this.setState({
+			show3: false
+		})
+	}
+
 	addPickup = () => {
 	
 	updatePickup({
@@ -69,12 +80,29 @@ class D_PickupsList extends Component {
 
 deletePickup = (e) => {
 	e.preventDefault()
+
+	// var textA = document.getElementById('text').value
+	// if(textA === ''){
+	// 	document.getElementById('text').style.background = "rgba(255,0,29,.2)"
+	// 	document.getElementById('title').innerHTML = 'You need to provide a reason for cancellation.'
+	// }	else {
+	// 	updatePickup({
+	// 		accepted: "false",
+	// 		id: this.props.user.id,
+	// 		reason: this.state.reason
+	// 	})
+	// 	document.getElementById('text').style.background = "#fff"
+	// 	document.getElementById('title').innerHTML = 'Are you sure you want to delete this pickup?'
+	// 	this.hideDeleteModal()
+	// }	
+
 	updatePickup({
 		accepted: "false",
 		id: this.props.user.id,
 		reason: this.state.reason,
 		pickup_by: api.getProfile().email
 	})
+	
 	this.hideDeleteModal()
 }
 

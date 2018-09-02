@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
-import {withAuth, api} from '../Authentication'
-import {getReport} from '../../actions/reportActions'
-// import Chart from 'chart.js'
+import React, { Component } from 'react'
+import { withAuth, api } from '../Authentication'
+import { getReport } from '../../actions/reportActions'
+import { connect } from 'react-redux'
+import { Label, Table } from 'semantic-ui-react'
+
 import RC2 from 'react-chartjs2'
-import {Label, Table} from 'semantic-ui-react'
-import {connect} from 'react-redux'
 
 class R_Reports extends Component {
 

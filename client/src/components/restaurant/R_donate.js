@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-// import { makeDonation } from '../../actions/restaurant-actions/donateActions'
+import { Link } from 'react-router-dom'
 import { makeDonation } from '../../actions/donateActions'
-import { Button, Form } from 'semantic-ui-react'
-import HomeBar from './R_HomeBar'
+import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
 import { api } from '../Authentication'
-
 
 class Donate extends Component {
 	state = {
 		dish: '',
 		trays: '',
+		value: '',
 		food_id: ''
 	}
 
@@ -17,67 +16,93 @@ class Donate extends Component {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
-		console.log('is changed')
 	}
-
-
-
-	handleClick = (e) =>{
-		document.getElementById('mySelect').style.background = "#fff"
-	}
-
-	handleClick2 = (e) =>{
-		document.getElementById('myInp').style.background = "#fff"
-	}
-
-
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		const selector = document.getElementById('mySelect')
-		const val = selector[selector.selectedIndex].value
-		const name = e.target.elements.dish.value
-		
-		if(name === '' || val === '0')
-		{
-			document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
-			document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
-		}
-
-		else if(name === '')
-		{
-			document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
-		}
-
-		else if(val === '0')
-		{
-			document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
-		}
-
-		else
-		{
-			makeDonation({
-				dish: this.state.dish,
-				trays: this.state.trays,
-				food_id: api.getProfile().id
-			})
-
-			this.props.history.push('/restaurant/thankyou') //re-routes page
-		}
-	
+		makeDonation({
+			dish: this.state.dish,
+			trays: this.state.trays,
+			value: this.state.value
+		})
 	}
-	
-	
+
+		// const selector = document.getElementById('mySelect')
+		// const val = selector[selector.selectedIndex].value
+		// const name = e.target.elements.dish.value
+		
+		// if (name === '' || val === '0')
+		// {
+		// 	document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
+		// 	document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
+		// }
+
+		// else if(name === '')
+		// {
+		// 	document.getElementById('myInp').style.background = "rgba(255,0,29,.2)"
+		// }
+
+		// else if(val === '0')
+		// {
+		// 	document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
+		// }
+
+		// else
+		// {
+		// 	makeDonation({
+		// 		dish: this.state.dish,
+		// 		trays: this.state.trays
+		// 	})
+			
+		// 	this.props.history.push('/restaurant/thankyou') //re-routes page
+		// }
+	// }
+
+	// handleClick = (e) => {
+	// 	document.getElementById('mySelect').style.background = "#fff"
+	// }
+
+	// handleClick2 = (e) => {
+	// 	document.getElementById('myInp').style.background = "#fff"
+	// }
+
 	render() {
 		return (
 			<div>				
-				<div className="donate-container">
+				<Container className="donate-container">
 
-					<Form onSubmit={this.handleSubmit.bind(this)} >
-						<Form.Input label='Title' type='text' placeholder='Food Item' name='dish'
-							onChange={this.handleChange} value={this.state.dish} id = 'myInp' onClick={this.handleClick2}/>
-				    <Form.Field label='How Many?' control='select' name='trays'
-							onChange={this.handleChange} value={this.state.trays} id='mySelect' onClick={this.handleClick}>
+					<Header>Make a Donation</Header>
+
+					{/* Dish Name Input Field */}
+					<Form onSubmit={this.handleSubmit.bind(this)} success warning>
+						<Form.Input 
+							label='Title' 
+							type='text' 
+							placeholder='Food Item' 
+							name='dish'
+							// id='myInp'
+							value={this.state.dish}
+							onChange={this.handleChange} 
+							/* onClick={this.handleClick2} */
+						/>
+
+						{/* Dish Error Message */}
+						<Message
+				      warning
+				      header='Action Forbidden'
+				      content='Plus input a valid dish name.'
+				    />
+						
+						{/* Tray Amount Selection Field */}
+				    <Form.Field 
+				    	label='How Many?' 
+				    	control='select' 
+				    	name='trays'
+				    	// id='mySelect'
+				    	onChange={this.handleChange} 
+				    	value={this.state.trays} 
+				    	/* onClick={this.handleClick} */
+			    	>
 				    	<option value='0'>0</option>
 			        <option value='1'>1</option>
 			        <option value='2'>2</option>
@@ -100,11 +125,42 @@ class Donate extends Component {
 							<option value='19'>19</option>
 							<option value='20'>20</option>
 			      </Form.Field>
-						<Form.Field>
-				    	<Button type='submit'>Submit</Button>
+
+						{/* Value Input Field */}
+						<Form.Input 
+							label='Value' 
+							type='text' 
+							placeholder='$$' 
+							name='value'
+							onChange={this.handleChange} 
+							value={this.state.value} 
+						/>
+
+						{/* Value Error Message */}
+						<Message
+				      warning
+				      header='Action Forbidden'
+				      content='Plus input a valid currency amount.'
+				    />
+
+						<Form.Field>				    	
+				    	<Link to='/restaurant'>
+				    		<Button 
+				    			color='green'
+				    			type='submit'
+			    			>
+			    				Submit
+		    				</Button>
+	    				</Link>
 			    	</Form.Field>
+
+			    	<Message 
+			    		success 
+			    		header='Form Completed' 
+			    		content="You've successfully added your donation, thank you!" 
+		    		/>
 				  </Form>
-				</div>
+				</Container>
 			</div>
 		)
 	}
