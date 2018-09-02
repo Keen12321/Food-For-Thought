@@ -58,28 +58,6 @@ a {
 	margin: 5px;
 }
 
-.fa-nav {
-	text-align: center;
-	color: white;
-	padding: 5px;
-	margin: 5px;
-	border: 2px solid white;
-	border-radius: 50%;
-}
-
-.D_navbar {
-background: #232323;
-	display: flex;
-	justify-content: space-between;
-	padding: 10px 25px;
-}
-.left > a, .right > a {
-	margin: auto;
-	margin-right: 15px;
-
-
-}
-
 .fa-calendar-check{
 	color: #fff;
 }
@@ -163,10 +141,6 @@ dark gray - rgb(30,30,30)
 
 }
 
-
-
-
-
 .profileContain{
 	width: 100%;
 	
@@ -189,11 +163,6 @@ dark gray - rgb(30,30,30)
 	background: none;
 	font-size: 2em;
 	margin-right: 40%;
-}
-
-.D_navbar a:hover {
-	transform:scale(1.2);
-	color: #fff;
 }
 
 #prof {
