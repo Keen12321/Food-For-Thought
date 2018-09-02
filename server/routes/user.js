@@ -19,7 +19,7 @@ router.get('/register', (req, res, next) => {
 	})
 })
 
-
+//  REGISTERING NEW ACCOUNT
 router.patch('/register', (req, res, next) => {
 	console.log(req.body)
 	const id = req.body.id
@@ -93,7 +93,7 @@ router.get('/reports/:id', (req, res, next) => {
 })
 
 
-//GETTING THE DONATIONS MAPPED TO PICKUPS PAGE
+// GETTING THE DONATIONS MAPPED TO PICKUPS PAGE
 router.get('/donating', (req, res, next) => {
 	const sql = `
 		SELECT
