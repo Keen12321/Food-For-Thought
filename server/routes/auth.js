@@ -11,6 +11,7 @@ router.post('/login', (req, res, next) => {
 	const password = sha512(req.body.password).toString()
 
 	const sql = `
+<<<<<<< HEAD
 		SELECT 
 			id, email, location, phone, type
 		FROM 
@@ -52,12 +53,11 @@ router.post('/register', (req, res, next) => {
 	const type = req.body.type
 
 	const sql = `
-		INSERT INTO users (email, password, location, phone, type)
-		VALUES (?, ?, ?, ?, ?)
+		INSERT INTO users (name, email, password, location, phone, type)
+		VALUES (?, ?, ?, ?, ?, ?)
 	`
 
-	conn.query(sql, [email, password, location, phone, type], (err, results, fields) => {
-
+	conn.query(sql, [name, email, password, location, phone, type], (err, results, fields) => {
 		res.json({
 			message: 'User created'
 		})
