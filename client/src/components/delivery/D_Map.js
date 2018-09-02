@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import D_Pickups from './D_Pickups'
 import  { compose, withProps, lifecycle } from 'recompose'
-import {withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer} from 'react-google-maps'
+import {withScriptjs, withGoogleMap, GoogleMap, TrafficLayer, DirectionsRenderer} from 'react-google-maps'
 import { withAuth, api } from '../Authentication'
 import { getAddresses } from '../../actions/donateActions'
 import {connect} from 'react-redux'
@@ -13,7 +13,7 @@ class D_Map extends Component {
     currentLatLng: {
       lat: 0,
       lng: 0
-    }
+    },
   }
 
   showCurrentLocation() {
@@ -69,18 +69,23 @@ render() {
           if (status === google.maps.DirectionsStatus.OK) {
             this.setState({
               directions: {...result},
-              markers: true
+              markers: true,
+              infowindow: 'stuff goes here'
             })
           }
            else {
             console.error(`error fetching directions ${result}`)
+            console.log(waypnt)
+            console.log(result)
+            console.log(status)
           }
         })
       }
     })
   )(props =>
     <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
-         {props.directions && <DirectionsRenderer directions={props.directions} suppressMarkers={props.markers}/>}
+         {props.directions && <DirectionsRenderer directions={props.directions} suppressMarkers={props.markers} />}
+         <TrafficLayer autoUpdate />
     </GoogleMap>
   )
 return (
