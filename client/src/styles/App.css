@@ -47,15 +47,6 @@ a {
 	margin: 5px;
 }
 
-.fa-nav {
-	text-align: center;
-	color: white;
-	padding: 5px;
-	margin: 5px;
-	border: 2px solid white;
-	border-radius: 50%;
-}
-
 .fa-calendar-check{
 	color: #fff;
 }
@@ -211,31 +202,6 @@ dark gray - rgb(30,30,30)
 
 #numberr {
 	font-size: 2.4em;
-}
-
-/*******************************************
-	MAKING DONATIONS
-*******************************************/
-
-.donate-container {
-	padding: 20px;
-	border: 2px solid #eee;
-	border-radius: 3px;
-	width: 40%;
-	margin: 0 auto;
-	margin-top: 50px;
-}
-
-.donate__food-type {
-	padding: 10px;
-}
-
-.donate__food-size {
-	padding: 10px;
-}
-
-.donate__details-submit {
-	padding: 10px;
 }
 
 #thanks{

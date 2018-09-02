@@ -1,12 +1,10 @@
 const initialState = {
-	// huh?
 	donate: [],
 	mypickups: [],
 	addresses: []
 }
 
 export default function (state = initialState, action) {
-  // put magic here
  switch (action.type) {
     case 'GET_DONATIONS':
     	return {...state, donate: action.payload}
@@ -14,8 +12,6 @@ export default function (state = initialState, action) {
     	return {...state, mypickups: action.payload}
     case 'GET_ADDRESSES':
     	return {...state, addresses: action.payload}
-    
-
     default:
     	return state
   }

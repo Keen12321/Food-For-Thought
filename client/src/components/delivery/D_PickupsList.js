@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { withAuth, api } from '../Authentication'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { updatePickup } from '../../actions/donateActions'
-
+import { withAuth, api } from '../Authentication'
 
 const Modal = ({ handleClose, show, children}) => {
 	const showHideClassName = show ? 'modal modal-show' : 'modal modal-hidden'
@@ -62,12 +61,14 @@ class D_PickupsList extends Component {
 	}
 	deletePickup = (e) => {
 	e.preventDefault()
+
 	updatePickup({
 		accepted: "false",
 		id: this.props.user.id,
 		reason: this.state.reason,
 		pickup_by: api.getProfile().email
 	})
+	
 	this.hideDeleteModal()
 	}
 
@@ -85,10 +86,10 @@ class D_PickupsList extends Component {
 	  			<div>
 	  				<button className="ui green button" onClick={this.showPickupModal}>
 						<i className="check icon"></i>Confirm Pickup
-					</button>
-					<button className="ui red button" onClick={this.showDeleteModal}>
-						<i className="trash alternate icon"></i>Delete
-					</button>
+						</button>
+						<button className="ui red button" onClick={this.showDeleteModal}>
+							<i className="trash alternate icon"></i>Delete
+						</button>
 	  			</div>
   			         <Modal show={this.state.show1} handleClose={this.hidePickupModal}>
   						<h2>Please confirm that you have picked up the following:</h2>
@@ -107,11 +108,11 @@ class D_PickupsList extends Component {
   						</div>
   						<button className="ui red button" id="confirmcxl" onSubmit={this.handleSubmit} onClick={this.deletePickup}>Delete Pickup</button>
   			         </Modal>
-			</div>
-   		</div>
-   )
- }
-}
+				</div>
+	   		</div>
+		   )
+		 }
+		}
 
 function mapStateToProps(appState) {
 	return {

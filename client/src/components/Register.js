@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import validator from 'validator'
 import {Redirect} from 'react-router-dom'
 import {registerUser} from '../actions/loginActions'
+import {Form, Button} from 'semantic-ui-react'
 
 class Register extends Component {
  	state = {
@@ -12,6 +13,7 @@ class Register extends Component {
 		location: '',
 		phone: '',
 		type: '',
+		buttonColor: 'light-grey',
 		validateEmpty: true,
 		validateEmail: true,
 		validatePassword: true,
@@ -23,6 +25,11 @@ class Register extends Component {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
+		if(this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.address !== '' && this.state.phone !== '' && this.state.type !== '') {
+			this.setState({
+				buttonColor:'blue'
+			})
+		}
 	}
 
 	handleSubmit = (e) => {
@@ -98,7 +105,7 @@ class Register extends Component {
 	   				<i id="loginLogo" className="fa fa-cutlery" />
 	   				<div id="loginTitle">Register</div>
 	   			</div>
-	 				<form className="loginForm" onSubmit={this.handleSubmit}>
+	 				<Form className="loginForm" size='huge' onSubmit={this.handleSubmit}>
 	 					<div className="userTypeContainer">
 		 					<label className="userType" forhtml="type">
 		 						<input className="userTypeRadio" type="radio" name="type" value="Delivery" checked={this.state.type === "Delivery"} onChange={this.handleChange} />
@@ -110,36 +117,18 @@ class Register extends Component {
 		 						<div>Restaurant</div>
 		 					</label>
 		 				</div>
-		 				<div className="loginInputField">
-	 						<i className="fa fa-user" />
-		 					<input className="loginInputBox" type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder="Username" />
-		 				</div>
-	 					<div className="loginInputField">
-	 						<i className="fa fa-envelope" />
-		 					<input className="loginInputBox" type="text" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Email" />
-		 				</div>
+		 				<Form.Input fluid icon='user' iconPosition='left' name='name' onChange={this.handleChange} value={this.state.name} placeholder='Username' />
+		 				<Form.Input fluid icon='envelope' iconPosition='left' name='email' onChange={this.handleChange} value={this.state.email} placeholder='Email' />
 		 				{incorrectEmailValidation}
-		 				<div className="loginInputField">
-		 					<i className="fa fa-key" />
-	 						<input className="loginInputBox" type="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password" />
-	 					</div>
+	 					<Form.Input fluid icon='key' iconPosition='left' type='password' name='password' onChange={this.handleChange} value={this.state.password} placeholder='Password' />
 	 					{incorrectPasswordValidation}
-	 					<div className="loginInputField">
-		 					<i className="fa fa-key" />
-	 						<input className="loginInputBox" type="password" name="confirmPassword" onChange={this.handleChange} value={this.state.confirmPassword} placeholder="Confirm Password" />
-	 					</div>
+	 					<Form.Input fluid icon='key' iconPosition='left' type='password' name='confirmPassword' onChange={this.handleChange} value={this.state.confirmPassword} placeholder='Confirm Password' />
 	 					{incorrectPasswordValidation}
-	 					<div className="loginInputField">
-	 						<i className="fa fa-home" />
-	 						<input className="loginInputBox" type="text" name="location" onChange={this.handleChange} value={this.state.location} placeholder="Address" />
-	 					</div>
-	 					<div className="loginInputField">
-	 						<i className="fa fa-mobile" />
-	 						<input className="loginInputBox" type="tel" name="phone" onChange={this.handleChange} value={this.state.phone} placeholder="Phone #" />
-	 					</div>
-	 					<button className="loginSubmit" type="submit">Register</button>
+	 					<Form.Input fluid icon='home' iconPosition='left' name='address' onChange={this.handleChange} value={this.state.address} placeholder='Address' />
+	 					<Form.Input fluid icon='mobile' iconPosition='left' name='phone' onChange={this.handleChange} value={this.state.phone} placeholder='Phone #' />
+	 					<Button className="loginSubmit" size="huge" color={this.state.buttonColor} type="submit">Register</Button>
 	 					{fieldEmpty}
-	 				</form>
+	 				</Form>
 	 			</div>
 	   	)
  		}

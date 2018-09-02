@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
-import { getMyPickups, updatePickup } from '../../actions/donateActions'
-import {connect} from 'react-redux'
-import D_PickupsList from './D_PickupsList'
+import { getDonations, updatePickup, getMyPickups } from '../../actions/donateActions'
+import { connect } from 'react-redux'
+
+import PickupsList from './D_PickupsList'
 
 class D_Pickups extends Component {
 
@@ -12,12 +13,12 @@ class D_Pickups extends Component {
 		console.log(this.props)
 	}
 
- render() {
-   return (
+	render() {
+		return (
       <div>
       	<div className="reversepickups">
       	{this.props.mypickups.map(user => (
-        	<D_PickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
+        	<PickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
         ))}
         </div>
     		<div className="ui raised vertical segment">

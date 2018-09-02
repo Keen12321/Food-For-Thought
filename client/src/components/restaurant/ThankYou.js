@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import HomeBar from './R_HomeBar'
-import {Button} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
-class ThankYou extends Component{
-	
-	render(){
-		return(
+import { Link } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
+
+class ThankYou extends Component {
+	render() {
+		return (
 			<div>
 				<div id="thanks">
 					<h1>Thank you for your donation</h1>
@@ -18,5 +17,4 @@ class ThankYou extends Component{
 		)
 	}
 }
-
 export default ThankYou
