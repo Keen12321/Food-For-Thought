@@ -79,9 +79,10 @@ class D_Reports extends Component {
 						</Table.Body>
 						<Table.Footer>
 							<Table.Row>
-								<Table.HeaderCell colSpan='4'>
-									<Label ribbon>Select Start & End Dates Below</Label>
-								</Table.HeaderCell>
+								<Table.HeaderCell><Label ribbon>Select Start & End Dates Below</Label></Table.HeaderCell>
+								<Table.HeaderCell>Total</Table.HeaderCell>
+								<Table.HeaderCell>{this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).reduce((a,b) => a + b.trays, 0)}</Table.HeaderCell>
+								<Table.HeaderCell>${this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).reduce((a,b) => a + b.value, 0)}</Table.HeaderCell>
 							</Table.Row>
 						</Table.Footer>
 					</Table>
