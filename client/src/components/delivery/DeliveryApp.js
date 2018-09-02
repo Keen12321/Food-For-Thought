@@ -1,12 +1,14 @@
-import React, {Component} from 'react'
-import {Route, Switch} from 'react-router-dom'
+import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
 import { Authentication } from '../Authentication'
+
+import D_ManagePickups from './D_ManagePickups'
 import D_Home from './D_Home'
 import D_Pickups from './D_Pickups'
 import D_Reports from './D_Reports'
 import D_Profile from './D_Profile'
 import D_Map from './D_Map'
-import D_HomeBar from './D_HomeBar'
+import HomeBar from './D_HomeBar'
 
 class DeliveryApp extends Component {
   render() {
@@ -16,7 +18,7 @@ class DeliveryApp extends Component {
         defaultRedirect='/'
       >
         <div>
-          <D_HomeBar />
+          <HomeBar />
           <Switch>
             <Route exact path="/delivery" component={D_Home} />
             <Route path="/delivery/pickups" component={D_Pickups} />

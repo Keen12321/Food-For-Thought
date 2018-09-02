@@ -56,14 +56,17 @@ router.patch('/donating', (req, res, next) => {
 	const accepted = req.body.accepted
 	const id = req.body.id
 	const reason = req.body.reason
-	console.log(accepted, id, reason)
+	const pickup_by = req.body.pickup_by
+
+	console.log(accepted,id,reason,pickup_by)
 
 	const sql = `
 		UPDATE donations
-		SET accepted = ?, reason = ?
+		SET accepted = ?, reason = ?, pickup_by = ? 
 		Where id = ?
 	`
-	conn.query(sql, [accepted, reason, id], (err, results, fields) => {
+	conn.query(sql, [accepted, reason, pickup_by, id], (err, results, fields) => {
+
 		res.json({
 			message: 'Order updated'
 		})
