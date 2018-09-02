@@ -28,5 +28,4 @@ class RestaurantApp extends Component {
    	)
  	}
 }
-
 export default RestaurantApp

@@ -11,13 +11,11 @@ class R_Profile extends Component {
 		location: api.getProfile().location,
 		phone: api.getProfile().phone,
 	}
-
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
 	}
-
 	handleSubmit = (e) => {
 		e.preventDefault()
 		changeUserInfo({
@@ -29,7 +27,6 @@ class R_Profile extends Component {
 		})
 		this.props.signout()
 	}
-
 	render() {
 		return (
 			<div className="editProfileContainer">

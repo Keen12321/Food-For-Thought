@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/App.css'
+import '../styles/Pickups.css'
 import '../styles/Login.css'
 import '../styles/Navbar.css'
 import '../styles/EditProfile.css'
