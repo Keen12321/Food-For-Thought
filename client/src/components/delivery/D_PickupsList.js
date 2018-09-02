@@ -55,7 +55,7 @@ class D_PickupsList extends Component {
 	updatePickup({
 		accepted: "true",
 		id: this.props.user.id,
-		pickup_by: api.getProfile().email
+		pickup_by: api.getProfile().name
 	})
 	this.hidePickupModal()
 	}
@@ -66,7 +66,7 @@ class D_PickupsList extends Component {
 		accepted: "false",
 		id: this.props.user.id,
 		reason: this.state.reason,
-		pickup_by: api.getProfile().email
+		pickup_by: api.getProfile().name
 	})
 	
 	this.hideDeleteModal()
