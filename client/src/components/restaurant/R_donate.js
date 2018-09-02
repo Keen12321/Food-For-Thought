@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { makeDonation } from '../../actions/donateActions'
 import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
+import { api } from '../Authentication'
 
 class Donate extends Component {
 	state = {
 		dish: '',
 		trays: '',
-		value: ''
+		value: '',
+		food_id: ''
 	}
 
 	handleChange = (e) => {
@@ -134,7 +136,7 @@ class Donate extends Component {
 							value={this.state.value} 
 						/>
 
-					{/* Value Error Message */}
+						{/* Value Error Message */}
 						<Message
 				      warning
 				      header='Action Forbidden'
@@ -158,7 +160,6 @@ class Donate extends Component {
 			    		content="You've successfully added your donation, thank you!" 
 		    		/>
 				  </Form>
-
 				</Container>
 			</div>
 		)

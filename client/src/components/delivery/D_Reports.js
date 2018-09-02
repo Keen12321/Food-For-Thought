@@ -3,6 +3,7 @@ import {withAuth, api} from '../Authentication'
 import {getReport} from '../../actions/reportActions'
 // import Chart from 'chart.js'
 import RC2 from 'react-chartjs2'
+import {Label, Table} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 
 class D_Reports extends Component {
@@ -47,38 +48,38 @@ class D_Reports extends Component {
 	render() {
 		return (
 			<div>
-				<div className="reportTable">
-					<table>
-						<thead>
-							<tr>
-								<th colSpan="4">{this.state.name} Report</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th>Date</th>
-								<th>Dish</th>
-								<th>Trays</th>
-								<th>Value</th>
-							</tr>
+				<div className="report">
+					<h1>{this.state.name} Report</h1>
+					<Table celled>
+						<Table.Header>
+							<Table.Row>
+								<Table.HeaderCell>Date</Table.HeaderCell>
+								<Table.HeaderCell>Dish</Table.HeaderCell>
+								<Table.HeaderCell>Trays</Table.HeaderCell>
+								<Table.HeaderCell>Value</Table.HeaderCell>
+							</Table.Row>
+						</Table.Header>
+						<Table.Body>
 							{this.props.report.map((item, i) => (
-							<tr key={"key" + i}>
-								<td>{item.date.slice(0,10)}</td>
-								<td>{item.dish}</td>
-								<td>{item.trays}</td>
-								<td>${item.value}</td>
-							</tr>
+							<Table.Row key={"key" + i}>
+								<Table.Cell>{item.date.slice(0,10)}</Table.Cell>
+								<Table.Cell>{item.dish}</Table.Cell>
+								<Table.Cell>{item.trays}</Table.Cell>
+								<Table.Cell>${item.value}</Table.Cell>
+							</Table.Row>
 							))}
-						</tbody>
-						<tfoot>
-							<tr>
-								<td colSpan="4">Export Report (Icebox)</td>
-							</tr>
-						</tfoot>
-					</table>
+						</Table.Body>
+						<Table.Footer>
+							<Table.Row>
+								<Table.HeaderCell colSpan="4">
+									<Label ribbon>Export Report (Icebox)</Label>
+								</Table.HeaderCell>
+							</Table.Row>
+						</Table.Footer>
+					</Table>
 				</div>
-				<div className="reportChart">
-					<p>{this.state.name} Chart</p>
+				<div className="report">
+					<h1>{this.state.name} Chart</h1>
 					<RC2 data={this.state.chartData} type='bar' />
 				</div>
 			</div>

@@ -5,6 +5,7 @@ import { withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer } from 'reac
 import { withAuth, api } from '../Authentication'
 import { getDonations } from '../../actions/donateActions'
 import { connect } from 'react-redux'
+import { getAddresses } from '../../actions/donateActions'
 
 import Pickups from './D_Pickups'
 
@@ -26,7 +27,6 @@ class D_Map extends Component {
           }
         })
       })
-      console.log(this)
     } else {
       // error => console.log(error)
     }
@@ -34,12 +34,14 @@ class D_Map extends Component {
 
   componentDidMount() {
     this.showCurrentLocation()
-    getDonations()
+    getAddresses()
+    console.log(this)
   }
 
 render() {
   const lat = this.state.currentLatLng.lat
   const lng = this.state.currentLatLng.lng
+  const waypnt = this.props.addresses
 
   const DirectionsComponent = compose(
 
@@ -55,15 +57,12 @@ render() {
 
     lifecycle({
       componentDidMount() { 
+        console.log(this)
         const DirectionsService = new google.maps.DirectionsService()
         DirectionsService.route({
-        	 
           origin: new google.maps.LatLng({lat:lat, lng:lng}),
-          destination: api.getProfile().address,
-
-
-          waypoints: [{location: 'Raku, Las Vegas, NV', stopover: true},
-          				],
+          destination: api.getProfile().location,
+          waypoints: waypnt, //empty array is ok. array of objects with location and stopover
           optimizeWaypoints: true,
           travelMode: google.maps.TravelMode.DRIVING,
         }, (result, status) => {
@@ -96,9 +95,8 @@ return (
   }
 }
 function mapStateToProps(appState) {
-	console.log('appstate', appState)
 	return {
-		donate: appState.appReducer.donate
+		addresses: appState.appReducer.addresses
 	}
 }
 export default withAuth(connect(mapStateToProps)(D_Map))
