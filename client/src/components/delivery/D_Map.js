@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { compose, withProps, lifecycle } from 'recompose'
 import { withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer } from 'react-google-maps'
 import { withAuth, api } from '../Authentication'
-import { getDonations } from '../../actions/donateActions'
 import { connect } from 'react-redux'
 import { getAddresses } from '../../actions/donateActions'
 

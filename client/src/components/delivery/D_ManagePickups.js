@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { withAuth } from '../Authentication'
-import { getDonations, updatePickup } from '../../actions/donateActions'
+import React, {Component} from 'react'
+import {withAuth} from '../Authentication'
+import {getDonations, updatePickup} from '../../actions/donateActions'
 import {connect} from 'react-redux'
-import D_ManagePickupsList from './D_ManagePickupsList'
+import ManagePickupsList from './D_ManagePickupsList'
 
 class D_ManagePickups extends Component {
 
@@ -17,13 +17,11 @@ class D_ManagePickups extends Component {
    return (
       <div>
       	{this.props.donate.map(user => (
-        	<D_ManagePickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
+        	<ManagePickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
         ))}
-   		
       </div> 
-
-   )
- }
+		)
+	}
 }
 
 

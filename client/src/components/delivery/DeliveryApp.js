@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Authentication } from '../Authentication'
 
-import D_ManagePickups from './D_ManagePickups'
 import D_Home from './D_Home'
 import D_Pickups from './D_Pickups'
 import D_Reports from './D_Reports'

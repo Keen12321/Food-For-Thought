@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { makeDonation } from '../../actions/donateActions'
+import { makeDonation, validDonation } from '../../actions/donateActions'
 import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
-import { api } from '../Authentication'
 
 class Donate extends Component {
 	state = {
@@ -27,8 +26,8 @@ class Donate extends Component {
 			trays: this.state.trays,
 			value: this.state.value
 		})
-		
-		valiDonation({
+
+		validDonation({
 			valid: false
 		})
 	}
@@ -73,6 +72,9 @@ class Donate extends Component {
 	// }
 
 	render() {
+		if (validDonation) {
+			console.log('is valid')
+		}
 		return (
 			<div>				
 				<Container className="donate-container">

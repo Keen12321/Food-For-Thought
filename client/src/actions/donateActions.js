@@ -7,17 +7,14 @@ export function makeDonation(donation) {
 	})
 }
 
-export function getDonations() {
-	api.get('/api/donating').then(data => {
-		store.dispatch({
-			type: 'GET_DONATIONS',
-			payload: data
-		})
+export function updatePickup(state) {
+	api.patch('/api/donating', state).then(data => {
+
 	})
 }
 
-export function updatePickup(state) {
-	api.patch('/api/donating', state).then(data => {
+export function validDonation(state) {
+	api.patch('/api/donate', state).then(data => {
 
 	})
 }
@@ -35,6 +32,15 @@ export function getMyPickups() {
 	api.get('/api/donating/pending').then(data => {
 		store.dispatch({
 			type: 'GET_MYPICKUPS',
+			payload: data
+		})
+	})
+}
+
+export function getDonations() {
+	api.get('/api/donating').then(data => {
+		store.dispatch({
+			type: 'GET_DONATIONS',
 			payload: data
 		})
 	})

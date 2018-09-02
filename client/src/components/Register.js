@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import validator from 'validator'
 import {Redirect} from 'react-router-dom'
 import {registerUser} from '../actions/loginActions'
