@@ -1,5 +1,6 @@
 import { api } from '../components/Authentication'
 import store from '../store'
+// import { Message } from 'semantic-ui-react'
 
 export function makeDonation(donation) {
 	api.post('/api/donate', donation).then(data => {
@@ -11,6 +12,14 @@ export function updatePickup(state) {
 	api.patch('/api/donating', state).then(data => {
 
 	})
+}
+
+export function donateForm(input) {
+	if (isNaN(input)) {
+		console.log(input)
+	} else {
+		console.log('No numbers, please.')
+	}
 }
 
 export function getAddresses() {
