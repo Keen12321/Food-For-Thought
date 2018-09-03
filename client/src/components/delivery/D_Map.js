@@ -50,7 +50,7 @@ render() {
       googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U",
       loadingElement: <div style={{ height: `100%` }} />,
       containerElement: <div style={{ width: `100%` }} />,
-      mapElement: <div style={{height: `100%`, width: `100%` }}  />,
+      mapElement: <div style={{height: `600px`, width: `100%` }}  />,
     }),
 
     withScriptjs,

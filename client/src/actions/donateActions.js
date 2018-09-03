@@ -1,5 +1,7 @@
 import { api } from '../components/Authentication'
 import store from '../store'
+import io from 'socket.io-client'
+
 
 export function makeDonation(donation) {
 	api.post('/api/donate', donation).then(data => {

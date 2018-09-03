@@ -75,7 +75,7 @@ class D_Login extends Component {
 	 				<Form size='huge' className="loginForm" onSubmit={this.handleSubmit}>
 	 					<Form.Input className='red' fluid icon='user'  iconPosition='left' name='email' onChange={this.handleChange} value={this.state.email} placeholder='Email' />
 	 					{incorrectEmailValidation}
-	 					<Form.Input fluid icon='key' iconPosition='left' name='password' onChange={this.handleChange} value={this.state.password} placeholder='Password' />
+	 					<Form.Input fluid icon='key' iconPosition='left' type="password" name='password' onChange={this.handleChange} value={this.state.password} placeholder='Password' />
 	 					<Button className="loginSubmit" type="submit" color={this.state.buttonColor} size='big'>LOGIN</Button>
 	 					<Link className="registrationLink" to="/register">Not a Registered User? Register Here</Link>
 	 				</Form>

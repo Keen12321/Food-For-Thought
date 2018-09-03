@@ -25,7 +25,7 @@ class Register extends Component {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
-		if(this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.address !== '' && this.state.phone !== '' && this.state.type !== '') {
+		if(this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '') {
 			this.setState({
 				buttonColor:'blue'
 			})
@@ -124,7 +124,7 @@ class Register extends Component {
 	 					{incorrectPasswordValidation}
 	 					<Form.Input fluid icon='key' iconPosition='left' type='password' name='confirmPassword' onChange={this.handleChange} value={this.state.confirmPassword} placeholder='Confirm Password' />
 	 					{incorrectPasswordValidation}
-	 					<Form.Input fluid icon='home' iconPosition='left' name='address' onChange={this.handleChange} value={this.state.address} placeholder='Address' />
+	 					<Form.Input fluid icon='home' iconPosition='left' name='location' onChange={this.handleChange} value={this.state.location} placeholder='Address' />
 	 					<Form.Input fluid icon='mobile' iconPosition='left' name='phone' onChange={this.handleChange} value={this.state.phone} placeholder='Phone #' />
 	 					<Button className="loginSubmit" size="huge" color={this.state.buttonColor} type="submit">Register</Button>
 	 					{fieldEmpty}
