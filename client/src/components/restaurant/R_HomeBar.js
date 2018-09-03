@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {withAuth, api} from '../Authentication'
-import { Menu, Dropdown, Icon } from 'semantic-ui-react'
+import {Menu, Dropdown, Icon} from 'semantic-ui-react'
 
 class R_HomeBar extends Component {
   state = {}
@@ -25,19 +25,24 @@ class R_HomeBar extends Component {
         <Icon name='user' size='large'/>
       </div>
     )
+
     return (
-      <Menu size='large' inverted>
+      <Menu size='huge' inverted>
         <Menu.Item>
           <Icon name='truck' size='large'/>
         </Menu.Item>
-        <Menu.Item as={Link} to='/restaurant' name='Home' active={activeItem === 'Home'} onClick={this.handleClick} />
-        <Menu.Item as={Link} to='/restaurant/donate' name='Donate' active={activeItem === 'Donate'} onClick={this.handleClick} />
+        <Menu.Item as={Link} to='/restaurant' name='Home' 
+          active={activeItem === 'Home'} onClick={this.handleClick} />
+        <Menu.Item as={Link} to='/restaurant/donate' name='Donate' 
+          active={activeItem === 'Donate'} onClick={this.handleClick} />
 
         <Menu.Menu position='right'>
-          <Dropdown trigger={trigger} pointing='top right' icon item>
+          <Dropdown trigger={trigger} pointing='top right'  item>
             <Dropdown.Menu>
-              <Dropdown.Item as={Link} to='/restaurant/profile' key='user' text='Edit Profile' icon='user'/>
-              <Dropdown.Item as={Link} to='/login' onClick={this.logout} key='sign-out' text='Sign Out' icon='sign out' />   
+              <Dropdown.Item as={Link} to='/restaurant/profile' key='user' 
+                text='Edit Profile' icon='user'/>
+              <Dropdown.Item as={Link} to='/login' onClick={this.logout} 
+                key='sign-out' text='Sign Out' icon='sign out' />   
             </Dropdown.Menu>
           </Dropdown>
         </Menu.Menu>
@@ -47,4 +52,3 @@ class R_HomeBar extends Component {
 }
 
 export default withAuth(R_HomeBar)
-

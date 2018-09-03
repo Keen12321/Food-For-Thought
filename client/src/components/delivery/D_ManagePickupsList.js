@@ -45,7 +45,8 @@ class D_ManagePickupsList extends Component {
 	updatePickup({
 		accepted: 'pending',
 		id: this.props.user.id,
-		pickup_by: api.getProfile().email
+		pickup_by: api.getProfile().email,
+		delivery_id: api.getProfile().id
 	})
 	this.hideAddModal()
 }
