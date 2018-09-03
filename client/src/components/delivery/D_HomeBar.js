@@ -41,10 +41,10 @@ class D_HomeBar extends Component {
         <Menu.Menu position='right'>
           <Dropdown trigger={trigger} pointing='top right' item>
             <Dropdown.Menu >
-              <Dropdown.Item as={Link} to='/delivery/profile' key='user' 
+              <Dropdown.Item as={Link} to='/delivery/profile' key='user'
                 text='Edit Profile' icon='user'/>
               <Dropdown.Item as={Link} to='/login' onClick={this.logout} 
-                key='sign-out' text='Sign Out' icon='sign out' />   
+                key='sign-out' text='Sign Out' sign out/>   
             </Dropdown.Menu>
           </Dropdown>
         </Menu.Menu>

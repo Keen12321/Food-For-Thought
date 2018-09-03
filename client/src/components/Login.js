@@ -11,9 +11,9 @@ class D_Login extends Component {
 		password: '',
 		redirect: false,
 		redirectTo: '',
-		buttonColor: 'light-grey',
-		iconColor: 'light-grey',
-		validateEmail: false
+		buttonColor: '',
+		iconColor: '',
+		validateEmail: true
 	}
 
 	handleChange = (e) => {
@@ -33,33 +33,38 @@ class D_Login extends Component {
 		} else {
 			this.setState({
 				iconColor: 'green',
-				validateEmail: true
 			})
 		}
 	}
 	
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.signin(this.state.email, this.state.password, () => {
-			if (api.getProfile().type === 'Restaurant') {
-				this.setState({
-					redirect: true,
-					redirectTo: '/restaurant'
-				})
-			} else {
-				this.setState({
-					redirect: true,
-					redirectTo: '/delivery'
-				})
-			}
-		})
+		if(this.state.email !== '' && this.state.password !== '') {
+			this.props.signin(this.state.email, this.state.password, () => {
+				if (api.getProfile().type === 'Restaurant') {
+					this.setState({
+						redirect: true,
+						redirectTo: '/restaurant'
+					})
+				} else {
+					this.setState({
+						redirect: true,
+						redirectTo: '/delivery'
+					})
+				}
+			})
+		} else {
+			this.setState({
+				validateEmail: false,
+			})
+		}
 	}
 
  	render() {
  		let { redirect, redirectTo } = this.state
  		let incorrectEmailValidation
 
- 		if (this.state.validateEmail) {
+ 		if (!this.state.validateEmail) {
 			incorrectEmailValidation = <div className="wrongField">Please Enter Valid Email</div>
 		} 
 
