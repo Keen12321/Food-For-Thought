@@ -1,41 +1,47 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
-import {makeDonation} from '../../actions/donateActions'
-import {Button, Form, Container, Header, Message} from 'semantic-ui-react'
-import {api} from '../Authentication'
+// import {Link} from 'react-router-dom'
+import { makeDonation, donateForm } from '../../actions/donateActions'
+import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
+import { api } from '../Authentication'
 
 class Donate extends Component {
 	state = {
 		dish: '',
 		trays: '',
 		value: '',
-		food_id: ''
+		food_id: '',
 	}
 
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
-		console.log('is changed')
+		donateForm(this.state.dish)
 	}
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		console.log('made donation')
+		console.log('Successful donation made.')
+		
+		// if (this.state.dish !== '') {
+		// 	makeDonation({
+		// 		dish: this.state.dish
+		// 	})
+		// }
 
-		makeDonation({
-			dish: this.state.dish,
-			trays: this.state.trays,
-			value: this.state.value,
-			food_id: api.getProfile().id
-		})
+		// makeDonation({
+		// 	// dish: this.state.dish,
+		// 	trays: this.state.trays,
+		// 	value: this.state.value,
+		// 	food_id: api.getProfile().id
+		// })
 	}
 
 	render() {
 		// let invalidDish
 		// let invalidValue
 
-		// if (!this.state.validateDish) {
+		// if (!this.state.dish) {
 		// 	invalidDish = <Message
 	 //      warning
 	 //      header='Action Forbidden'
@@ -54,21 +60,21 @@ class Donate extends Component {
 		return (
 			<Container className="donate-container">
 				<Header>Make a Donation</Header>
-				{/* Dish Name Input Field */}
+
 				<Form onSubmit={this.handleSubmit} widths='equal'>
-					<Form.Input 
-						label='Title'
-						type='text'
-						placeholder='Food Item'
-						name='dish'
-						// id='myInp'
-						value={this.state.dish}
-						onChange={this.handleChange} 
-						/* onClick={this.handleClick2} */
-					/>
+					<Form.Field>
+						<Form.Input 
+							label='Title'
+							type='text'
+							placeholder='Food Item'
+							name='dish'
+							// id='myInp'
+							value={this.state.dish}
+							onChange={this.handleChange} 
+							/* onClick={this.handleClick2} */
+						/>
+					</Form.Field>
 					
-					
-					{/* Tray Amount Selection Field */}
 			    <Form.Field 
 			    	label='How Many?' 
 			    	control='select' 
@@ -100,19 +106,18 @@ class Donate extends Component {
 						<option value='19'>19</option>
 						<option value='20'>20</option>
 		      </Form.Field>
+					
+					<Form.Field>
+						<Form.Input 
+							label='Value' 
+							type='text' 
+							placeholder='$$' 
+							name='value'
+							onChange={this.handleChange}
+							value={this.state.value}
+						/>
+					</Form.Field>
 
-					{/* Value Input Field */}
-					<Form.Input 
-						label='Value' 
-						type='text' 
-						placeholder='$$' 
-						name='value'
-						onChange={this.handleChange}
-						value={this.state.value}
-					/>
-
-
-					{/* Form Submit Button */}
 	    		<Form.Field>
 		    		<Button 
 		    			color='green'
