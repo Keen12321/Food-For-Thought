@@ -25,6 +25,7 @@ router.post('/login', (req, res, next) => {
 		if (results.length > 0) {
 			const token = jwt.sign({
 				"id":results[0].id, 
+				"name":results[0].name,
 				"email":email, 
 				"location":results[0].location, 
 				"phone":results[0].phone, 

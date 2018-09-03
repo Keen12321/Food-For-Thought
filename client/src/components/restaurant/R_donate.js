@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
 import { makeDonation, donateForm } from '../../actions/donateActions'
-import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
+import { Button, Form, Container, Header } from 'semantic-ui-react'
 import { api } from '../Authentication'
 
 class Donate extends Component {
