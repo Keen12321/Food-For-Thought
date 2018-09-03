@@ -19,7 +19,7 @@ router.get('/register', (req, res, next) => {
 	})
 })
 
-
+//  REGISTERING NEW ACCOUNT
 router.patch('/register', (req, res, next) => {
 	console.log(req.body)
 	const id = req.body.id
@@ -48,15 +48,16 @@ router.patch('/register', (req, res, next) => {
 router.post('/donate', (req, res, next) => {
 	const dish = req.body.dish
 	const trays = req.body.trays
+	const value = req.body.value
 	const food_id = req.body.food_id
 	const sql = `
 		INSERT INTO
-			donations (dish, trays, food_id)
+			donations (dish, trays, value, food_id)
 		VALUES
-			(?, ?, ?)
+			(?, ?, ?, ?)
 	`
 
-	conn.query(sql, [dish, trays, food_id], (error, results, fields) => {
+	conn.query(sql, [dish, trays, value, food_id], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
 	})
@@ -93,7 +94,7 @@ router.get('/reports/:id', (req, res, next) => {
 })
 
 
-//GETTING THE DONATIONS MAPPED TO PICKUPS PAGE
+// GETTING THE DONATIONS MAPPED TO PICKUPS PAGE
 router.get('/donating', (req, res, next) => {
 	const sql = `
 		SELECT

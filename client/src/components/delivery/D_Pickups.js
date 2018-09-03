@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { withAuth, api } from '../Authentication'
-import { getDonations, updatePickup, getMyPickups } from '../../actions/donateActions'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {withAuth, api} from '../Authentication'
+import {updatePickup, getMyPickups} from '../../actions/donateActions'
+import {connect} from 'react-redux'
 
 import PickupsList from './D_PickupsList'
 
@@ -18,7 +18,8 @@ class D_Pickups extends Component {
       <div>
       	<div className="reversepickups">
       	{this.props.mypickups.map(user => (
-        	<PickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
+        	<PickupsList key={user.id} user={user} show1={this.props.show} 
+        		show2={this.props.show} show3={this.props.show} />
         ))}
         </div>
     		<div className="ui raised vertical segment">
@@ -37,4 +38,5 @@ function mapStateToProps(appState) {
 		mypickups: appState.appReducer.mypickups
 	}
 }
+
 export default withAuth(connect(mapStateToProps)(D_Pickups))
