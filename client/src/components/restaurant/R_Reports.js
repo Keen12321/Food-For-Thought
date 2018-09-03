@@ -51,6 +51,10 @@ class R_Reports extends Component {
 		})
 	}
 
+	printReport = (e) => {
+		window.print()
+	}
+
 	render() {
 		return (
 			<div>
@@ -93,7 +97,10 @@ class R_Reports extends Component {
 							<Form.Input fluid label='Start Date' id='startDate' name='startDate' value={this.state.startDate} onChange={this.handleChange} type='date' />
 							<Form.Input fluid label='End Date' id='endDate' name='endDate' value={this.state.endDate} onChange={this.handleChange} type='date' />
 						</Form.Group>
-						<Form.Button id='submit' type='submit'>Generate Chart</Form.Button>
+						<Form.Group>
+							<Form.Button id='submit' type='submit'>Generate Chart</Form.Button>
+							<Form.Button id='print' onClick={this.printReport}>Print Report</Form.Button>
+						</Form.Group>
 					</Form>
 				</div>
 				<div className='reportChart'>
