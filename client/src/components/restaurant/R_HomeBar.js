@@ -22,12 +22,12 @@ class R_HomeBar extends Component {
         <span className='navUsername'>
           Welcome, {api.getProfile().name}!
         </span>
-        <Icon name='user' size='big'/>
+        <Icon name='user' size='large'/>
       </div>
     )
 
     return (
-      <Menu size='big' inverted>
+      <Menu size='huge' inverted>
         <Menu.Item>
           <Icon name='truck' size='large'/>
         </Menu.Item>

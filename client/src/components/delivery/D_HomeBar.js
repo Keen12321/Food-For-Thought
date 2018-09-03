@@ -27,7 +27,7 @@ class D_HomeBar extends Component {
     )
 
     return (
-      <Menu size='large' inverted>
+      <Menu size='huge' inverted>
         <Menu.Item>
           <Icon name='truck' size='large'/>
         </Menu.Item>

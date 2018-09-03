@@ -34,7 +34,13 @@ class Donate extends Component {
 	render() {
 		// let invalidDish
 		// let invalidValue
-
+		// if (!this.state.validateValue) {
+		// 	invalidDish = <Message
+	 //      warning
+	 //      header='Action Forbidden'
+	 //      content='Plus input a valid currency amount.'
+	 //    />
+		// }
 		// if (!this.state.dish) {
 		// 	invalidDish = <Message
 	 //      warning

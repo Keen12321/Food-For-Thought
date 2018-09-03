@@ -19,9 +19,8 @@ router.get('/register', (req, res, next) => {
 	})
 })
 
-//  REGISTERING NEW ACCOUNT
+
 router.patch('/register', (req, res, next) => {
-	console.log(req.body)
 	const id = req.body.id
 	const name = req.body.name
 	const email = req.body.email
@@ -48,16 +47,15 @@ router.patch('/register', (req, res, next) => {
 router.post('/donate', (req, res, next) => {
 	const dish = req.body.dish
 	const trays = req.body.trays
-	const value = req.body.value
 	const food_id = req.body.food_id
 	const sql = `
 		INSERT INTO
-			donations (dish, trays, value, food_id)
+			donations (dish, trays, food_id)
 		VALUES
-			(?, ?, ?, ?)
+			(?, ?, ?)
 	`
 
-	conn.query(sql, [dish, trays, value, food_id], (error, results, fields) => {
+	conn.query(sql, [dish, trays, food_id], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
 	})
@@ -93,8 +91,32 @@ router.get('/reports/:id', (req, res, next) => {
 	})
 })
 
+//UPDATE PICKUP
+router.patch('/donating', (req, res, next) => {
+	const accepted = req.body.accepted
+	const delivery_id = req.body.delivery_id
+	const id = req.body.id
+	const reason = req.body.reason
+	const pickup_by = req.body.pickup_by
 
-// GETTING THE DONATIONS MAPPED TO PICKUPS PAGE
+	console.log(accepted,id,reason,pickup_by)
+
+	const sql = `
+		UPDATE 
+			donations
+		SET 
+			accepted = ?, reason = ?, pickup_by = ?, delivery_id = ?
+		Where 
+			id = ?
+	`
+	conn.query(sql, [accepted, reason, pickup_by, delivery_id, id], (err, results, fields) => {
+		res.json({
+			message: 'Order updated'
+		})
+	})
+})
+
+//GETTING THE DONATIONS MAPPED TO PICKUPS PAGE
 router.get('/donating', (req, res, next) => {
 	const sql = `
 		SELECT
@@ -108,11 +130,9 @@ router.get('/donating', (req, res, next) => {
 	`
 
 	conn.query(sql, (err, results, fields) => {
-		console.log('results',results)
 		res.json(results)
 	})
 })
-
 
 //GETTING ONLY THE DONATIONS THAT ARE FLAGGED FOR PICKUP
 router.get('/donating/pending', (req, res, next) => {
@@ -122,13 +142,12 @@ router.get('/donating/pending', (req, res, next) => {
 		FROM
 			donations
 		LEFT JOIN
-			users ON users.id = donations.food_id
+			users ON users.id = food_id
 		WHERE
 			donations.accepted = "pending"
 	`
 
 	conn.query(sql, (err, results, fields) => {
-		console.log('results',results)
 		res.json(results)
 	})
 })
@@ -142,13 +161,12 @@ router.get('/donating/pending/addresses', (req, res, next) => {
 		FROM
 			users
 		LEFT JOIN
-			donations ON users.id = donations.food_id
+			donations ON users.id = food_id
 		WHERE
 			donations.accepted = "pending"
 	`
 
 	conn.query(sql, (err, results, fields) => {
-		console.log('results',results)
 		res.json(results)
 	})
 })

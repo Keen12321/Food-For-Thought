@@ -37,7 +37,7 @@ class R_Profile extends Component {
 	        <Form size='huge' onSubmit={this.handleSubmit}>
 	        	<Form.Input icon='user' iconPosition='left' name='name' onChange={this.handleChange} value={this.state.name} />
 	 					<Form.Input icon='envelope' iconPosition='left' name='email' onChange={this.handleChange} value={this.state.email} />
-	 					<Form.Input icon='home' iconPosition='left' name='address' onChange={this.handleChange} value={this.state.address} />
+	 					<Form.Input icon='home' iconPosition='left' name='location' onChange={this.handleChange} value={this.state.location} />
 	 					<Form.Input icon='mobile' iconPosition='left' name='phone' onChange={this.handleChange} value={this.state.phone} />
 	 					<Link to='/login'>
 	 						<Button className="loginSubmit" size='huge' type="submit">Change Info</Button>
