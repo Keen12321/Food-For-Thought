@@ -9,10 +9,7 @@ class Donate extends Component {
 		dish: '',
 		trays: '',
 		value: '',
-		food_id: '',
-		validateDish: true,
-		validateTrays: true,
-		validateValue: true
+		food_id: ''
 	}
 
 	handleChange = (e) => {
@@ -26,41 +23,33 @@ class Donate extends Component {
 		e.preventDefault()
 		console.log('made donation')
 
-		if (this.state.dish !== '' && this.state.Trays !== '' && this.state.Value !== '') {
-			makeDonation({
-				dish: this.state.dish,
-				trays: this.state.trays,
-				value: this.state.value,
-				food_id: api.getProfile().id
-			})
-		} else {
-			this.setState({
-				validateDish: false,
-				validateTrays: false,
-				validateValue: false
-			})
-		}
+		makeDonation({
+			dish: this.state.dish,
+			trays: this.state.trays,
+			value: this.state.value,
+			food_id: api.getProfile().id
+		})
 	}
 
 	render() {
-		let invalidDish
-		let invalidValue
+		// let invalidDish
+		// let invalidValue
 
-		if (!this.state.validateDish) {
-			invalidDish = <Message
-	      warning
-	      header='Action Forbidden'
-	      content='Plus input a valid dish name.'
-	    />
-		}
+		// if (!this.state.validateDish) {
+		// 	invalidDish = <Message
+	 //      warning
+	 //      header='Action Forbidden'
+	 //      content='Plus input a valid dish name.'
+	 //    />
+		// }
 
-		if (!this.state.validateValue) {
-			invalidDish = <Message
-	      warning
-	      header='Action Forbidden'
-	      content='Plus input a valid currency amount.'
-	    />
-		}
+		// if (!this.state.validateValue) {
+		// 	invalidDish = <Message
+	 //      warning
+	 //      header='Action Forbidden'
+	 //      content='Plus input a valid currency amount.'
+	 //    />
+		// }
 
 		return (
 			<Container className="donate-container">
@@ -77,7 +66,7 @@ class Donate extends Component {
 						onChange={this.handleChange} 
 						/* onClick={this.handleClick2} */
 					/>
-					{invalidDish}
+					
 					
 					{/* Tray Amount Selection Field */}
 			    <Form.Field 
@@ -121,7 +110,7 @@ class Donate extends Component {
 						onChange={this.handleChange}
 						value={this.state.value}
 					/>
-					{invalidValue}
+
 
 					{/* Form Submit Button */}
 	    		<Form.Field>
@@ -129,15 +118,9 @@ class Donate extends Component {
 		    			color='green'
 		    			type='submit'
 		    			fluid
-		    			as={Link} to='/restaurant'
 	    			>Submit</Button>
     			</Form.Field>
 
-		    	<Message 
-		    		success 
-		    		header='Form Completed' 
-		    		content="You've successfully added your donation, thank you!" 
-	    		/>
 			  </Form>
 			</Container>
 		)
