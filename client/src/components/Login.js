@@ -29,11 +29,11 @@ class D_Login extends Component {
 		if (validator.isEmail(this.state.email)) {
 			this.setState({
 				iconColor: 'red',
-				validateEmail: true
 			})
 		} else {
 			this.setState({
-				iconColor: 'green'
+				iconColor: 'green',
+				validateEmail: true
 			})
 		}
 	}

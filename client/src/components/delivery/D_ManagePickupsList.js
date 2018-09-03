@@ -59,7 +59,7 @@ addPickup = (e) => {
  render() {
    return (
    		<div>
-         	<div key={this.props.user.id} className="pickups ui vertical segment">
+       	<div key={this.props.user.id} className="pickups ui vertical segment">
 	   			<div>
 	  				<p>{this.props.user.name}</p>
 	  				<p>{this.props.user.location}</p>
@@ -74,16 +74,15 @@ addPickup = (e) => {
 					</button>
 					
 	  			</div>
-	  			         <Modal show={this.state.show3} handleClose={this.hideAddModal}>
-	  						<h2>Add the following pickup to your route:</h2>
-	  						<p>{this.props.user.name}</p>
-	  						<p>{this.props.user.location}</p>
-	  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
-	  						<p>Distance From Location</p>
-	  						<button className="ui blue button" id="addtomap" onClick={this.addPickup}>Add to Map</button>
-	  			         </Modal>
-	  			         
-			</div>
+         	<Modal show={this.state.show3} handleClose={this.hideAddModal}>
+						<h2>Add the following pickup to your route:</h2>
+						<p>{this.props.user.name}</p>
+						<p>{this.props.user.location}</p>
+						<p>{this.props.user.dish} x {this.props.user.trays}</p>
+						<p>Distance From Location</p>
+						<button className="ui blue button" id="addtomap" onClick={this.addPickup}>Add to Map</button>
+         	</Modal>  			         
+				</div>
    		</div>
    )
  }

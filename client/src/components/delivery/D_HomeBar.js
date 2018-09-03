@@ -22,7 +22,7 @@ class D_HomeBar extends Component {
         <span className='navUsername'>
           Welcome, {api.getProfile().name}!
         </span>
-        <Icon name='user' size='big'/>
+        <Icon name='user' size='large'/>
       </div>
     )
 
