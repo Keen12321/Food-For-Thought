@@ -31,6 +31,7 @@ const App = props => (
 	  			<Route path="/register" component={Register} />
 		    	<AuthRoute path="/delivery" component={DeliveryApp} />
 		    	<AuthRoute path="/restaurant" component={RestaurantApp} />
+		    	<Route render={() => (<div>Sorry but this page does not exist</div>)} />
 		    </div>
 	    </Authentication>
   	</Router>
