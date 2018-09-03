@@ -22,12 +22,12 @@ class D_HomeBar extends Component {
         <span className='navUsername'>
           Welcome, {api.getProfile().name}!
         </span>
-        <Icon name='user' size='big'/>
+        <Icon name='user' size='large'/>
       </div>
     )
 
     return (
-      <Menu size='big' inverted>
+      <Menu size='large' inverted>
         <Menu.Item>
           <Icon name='truck' size='large'/>
         </Menu.Item>
@@ -39,12 +39,12 @@ class D_HomeBar extends Component {
           active={activeItem === 'Pickups'} onClick={this.handleClick} />
 
         <Menu.Menu position='right'>
-          <Dropdown trigger={trigger} pointing='top right' icon item>
+          <Dropdown trigger={trigger} pointing='top right' item>
             <Dropdown.Menu >
-              <Dropdown.Item as={Link} to='/delivery/profile' key='user' 
+              <Dropdown.Item as={Link} to='/delivery/profile' key='user'
                 text='Edit Profile' icon='user'/>
               <Dropdown.Item as={Link} to='/login' onClick={this.logout} 
-                key='sign-out' text='Sign Out' icon='sign out' />   
+                key='sign-out' text='Sign Out' sign out/>   
             </Dropdown.Menu>
           </Dropdown>
         </Menu.Menu>
