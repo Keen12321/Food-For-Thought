@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {withAuth, api} from '../Authentication'
 import {Menu, Dropdown, Icon} from 'semantic-ui-react'
@@ -25,16 +25,19 @@ class R_HomeBar extends Component {
         <Icon name='user' size='big'/>
       </div>
     )
+
     return (
       <Menu size='big' inverted>
         <Menu.Item>
           <Icon name='truck' size='large'/>
         </Menu.Item>
-        <Menu.Item as={Link} to='/restaurant' name='Home' active={activeItem === 'Home'} onClick={this.handleClick} />
-        <Menu.Item as={Link} to='/restaurant/donate' name='Donate' active={activeItem === 'Donate'} onClick={this.handleClick} />
+        <Menu.Item as={Link} to='/restaurant' name='Home' 
+          active={activeItem === 'Home'} onClick={this.handleClick} />
+        <Menu.Item as={Link} to='/restaurant/donate' name='Donate' 
+          active={activeItem === 'Donate'} onClick={this.handleClick} />
 
         <Menu.Menu position='right'>
-          <Dropdown trigger={trigger} pointing='top right' icon item>
+          <Dropdown trigger={trigger} pointing='top right'  item>
             <Dropdown.Menu>
               <Dropdown.Item as={Link} to='/restaurant/profile' key='user' 
                 text='Edit Profile' icon='user'/>
@@ -49,4 +52,3 @@ class R_HomeBar extends Component {
 }
 
 export default withAuth(R_HomeBar)
-

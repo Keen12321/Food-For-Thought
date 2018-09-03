@@ -1,6 +1,6 @@
 /*global google*/
 import React, { Component } from 'react'
-import D_Pickups from './D_Pickups'
+// import D_Pickups from './D_Pickups'
 import  { compose, withProps, lifecycle } from 'recompose'
 import {withScriptjs, withGoogleMap, GoogleMap, TrafficLayer, DirectionsRenderer} from 'react-google-maps'
 import { withAuth, api } from '../Authentication'

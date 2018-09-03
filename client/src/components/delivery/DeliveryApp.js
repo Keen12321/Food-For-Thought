@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import { Authentication } from '../Authentication'
 
 import D_Home from './D_Home'
-import D_Pickups from './D_Pickups'
+// import D_Pickups from './D_Pickups'
 import D_ManagePickups from './D_ManagePickups.js'
 import D_Reports from './D_Reports'
 import D_Profile from './D_Profile'

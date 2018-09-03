@@ -95,7 +95,6 @@ class Register extends Component {
  			incorrectPasswordValidation = <div className="wrongField">Passwords Do Not Match</div>
  		}
 
-
  		if (redirect) {
  			return <Redirect to={redirectTo} />
  		} else {

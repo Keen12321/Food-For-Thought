@@ -11,7 +11,6 @@ router.post('/login', (req, res, next) => {
 	const password = sha512(req.body.password).toString()
 
 	const sql = `
-<<<<<<< HEAD
 		SELECT 
 			id, email, location, phone, type
 		FROM 
@@ -53,8 +52,10 @@ router.post('/register', (req, res, next) => {
 	const type = req.body.type
 
 	const sql = `
-		INSERT INTO users (name, email, password, location, phone, type)
-		VALUES (?, ?, ?, ?, ?, ?)
+		INSERT INTO 
+			users (name, email, password, location, phone, type)
+		VALUES 
+			(?, ?, ?, ?, ?, ?)
 	`
 
 	conn.query(sql, [name, email, password, location, phone, type], (err, results, fields) => {
@@ -73,9 +74,12 @@ router.patch('/donating', (req, res, next) => {
 	console.log(accepted,id,reason,pickup_by)
 
 	const sql = `
-		UPDATE donations
-		SET accepted = ?, reason = ?, pickup_by = ? 
-		Where id = ?
+		UPDATE 
+			donations
+		SET 
+			accepted = ?, reason = ?, pickup_by = ? 
+		Where 
+			id = ?
 	`
 	conn.query(sql, [accepted, reason, pickup_by, id], (err, results, fields) => {
 
