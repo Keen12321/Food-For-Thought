@@ -1,7 +1,8 @@
 /*global google*/
 import React, { Component } from 'react'
-import { compose, withProps, lifecycle } from 'recompose'
-import { withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer } from 'react-google-maps'
+import D_Pickups from './D_Pickups'
+import  { compose, withProps, lifecycle } from 'recompose'
+import {withScriptjs, withGoogleMap, GoogleMap, TrafficLayer, DirectionsRenderer} from 'react-google-maps'
 import { withAuth, api } from '../Authentication'
 import { getDonations } from '../../actions/donateActions'
 import { connect } from 'react-redux'
@@ -14,7 +15,7 @@ class D_Map extends Component {
     currentLatLng: {
       lat: 0,
       lng: 0
-    }
+    },
   }
 
   showCurrentLocation() {
@@ -69,19 +70,22 @@ render() {
           
           if (status === google.maps.DirectionsStatus.OK) {
             this.setState({
-              directions: {...result},
-              markers: true
+              directions: {...result}
             })
           }
            else {
             console.error(`error fetching directions ${result}`)
+            console.log(waypnt)
+            console.log(result)
+            console.log(status)
           }
         })
       }
     })
   )(props =>
     <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
-         {props.directions && <DirectionsRenderer directions={props.directions} suppressMarkers={props.markers}/>}
+         {props.directions && <DirectionsRenderer directions={props.directions}  />}
+         <TrafficLayer autoUpdate />
     </GoogleMap>
   )
 return (
@@ -94,6 +98,7 @@ return (
     )
   }
 }
+
 function mapStateToProps(appState) {
 	return {
 		addresses: appState.appReducer.addresses

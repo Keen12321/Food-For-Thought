@@ -11,13 +11,11 @@ class D_Profile extends Component {
 		address: api.getProfile().address,
 		phone: api.getProfile().phone,
 	}
-
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
 	}
-
 	handleSubmit = (e) => {
 		e.preventDefault()
 		changeUserInfo({
@@ -29,7 +27,6 @@ class D_Profile extends Component {
 		})
 		this.props.signout()
 	}
-
 	render() {
 		return (
 			<div className="editProfileContainer">
@@ -48,9 +45,7 @@ class D_Profile extends Component {
 	 				</Form>
 	 			</Segment>
 			</div>
-		)
+			)
+		}
 	}
-}
-
-
 export default withAuth(D_Profile)
