@@ -22,19 +22,13 @@ class Donate extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		console.log('Successful donation made.')
-		
-		// if (this.state.dish !== '') {
-		// 	makeDonation({
-		// 		dish: this.state.dish
-		// 	})
-		// }
 
-		// makeDonation({
-		// 	// dish: this.state.dish,
-		// 	trays: this.state.trays,
-		// 	value: this.state.value,
-		// 	food_id: api.getProfile().id
-		// })
+		makeDonation({
+			dish: this.state.dish,
+			trays: this.state.trays,
+			value: this.state.value,
+			food_id: api.getProfile().id
+		})
 	}
 
 	render() {
