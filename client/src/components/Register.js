@@ -13,7 +13,7 @@ class Register extends Component {
 		location: '',
 		phone: '',
 		type: '',
-		buttonColor: 'light-grey',
+		buttonColor: '',
 		validateEmpty: true,
 		validateEmail: true,
 		validatePassword: true,
@@ -25,7 +25,7 @@ class Register extends Component {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
-		if(this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.address !== '' && this.state.phone !== '' && this.state.type !== '') {
+		if(this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '') {
 			this.setState({
 				buttonColor:'blue'
 			})
@@ -140,8 +140,8 @@ class Register extends Component {
 	 					{incorrectPasswordValidation}
 
 	 					<Form.Input fluid icon='home' iconPosition='left' 
-	 						name='address' onChange={this.handleChange} 
-	 						value={this.state.address} placeholder='Address' />
+	 						name='location' onChange={this.handleChange} 
+	 						value={this.state.location} placeholder='Address' />
 	 					<Form.Input fluid icon='mobile' iconPosition='left' 
 	 						name='phone' onChange={this.handleChange} 
 	 						value={this.state.phone} placeholder='Phone #' />
