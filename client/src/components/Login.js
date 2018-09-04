@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withAuth } from './Authentication'
 import {Redirect, Link} from 'react-router-dom'
 import {api} from './Authentication'
-import { Container, Header, Button, Icon, Form} from 'semantic-ui-react'
+import { Container, Header, Button, Icon, Form, Input } from 'semantic-ui-react'
 
 class D_Login extends Component {
 	state = {
@@ -52,27 +52,20 @@ class D_Login extends Component {
 	   	return (
 	 			<Container className="loginContainer">
 	   			
-	   			<div className="loginTitleContainer">
-	   				<i id="loginLogo" className="fa fa-cutlery" />
-	   				<Header id="loginTitle">Login</Header>
-	   			</div>
+	   			<Container className="loginTitleContainer">
+	   				<Header id="loginTitle">
+	   					<Icon name='food' />
+	   					<Header.Content>Login</Header.Content>
+   					</Header>
+	   			</Container>
 
-	 				<form className="loginForm" onSubmit={this.handleSubmit}>
-	 					<div className="loginInputField">
-	 						<i className="fa fa-user" />
-		 					<input className="loginInputBox" type="text" name="email" 
-		 						onChange={this.handleChange} value={this.state.email} placeholder="Email" />
-		 				</div>
-		 				
-		 				<div className="loginInputField">
-		 					<i className="fa fa-key" />
-	 						<input className="loginInputBox" type="password" name="password" 
-	 							onChange={this.handleChange} value={this.state.password} placeholder="Password" />
-	 					</div>
-	 					
-	 					<Button className="loginSubmit" type="submit">Login</Button>
+	 				<Form size='huge' className="loginForm" onSubmit={this.handleSubmit}>
+	 					<Form.Input className='red' fluid icon='user'  iconPosition='left' name='email' type='email' onChange={this.handleChange} value={this.state.email} placeholder='Email' />
+	 					{incorrectEmailValidation}
+	 					<Form.Input fluid icon='key' iconPosition='left' name='password' onChange={this.handleChange} value={this.state.password} placeholder='Password' type='password' />
+	 					<Button className="loginSubmit" type="submit" color={this.state.buttonColor} size='big'>LOGIN</Button>
 	 					<Link className="registrationLink" to="/register">Not a Registered User? Register Here</Link>
-	 				</form>
+	 				</Form>
 
 	 			</Container>
 	   	)
