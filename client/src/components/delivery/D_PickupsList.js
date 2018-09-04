@@ -66,7 +66,8 @@ class D_PickupsList extends Component {
 		accepted: "false",
 		id: this.props.user.id,
 		reason: this.state.reason,
-		pickup_by: api.getProfile().email
+		pickup_by: api.getProfile().email,
+		delivery_id: api.getProfile().id
 	})
 	
 	this.hideDeleteModal()

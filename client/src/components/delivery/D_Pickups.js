@@ -17,6 +17,8 @@ class D_Pickups extends Component {
     if ( this.props.mypickups !== newProps.mypickups)  {
       getMyPickups(api.getProfile().id, newProps.mypickups)
       updatePickup(newProps.mypickups)
+    } else {
+
     }
   }
 

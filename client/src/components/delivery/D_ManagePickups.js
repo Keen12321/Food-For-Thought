@@ -16,9 +16,11 @@ class D_ManagePickups extends Component {
     if ( this.props.donate !== newProps.donate)  {
       getDonations(newProps.donate)
       updatePickup(newProps.donate)
+    } else {
+
     }
   }
-  
+
 	render() {
 		return (
 	    <div className="reversepickups">

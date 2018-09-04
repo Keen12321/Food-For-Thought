@@ -38,6 +38,14 @@ class D_Map extends Component {
     getAddresses(api.getProfile().id)
   }
 
+  componentWillReceiveProps(newProps) {
+    if ( this.props.location !== newProps.location)  {
+      getAddresses(api.getProfile().id, newProps.location)
+    } else {
+
+    }
+  }
+
 render() {
   const lat = this.state.currentLatLng.lat
   const lng = this.state.currentLatLng.lng
