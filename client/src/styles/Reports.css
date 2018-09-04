@@ -1,4 +1,18 @@
-.reportTable, .reportChart {
+.titles > h1 {
+	margin-top:10px;
+	font-size:1.5em;
+	font-weight:bold;
+	text-align:center;
+}
+
+.titles > h2 {
+	margin:0 0 10px 0;
+	font-size:1.25em;
+	font-weight:bold;
+	text-align:center;
+}
+
+.reportTable {
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
@@ -7,21 +21,28 @@
 	text-align:center;
 }
 
-.reportTable > h1, .reportChart > h1 {
-	margin-top:10px;
-	font-size:1.5em;
-	font-weight:bold;
-	text-align:center;
-}
-
-.reportTable > h2, .reportChart > h2 {
-	margin:0 0 10px 0;
-	font-size:1.25em;
-	font-weight:bold;
-	text-align:center;
-}
-
 .reportForm {
 	margin:10px auto;
 	width:80%;
+}
+
+.reportChart {
+	position:relative;
+	margin:auto;
+	width:80vh;
+	height:80vh;
+}
+
+@media only print {
+	#ribbonTitle {
+		display:none;
+	}
+
+	.reportTable {
+		margin-bottom:20px;
+	}
+
+	.reportForm {
+		display:none;
+	}
 }

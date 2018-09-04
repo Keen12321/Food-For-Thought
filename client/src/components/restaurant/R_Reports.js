@@ -58,9 +58,11 @@ class R_Reports extends Component {
 	render() {
 		return (
 			<div>
-				<div className='reportTable'>
+				<div className='titles'>
 					<h1>{this.state.name} Report</h1>
 					<h2>{this.state.startDate} &ndash; {this.state.endDate}</h2>
+				</div>
+				<div className='reportTable'>
 					<Table celled>
 						<Table.Header>
 							<Table.Row>
@@ -83,7 +85,7 @@ class R_Reports extends Component {
 						</Table.Body>
 						<Table.Footer>
 							<Table.Row>
-								<Table.HeaderCell><Label ribbon>Select Start & End Dates Below</Label></Table.HeaderCell>
+								<Table.HeaderCell><Label ribbon id='ribbonTitle'>Select Start & End Dates Below</Label></Table.HeaderCell>
 								<Table.HeaderCell>Total</Table.HeaderCell>
 								<Table.HeaderCell>{this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).reduce((a,b) => a + b.trays, 0)}</Table.HeaderCell>
 								<Table.HeaderCell>${this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).reduce((a,b) => a + b.value, 0)}</Table.HeaderCell>
@@ -103,9 +105,11 @@ class R_Reports extends Component {
 						</Form.Group>
 					</Form>
 				</div>
-				<div className='reportChart'>
+				<div className='titles'>
 					<h1>{this.state.name} Chart</h1>
 					<h2>{this.state.startDate} &ndash; {this.state.endDate}</h2>
+				</div>
+				<div className='reportChart'>
 					<RC2 data={this.state.chartData} type='bar' />
 				</div>
 			</div>

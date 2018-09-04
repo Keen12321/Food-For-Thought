@@ -48,3 +48,9 @@ export function getDonations() {
 		})
 	})
 }
+
+export function getTime() {
+	var time = new Date();
+		
+  	return time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+}
