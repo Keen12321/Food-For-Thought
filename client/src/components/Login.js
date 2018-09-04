@@ -78,7 +78,7 @@ class D_Login extends Component {
 	   				<div id="loginTitle">Login</div>
 	   			</div>
 	 				<Form size='huge' className="loginForm" onSubmit={this.handleSubmit}>
-	 					<Form.Input className='red' fluid icon='user'  iconPosition='left' name='email' onChange={this.handleChange} value={this.state.email} placeholder='Email' />
+	 					<Form.Input className='red' fluid icon='user'  iconPosition='left' name='email' type='email' onChange={this.handleChange} value={this.state.email} placeholder='Email' />
 	 					{incorrectEmailValidation}
 	 					<Form.Input fluid icon='key' iconPosition='left' name='password' onChange={this.handleChange} value={this.state.password} placeholder='Password' type='password' />
 	 					<Button className="loginSubmit" type="submit" color={this.state.buttonColor} size='big'>LOGIN</Button>
