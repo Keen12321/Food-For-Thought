@@ -32,7 +32,7 @@ class D_Map extends Component {
 
   componentDidMount() {
     this.showCurrentLocation()
-    getAddresses()
+    getAddresses(api.getProfile().id)
     console.log('this', this)
   }
 
@@ -89,10 +89,13 @@ render() {
          <TrafficLayer autoUpdate />
     </GoogleMap>
   )
+  console.log('asdf', this)
 return (
 	   <div className="pickupsContainer">
 	   <div id="scroll">
         <Pickups />
+      </div>
+      <div>
       </div>
         <DirectionsComponent />
      </div>

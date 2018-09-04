@@ -22,8 +22,8 @@ export function donateForm(input) {
 	}
 }
 
-export function getAddresses() {
-	api.get('/api/donating/pending/addresses').then(data => {
+export function getAddresses(id) {
+	api.get('/api/donating/pending/addresses/' + id).then(data => {
 		store.dispatch({
 			type: 'GET_ADDRESSES',
 			payload: data
@@ -31,8 +31,8 @@ export function getAddresses() {
 	})
 }
 
-export function getMyPickups() {
-	api.get('/api/donating/pending').then(data => {
+export function getMyPickups(id) {
+	api.get('/api/donating/pending/' + id).then(data => {
 		store.dispatch({
 			type: 'GET_MYPICKUPS',
 			payload: data
@@ -47,4 +47,9 @@ export function getDonations() {
 			payload: data
 		})
 	})
+}
+export function getTime() {
+	var time = new Date();
+		
+  	return time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 }
