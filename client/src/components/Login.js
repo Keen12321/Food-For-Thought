@@ -23,18 +23,17 @@ class D_Login extends Component {
 		
 		if(this.state.email !== '' && this.state.password !== '') {
 			this.setState({
-				buttonColor: 'blue',
-				iconColor: 'green'
+				buttonColor: 'blue'
 			})
 		}
 
 		if (validator.isEmail(this.state.email)) {
 			this.setState({
-				iconColor: 'red',
+				iconColor: 'green'
 			})
 		} else {
 			this.setState({
-				iconColor: 'green',
+				iconColor: 'red'
 			})
 		}
 	}
@@ -82,12 +81,13 @@ class D_Login extends Component {
 
 	 				<Form size='huge' className="loginForm" onSubmit={this.handleSubmit}>
 	 					<Form.Input className='red' name='email' type='email'
-	 						fluid icon={<Icon name='user' color={this.state.iconColor} />} iconPosition='left' 
+	 						fluid icon={<Icon name='user' color={this.state.iconColor} />} 
 	 						onChange={this.handleChange} value={this.state.email} 
-	 						placeholder='Email' />
+	 						iconPosition='left' placeholder='Email' />
 	 					{incorrectEmailValidation}
 
-	 					<Form.Input fluid icon='key' iconPosition='left' name='password' 
+	 					<Form.Input iconPosition='left' name='password'
+	 						fluid icon={<Icon name='key' color={this.state.iconColor} />}
 	 						onChange={this.handleChange} value={this.state.password} 
 	 						placeholder='Password' type='password' />
 	 					
