@@ -1,29 +1,35 @@
 .titles > h1 {
-	margin-top:10px;
+	margin-bottom:-20px;
 	font-size:1.5em;
 	font-weight:bold;
 	text-align:center;
 }
 
-.titles > h2 {
-	margin:0 0 10px 0;
+.titles > h2, .reportForm > h2 {
 	font-size:1.25em;
 	font-weight:bold;
 	text-align:center;
+}
+
+.buttons {
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	text-align:center;
+}
+
+.reportForm {
+	margin:20px auto 40px auto;
+	width:80%;
 }
 
 .reportTable {
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
-	margin:10px auto;
+	margin:20px auto;
 	width:80%;
 	text-align:center;
-}
-
-.reportForm {
-	margin:10px auto;
-	width:80%;
 }
 
 .reportChart {
@@ -34,14 +40,6 @@
 }
 
 @media only print {
-	#ribbonTitle {
-		display:none;
-	}
-
-	.reportTable {
-		margin-bottom:20px;
-	}
-
 	.reportForm {
 		display:none;
 	}
