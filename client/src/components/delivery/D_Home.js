@@ -14,6 +14,14 @@ class D_Home extends Component {
     getDonations()
    }
 
+  componentWillReceiveProps(newProps) {
+    if ( this.props.donate !== newProps.donate)  {
+      getDonations(newProps.donate)
+    } else {
+      
+    }
+  }
+
   render() {
     return (
       <div>
