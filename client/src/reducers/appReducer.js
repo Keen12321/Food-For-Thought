@@ -6,8 +6,6 @@ const initialState = {
 
 export default function (state = initialState, action) {
  switch (action.type) {
-    case 'VIEW_DONATIONS':
-        return {...state, donate: [action.payload, ...state.donate]}
     case 'GET_DONATIONS':
     	return {...state, donate: action.payload}
     case 'GET_MYPICKUPS':

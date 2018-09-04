@@ -7,9 +7,7 @@ import config from 'config'
 import authRoutes from './routes/auth'
 import protectedRoutes from './routes/user'
 import jwt from 'express-jwt'
-import socketio from 'socket.io'
-import http from 'http'
-import runsocket from './broadcast'
+
 
 const app = express()
 
@@ -22,8 +20,8 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', authRoutes)
-app.use('/api',  protectedRoutes)
-// jwt({secret: config.get('jwt.secret')}),
+app.use('/api', protectedRoutes)
+// jwt({secret: config.get('jwt.secret')})
 
 app.use((req, res, next) => {
   let err = new Error('Not Found')

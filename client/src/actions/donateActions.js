@@ -1,6 +1,5 @@
 import { api } from '../components/Authentication'
 import store from '../store'
-import io from 'socket.io-client'
 
 
 export function makeDonation(donation) {
@@ -9,19 +8,18 @@ export function makeDonation(donation) {
 	})
 }
 
-export function getDonations() {
-	api.get('/api/donating').then(data => {
-		store.dispatch({
-			type: 'GET_DONATIONS',
-			payload: data
-		})
-	})
-}
-
 export function updatePickup(state) {
 	api.patch('/api/donating', state).then(data => {
 
 	})
+}
+
+export function donateForm(input) {
+	if (isNaN(input)) {
+		console.log(input)
+	} else {
+		console.log('No numbers, please.')
+	}
 }
 
 export function getAddresses() {
@@ -37,6 +35,15 @@ export function getMyPickups() {
 	api.get('/api/donating/pending').then(data => {
 		store.dispatch({
 			type: 'GET_MYPICKUPS',
+			payload: data
+		})
+	})
+}
+
+export function getDonations() {
+	api.get('/api/donating').then(data => {
+		store.dispatch({
+			type: 'GET_DONATIONS',
 			payload: data
 		})
 	})

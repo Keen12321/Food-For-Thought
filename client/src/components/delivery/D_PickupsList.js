@@ -15,7 +15,7 @@ const Modal = ({ handleClose, show, children}) => {
 	)
 }
 
-class D_PickupsList extends Component {
+class PickupsList extends Component {
 	state = {
 		show: false,
 		show1: false,
@@ -119,4 +119,4 @@ function mapStateToProps(appState) {
 		mypickups: appState.appReducer.mypickups
 	}
 }
-export default withAuth(connect(mapStateToProps)(D_PickupsList))
+export default withAuth(connect(mapStateToProps)(PickupsList))

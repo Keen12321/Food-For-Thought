@@ -1,13 +1,10 @@
 /*global google*/
 import React, { Component } from 'react'
-import D_Pickups from './D_Pickups'
 import  { compose, withProps, lifecycle } from 'recompose'
 import {withScriptjs, withGoogleMap, GoogleMap, TrafficLayer, DirectionsRenderer} from 'react-google-maps'
 import { withAuth, api } from '../Authentication'
-import { getDonations } from '../../actions/donateActions'
 import { connect } from 'react-redux'
 import { getAddresses } from '../../actions/donateActions'
-
 import Pickups from './D_Pickups'
 
 class D_Map extends Component {
@@ -36,14 +33,15 @@ class D_Map extends Component {
   componentDidMount() {
     this.showCurrentLocation()
     getAddresses()
-    console.log(this)
+    console.log('this', this)
   }
 
 render() {
   const lat = this.state.currentLatLng.lat
   const lng = this.state.currentLatLng.lng
   const waypnt = this.props.addresses
-
+  let rte
+  console.log('render', this)
   const DirectionsComponent = compose(
 
     withProps({
@@ -58,7 +56,7 @@ render() {
 
     lifecycle({
       componentDidMount() { 
-        console.log(this)
+        console.log('that', this)
         const DirectionsService = new google.maps.DirectionsService()
         DirectionsService.route({
           origin: new google.maps.LatLng({lat:lat, lng:lng}),
@@ -70,21 +68,24 @@ render() {
           
           if (status === google.maps.DirectionsStatus.OK) {
             this.setState({
-              directions: {...result}
+              directions: {...result},
+              routes: {...result.routes}
             })
+            rte = {...result.routes} //assign rte to the routes object
+            console.log('result', result)
+            console.log('rte', rte)
           }
            else {
             console.error(`error fetching directions ${result}`)
-            console.log(waypnt)
-            console.log(result)
-            console.log(status)
+            console.log('waypnt', waypnt)
+            console.log('status', status)
           }
         })
       }
     })
   )(props =>
     <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
-         {props.directions && <DirectionsRenderer directions={props.directions}  />}
+         {props.directions && <DirectionsRenderer directions={props.directions} />}
          <TrafficLayer autoUpdate />
     </GoogleMap>
   )
@@ -92,7 +93,7 @@ return (
 	   <div className="pickupsContainer">
 	   <div id="scroll">
         <Pickups />
-        </div>
+      </div>
         <DirectionsComponent />
      </div>
     )

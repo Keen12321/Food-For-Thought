@@ -27,19 +27,24 @@ class D_HomeBar extends Component {
     )
 
     return (
-      <Menu size='large' inverted>
+      <Menu size='huge' inverted>
         <Menu.Item>
           <Icon name='truck' size='large'/>
         </Menu.Item>
-        <Menu.Item as={Link} to='/delivery' name='Home' active={activeItem === 'Home'} onClick={this.handleClick} />
-        <Menu.Item as={Link} to='/delivery/map' name='Map' active={activeItem === 'Map'} onClick={this.handleClick} />
-        <Menu.Item as={Link} to='/delivery/pickups' name='Pickups' active={activeItem === 'Pickups'} onClick={this.handleClick} />
+        <Menu.Item as={Link} to='/delivery' name='Home' 
+          active={activeItem === 'Home'} onClick={this.handleClick} />
+        <Menu.Item as={Link} to='/delivery/map' name='Map' 
+          active={activeItem === 'Map'} onClick={this.handleClick} />
+        <Menu.Item as={Link} to='/delivery/pickups' name='Pickups' 
+          active={activeItem === 'Pickups'} onClick={this.handleClick} />
 
         <Menu.Menu position='right'>
           <Dropdown trigger={trigger} pointing='top right' item>
             <Dropdown.Menu >
-              <Dropdown.Item as={Link} to='/delivery/profile' key='user' text='Edit Profile' icon='user'/>
-              <Dropdown.Item as={Link} to='/login' onClick={this.logout} key='sign-out' text='Sign Out' icon='sign out' />   
+              <Dropdown.Item as={Link} to='/delivery/profile' key='user'
+                text='Edit Profile' icon='user'/>
+              <Dropdown.Item as={Link} to='/login' onClick={this.logout} 
+                key='sign-out' text='Sign Out' sign out/>   
             </Dropdown.Menu>
           </Dropdown>
         </Menu.Menu>

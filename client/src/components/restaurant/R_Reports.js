@@ -51,6 +51,10 @@ class R_Reports extends Component {
 		})
 	}
 
+	printReport = (e) => {
+		window.print()
+	}
+
 	render() {
 		return (
 			<div>
@@ -79,9 +83,10 @@ class R_Reports extends Component {
 						</Table.Body>
 						<Table.Footer>
 							<Table.Row>
-								<Table.HeaderCell colSpan='4'>
-									<Label ribbon>Select Start & End Dates Below</Label>
-								</Table.HeaderCell>
+								<Table.HeaderCell><Label ribbon>Select Start & End Dates Below</Label></Table.HeaderCell>
+								<Table.HeaderCell>Total</Table.HeaderCell>
+								<Table.HeaderCell>{this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).reduce((a,b) => a + b.trays, 0)}</Table.HeaderCell>
+								<Table.HeaderCell>${this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).reduce((a,b) => a + b.value, 0)}</Table.HeaderCell>
 							</Table.Row>
 						</Table.Footer>
 					</Table>
@@ -92,7 +97,10 @@ class R_Reports extends Component {
 							<Form.Input fluid label='Start Date' id='startDate' name='startDate' value={this.state.startDate} onChange={this.handleChange} type='date' />
 							<Form.Input fluid label='End Date' id='endDate' name='endDate' value={this.state.endDate} onChange={this.handleChange} type='date' />
 						</Form.Group>
-						<Form.Button id='submit' type='submit'>Generate Chart</Form.Button>
+						<Form.Group>
+							<Form.Button id='submit' type='submit'>Generate Chart</Form.Button>
+							<Form.Button id='print' onClick={this.printReport}>Print Report</Form.Button>
+						</Form.Group>
 					</Form>
 				</div>
 				<div className='reportChart'>
@@ -107,7 +115,7 @@ class R_Reports extends Component {
 
 function mapStateToProps(appState) {
 	return {
-		report:appState.reportReduce.report
+		report:appState.reportReducer.report
 	}
 }
 

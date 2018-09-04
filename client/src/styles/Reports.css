@@ -3,7 +3,7 @@
 	flex-direction:column;
 	justify-content:center;
 	margin:10px auto;
-	width:90%;
+	width:80%;
 	text-align:center;
 }
 
@@ -23,5 +23,5 @@
 
 .reportForm {
 	margin:10px auto;
-	width:90%;
+	width:80%;
 }
