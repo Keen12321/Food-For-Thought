@@ -86,7 +86,6 @@ router.get('/reports/:id', (req, res, next) => {
 				report.push(results[i])
 			}
 		}
-
 		res.json(report)
 	})
 })
@@ -142,7 +141,7 @@ router.get('/donating/pending', (req, res, next) => {
 		FROM
 			donations
 		LEFT JOIN
-			users ON users.id = food_id
+			users ON users.id
 		WHERE
 			donations.accepted = "pending"
 	`
@@ -161,7 +160,7 @@ router.get('/donating/pending/addresses', (req, res, next) => {
 		FROM
 			users
 		LEFT JOIN
-			donations ON users.id = food_id
+			donations ON users.id
 		WHERE
 			donations.accepted = "pending"
 	`
