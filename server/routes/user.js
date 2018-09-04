@@ -125,7 +125,7 @@ router.get('/donating', (req, res, next) => {
 		LEFT JOIN
 			users ON users.id = donations.food_id
 		WHERE
-			donations.accepted NOT IN ("pending", "false")
+			donations.accepted NOT IN ("pending", "false", "true")
 	`
 
 	conn.query(sql, (err, results, fields) => {
@@ -134,38 +134,42 @@ router.get('/donating', (req, res, next) => {
 })
 
 //GETTING ONLY THE DONATIONS THAT ARE FLAGGED FOR PICKUP
-router.get('/donating/pending', (req, res, next) => {
+router.get('/donating/pending/:id', (req, res, next) => {
+	let id = req.params.id
+
 	const sql = `
 		SELECT
-			donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.name
+			donations.dish, donations.trays, donations.id, donations.delivery_id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.name
 		FROM
 			donations
 		LEFT JOIN
-			users ON users.id
+			users ON users.id = donations.food_id
 		WHERE
-			donations.accepted = "pending"
+			donations.delivery_id = ? AND donations.accepted = "pending"
 	`
 
-	conn.query(sql, (err, results, fields) => {
+	conn.query(sql, [id], (err, results, fields) => {
 		res.json(results)
 	})
 })
 
 
 //GETTING ADDRESSES FROM PENDING TO BE THE WAYPOINTS
-router.get('/donating/pending/addresses', (req, res, next) => {
+router.get('/donating/pending/addresses/:id', (req, res, next) => {
+	let id = req.params.id
+
 	const sql = `
 		SELECT
 			location
 		FROM
 			users
 		LEFT JOIN
-			donations ON users.id
+			donations ON food_id = users.id
 		WHERE
-			donations.accepted = "pending"
+			delivery_id = ? AND donations.accepted = "pending"
 	`
 
-	conn.query(sql, (err, results, fields) => {
+	conn.query(sql, [id], (err, results, fields) => {
 		res.json(results)
 	})
 })
