@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {withAuth, api} from '../Authentication'
+import {Container, Button, Header} from 'semantic-ui-react'
 
 class R_Home extends Component {
-
    state = {
       id:api.getProfile().id
    }
@@ -12,19 +12,32 @@ class R_Home extends Component {
       return (
          <div>
             <div className="pickupnotification">
-               <h3>Pickup Ready</h3>
+               <Header as='h3'>Pickup Ready</Header>
             </div>
-            <div className="R_HomeContainer">
+
+            <Container className="R_HomeContainer">
                <div>
-                  <Link to="/restaurant/donate"><button type="submit" className="requestPickup">Donate Food</button></Link>
+                  <Link to="/restaurant/donate">
+                     <Button type="submit" 
+                      color='green'
+                      className="requestPickup">Donate Food</Button>
+                  </Link>
                </div>
                <div>
-                  <Link to={`/restaurant/reports/${this.state.id}`}><button type="submit" className="manageReports">Manage Reports</button></Link>
+                  <Link to={`/restaurant/reports/${this.state.id}`}>
+                     <Button type="submit" 
+                      color='orange'
+                      className="manageReports">Manage Reports</Button>
+                  </Link>
                </div>
                <div>
-                  <Link to="/restaurant/profile"><button type="submit" className="manageProfile">Manage Profile</button></Link>
+                  <Link to="/restaurant/profile">
+                    <Button type="submit" 
+                      color='red'
+                      className="manageProfile">Manage Profile</Button>
+                  </Link>
                </div>
-            </div>
+            </Container>
          </div>
       )
    }

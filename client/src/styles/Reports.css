@@ -1,18 +1,48 @@
-.reportTable {
-	display:flex;
-	justify-content:space-around;
+.titles > h1 {
 	margin-top:10px;
+	font-size:1.5em;
+	font-weight:bold;
+	text-align:center;
 }
 
-th, td {
-	padding:5px 10px;
-	text-align:left;
-	border:1px solid silver;
+.titles > h2 {
+	margin:0 0 10px 0;
+	font-size:1.25em;
+	font-weight:bold;
+	text-align:center;
+}
+
+.reportTable {
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	margin:10px auto;
+	width:80%;
+	text-align:center;
+}
+
+.reportForm {
+	margin:10px auto;
+	width:80%;
 }
 
 .reportChart {
-	display:flex;
-	justify-content:center;
-	margin:10px auto;
-	width:500px;
+	position:relative;
+	margin:auto;
+	width:80vh;
+	height:80vh;
+}
+
+@media only print {
+	#ribbonTitle {
+		display:none;
+	}
+
+	.reportTable {
+		margin-bottom:20px;
+	}
+
+	.reportForm {
+		display:none;
+	}
 }

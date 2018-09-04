@@ -19,7 +19,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', authRoutes)
-app.use('/api',  protectedRoutes)
+app.use('/api', protectedRoutes)
 // jwt({secret: config.get('jwt.secret')}),
 
 app.use((req, res, next) => {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import validator from 'validator'
 import { withAuth } from './Authentication'
 import {Redirect, Link} from 'react-router-dom'
 import {api} from './Authentication'
@@ -9,55 +10,73 @@ class D_Login extends Component {
 		email: '',
 		password: '',
 		redirect: false,
-		redirectTo: ''
+		redirectTo: '',
+		buttonColor: '',
+		iconColor: '',
+		validateEmail: true
 	}
 
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
+		if(this.state.email !== '' && this.state.password !== '') {
+			this.setState({
+				buttonColor:'blue'
+			})
+		}
+
+		if (validator.isEmail(this.state.email)) {
+			this.setState({
+				iconColor: 'red',
+			})
+		} else {
+			this.setState({
+				iconColor: 'green',
+			})
+		}
 	}
 	
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.signin(this.state.email, this.state.password, () => {
-			 if (api.getProfile().type === 'Restaurant') 
-			 {
-				this.setState({
-					redirect: true,
-					redirectTo: '/restaurant'
-				})
-			}
-
-			else if(api.getProfile().type === 'Delivery')
-			{
-				this.setState({
-					redirect: true,
-					redirectTo: '/delivery'
-				})
-			}
-			else{
-				document.getElementsByClassName('loginInputBox').style.background = 'rgba(255,0,29,.2)'
-			}
-
-		})
+		if(this.state.email !== '' && this.state.password !== '') {
+			this.props.signin(this.state.email, this.state.password, () => {
+				if (api.getProfile().type === 'Restaurant') {
+					this.setState({
+						redirect: true,
+						redirectTo: '/restaurant'
+					})
+				} else {
+					this.setState({
+						redirect: true,
+						redirectTo: '/delivery'
+					})
+				}
+			})
+		} else {
+			this.setState({
+				validateEmail: false,
+			})
+		}
 	}
 
  	render() {
  		let { redirect, redirectTo } = this.state
+ 		let incorrectEmailValidation
+
+ 		if (!this.state.validateEmail) {
+			incorrectEmailValidation = <div className="wrongField">Please Enter Valid Email</div>
+		} 
 
  		if (redirect) {
  			return <Redirect to={redirectTo} />
- 		} else { 			
+ 		} else {
 	   	return (
-	 			<Container className="loginContainer">
-	   			
-	   			<Container className="loginTitleContainer">
-	   				<Header id="loginTitle">
-	   					<Icon name='food' />
-	   					<Header.Content>Login</Header.Content>
-   					</Header>
-	   			</Container>
+	 			<div className="loginContainer">
+	   			<div className="loginTitleContainer">
+	   				<i id="loginLogo" className="fa fa-cutlery" />
+	   				<div id="loginTitle">Login</div>
+	   			</div>
 
 	 				<Form size='huge' className="loginForm" onSubmit={this.handleSubmit}>
 	 					<Form.Input className='red' fluid icon='user'  iconPosition='left' name='email' type='email' onChange={this.handleChange} value={this.state.email} placeholder='Email' />
@@ -66,8 +85,7 @@ class D_Login extends Component {
 	 					<Button className="loginSubmit" type="submit" color={this.state.buttonColor} size='big'>LOGIN</Button>
 	 					<Link className="registrationLink" to="/register">Not a Registered User? Register Here</Link>
 	 				</Form>
-
-	 			</Container>
+	 			</div>
 	   	)
    	}
  	}

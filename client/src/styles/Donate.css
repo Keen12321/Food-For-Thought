@@ -1,0 +1,11 @@
+/*******************************************
+	MAKING DONATIONS
+*******************************************/
+
+.donate-container {
+	padding: 20px;
+	margin: 0 auto;
+	margin-top: 20px;
+	border: 2px solid #eee;
+	border-radius: 3px;
+}
