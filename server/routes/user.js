@@ -47,15 +47,17 @@ router.patch('/register', (req, res, next) => {
 router.post('/donate', (req, res, next) => {
 	const dish = req.body.dish
 	const trays = req.body.trays
+	const value = req.body.value
 	const food_id = req.body.food_id
+	const donate_time = req.body.donate_time
 	const sql = `
 		INSERT INTO
-			donations (dish, trays, food_id)
+			donations (dish, trays, value, food_id, donate_time)
 		VALUES
-			(?, ?, ?)
+			(?, ?, ?, ?, ?)
 	`
 
-	conn.query(sql, [dish, trays, food_id], (error, results, fields) => {
+	conn.query(sql, [dish, trays, value, food_id, donate_time], (error, results, fields) => {
 		let donation = req.body
 		console.log(donation)
 	})
