@@ -23,7 +23,7 @@ class D_Home extends Component {
      		
         <Container className="D_HomeContainer">
      			<div>
-     				<Link to="/delivery/map">
+     				<Link to={`/delivery/map/${this.state.id}`}>
               <Button color='green' type="submit" className="startPickup wubba">My Pickups Map</Button>
               </Link>
      			</div>

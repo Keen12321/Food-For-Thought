@@ -33,7 +33,7 @@ class D_HomeBar extends Component {
         </Menu.Item>
         <Menu.Item as={Link} to='/delivery' name='Home' 
           active={activeItem === 'Home'} onClick={this.handleClick} />
-        <Menu.Item as={Link} to='/delivery/map' name='Map' 
+        <Menu.Item as={Link} to={`/delivery/map/${api.getProfile().id}`} name='Map' 
           active={activeItem === 'Map'} onClick={this.handleClick} />
         <Menu.Item as={Link} to='/delivery/pickups' name='Pickups' 
           active={activeItem === 'Pickups'} onClick={this.handleClick} />

@@ -8,9 +8,8 @@ import PickupsList from './D_PickupsList'
 class D_Pickups extends Component {
 
 	componentDidMount() {
-		getMyPickups()
+		getMyPickups(api.getProfile().id)
 		updatePickup()
-		console.log(this.props)
 	}
 
 	render() {
@@ -33,7 +32,6 @@ class D_Pickups extends Component {
 }
 
 function mapStateToProps(appState) {
-	console.log('appstate', appState)
 	return {
 		mypickups: appState.appReducer.mypickups
 	}

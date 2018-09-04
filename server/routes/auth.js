@@ -26,10 +26,10 @@ router.post('/login', (req, res, next) => {
 			const token = jwt.sign({
 				"id":results[0].id,
 				"name": results[0].name, 
-				"email":email, 
-				"location":results[0].location, 
-				"phone":results[0].phone, 
-				"type":results[0].type}, 
+				"email": email, 
+				"location": results[0].location, 
+				"phone": results[0].phone, 
+				"type": results[0].type}, 
 				config.get('jwt.secret'))
 
 			res.json({
