@@ -34,7 +34,7 @@ class D_Map extends Component {
 
   componentDidMount() {
     this.showCurrentLocation()
-    getAddresses()
+    getAddresses(api.getProfile().id)
     console.log(this)
   }
 
@@ -49,7 +49,7 @@ render() {
       googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U",
       loadingElement: <div style={{ height: `100%` }} />,
       containerElement: <div style={{ width: `100%` }} />,
-      mapElement: <div style={{height: `100%`, width: `100%` }}  />,
+      mapElement: <div style={{height: `600px`, width: `100%` }}  />,
     }),
 
     withScriptjs,
@@ -71,12 +71,10 @@ render() {
             this.setState({
               directions: {...result}
             })
+            
           }
            else {
             console.error(`error fetching directions ${result}`)
-            console.log(waypnt)
-            console.log(result)
-            console.log(status)
           }
         })
       }
@@ -87,6 +85,7 @@ render() {
          <TrafficLayer autoUpdate />
     </GoogleMap>
   )
+  console.log('asdf', this)
 return (
 	   <div className="pickupsContainer">
 	   <div id="scroll">
