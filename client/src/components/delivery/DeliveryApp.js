@@ -24,7 +24,7 @@ class DeliveryApp extends Component {
             <Route path="/delivery/pickups" component={D_ManagePickups} />
             <Route path="/delivery/reports/:id" component={D_Reports} />
             <Route path="/delivery/profile" component={D_Profile} />
-            <Route path="/delivery/map" component={D_Map} />
+            <Route path="/delivery/map/:id" component={D_Map} />
           </Switch>
         </div>
       </Authentication>
