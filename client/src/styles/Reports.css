@@ -14,12 +14,12 @@
 .buttons {
 	display:flex;
 	flex-direction:row;
-	justify-content:space-around;
+	justify-content:center;
 	text-align:center;
 }
 
 .reportForm {
-	margin:20px auto;
+	margin:20px auto 40px auto;
 	width:80%;
 }
 

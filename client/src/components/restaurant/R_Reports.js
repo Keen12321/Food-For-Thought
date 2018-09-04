@@ -58,6 +58,15 @@ class R_Reports extends Component {
 		window.print()
 	}
 
+	resetReport = (e) => {
+		this.setState({
+		startDate:'',
+		endDate:'',
+		filterData:[],
+		chartData:{}
+		})
+	}
+
 	render() {
 		return (
 			<div>
@@ -71,6 +80,7 @@ class R_Reports extends Component {
 						<Form.Group className='buttons'>
 							<Form.Button id='submit' type='submit'>Generate Report</Form.Button>
 							<Form.Button id='print' onClick={this.printReport}>Print Report</Form.Button>
+							<Form.Button id='reset' onClick={this.resetReport}>Reset Report</Form.Button>
 						</Form.Group>
 					</Form>
 				</div>
