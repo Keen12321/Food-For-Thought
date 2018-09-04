@@ -10,7 +10,15 @@ class D_Pickups extends Component {
 	componentDidMount() {
 		getMyPickups(api.getProfile().id)
 		updatePickup()
+    console.log('help', this)
 	}
+
+  componentWillReceiveProps(newProps) {
+    if ( this.props.mypickups !== newProps.mypickups)  {
+      getMyPickups(api.getProfile().id, newProps.mypickups)
+      updatePickup(newProps.mypickups)
+    }
+  }
 
 	render() {
 		return (

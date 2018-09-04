@@ -15,6 +15,7 @@ class D_Map extends Component {
       lat: 0,
       lng: 0
     },
+    rtee: ''
   }
 
   showCurrentLocation() {
@@ -35,13 +36,13 @@ class D_Map extends Component {
   componentDidMount() {
     this.showCurrentLocation()
     getAddresses(api.getProfile().id)
-    console.log(this)
   }
 
 render() {
   const lat = this.state.currentLatLng.lat
   const lng = this.state.currentLatLng.lng
   const waypnt = this.props.addresses
+  var rte
 
   const DirectionsComponent = compose(
 
@@ -57,7 +58,6 @@ render() {
 
     lifecycle({
       componentDidMount() { 
-        console.log(this)
         const DirectionsService = new google.maps.DirectionsService()
         DirectionsService.route({
           origin: new google.maps.LatLng({lat:lat, lng:lng}),
@@ -66,12 +66,12 @@ render() {
           optimizeWaypoints: true,
           travelMode: google.maps.TravelMode.DRIVING,
         }, (result, status) => {
-          
           if (status === google.maps.DirectionsStatus.OK) {
             this.setState({
-              directions: {...result}
+              directions: {...result},
             })
-            
+            rte = {...result.routes}
+            console.log('asdf', rte)
           }
            else {
             console.error(`error fetching directions ${result}`)
@@ -79,13 +79,14 @@ render() {
         })
       }
     })
+
   )(props =>
     <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
          {props.directions && <DirectionsRenderer directions={props.directions}  />}
          <TrafficLayer autoUpdate />
     </GoogleMap>
   )
-  console.log('asdf', this)
+  console.log('dddd', this.props)
 return (
 	   <div className="pickupsContainer">
 	   <div id="scroll">

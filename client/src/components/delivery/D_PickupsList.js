@@ -73,6 +73,7 @@ class D_PickupsList extends Component {
 	}
 
  render() {
+
    return (
    		<div>
          	<div key={this.props.user.id} className="pickups ui vertical segment">
