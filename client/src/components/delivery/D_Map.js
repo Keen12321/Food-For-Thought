@@ -34,7 +34,7 @@ class D_Map extends Component {
 
   componentDidMount() {
     this.showCurrentLocation()
-    getAddresses(api.getProfile().id)
+    getAddresses()
     console.log(this)
   }
 
