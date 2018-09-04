@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withAuth } from './Authentication'
 import {Redirect, Link} from 'react-router-dom'
 import {api} from './Authentication'
+import { Container, Header, Button, Icon, Form} from 'semantic-ui-react'
 
 class D_Login extends Component {
 	state = {
@@ -49,24 +50,31 @@ class D_Login extends Component {
  			return <Redirect to={redirectTo} />
  		} else { 			
 	   	return (
-	 			<div className="loginContainer">
+	 			<Container className="loginContainer">
+	   			
 	   			<div className="loginTitleContainer">
 	   				<i id="loginLogo" className="fa fa-cutlery" />
-	   				<div id="loginTitle">Login</div>
+	   				<Header id="loginTitle">Login</Header>
 	   			</div>
+
 	 				<form className="loginForm" onSubmit={this.handleSubmit}>
 	 					<div className="loginInputField">
 	 						<i className="fa fa-user" />
-		 					<input className="loginInputBox" type="text" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Email" />
+		 					<input className="loginInputBox" type="text" name="email" 
+		 						onChange={this.handleChange} value={this.state.email} placeholder="Email" />
 		 				</div>
+		 				
 		 				<div className="loginInputField">
 		 					<i className="fa fa-key" />
-	 						<input className="loginInputBox" type="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password" />
+	 						<input className="loginInputBox" type="password" name="password" 
+	 							onChange={this.handleChange} value={this.state.password} placeholder="Password" />
 	 					</div>
-	 					<button className="loginSubmit" type="submit">Login</button>
+	 					
+	 					<Button className="loginSubmit" type="submit">Login</Button>
 	 					<Link className="registrationLink" to="/register">Not a Registered User? Register Here</Link>
 	 				</form>
-	 			</div>
+
+	 			</Container>
 	   	)
    	}
  	}
