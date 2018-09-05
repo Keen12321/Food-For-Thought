@@ -3,7 +3,7 @@ import validator from 'validator'
 import { withAuth } from './Authentication'
 import {Redirect, Link} from 'react-router-dom'
 import {api} from './Authentication'
-import { Container, Header, Button, Icon, Form, Input } from 'semantic-ui-react'
+import { Button, Icon, Form } from 'semantic-ui-react'
 
 class D_Login extends Component {
 	state = {
