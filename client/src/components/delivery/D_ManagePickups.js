@@ -9,9 +9,18 @@ class D_ManagePickups extends Component {
 	componentDidMount() {
 		getDonations()
 		updatePickup()
-		console.log(this.props)
+		console.log(this)
 	}
 	
+	componentWillReceiveProps(newProps) {
+    if ( this.props.donate !== newProps.donate)  {
+      getDonations(newProps.donate)
+      updatePickup(newProps.donate)
+    } else {
+
+    }
+  }
+
 	render() {
 		return (
 	    <div className="reversepickups">

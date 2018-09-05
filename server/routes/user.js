@@ -68,7 +68,7 @@ router.post('/donate', (req, res, next) => {
 router.get('/reports/:id', (req, res, next) => {
 	const sql = `
 		SELECT 
-			users.name, donations.date, donations.dish, donations.trays, donations.value, users.id
+			donations.dish, donations.trays, donations.value, donations.date, donations.food_id, users.id, users.name, users.EIN_id
 		FROM 
 			donations
 		LEFT JOIN 
@@ -157,7 +157,7 @@ router.get('/donating/pending/:id', (req, res, next) => {
 
 
 //GETTING ADDRESSES FROM PENDING TO BE THE WAYPOINTS
-router.get('/donating/pending/addresses/:id', (req, res, next) => {
+router.get('/donating/pending/addresses', (req, res, next) => {
 	let id = req.params.id
 
 	const sql = `
@@ -168,10 +168,10 @@ router.get('/donating/pending/addresses/:id', (req, res, next) => {
 		LEFT JOIN
 			donations ON food_id = users.id
 		WHERE
-			delivery_id = ? AND donations.accepted = "pending"
+			donations.accepted = "pending"
 	`
 
-	conn.query(sql, [id], (err, results, fields) => {
+	conn.query(sql, (err, results, fields) => {
 		res.json(results)
 	})
 })

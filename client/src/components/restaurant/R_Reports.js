@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
 import { getReport } from '../../actions/reportActions'
 import { connect } from 'react-redux'
-import { Label, Table, Form } from 'semantic-ui-react'
+import { Table, Form } from 'semantic-ui-react'
 import RC2 from 'react-chartjs2'
 
 class R_Reports extends Component {
@@ -12,6 +12,9 @@ class R_Reports extends Component {
 		name:api.getProfile().name,
 		startDate:'',
 		endDate:'',
+		reportDates:'',
+		idTax:'',
+		filterData:[],
 		chartData:{}
 	}
 
@@ -31,9 +34,15 @@ class R_Reports extends Component {
 
 	handleForm = (e) => {
 		e.preventDefault()
+		let reportDates = `${this.state.startDate} - ${this.state.endDate}`
+		let tax = `EIN ID: ${this.props.report[0].EIN_id}`
 		let dish = this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.dish)
 		let trays = this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.trays)
+		let filter = this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate)
 		this.setState({
+			reportDates:reportDates,
+			idTax:tax,
+			filterData:filter,
 			chartData:{
 				labels:dish,
 				datasets:[
@@ -55,12 +64,39 @@ class R_Reports extends Component {
 		window.print()
 	}
 
+	resetReport = (e) => {
+		this.setState({
+		startDate:'',
+		endDate:'',
+		reportDates:'',
+		idTax:'',
+		filterData:[],
+		chartData:{}
+		})
+	}
+
 	render() {
 		return (
 			<div>
+				<div className='reportForm'>
+					<h2>Select Start & End Dates Below</h2>
+					<Form onSubmit={this.handleForm}>
+						<Form.Group widths='equal'>
+							<Form.Input fluid label='Start Date' id='startDate' name='startDate' value={this.state.startDate} onChange={this.handleChange} type='date' />
+							<Form.Input fluid label='End Date' id='endDate' name='endDate' value={this.state.endDate} onChange={this.handleChange} type='date' />
+						</Form.Group>
+						<Form.Group className='buttons'>
+							<Form.Button id='submit' type='submit'>Generate Report</Form.Button>
+							<Form.Button id='print' onClick={this.printReport}>Print Report</Form.Button>
+							<Form.Button id='reset' onClick={this.resetReport}>Reset Report</Form.Button>
+						</Form.Group>
+					</Form>
+				</div>
 				<div className='titles'>
 					<h1>{this.state.name} Report</h1>
-					<h2>{this.state.startDate} &ndash; {this.state.endDate}</h2>
+					<h2 id='dates'>{this.state.reportDates}</h2>
+					<h3>{this.state.idTax}</h3>
+					<h2>Donation History</h2>
 				</div>
 				<div className='reportTable'>
 					<Table celled>
@@ -73,8 +109,7 @@ class R_Reports extends Component {
 							</Table.Row>
 						</Table.Header>
 						<Table.Body>
-							{this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate)
-							.map((item, i) => (
+							{this.state.filterData.map((item, i) => (
 								<Table.Row key={'key' + i}>
 									<Table.Cell>{item.date.slice(0,10)}</Table.Cell>
 									<Table.Cell>{item.dish}</Table.Cell>
@@ -85,29 +120,16 @@ class R_Reports extends Component {
 						</Table.Body>
 						<Table.Footer>
 							<Table.Row>
-								<Table.HeaderCell><Label ribbon id='ribbonTitle'>Select Start & End Dates Below</Label></Table.HeaderCell>
+								<Table.HeaderCell>&nbsp;</Table.HeaderCell>
 								<Table.HeaderCell>Total</Table.HeaderCell>
-								<Table.HeaderCell>{this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).reduce((a,b) => a + b.trays, 0)}</Table.HeaderCell>
-								<Table.HeaderCell>${this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).reduce((a,b) => a + b.value, 0)}</Table.HeaderCell>
+								<Table.HeaderCell>{this.state.filterData.reduce((a,b) => a + b.trays, 0)}</Table.HeaderCell>
+								<Table.HeaderCell>${this.state.filterData.reduce((a,b) => a + b.value, 0)}</Table.HeaderCell>
 							</Table.Row>
 						</Table.Footer>
 					</Table>
 				</div>
-				<div className='reportForm'>
-					<Form onSubmit={this.handleForm}>
-						<Form.Group widths='equal'>
-							<Form.Input fluid label='Start Date' id='startDate' name='startDate' value={this.state.startDate} onChange={this.handleChange} type='date' />
-							<Form.Input fluid label='End Date' id='endDate' name='endDate' value={this.state.endDate} onChange={this.handleChange} type='date' />
-						</Form.Group>
-						<Form.Group>
-							<Form.Button id='submit' type='submit'>Generate Chart</Form.Button>
-							<Form.Button id='print' onClick={this.printReport}>Print Report</Form.Button>
-						</Form.Group>
-					</Form>
-				</div>
 				<div className='titles'>
-					<h1>{this.state.name} Chart</h1>
-					<h2>{this.state.startDate} &ndash; {this.state.endDate}</h2>
+					<h2>Donation History</h2>
 				</div>
 				<div className='reportChart'>
 					<RC2 data={this.state.chartData} type='bar' />

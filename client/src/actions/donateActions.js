@@ -22,8 +22,8 @@ export function donateForm(input) {
 	}
 }
 
-export function getAddresses(id) {
-	api.get('/api/donating/pending/addresses/' + id).then(data => {
+export function getAddresses() {
+	api.get('/api/donating/pending/addresses').then(data => {
 		store.dispatch({
 			type: 'GET_ADDRESSES',
 			payload: data

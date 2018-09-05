@@ -3,7 +3,7 @@ import validator from 'validator'
 import { withAuth } from './Authentication'
 import {Redirect, Link} from 'react-router-dom'
 import {api} from './Authentication'
-import { Form, Button } from 'semantic-ui-react'
+import { Container, Header, Button, Icon, Form, Input } from 'semantic-ui-react'
 
 class D_Login extends Component {
 	state = {
@@ -20,19 +20,20 @@ class D_Login extends Component {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
+		
 		if(this.state.email !== '' && this.state.password !== '') {
 			this.setState({
-				buttonColor:'blue'
+				buttonColor: 'blue'
 			})
 		}
 
 		if (validator.isEmail(this.state.email)) {
 			this.setState({
-				iconColor: 'red',
+				iconColor: 'green'
 			})
 		} else {
 			this.setState({
-				iconColor: 'green',
+				iconColor: 'red'
 			})
 		}
 	}
@@ -77,12 +78,24 @@ class D_Login extends Component {
 	   				<i id="loginLogo" className="fa fa-cutlery" />
 	   				<div id="loginTitle">Login</div>
 	   			</div>
+
 	 				<Form size='huge' className="loginForm" onSubmit={this.handleSubmit}>
-	 					<Form.Input className='red' fluid icon='user'  iconPosition='left' name='email' type='email' onChange={this.handleChange} value={this.state.email} placeholder='Email' />
+	 					<Form.Input className='red' name='email' type='email'
+	 						fluid icon={<Icon name='user' color={this.state.iconColor} />} 
+	 						onChange={this.handleChange} value={this.state.email} 
+	 						iconPosition='left' placeholder='Email' />
 	 					{incorrectEmailValidation}
-	 					<Form.Input fluid icon='key' iconPosition='left' name='password' onChange={this.handleChange} value={this.state.password} placeholder='Password' type='password' />
-	 					<Button className="loginSubmit" type="submit" color={this.state.buttonColor} size='big'>LOGIN</Button>
-	 					<Link className="registrationLink" to="/register">Not a Registered User? Register Here</Link>
+
+	 					<Form.Input iconPosition='left' name='password'
+	 						fluid icon={<Icon name='key' color={this.state.iconColor} />}
+	 						onChange={this.handleChange} value={this.state.password} 
+	 						placeholder='Password' type='password' />
+	 					
+	 					<Button className="loginSubmit" type="submit" 
+	 						color={this.state.buttonColor} size='big'>LOGIN</Button>
+
+	 					<Link className="registrationLink" to="/register">
+	 						Not a Registered User? Register Here</Link>
 	 				</Form>
 	 			</div>
 	   	)
