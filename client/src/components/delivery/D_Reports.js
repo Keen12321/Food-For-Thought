@@ -12,6 +12,8 @@ class D_Reports extends Component {
 		name:api.getProfile().name,
 		startDate:'',
 		endDate:'',
+		traysTotal:'',
+		valueTotal:'',
 		reportDates:'',
 		idTax:'',
 		filterData:[],
@@ -35,7 +37,11 @@ class D_Reports extends Component {
 		let dish = this.props.reportDelivery.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.dish)
 		let trays = this.props.reportDelivery.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.trays)
 		let filter = this.props.reportDelivery.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate)
+		let traysTotal = filter.reduce((a,b) => a + b.trays, 0)
+		let valueTotal = filter.reduce((a,b) => a + b.value, 0)
 		this.setState({
+			traysTotal:traysTotal,
+			valueTotal:valueTotal,
 			reportDates:reportDates,
 			idTax:tax,
 			filterData:filter,
@@ -92,7 +98,7 @@ class D_Reports extends Component {
 					<h1>{this.state.name} Report</h1>
 					<h2 id='dates'>{this.state.reportDates}</h2>
 					<h3>{this.state.idTax}</h3>
-					<h2>Donation History</h2>
+					<h2>Receipt History</h2>
 				</div>
 				<div className='reportTable'>
 					<Table celled>
@@ -118,14 +124,14 @@ class D_Reports extends Component {
 							<Table.Row>
 								<Table.HeaderCell>&nbsp;</Table.HeaderCell>
 								<Table.HeaderCell>Total</Table.HeaderCell>
-								<Table.HeaderCell>{this.state.filterData.reduce((a,b) => a + b.trays, 0)}</Table.HeaderCell>
-								<Table.HeaderCell>${this.state.filterData.reduce((a,b) => a + b.value, 0)}</Table.HeaderCell>
+								<Table.HeaderCell>{this.state.traysTotal}</Table.HeaderCell>
+								<Table.HeaderCell>${this.state.valueTotal}</Table.HeaderCell>
 							</Table.Row>
 						</Table.Footer>
 					</Table>
 				</div>
 				<div className='titles'>
-					<h2>Donation History</h2>
+					<h2>Receipt History</h2>
 				</div>
 				<div className='reportChart'>
 					<RC2 data={this.state.chartData} type='bar' />
