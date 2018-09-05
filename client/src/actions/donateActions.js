@@ -22,6 +22,7 @@ export function donateForm(input) {
 	}
 }
 
+// Grab User ID
 export function getAddresses() {
 	api.get('/api/donating/pending/addresses').then(data => {
 		store.dispatch({
