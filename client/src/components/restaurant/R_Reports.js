@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
-import { getReport } from '../../actions/reportActions'
+import { getReportRestaurant } from '../../actions/reportActions'
 import { connect } from 'react-redux'
 import { Table, Form } from 'semantic-ui-react'
 import RC2 from 'react-chartjs2'
@@ -12,6 +12,8 @@ class R_Reports extends Component {
 		name:api.getProfile().name,
 		startDate:'',
 		endDate:'',
+		traysTotal:'',
+		valueTotal:'',
 		reportDates:'',
 		idTax:'',
 		filterData:[],
@@ -19,11 +21,7 @@ class R_Reports extends Component {
 	}
 
 	componentDidMount() {
-		getReport(this.state.id)
-		// this.myChart = this.refs['canvas'].getChart()
-		// this.myChart.data.datasets[0].points[2] = 50
-		// this.myChart.update()
-		// return <RC2 ref='canvas' data={chartData} options={chartOptions} type='bar' />
+		getReportRestaurant(this.state.id)
 	}
 
 	handleChange = (e) => {
@@ -35,11 +33,15 @@ class R_Reports extends Component {
 	handleForm = (e) => {
 		e.preventDefault()
 		let reportDates = `${this.state.startDate} - ${this.state.endDate}`
-		let tax = `EIN ID: ${this.props.report[0].EIN_id}`
-		let dish = this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.dish)
-		let trays = this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.trays)
-		let filter = this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate)
+		let tax = `EIN ID: ${this.props.reportRestaurant[0].tax_id}`
+		let dish = this.props.reportRestaurant.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.dish)
+		let trays = this.props.reportRestaurant.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.trays)
+		let filter = this.props.reportRestaurant.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate)
+		let traysTotal = filter.reduce((a,b) => a + b.trays, 0)
+		let valueTotal = filter.reduce((a,b) => a + b.value, 0)
 		this.setState({
+			traysTotal:traysTotal,
+			valueTotal:valueTotal,
 			reportDates:reportDates,
 			idTax:tax,
 			filterData:filter,
@@ -66,12 +68,12 @@ class R_Reports extends Component {
 
 	resetReport = (e) => {
 		this.setState({
-		startDate:'',
-		endDate:'',
-		reportDates:'',
-		idTax:'',
-		filterData:[],
-		chartData:{}
+			startDate:'',
+			endDate:'',
+			reportDates:'',
+			idTax:'',
+			filterData:[],
+			chartData:{}
 		})
 	}
 
@@ -122,8 +124,8 @@ class R_Reports extends Component {
 							<Table.Row>
 								<Table.HeaderCell>&nbsp;</Table.HeaderCell>
 								<Table.HeaderCell>Total</Table.HeaderCell>
-								<Table.HeaderCell>{this.state.filterData.reduce((a,b) => a + b.trays, 0)}</Table.HeaderCell>
-								<Table.HeaderCell>${this.state.filterData.reduce((a,b) => a + b.value, 0)}</Table.HeaderCell>
+								<Table.HeaderCell>{this.state.traysTotal}</Table.HeaderCell>
+								<Table.HeaderCell>${this.state.valueTotal}</Table.HeaderCell>
 							</Table.Row>
 						</Table.Footer>
 					</Table>
@@ -141,7 +143,7 @@ class R_Reports extends Component {
 
 function mapStateToProps(appState) {
 	return {
-		report:appState.reportReduce.report
+		reportRestaurant:appState.reportReduce.reportRestaurant
 	}
 }
 
