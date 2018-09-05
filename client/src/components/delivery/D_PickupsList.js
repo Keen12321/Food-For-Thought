@@ -28,14 +28,6 @@ class PickupsList extends Component {
 		results: []
 			}
 
-	// routes(value) {
-	// 	for(let i=0; i<=arr.length; i++) {
-	// 		if arr[i][prop] === value {
-	// 			return i
-	// 		}
-	// 	}
-	// }
-
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value

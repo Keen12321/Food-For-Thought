@@ -75,6 +75,7 @@ class Register extends Component {
 				validateEmpty: false
 			})
 		}
+		console.log(this)
 	}
 
  	render() {
@@ -104,19 +105,18 @@ class Register extends Component {
 	   				<i id="loginLogo" className="fa fa-cutlery" />
 	   				<div id="loginTitle">Register</div>
 	   			</div>
-
 	 				<Form className="loginForm" size='huge' onSubmit={this.handleSubmit}>
 	 					<div className="userTypeContainer">
-		 					<label className="userType" forhtml="type">
+		 					<label className="userType" forhtml="type" id="delbtn">
 		 						<input className="userTypeRadio" type="radio" name="type" 
 		 							value="Delivery" checked={this.state.type === "Delivery"} 
 		 							onChange={this.handleChange} />
 		 						<div>Delivery</div>
 		 					</label>
 		 					<div>OR</div>
-		 					<label className="userType" forhtml="type">
+		 					<label className="userType" forhtml="type" id="resbtn">
 		 						<input className="userTypeRadio" type="radio" name="type" 
-		 							value="Restaurant" checked={this.state.type === "Restaurant"} 
+		 							value="Restaurant" checked={this.state.type === "Restaurant"}
 		 							onChange={this.handleChange} />
 		 						<div>Restaurant</div>
 		 					</label>
@@ -150,7 +150,7 @@ class Register extends Component {
 	 					{fieldEmpty}
 	 				</Form>
 	 			</div>
-	   	)
+	  		 	)
  		}
  	}
 }
