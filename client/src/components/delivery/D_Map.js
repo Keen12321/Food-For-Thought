@@ -42,6 +42,8 @@ class D_Map extends Component {
     const lat = this.state.currentLatLng.lat
     const lng = this.state.currentLatLng.lng
     const waypnt = this.props.addresses
+    
+    // TO-DO: Resolve declaration warning
     let rte
 
     const DirectionsComponent = compose(
