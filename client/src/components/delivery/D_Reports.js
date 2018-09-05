@@ -12,6 +12,8 @@ class D_Reports extends Component {
 		name:api.getProfile().name,
 		startDate:'',
 		endDate:'',
+		reportDates:'',
+		idTax:'',
 		filterData:[],
 		chartData:{}
 	}
@@ -32,10 +34,14 @@ class D_Reports extends Component {
 
 	handleForm = (e) => {
 		e.preventDefault()
+		let reportDates = `${this.state.startDate} - ${this.state.endDate}`
+		let tax = `EIN ID: ${this.props.report[0].EIN_id}`
 		let dish = this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.dish)
 		let trays = this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.trays)
 		let filter = this.props.report.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate)
 		this.setState({
+			reportDates:reportDates,
+			idTax:tax,
 			filterData:filter,
 			chartData:{
 				labels:dish,
@@ -62,6 +68,8 @@ class D_Reports extends Component {
 		this.setState({
 		startDate:'',
 		endDate:'',
+		reportDates:'',
+		idTax:'',
 		filterData:[],
 		chartData:{}
 		})
@@ -86,7 +94,9 @@ class D_Reports extends Component {
 				</div>
 				<div className='titles'>
 					<h1>{this.state.name} Report</h1>
-					<h2>{this.state.startDate} &ndash; {this.state.endDate}</h2>
+					<h2 id='dates'>{this.state.reportDates}</h2>
+					<h3>{this.state.idTax}</h3>
+					<h2>Donation History</h2>
 				</div>
 				<div className='reportTable'>
 					<Table celled>
@@ -119,8 +129,7 @@ class D_Reports extends Component {
 					</Table>
 				</div>
 				<div className='titles'>
-					<h1>{this.state.name} Chart</h1>
-					<h2>{this.state.startDate} &ndash; {this.state.endDate}</h2>
+					<h2>Donation History</h2>
 				</div>
 				<div className='reportChart'>
 					<RC2 data={this.state.chartData} type='bar' />
