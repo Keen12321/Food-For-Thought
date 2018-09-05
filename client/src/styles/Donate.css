@@ -9,3 +9,15 @@
 	border: 2px solid #eee;
 	border-radius: 3px;
 }
+
+#wrongg {
+	background: rgba(255,0,29,.2);
+	display: flex;
+	padding: 1.7%;
+	border:1px solid red;
+	margin: 3%;
+}
+
+#wrongg li{
+	line-height: 30px;
+}
