@@ -18,20 +18,17 @@ class R_Home extends Component {
         <Container className="R_HomeContainer">
 
           <Link to="/restaurant/donate">
-             <Button type="submit" 
-              color='green'
+            <Button type="submit" color='green'
               className="requestPickup">Donate Food</Button>
           </Link>
        
           <Link to={`/restaurant/reports/${this.state.id}`}>
-             <Button type="submit" 
-              color='orange'
+            <Button type="submit" color='orange'
               className="manageReports">Manage Reports</Button>
           </Link>
        
           <Link to="/restaurant/profile">
-            <Button type="submit" 
-              color='red'
+            <Button type="submit" color='red'
               className="manageProfile">Manage Profile</Button>
           </Link>
            
