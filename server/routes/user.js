@@ -176,6 +176,8 @@ router.get('/donating/pending/addresses', (req, res, next) => {
 	})
 })
 
+//GETTING DEFAULT DONATIONS
+
 
 
 

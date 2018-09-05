@@ -21,3 +21,18 @@
 #wrongg li{
 	line-height: 30px;
 }
+
+.donate-container #butt{
+	margin-top:1%;
+}
+
+#add{
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+}
+
+input[type='checkbox']{
+	margin:2%;
+	background: #eee;
+}
