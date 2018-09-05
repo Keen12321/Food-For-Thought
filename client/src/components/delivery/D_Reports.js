@@ -17,7 +17,8 @@ class D_Reports extends Component {
 		reportDates:'',
 		idTax:'',
 		filterData:[],
-		chartData:{}
+		traysData:{},
+		valueData:{}
 	}
 
 	componentDidMount() {
@@ -36,6 +37,7 @@ class D_Reports extends Component {
 		let tax = `501c3 ID: ${this.props.reportDelivery[0].tax_id}`
 		let dish = this.props.reportDelivery.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.dish)
 		let trays = this.props.reportDelivery.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.trays)
+		let value = this.props.reportDelivery.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.value)
 		let filter = this.props.reportDelivery.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate)
 		let traysTotal = filter.reduce((a,b) => a + b.trays, 0)
 		let valueTotal = filter.reduce((a,b) => a + b.value, 0)
@@ -45,17 +47,31 @@ class D_Reports extends Component {
 			reportDates:reportDates,
 			idTax:tax,
 			filterData:filter,
-			chartData:{
+			traysData:{
 				labels:dish,
 				datasets:[
 					{
-						label:'# of Trays',
+						label:'Trays (#)',
 						backgroundColor:'rgba(35,123,202,0.5)',
 						borderColor:'rgba(35,123,202,1)',
 						borderWidth:1,
 						hoverBackgroundColor:'rgba(35,123,202,0.75)',
 						hoverBorderColor:'rgba(35,123,202,1)',
 						data:trays
+					}
+				]
+			},
+			valueData:{
+				labels:dish,
+				datasets:[
+					{
+						label:'Trays ($)',
+						backgroundColor:'rgba(33,172,162,0.5)',
+						borderColor:'rgba(33,172,162,1)',
+						borderWidth:1,
+						hoverBackgroundColor:'rgba(33,172,162,0.75)',
+						hoverBorderColor:'rgba(33,172,162,1)',
+						data:value
 					}
 				]
 			}
@@ -73,7 +89,8 @@ class D_Reports extends Component {
 			reportDates:'',
 			idTax:'',
 			filterData:[],
-			chartData:{}
+			traysData:{},
+			valueData:{}
 		})
 	}
 
@@ -96,11 +113,11 @@ class D_Reports extends Component {
 				</div>
 				<div className='titles'>
 					<h1>{this.state.name} Report</h1>
-					<h2 id='dates'>{this.state.reportDates}</h2>
+					<h2>{this.state.reportDates}</h2>
 					<h3>{this.state.idTax}</h3>
-					<h2>Receipt History</h2>
 				</div>
 				<div className='reportTable'>
+					<h2>Receipt History</h2>
 					<Table celled>
 						<Table.Header>
 							<Table.Row>
@@ -130,11 +147,15 @@ class D_Reports extends Component {
 						</Table.Footer>
 					</Table>
 				</div>
-				<div className='titles'>
-					<h2>Receipt History</h2>
-				</div>
-				<div className='reportChart'>
-					<RC2 data={this.state.chartData} type='bar' />
+				<div className='reportCharts'>
+					<div className='reportChart'>
+						<h2>Number of Trays Received</h2>
+						<RC2 data={this.state.traysData} type='bar' />
+					</div>
+					<div className='reportChart'>
+						<h2>Value of Trays Received</h2>
+						<RC2 data={this.state.valueData} type='bar' />
+					</div>
 				</div>
 			</div>
 		)
