@@ -6,6 +6,7 @@ import { withAuth, api } from '../Authentication'
 import { connect } from 'react-redux'
 import { getAddresses } from '../../actions/donateActions'
 import Pickups from './D_Pickups'
+import {Header} from 'semantic-ui-react'
 
 class D_Map extends Component {
   state = {
@@ -13,6 +14,8 @@ class D_Map extends Component {
       lat: 0,
       lng: 0
     },
+    rte: [],
+    result: {}
   }
 
   showCurrentLocation() {
@@ -41,7 +44,8 @@ render() {
   const lng = this.state.currentLatLng.lng
   const waypnt = this.props.addresses
   let rte
-  console.log('render', this)
+  console.log('this2', this)
+  console.log('this.state.result', this.state.result)
   const DirectionsComponent = compose(
 
     withProps({
@@ -56,7 +60,7 @@ render() {
 
     lifecycle({
       componentDidMount() { 
-        console.log('that', this)
+        console.log('this3 in lifecycle', this)
         const DirectionsService = new google.maps.DirectionsService()
         DirectionsService.route({
           origin: new google.maps.LatLng({lat:lat, lng:lng}),
@@ -69,39 +73,46 @@ render() {
           if (status === google.maps.DirectionsStatus.OK) {
             this.setState({
               directions: {...result},
-              routes: {...result.routes}
+              routes: {...result.routes},
+              rte: {...result.routes}
             })
             rte = {...result.routes} //assign rte to the routes object
-            console.log('result', result)
-            console.log('rte', rte)
+            console.log('result in lifecycle', result)
+            console.log('this4 in lifecycle', this)
+            this.setState({
+              result: result
+            })
+            console.log('rte in lifecycle', this.state.directions)
           }
            else {
             console.error(`error fetching directions ${result}`)
-            console.log('waypnt', waypnt)
-            console.log('status', status)
+            console.log('waypnt in lifecycle', waypnt)
+            console.log('status in lifecycle', status)
           }
         })
       }
     })
-  )(props =>
-    <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
-         {props.directions && <DirectionsRenderer directions={props.directions} />}
-         <TrafficLayer autoUpdate />
-    </GoogleMap>
+  )(props => 
+          <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
+             <DirectionsRenderer directions={props.directions} />
+             <TrafficLayer autoUpdate />
+          </GoogleMap>
+       
   )
-  console.log('asdf', this)
+  console.log('this5', this)
 return (
-	   <div className="pickupsContainer">
-	   <div id="scroll">
-        <Pickups />
-      </div>
-      <div>
-      </div>
-        <DirectionsComponent />
-     </div>
-    )
-  }
-}
+        <div>
+          <Header as='h3' id="pickle">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
+          <div className="pickupsContainer">
+                <div id="scroll">
+                  <Pickups />
+                </div>
+                  <DirectionsComponent />
+          </div>
+        </div>
+        )
+      }
+    }
 
 function mapStateToProps(appState) {
 	return {

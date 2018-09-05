@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { updatePickup } from '../../actions/donateActions'
 import { withAuth, api } from '../Authentication'
+import D_Map from './D_Map'
 
 const Modal = ({ handleClose, show, children}) => {
 	const showHideClassName = show ? 'modal modal-show' : 'modal modal-hidden'
@@ -23,8 +24,17 @@ class PickupsList extends Component {
 		accepted: null,
 		reason: '',
 		pickup_by: '',
-		id: ''
-	}
+		id: '',
+		results: []
+			}
+
+	// routes(value) {
+	// 	for(let i=0; i<=arr.length; i++) {
+	// 		if arr[i][prop] === value {
+	// 			return i
+	// 		}
+	// 	}
+	// }
 
 	handleChange = (e) => {
 		this.setState({
@@ -66,24 +76,32 @@ class PickupsList extends Component {
 		accepted: "false",
 		id: this.props.user.id,
 		reason: this.state.reason,
-		pickup_by: api.getProfile().name
-	})
+		pickup_by: api.getProfile().name,
+		results: this.state.results
+				})
 	
 	this.hideDeleteModal()
+	}
+	componentDidMount() {
+		console.log('this.props.user on pickupslist', this.props.user)
+		console.log('this on pickupslist', this)
+		console.log('this.state.results on pickupslist', this.state.results)
 	}
 
  render() {
    return (
-   		<div>
+   		<div id="lubba">
          	<div key={this.props.user.id} className="pickups ui vertical segment">
-	   			<div>
-	  				<h3>{this.props.user.name}</h3>
-	  				<p>{this.props.user.location}</p>
+	   			<div id="morty">
+		   			<div>
+		  				<h3>{this.props.user.name}</h3>
+		  				<p>{this.props.user.location}</p>
+		  			</div>
+		  			<div className="dubdub">
+		  				<h4>{this.props.user.dish} x {this.props.user.trays}</h4>
+		  			</div>
 	  			</div>
-	  			<div>
-	  				<h4>{this.props.user.dish} x {this.props.user.trays}</h4>
-	  			</div>
-	  			<div>
+	  			<div className="dubdub">
 	  				<button className="ui green button" onClick={this.showPickupModal}>
 						<i className="check icon"></i>Confirm Pickup
 						</button>
@@ -108,15 +126,16 @@ class PickupsList extends Component {
   						</div>
   						<button className="ui red button" id="confirmcxl" onSubmit={this.handleSubmit} onClick={this.deletePickup}>Delete Pickup</button>
   			         </Modal>
-				</div>
-	   		</div>
-		   )
-		 }
-		}
+			</div>
+   		</div>
+	   )
+	 }
+	}
 
 function mapStateToProps(appState) {
 	return {
-		mypickups: appState.appReducer.mypickups
+		mypickups: appState.appReducer.mypickups,
+		addresses: appState.appReducer.addresses
 	}
 }
 export default withAuth(connect(mapStateToProps)(PickupsList))

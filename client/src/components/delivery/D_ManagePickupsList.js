@@ -15,7 +15,6 @@ const Modal = ({ handleClose, show, children}) => {
 		</div>
 	)
 }
-
 class ManagePickupsList extends Component {
 	state = {
 		show: false,
@@ -50,7 +49,6 @@ class ManagePickupsList extends Component {
 	})
 	this.hideAddModal()
 }
-
  render() {
    return (
    		<div>
@@ -59,7 +57,7 @@ class ManagePickupsList extends Component {
 	  				<h3>{this.props.user.name}</h3>
 	  				<p>{this.props.user.location}</p>
 	  			</div>
-	  			<div>
+	  			<div id="schwifty">
 	  				<h4>{this.props.user.dish} x {this.props.user.trays}</h4>
 	  			</div>
 	  			<div>
@@ -80,7 +78,6 @@ class ManagePickupsList extends Component {
    )
  }
 }
-
 function mapStateToProps(appState) {
 	console.log('appstate', appState)
 	return {

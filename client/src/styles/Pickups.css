@@ -6,6 +6,7 @@
 	max-height: 700px;
 	overflow-y: hidden;
 	overflow: auto;
+	min-width: 300px;
 }
 .pickupsContainer {
 	display: flex;
@@ -20,6 +21,21 @@
 #lubba {
 	align-items: flex-end;
 	border-bottom: 1px solid #ccc;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+.dubdub > * {
+	float: right;
+}
+#schwifty > * {
+	float: left;
+}
+#pickle {
+	text-align: center;
+}
+#morty {
+	display: flex;
+	justify-content: space-between;
 }
 .modal {
 	position: fixed;
@@ -40,6 +56,7 @@
 }
 .pickups {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 }
 .D_navbar {
