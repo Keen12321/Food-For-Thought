@@ -19,7 +19,7 @@ router.get('/register', (req, res, next) => {
 	})
 })
 
-
+// REGISTER NEW ACCOUNT
 router.patch('/register', (req, res, next) => {
 	const id = req.body.id
 	const name = req.body.name
@@ -42,7 +42,6 @@ router.patch('/register', (req, res, next) => {
 	})
 })
 
-
 // POSTING DONATIONS
 router.post('/donate', (req, res, next) => {
 	const dish = req.body.dish
@@ -62,7 +61,6 @@ router.post('/donate', (req, res, next) => {
 		console.log(donation)
 	})
 })
-
 
 // GET REPORTS
 router.get('/reports/:id', (req, res, next) => {
@@ -155,7 +153,6 @@ router.get('/donating/pending/:id', (req, res, next) => {
 	})
 })
 
-
 //GETTING ADDRESSES FROM PENDING TO BE THE WAYPOINTS
 router.get('/donating/pending/addresses', (req, res, next) => {
 	let id = req.params.id
@@ -176,8 +173,4 @@ router.get('/donating/pending/addresses', (req, res, next) => {
 	})
 })
 
-
-
-
 export default router
-
