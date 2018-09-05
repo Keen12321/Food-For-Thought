@@ -12,14 +12,7 @@ class D_ManagePickups extends Component {
 		console.log(this)
 	}
 	
-	componentWillReceiveProps(newProps) {
-    if ( this.props.donate !== newProps.donate)  {
-      getDonations(newProps.donate)
-      updatePickup(newProps.donate)
-    } else {
 
-    }
-  }
 
 	render() {
 		return (
