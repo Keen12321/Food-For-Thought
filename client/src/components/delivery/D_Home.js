@@ -16,9 +16,9 @@ class D_Home extends Component {
 
   componentWillReceiveProps(newProps) {
     if ( this.props.donate !== newProps.donate)  {
-      getDonations(newProps.donate)
+      getDonations(newProps)
     } else {
-      
+      getDonations()
     }
   }
 
@@ -55,7 +55,6 @@ class D_Home extends Component {
 }
 
 function mapStateToProps(appState) {
-  console.log('appstate', appState)
   return {
     donate: appState.appReducer.donate
   }

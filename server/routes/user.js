@@ -157,7 +157,7 @@ router.get('/donating/pending/:id', (req, res, next) => {
 
 
 //GETTING ADDRESSES FROM PENDING TO BE THE WAYPOINTS
-router.get('/donating/pending/addresses', (req, res, next) => {
+router.get('/donating/pending/addresses/:id', (req, res, next) => {
 	let id = req.params.id
 
 	const sql = `
@@ -168,10 +168,10 @@ router.get('/donating/pending/addresses', (req, res, next) => {
 		LEFT JOIN
 			donations ON food_id = users.id
 		WHERE
-			donations.accepted = "pending"
+			delivery_id = ? AND donations.accepted = "pending"
 	`
 
-	conn.query(sql, (err, results, fields) => {
+	conn.query(sql, [id], (err, results, fields) => {
 		res.json(results)
 	})
 })
