@@ -176,8 +176,27 @@ router.get('/donating/pending/addresses', (req, res, next) => {
 	})
 })
 
-//GETTING DEFAULT DONATIONS
+//POSTING DEFAULT DONATIONS
 
+router.post('/donation/default', (req, res, next) =>{
+	const dish = req.body.dish
+	const trays = req.body.trays
+	const value = req.body.value
+	const food_id = req.body.food_id
+	const sql = `
+		INSERT INTO
+			defaultDonations (dish, trays, value, food_id)
+		VALUES
+			(?, ?, ?, ?)
+	`
+
+	conn.query(sql, [dish, trays, value, food_id], (error, results, fields) => {
+		let donation = req.body
+		console.log(donation)
+	})
+})
+
+//GETTING YOUR WN DEFAULT DONATIONS
 
 
 

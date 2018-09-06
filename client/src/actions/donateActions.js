@@ -54,3 +54,9 @@ export function getTime() {
 		
   	return time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 }
+
+export function addToDefault(donation){
+	api.post('/api/donation/default', donation).then(data =>{
+		console.log('resp:', data)
+	})
+}

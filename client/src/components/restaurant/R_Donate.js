@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
-import { makeDonation, donateForm, getTime } from '../../actions/donateActions'
+import { makeDonation, donateForm, getTime, addToDefault } from '../../actions/donateActions'
 import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
 import { api } from '../Authentication'
 
@@ -17,7 +17,12 @@ class Donate extends Component {
 		blankType: true,
 		color: 'green',
 		inColor: '#fff',
-		check: !true
+		check: !!false
+	}
+
+	componentDidMount(){
+		console.log(this.state.check)
+
 	}
 
 	
@@ -102,8 +107,30 @@ class Donate extends Component {
 				food_id: api.getProfile().id,
 				donate_time: getTime()
 			})
+
+			addToDefault({
+				dish: this.state.dish,
+				trays: this.state.trays,
+				value: this.state.value,
+				food_id: api.getProfile().id
+			})
+
 			console.log(this.state.check)
 			this.props.history.push('/restaurant/thankyou')	
+		}
+
+		else{
+					e.preventDefault()
+			console.log('Successful donation made.')
+			makeDonation({
+				dish: this.state.dish,
+				trays: this.state.trays,
+				value: this.state.value,
+				food_id: api.getProfile().id,
+				donate_time: getTime()
+			})
+			console.log(this.state.check)
+			this.props.history.push('/restaurant/thankyou')		
 		}
 
 	}
@@ -222,7 +249,7 @@ class Donate extends Component {
 						/>
 					</Form.Field>
 					<label id='add'>Add To Default Donations</label>
-					<input type="checkbox" name='deff' id='radio' onClick={this.handleDefault} checked={this.state.check}/> 
+					<input type="checkbox" name='deff' id='radio' onChange={this.handleDefault} checked={this.state.check}/> 
 	    		
 	    		<Form.Field>	    		
 		    		<Button 
