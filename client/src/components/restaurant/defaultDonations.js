@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { getDefault } from '../../actions/donateActions'
+import { api } from '../Authentication'
 class DefaultDonations extends Component{
 	state ={
 		donations:[],
 		dish: '',
 		tray:'',
-		value:''
+		value:'',
+		id:api.getProfile().id
 	}
 
 	componentDidMount(){
