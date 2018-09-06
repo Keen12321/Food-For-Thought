@@ -55,8 +55,21 @@ export function getTime() {
   	return time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 }
 
+
+//POSTING DEFAULT DONATIONS TO THE defaultDonations TABLE
 export function addToDefault(donation){
 	api.post('/api/donation/default', donation).then(data =>{
 		console.log('resp:', data)
+	})
+}
+
+
+//GETTING YOUR OWN DEFAULT DONATIONS
+export function getDefault(id) {
+	api.get('/api/default/' + id).then(resp =>{
+		store.dispatch({
+			type: 'GET_DEFAULT',
+			payload:resp.data
+		})
 	})
 }

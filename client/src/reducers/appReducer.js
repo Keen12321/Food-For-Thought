@@ -1,7 +1,8 @@
 const initialState = {
 	donate: [],
 	mypickups: [],
-	addresses: []
+	addresses: [],
+    defaultD: []
 }
 
 export default function (state = initialState, action) {
@@ -12,6 +13,8 @@ export default function (state = initialState, action) {
     	return {...state, mypickups: action.payload}
     case 'GET_ADDRESSES':
     	return {...state, addresses: action.payload}
+    case 'GET_DEFAULT':
+        return{...state, defaultD:action.payload}
     default:
     	return state
   }

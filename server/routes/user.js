@@ -196,8 +196,33 @@ router.post('/donation/default', (req, res, next) =>{
 	})
 })
 
-//GETTING YOUR WN DEFAULT DONATIONS
+//GETTING YOUR WN DEFAULT DONATIONS 
+router.get('/default/:id' ,(req, res, next) =>{
+		const sql = `
+		SELECT 
+			defaultDonations.dish, defaultDonations.trays, defaultDonations.value, defaultDonations.food_id, users.id, users.EIN_id
+		FROM 
+			defaultDonations
+		LEFT JOIN 
+			users 
+		ON 
+			defaultDonations.food_id = users.id
+		WHERE 
+			defaultDonations.food_id = users.id;
+	`
 
+	conn.query(sql, (error, results, fields) => {
+		let defaultD = []
+		let id = req.params.id
+
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].id == id) {
+				defaultD.push(results[i])
+			}
+		}
+		res.json(defaultD)
+	})
+})
 
 
 export default router

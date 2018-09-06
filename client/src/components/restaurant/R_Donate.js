@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { makeDonation, donateForm, getTime, addToDefault } from '../../actions/donateActions'
 import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
 import { api } from '../Authentication'
-
+import DefaultDonations from './defaultDonations'
 class Donate extends Component {
 	state = {
 		dish: '',
@@ -262,6 +262,8 @@ class Donate extends Component {
 			  </Form>
 			  {blank_fields}
 			</Container>
+
+			<DefaultDonations/>
 			
 				
 			</div>
