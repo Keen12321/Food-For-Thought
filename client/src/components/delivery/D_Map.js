@@ -86,7 +86,7 @@ class D_Map extends Component {
         <TrafficLayer autoUpdate />
       </GoogleMap>
     )
-    console.log('The outside Props:', this.props)
+    // console.log('The outside Props:', this.props)
 
     return (
       <div className="pickupsContainer">
