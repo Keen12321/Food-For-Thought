@@ -2,11 +2,13 @@
 import React, { Component } from 'react'
 import  { compose, withProps, lifecycle } from 'recompose'
 import {withScriptjs, withGoogleMap, GoogleMap, TrafficLayer, DirectionsRenderer} from 'react-google-maps'
+import {Link} from 'react-router-dom'
 import { withAuth, api } from '../Authentication'
 import { connect } from 'react-redux'
 import { getAddresses } from '../../actions/donateActions'
 import Pickups from './D_Pickups'
-import {Header} from 'semantic-ui-react'
+import {Header, Button} from 'semantic-ui-react'
+import chime from '../../assets/sms-alert-4-daniel_simon.mp3'
 
 class D_Map extends Component {
   state = {
@@ -100,6 +102,26 @@ render() {
        
   )
   console.log('this5', this)
+  if(this.props.addresses.length == 0) {
+    return (
+        <div>
+          <Header as='h3' id="pickle">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
+          <div className="pickupsContainer">
+                <div id="scroll">
+                <audio src={chime} hidePlayer='true' autoPlay />
+                  <h3>All pickups completed.</h3>
+                  <h3>Please return to:</h3>
+                  <p> {api.getProfile().location}</p>
+                  <p>or you can</p>
+                  <Link to="/delivery/pickups">
+                    <Button color='blue' type="submit" id="meeseeks" className="wubba">View Any Additional Pickups</Button>
+                  </Link>
+                </div>
+                  <DirectionsComponent />
+          </div>
+        </div>
+        )
+  } 
 return (
         <div>
           <Header as='h3' id="pickle">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>

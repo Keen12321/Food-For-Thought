@@ -10,6 +10,8 @@
 }
 .pickupsContainer {
 	display: flex;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 .modal-show{
 	display: block;
@@ -37,6 +39,15 @@
 	display: flex;
 	justify-content: space-between;
 }
+#meeseeks {
+	background: rgb(35,123,202);
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-family: sans-serif;
+	border-radius: 5px;
+	cursor: pointer;
+}
 .modal {
 	position: fixed;
 	top: 0;
@@ -56,7 +67,7 @@
 }
 .pickups {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: space-between;
 }
 .D_navbar {
