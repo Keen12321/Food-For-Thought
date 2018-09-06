@@ -3,3 +3,8 @@
 	margin-top: 60px;
 	width: 60%
 }
+	@media only screen and (max-device-width: 600px) {
+			.editProfileContainer {
+				width: 90%;
+			}
+		}

@@ -33,6 +33,17 @@
 	height:80vh;
 }
 
+@media only screen and (max-device-width: 600px) {
+		.reportContainer {
+			width: 100%;
+		}
+		.reportChart {
+			width: 100%;
+		}
+		.reportButtons {
+			display: flex;
+		}
+}
 @media only print {
 	#ribbonTitle {
 		display:none;

@@ -57,7 +57,7 @@ class D_Reports extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="reportContainer">
 				<div className='titles'>
 					<h1>{this.state.name} Report</h1>
 					<h2>{this.state.startDate} &ndash; {this.state.endDate}</h2>
@@ -100,8 +100,10 @@ class D_Reports extends Component {
 							<Form.Input fluid label='End Date' id='endDate' name='endDate' value={this.state.endDate} onChange={this.handleChange} type='date' />
 						</Form.Group>
 						<Form.Group>
+							<div className="reportButtons">
 							<Form.Button id='submit' type='submit'>Generate Chart</Form.Button>
 							<Form.Button id='print' onClick={this.printReport}>Print Report</Form.Button>
+							</div>
 						</Form.Group>
 					</Form>
 				</div>
