@@ -93,7 +93,7 @@ class PickupsList extends Component {
 		  				<h4>{this.props.user.dish} x {this.props.user.trays}</h4>
 		  			</div>
 	  			</div>
-	  			<div className="dubdub">
+	  			<div id="rick">
 	  				<button className="ui green button" onClick={this.showPickupModal}>
 						<i className="check icon"></i>Confirm Pickup
 						</button>

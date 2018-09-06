@@ -45,6 +45,10 @@
 	display: flex;
 	justify-content: space-between;
 }
+#rick {
+	display: flex;
+	justify-content: space-between;
+}
 #meeseeks {
 	background: rgb(35,123,202);
 	color: white;
@@ -72,6 +76,11 @@
 	background: white;
 }
 .pickups {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.availablepickups {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
