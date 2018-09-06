@@ -4,7 +4,22 @@ import {withAuth, api} from '../Authentication'
 import {Menu, Dropdown, Icon} from 'semantic-ui-react'
 
 class R_HomeBar extends Component {
-  state = {}
+  state = {
+    size: 'huge',
+    stackable: false}
+
+componentWillMount() {
+    window.addEventListener('resize', this.handleMobile)
+}
+componentWillUnmount() {
+  window.removeEventListener('resize', this.handleMobile)
+}
+handleMobile = () => {
+  this.setState({
+    size: 'tiny',
+    stackable: true
+  })
+}
 
   handleClick = (e, { name }) => 
   this.setState({
@@ -27,7 +42,7 @@ class R_HomeBar extends Component {
     )
 
     return (
-      <Menu size='huge' inverted>
+      <Menu size={this.state.size} stackable={this.state.stackable} inverted>
         <Menu.Item>
           <Icon name='truck' size='large'/>
         </Menu.Item>
