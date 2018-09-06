@@ -73,10 +73,10 @@ class D_Login extends Component {
  		} else {
 	   	return (
 	 			<div className="loginContainer">
-	   			<div className="loginTitleContainer">
-	   				<i id="loginLogo" className="fa fa-cutlery" />
-	   				<div id="loginTitle">Login</div>
-	   			</div>
+		   			<div className="loginTitleContainer">
+		   				<i id="loginLogo" className="fa fa-cutlery" />
+		   				<div id="loginTitle">Login</div>
+		   			</div>
 	 				<Form size='huge' className="loginForm" onSubmit={this.handleSubmit}>
 	 					<Form.Input className='red' fluid icon='user'  iconPosition='left' name='email' type='email' onChange={this.handleChange} value={this.state.email} placeholder='Email' />
 	 					{incorrectEmailValidation}

@@ -107,14 +107,14 @@ class Register extends Component {
 	   			</div>
 	 				<Form className="loginForm" size='huge' onSubmit={this.handleSubmit}>
 	 					<div className="userTypeContainer">
-		 					<label className="userType" forhtml="type" id="delbtn">
+		 					<label className="userType" forhtml="type">
 		 						<input className="userTypeRadio" type="radio" name="type" 
 		 							value="Delivery" checked={this.state.type === "Delivery"} 
 		 							onChange={this.handleChange} />
 		 						<div>Delivery</div>
 		 					</label>
-		 					<div>OR</div>
-		 					<label className="userType" forhtml="type" id="resbtn">
+		 						<div>OR</div>
+		 					<label className="userType" forhtml="type">
 		 						<input className="userTypeRadio" type="radio" name="type" 
 		 							value="Restaurant" checked={this.state.type === "Restaurant"}
 		 							onChange={this.handleChange} />
