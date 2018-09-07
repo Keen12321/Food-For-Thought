@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {withAuth, api} from '../Authentication'
 import {connect} from 'react-redux'
 import { getDonations } from '../../actions/donateActions'
-import {Container, Button, Header} from 'semantic-ui-react'
+import {Segment, Button, Header} from 'semantic-ui-react'
 
 class D_Home extends Component {
   state = {
@@ -13,31 +13,37 @@ class D_Home extends Component {
    componentDidMount() {
     getDonations()
    }
+   componentWillReceiveProps(newProps) {
+    if (this.props.donate !== newProps.donate) {
+      getDonations(newProps)
+    } else {
+      getDonations()
+    }
+  }
 
   render() {
     return (
       <div>
         <div className="pickupnotification">
-          <Header as='h3'>Pickups available for today: {this.props.donate.length}</Header>
+          <Header as='h1'>Pickups available for today: {this.props.donate.length}</Header>
         </div>
-     		
-        <Container className="D_HomeContainer">
+        <Segment className="D_HomeContainer" basic='true'>
      			<div>
      				<Link to={`/delivery/map/${this.state.id}`}>
-              <Button color='green' type="submit" className="startPickup wubba">My Pickups Map</Button>
+              <Button color='green' fluid='true' type="submit" size="huge" content="My Pickups Map" />
               </Link>
      			</div>
      			<div>
-     				<Link to={`/delivery/reports/${this.state.id}`}>
-              <Button color='red' type="submit" className="manageReports wubba">Manage Reports</Button>
-            </Link>
-     			</div>
-     			<div>
      				<Link to="/delivery/pickups">
-              <Button color='blue' type="submit" className="navHome wubba">View All Available Pickups</Button>
+              <Button color='blue' fluid='true' type="submit" size="huge" content="View All Available Pickups" />
             </Link>
      			</div>
-     		</Container>
+          <div>
+            <Link to={`/delivery/reports/${this.state.id}`}>
+              <Button color='red' fluid='true' type="submit" size="huge" content="Manage Reports" />
+            </Link>
+          </div>
+     		</Segment>
      	</div>
    )
  }

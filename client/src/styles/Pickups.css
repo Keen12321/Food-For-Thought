@@ -18,6 +18,9 @@
 			flex-direction: column-reverse;
 			margin-left: 5px;
 		}
+		#lubba {
+			background: rgba(230,255,255,0.4);
+		}
 	}
 .modal-show{
 	display: block;
@@ -31,6 +34,7 @@
 	border-bottom: 1px solid #ccc;
 	padding-left: 2%;
 	padding-right: 2%;
+	border-radius: 20px;
 }
 .dubdub > * {
 	float: right;

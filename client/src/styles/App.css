@@ -31,7 +31,7 @@ a {
 	outline: none;
 }
 
-.startPickup, .requestPickup {
+/*.startPickup, .requestPickup {
 	background: rgb(33,172,162);
 	color: white;
 	text-align: center;
@@ -40,7 +40,7 @@ a {
 	border-radius: 5px;
 	cursor: pointer;
 	height: 100%;
-}
+}*/
 
 .fa {
 	padding: 5px;
@@ -82,11 +82,18 @@ a {
 
 .D_HomeContainer, .R_HomeContainer {
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: space-evenly;
 	width: 100%;
 }
+.D_HomeContainer > div, .R_HomeContainer > div {
+	padding: 5px;
+	width: 320px;
+	text-align: center;
+}
 
-.pickupnotification > h3 {
+.pickupnotification > h1 {
 	text-align: center;
 	font-family: sans-serif;
 	margin: 10px;
