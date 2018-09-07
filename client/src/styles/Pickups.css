@@ -3,7 +3,7 @@
 	flex-direction: column-reverse;
 }
 .fa-phone, .fa-comment {
-	color: blue;
+	color: rgb(63,132,202);
 }
 .fa-phone:hover, .fa-comment:hover {
 	opacity: 0.6;
@@ -73,8 +73,14 @@
 	border-radius: 5px;
 	cursor: pointer;
 }
+@keyframes modalFade {
+	from {opacity: 0}
+	to {opacity: 1}
+}
 .modal {
 	position: fixed;
+	animation-name: modalFade;
+	animation-duration: .5s;
 	top: 0;
 	left: 0;
 	width: 100%;

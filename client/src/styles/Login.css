@@ -28,6 +28,7 @@
 img {
 	max-width: 300px;
 	max-height: 300px;
+	margin-bottom: 5px;
 }
 .loginForm {
 	padding: 20px;

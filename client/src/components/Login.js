@@ -77,10 +77,6 @@ class D_Login extends Component {
 	 			<div className="loginContainer">
 		 			<img src={logo} alt="Food For Thought" />
 		 			<div className='loginright'>
-			   			<div className="loginTitleContainer">
-			   				<i id="loginLogo" className="fa fa-cutlery" />
-			   				<div id="loginTitle">Login</div>
-			   			</div>
 		 				<Form size='huge' className="loginForm" onSubmit={this.handleSubmit}>
 		 					<Form.Input className='red' id='shadow2' name='email' type='email'
 		 						fluid icon={<Icon name='user' color={this.state.iconColor} />} 
