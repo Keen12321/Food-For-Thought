@@ -17,10 +17,12 @@ class DefaultDonations extends Component{
 	componentDidMount(){
 		getDefault(this.state.id)		
 			console.log(this.state.id)
-
-			
-
 	}
+
+	 handleClick = (e) => {
+		let p1 = document.getElementById('price1').innerHTML
+		console.log(this.state.trays )
+	 }
 
 	render(){
 		return(
@@ -29,10 +31,11 @@ class DefaultDonations extends Component{
 				<div id='defaults'>	
 					<h2>Dish Name: {data.dish}</h2>
 					<ul>
-						<li>Price: ${data.value}</li>
-						<li>Amount: {data.trays} Trays</li>
+						<li id='price1'>Price: ${data.value}</li>
+						<li id='price2'>Amount: {data.trays} Trays</li>
 							<Button
 								color='blue'
+								onClick = {this.handleClick.bind(this)}
 								>
 								Donate
 							</Button>

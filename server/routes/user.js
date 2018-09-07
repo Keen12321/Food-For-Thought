@@ -198,10 +198,9 @@ router.post('/donation/default', (req, res, next) =>{
 
 //GETTING YOUR OWN DEFAULT DONATIONS 
 router.get('/donation/default/:id', (req, res, next) =>{
-	let id = req.params.id
 		const sql = `
 		SELECT 
-			defaultDonations.dish, defaultDonations.trays, defaultDonations.value, defaultDonations.food_id
+			defaultDonations.dish, defaultDonations.trays, defaultDonations.value, defaultDonations.food_id, users.id
 		FROM 
 			defaultDonations
 		LEFT JOIN 
@@ -211,11 +210,18 @@ router.get('/donation/default/:id', (req, res, next) =>{
 		WHERE 
 			defaultDonations.food_id = users.id
 	`
+	conn.query(sql, (error, results, fields) => {
+		let defaultD = []
+		let id = req.params.id
 
-	conn.query(sql,(error, results, fields) => {
-
-		res.json(results)
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].id == id) {
+				defaultD.push(results[i])
+			}
+		}
+		res.json(defaultD)
 	})
+	
 })
 
 
