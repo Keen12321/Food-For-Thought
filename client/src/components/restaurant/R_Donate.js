@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
 import { makeDonation, donateForm, getTime, addToDefault } from '../../actions/donateActions'
 import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
-import { api } from '../Authentication'
-import DefaultDonations from './defaultDonations'
+import { api, withAuth } from '../Authentication'
+import DefaultDonations from './DefaultDonations'
+import{connect } from 'react-redux'
 class Donate extends Component {
 	state = {
 		dish: '',
@@ -264,11 +265,16 @@ class Donate extends Component {
 			</Container>
 
 			<DefaultDonations/>
-			
 				
 			</div>
 		)
 	}
 }
 
-export default Donate
+function mapStateToProps(appState){
+	return {
+		defaultD: appState.appReducer.defaultD
+	}
+}
+
+export default withAuth(connect(mapStateToProps)(Donate))

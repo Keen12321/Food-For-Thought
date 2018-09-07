@@ -36,3 +36,29 @@ input[type='checkbox']{
 	margin:2%;
 	background: #eee;
 }
+
+.defaultContain{
+	width: 100%;
+	text-align: center;
+}
+
+#defaults{
+	margin: 20px 0 30px 0;
+}
+
+#defaults h2{
+	text-transform: capitalize;
+}
+
+#defaults ul li{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	margin: 20px 0 20px 0;
+
+}
+
+#defaults ul{
+	padding-bottom: 10px;
+	border-bottom: 2px solid #232323;
+}

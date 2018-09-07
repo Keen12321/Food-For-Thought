@@ -1,5 +1,6 @@
 import { api } from '../components/Authentication'
 import store from '../store'
+import axios from 'axios'
 // import { Message } from 'semantic-ui-react'
 
 export function makeDonation(donation) {
@@ -13,6 +14,8 @@ export function updatePickup(state) {
 
 	})
 }
+
+
 
 export function donateForm(input) {
 	if (isNaN(input)) {
@@ -66,10 +69,11 @@ export function addToDefault(donation){
 
 //GETTING YOUR OWN DEFAULT DONATIONS
 export function getDefault(id) {
-	api.get('/api/default/' + id).then(resp =>{
+	api.get('/api/donation/default/' + id).then(data =>{
 		store.dispatch({
 			type: 'GET_DEFAULT',
-			payload:resp.data
+			payload: data
 		})
 	})
 }
+

@@ -8,7 +8,7 @@ import R_Reports from './R_Reports'
 import ThankYou from './ThankYou'
 import R_Profile from './R_Profile'
 import HomeBar from './R_HomeBar'
-import defaultDonations from './defaultDonations'
+import DefaultDonations from './DefaultDonations'
 
 class RestaurantApp extends Component {
  	render() {
@@ -24,7 +24,6 @@ class RestaurantApp extends Component {
           <Route path="/restaurant/reports/:id" component={R_Reports} />
           <Route path='/restaurant/thankyou' component={ThankYou} />
           <Route path="/restaurant/profile" component={R_Profile} />
-          
         </Switch>
       </Authentication>
    	)
