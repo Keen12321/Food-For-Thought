@@ -80,7 +80,7 @@
 .modal {
 	position: fixed;
 	animation-name: modalFade;
-	animation-duration: .5s;
+	animation-duration: .3s;
 	top: 0;
 	left: 0;
 	width: 100%;

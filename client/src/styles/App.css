@@ -12,8 +12,8 @@ dark gray - rgb(30,30,30)
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
 body {
-	background: rgb(233,245,208);
-background: radial-gradient(circle, rgba(233,245,208,1) 0%, rgba(245,244,242,1) 100%);
+	background: rgb(223,251,165);
+background: radial-gradient(circle, rgba(223,251,165,1) 0%, rgba(245,244,242,1) 100%);
 }
 
 a {
