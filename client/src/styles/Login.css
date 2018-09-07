@@ -1,8 +1,8 @@
 .loginContainer {
 	text-align: center;
 	margin: 0 auto;
-	width: 40%;
-	margin-top: 35px;
+	width: 60%;
+	margin-top: 10px;
 	font: 20px sans-serif;
 }
 
@@ -25,38 +25,47 @@
 	padding-left: 7px;
 	font-size: 32px;
 }
-
+img {
+	max-width: 300px;
+	max-height: 300px;
+}
 .loginForm {
 	padding: 20px;
 	box-shadow: 4px 8px 10px #ccc, -4px -1px 10px  #ccc;
 	border: 1px solid #ccc;
 }
-@media only screen and (max-device-width: 600px) {
-	.loginContainer {
-		width: 100%;
-	}
-	.loginContainer {
-		margin-top: 10px;
-	}
-	.loginTitleContainer {
-		margin-bottom: 5px;
-	}
-	.loginForm {
-		padding: 10px;
-	}
-	#loginTitle {
-		font-size: 1em;
-	}
-	.userTypeContainer {
-		padding: 0;
-	}
-	.userType > div {
-		font-size: 0.8em;
-	}
-	.userType > input {
-		margin: 1px;
-	}
-}
+		
+		@media only screen and (max-device-width: 600px) {
+			.loginContainer {
+				width: 100%;
+			}
+			img {
+				width: 150px;
+				height: 150px;
+			}
+			.loginContainer {
+				margin-top: 10px;
+				flex-direction: column;
+			}
+			.loginTitleContainer {
+				margin-bottom: 5px;
+			}
+			.loginForm {
+				padding: 10px;
+			}
+			#loginTitle {
+				font-size: 1em;
+			}
+			.userTypeContainer {
+				padding: 0;
+			}
+			.userType > div {
+				font-size: 0.8em;
+			}
+			.userType > input {
+				margin: 1px;
+			}
+		}
 
 .userTypeContainer {
 	display: flex;

@@ -11,13 +11,22 @@ dark gray - rgb(30,30,30)
 
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
+body {
+	background: rgb(233,245,208);
+background: radial-gradient(circle, rgba(233,245,208,1) 0%, rgba(245,244,242,1) 100%);
+}
 
 a {
 	text-decoration: none;
 	color: white;
 	font-family: sans-serif;
 }
-
+#shadow, #submit, #print, #reset {
+	box-shadow: 3px 3px 1px #888;
+}
+#shadow2, #foodTitle, #foodVal, #mySelect {
+	box-shadow: 0 0 5px #888 inset;
+}
 * {
 	margin:0;
 	padding:0;
@@ -234,4 +243,7 @@ dark gray - rgb(30,30,30)
 	height: 100vh;
 	text-align: center;
 	margin: 0 auto;
+}
+#wrongg{
+	background: "rgba(255,0,29,.2)";
 }

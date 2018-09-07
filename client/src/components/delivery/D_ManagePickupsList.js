@@ -79,7 +79,6 @@ class ManagePickupsList extends Component {
  }
 }
 function mapStateToProps(appState) {
-	console.log('appstate', appState)
 	return {
 		donate: appState.appReducer.donate
 	}

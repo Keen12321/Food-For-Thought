@@ -64,11 +64,11 @@ router.post('/donate', (req, res, next) => {
 })
 
 
-// GET REPORTS
-router.get('/reports/:id', (req, res, next) => {
+// GET RESTAURANT REPORTS
+router.get('/reportsRestaurant/:id', (req, res, next) => {
 	const sql = `
 		SELECT 
-			users.name, donations.date, donations.dish, donations.trays, donations.value, users.id
+			donations.dish, donations.trays, donations.value, donations.date, donations.food_id, users.id, users.name, users.tax_id
 		FROM 
 			donations
 		LEFT JOIN 
@@ -80,15 +80,43 @@ router.get('/reports/:id', (req, res, next) => {
 	`
 
 	conn.query(sql, (error, results, fields) => {
-		let report = []
+		let reportRestaurant = []
 		let id = req.params.id
 
 		for (let i = 0; i < results.length; i++) {
 			if (results[i].id == id) {
-				report.push(results[i])
+				reportRestaurant.push(results[i])
 			}
 		}
-		res.json(report)
+		res.json(reportRestaurant)
+	})
+})
+
+// GET DELIVERY REPORTS
+router.get('/reportsDelivery/:id', (req, res, next) => {
+	const sql = `
+		SELECT 
+			donations.dish, donations.trays, donations.value, donations.date, donations.delivery_id, users.id, users.name, users.tax_id
+		FROM 
+			donations
+		LEFT JOIN 
+			users 
+		ON 
+			donations.delivery_id = users.id
+		WHERE 
+			donations.delivery_id = users.id;
+	`
+
+	conn.query(sql, (error, results, fields) => {
+		let reportDelivery = []
+		let id = req.params.id
+
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].id == id) {
+				reportDelivery.push(results[i])
+			}
+		}
+		res.json(reportDelivery)
 	})
 })
 
@@ -121,7 +149,7 @@ router.patch('/donating', (req, res, next) => {
 router.get('/donating', (req, res, next) => {
 	const sql = `
 		SELECT
-			donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.name
+			donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.phone, users.name
 		FROM
 			donations
 		LEFT JOIN
@@ -141,7 +169,7 @@ router.get('/donating/pending/:id', (req, res, next) => {
 
 	const sql = `
 		SELECT
-			donations.dish, donations.trays, donations.id, donations.delivery_id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.name
+			donations.dish, donations.trays, donations.id, donations.delivery_id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.phone, users.name
 		FROM
 			donations
 		LEFT JOIN

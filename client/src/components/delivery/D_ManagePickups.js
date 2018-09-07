@@ -9,22 +9,30 @@ class ManagePickups extends Component {
 
 	componentDidMount() {
 		getDonations()
-		updatePickup()
-		console.log(this.props)
+		updatePickup() 
 	}
-	componentWillReceiveProps(newProps) {
-    if (this.props.donate !== newProps.donate) {
-    	updatePickup()
-      getDonations(newProps)
-    } else {
-      getDonations()
-    }
-  }
+	// componentWillReceiveProps(newProps) {
+ //    if (this.props.donate !== newProps.donate) {
+ //    	updatePickup()
+ //      getDonations(newProps)
+ //    } else {
+ //      getDonations()
+ //    }
+ //  }
 	
+	componentWillReceiveProps(newProps) {
+		if(this.props.donate !== newProps.donate) {
+			updatePickup()
+			getDonations(newProps)
+		} else {
+			getDonations()
+		}
+  }
+
 	render() {
 		return (
 	    <div>
-	    <Header as='h3' id="pickle">Pickups available for today: {this.props.donate.length}</Header>
+	    <Header as='h1' id="pickle">Pickups available for today: {this.props.donate.length}</Header>
 	    	{this.props.donate.map(user => (
 	      	<ManagePickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
 	      ))}
@@ -34,7 +42,6 @@ class ManagePickups extends Component {
 }
 
 function mapStateToProps(appState) {
-	console.log('appstate', appState)
 	return {
 		donate: appState.appReducer.donate
 	}

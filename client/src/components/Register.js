@@ -3,6 +3,7 @@ import validator from 'validator'
 import {Redirect} from 'react-router-dom'
 import {registerUser} from '../actions/loginActions'
 import {Form, Button} from 'semantic-ui-react'
+import logo from '../assets/fft.png'
 
 class Register extends Component {
  	state = {
@@ -101,20 +102,22 @@ class Register extends Component {
  		} else {
 	   	return (
 	   		<div className="loginContainer">
+	   		<img src={logo} />
+	   			<div className='loginright'>
 	   			<div className="loginTitleContainer">
 	   				<i id="loginLogo" className="fa fa-cutlery" />
 	   				<div id="loginTitle">Register</div>
 	   			</div>
 	 				<Form className="loginForm" size='huge' onSubmit={this.handleSubmit}>
 	 					<div className="userTypeContainer">
-		 					<label className="userType" forhtml="type">
+		 					<label className="userType" forhtml="type" id='shadow'>
 		 						<input className="userTypeRadio" type="radio" name="type" 
 		 							value="Delivery" checked={this.state.type === "Delivery"} 
 		 							onChange={this.handleChange} />
 		 						<div>Delivery</div>
 		 					</label>
 		 						<div>OR</div>
-		 					<label className="userType" forhtml="type">
+		 					<label className="userType" forhtml="type" id='shadow'>
 		 						<input className="userTypeRadio" type="radio" name="type" 
 		 							value="Restaurant" checked={this.state.type === "Restaurant"}
 		 							onChange={this.handleChange} />
@@ -145,10 +148,11 @@ class Register extends Component {
 	 						name='phone' onChange={this.handleChange} 
 	 						value={this.state.phone} placeholder='Phone #' />
 	 					
-	 					<Button className="loginSubmit" size="huge" 
-	 						color={this.state.buttonColor} type="submit">Register</Button>
+	 					<Button className="loginSubmit" size="huge" id='shadow'
+	 						color={this.state.buttonColor} type="submit" content="Click Here to Register" />
 	 					{fieldEmpty}
 	 				</Form>
+	 				</div>
 	 			</div>
 	  		 	)
  		}

@@ -44,7 +44,7 @@ handleMobile = () => {
     return (
       <Menu size={this.state.size} stackable={this.state.stackable} inverted>
         <Menu.Item>
-          <Icon name='truck' size='large'/>
+          <Icon name='truck' id='truck' size='large'/>
         </Menu.Item>
         <Menu.Item as={Link} to='/delivery' name='Home' 
           active={activeItem === 'Home'} onClick={this.handleClick} />
@@ -59,7 +59,7 @@ handleMobile = () => {
               <Dropdown.Item as={Link} to='/delivery/profile' key='user'
                 text='Edit Profile' icon='user'/>
               <Dropdown.Item as={Link} to='/login' onClick={this.logout} 
-                key='sign-out' text='Sign Out' icon="sign out"/>   
+                key='sign-out' text='Sign Out' icon='sign out'/>   
             </Dropdown.Menu>
           </Dropdown>
         </Menu.Menu>

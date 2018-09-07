@@ -21,26 +21,34 @@ class D_Home extends Component {
     }
   }
 
+  componentWillReceiveProps(newProps) {
+    if ( this.props.donate !== newProps.donate)  {
+      getDonations(newProps)
+    } else {
+      getDonations()
+    }
+  }
+
   render() {
     return (
       <div>
         <div className="pickupnotification">
           <Header as='h1'>Pickups available for today: {this.props.donate.length}</Header>
         </div>
-        <Segment className="D_HomeContainer" basic='true'>
+        <Segment className="D_HomeContainer" basic>
      			<div>
      				<Link to={`/delivery/map/${this.state.id}`}>
-              <Button color='green' fluid='true' type="submit" size="huge" content="My Pickups Map" />
+              <Button color='green' fluid id="shadow" type="submit" size="huge" content="My Pickups Map" />
               </Link>
      			</div>
      			<div>
      				<Link to="/delivery/pickups">
-              <Button color='blue' fluid='true' type="submit" size="huge" content="View All Available Pickups" />
+              <Button color='blue' fluid id="shadow" type="submit" size="huge" content="View All Available Pickups" />
             </Link>
      			</div>
           <div>
             <Link to={`/delivery/reports/${this.state.id}`}>
-              <Button color='red' fluid='true' type="submit" size="huge" content="Manage Reports" />
+              <Button color='red' fluid id="shadow" type="submit" size="huge" content="Manage Reports" />
             </Link>
           </div>
      		</Segment>
@@ -50,7 +58,6 @@ class D_Home extends Component {
 }
 
 function mapStateToProps(appState) {
-  console.log('appstate', appState)
   return {
     donate: appState.appReducer.donate
   }

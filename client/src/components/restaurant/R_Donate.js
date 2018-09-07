@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
 import { makeDonation, donateForm, getTime } from '../../actions/donateActions'
-import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
+import { Button, Form, Container, Header } from 'semantic-ui-react'
 import { api } from '../Authentication'
 
 class Donate extends Component {
@@ -10,7 +10,13 @@ class Donate extends Component {
 		trays: '',
 		value: '',
 		food_id: '',
-		donate_time:''
+		donate_time:'',
+		blankFields: true,
+		blankCost: true,
+		blankAmount: true,
+		blankType: true,
+		color: 'green',
+		inColor: '#fff'
 	}
 
 	handleChange = (e) => {
@@ -18,6 +24,16 @@ class Donate extends Component {
 			[e.target.name]: e.target.value
 		})
 		donateForm(this.state.dish)
+	}
+
+	handleClick = (e) =>{
+		this.setState({
+			color:'green',
+			blankType: true,
+			blankAmount: true,	
+			blankCost: true,
+			blankFields: true
+		})
 	}
 
 	handleSubmit = (e) => {
@@ -29,23 +45,38 @@ class Donate extends Component {
 
 
 		if(sel === '0' && FT === '' && foodCost === ''){
-			document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
-			document.getElementById('foodTitle').style.background = "rgba(255,0,29,.2)"
-			document.getElementById('foodVal').style.background = "rgba(255,0,29,.2)"
+			this.setState({
+				blankFields: false,
+				color: "red",
+				blankType: true,
+				blankAmount: true,	
+				blankCost: true			
+			})
 		}
 		else if(FT === ''){
-			document.getElementById('foodTitle').style.background = "rgba(255,0,29,.2)"
-	
+			this.setState({
+				blankType: false,			
+				color: "red",
+				blankFields: true				
+			})
 		}
 
 		else if(sel === '0'){
-			document.getElementById('mySelect').style.background = "rgba(255,0,29,.2)"
+			this.setState({
+				blankAmount: false,
+				color: 'red',
+				blankFields: true
+				
+			})
 
 		}
 
 		else if(foodCost === ''){
-			document.getElementById('foodVal').style.background = "rgba(255,0,29,.2)"
-
+			this.setState({
+				blankCost: false,
+				color: 'red',
+				blankFields: true
+			})
 		}
 		
 		else{
@@ -66,15 +97,62 @@ class Donate extends Component {
 		}
 	}
 
+
 	render() {
-	
+		let blank_fields
+		let blank_value  
+		let blank_dish
+		let blank_amount
+
+			if(!this.state.blankFields)
+			{
+				blank_fields =
+				<div id ='wrongg'>
+					<ul>
+						<li>Please tell us what Kind of food you are donating.</li>
+						<li>Please tell us how many trays you are donating.</li>
+						<li>Please provide a cost for your over all donation.</li>
+					</ul>
+				</div>
+			}
+
+			if(!this.state.blankType)
+			{
+				blank_dish = 
+				<div id="wrongg">
+					<ul>
+						<li>Please tell us what Kind of food you are donating.</li>
+					</ul>
+				</div>				 
+			}
+
+			if(!this.state.blankAmount)
+			{
+				blank_amount = <div id="wrongg">
+					<ul>
+						<li>Please Tell us how many trays you are donating.</li>
+					</ul>
+				</div>
+			}
+
+			if(!this.state.blankCost)
+			{
+					blank_value = 
+					<div id="wrongg">
+						<ul>
+							<li>Please Tell us what the value of this donation is</li>
+						</ul>
+					</div>
+			}
 
 		return (
 			<Container className="donate-container">
-				<Header>Make a Donation</Header>
+				<Header as='h1' id='headerD'>Make a Donation</Header>
 
 				<Form onSubmit={this.handleSubmit.bind(this)} widths='equal'>
-					<Form.Field>
+					<Form.Field
+					color={this.state.color}>
+					{blank_dish}
 						<Form.Input 
 							label='Title'
 							type='text'
@@ -82,11 +160,11 @@ class Donate extends Component {
 							name='dish'
 							id='foodTitle'
 							value={this.state.dish}
-							onChange={this.handleChange} 
-							/* onClick={this.handleClick2} */
+							onChange={this.handleChange}
+							onClick={this.handleClick} 
 						/>
 					</Form.Field>
-					
+					{blank_amount}
 			    <Form.Field 
 			    	label='How Many?' 
 			    	control='select' 
@@ -94,7 +172,7 @@ class Donate extends Component {
 			    	id='mySelect'
 			    	onChange={this.handleChange} 
 			    	value={this.state.trays} 
-			    	/* onClick={this.handleClick} */
+			     	onClick={this.handleClick} 
 		    	>
 			    		<option value='0'>0</option>
 				        <option value='1'>1</option>
@@ -118,7 +196,7 @@ class Donate extends Component {
 						<option value='19'>19</option>
 						<option value='20'>20</option>
 		      </Form.Field>
-					
+					{blank_value}
 					<Form.Field>
 						<Form.Input 
 							label='Value' 
@@ -128,20 +206,21 @@ class Donate extends Component {
 							onChange={this.handleChange}
 							value={this.state.value}
 							id='foodVal'
+							onClick={this.handleClick}
 						/>
 					</Form.Field>
 
 	    		<Form.Field>
 		    		<Button 
-		    			color='green'
+		    			color={this.state.color}
 		    			type='submit'
-		    			fluid >
+		    			fluid
+		    			id="shadow" >
 	    				Submit
 	    			</Button>
-    			
     			</Form.Field>
-
 			  </Form>
+			  {blank_fields}
 			</Container>
 		)
 	}

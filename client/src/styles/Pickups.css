@@ -2,6 +2,12 @@
 	display: flex;
 	flex-direction: column-reverse;
 }
+.fa-phone, .fa-comment {
+	color: blue;
+}
+.fa-phone:hover, .fa-comment:hover {
+	opacity: 0.6;
+}
 #scroll {
 	max-height: 700px;
 	overflow-y: hidden;
@@ -18,8 +24,8 @@
 			flex-direction: column-reverse;
 			margin-left: 5px;
 		}
-		#lubba {
-			background: rgba(230,255,255,0.4);
+		#truck {
+			display: none;
 		}
 	}
 .modal-show{
@@ -29,12 +35,17 @@
 .wubba {
 	font-size: 1.5em;
 }
+#lubba2 {
+	background: rgba(230,255,230,0.4);
+}
 #lubba {
 	align-items: flex-end;
 	border-bottom: 1px solid #ccc;
 	padding-left: 2%;
 	padding-right: 2%;
+	margin-bottom: 5px;
 	border-radius: 20px;
+	background: rgba(245,245,255,0.9);
 }
 .dubdub > * {
 	float: right;

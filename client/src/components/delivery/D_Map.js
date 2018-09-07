@@ -57,8 +57,8 @@ render() {
       mapElement: <div style={{height: `80vh`, width: `100%` }}  />,
     }),
 
-    withScriptjs,
-    withGoogleMap,
+      withScriptjs,
+      withGoogleMap,
 
     lifecycle({
       componentDidMount() { 
@@ -105,7 +105,7 @@ render() {
   if(this.props.addresses.length == 0) {
     return (
         <div>
-          <Header as='h3' id="pickle">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
+          <Header as='h1' id="pickle">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
           <div className="pickupsContainer">
                 <div id="scroll">
                 <audio src={chime} hidePlayer='true' autoPlay />

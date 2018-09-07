@@ -4,9 +4,9 @@ import {withAuth, api} from '../Authentication'
 import {Segment, Button, Header} from 'semantic-ui-react'
 
 class R_Home extends Component {
-   state = {
-      id:api.getProfile().id
-   }
+  state = {
+    id:api.getProfile().id
+  }
 
    render() {
       return (
@@ -14,23 +14,23 @@ class R_Home extends Component {
             <div className="pickupnotification">
                <Header as='h1'>Pickup Ready</Header>
             </div>
-            <Segment className="R_HomeContainer" basic='true'>
+            <Segment className="R_HomeContainer" basic>
                <div>
                   <Link to="/restaurant/donate">
                      <Button type="submit" 
-                      color='green' size='huge' fluid='true' content="Donate Food" />
+                      color='green' size='huge' id='shadow' fluid content="Donate Food" />
                   </Link>
                </div>
                <div>
                   <Link to={`/restaurant/reports/${this.state.id}`}>
                      <Button type="submit" 
-                      color='orange' size='huge' fluid='true' content="Manage Reports" />
+                      color='orange' size='huge' id="shadow" fluid content="Manage Reports" />
                   </Link>
                </div>
                <div>
                   <Link to="/restaurant/profile">
                     <Button type="submit" 
-                      color='red' size='huge' fluid='true' content="Manage Profile" />
+                      color='red' size='huge' id="shadow" fluid content="I need to be different" />
                   </Link>
                </div>
             </Segment>
