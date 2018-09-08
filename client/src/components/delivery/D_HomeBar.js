@@ -41,15 +41,17 @@ handleMobile = () => {
     const burger = (
       <div>
       <Icon name='bars' size='large' />
-      </div>)
+      </div>
+      )
 
     return (
       <Menu size={this.state.size} inverted>
         <Menu.Item id='notmobile' >
           <Icon name='truck' id='truck' size='large'/>
         </Menu.Item>
-        <Dropdown trigger={burger} pointing='top left' item>
+        <Dropdown trigger={burger} pointing='top left' id='mobileonly' item>
             <Dropdown.Menu>
+                <Dropdown.Item as={Link} to='/delivery' name='Home' active={activeItem === 'Home'} onClick={this.handleClick} content='Home' icon='home'/>
                 <Dropdown.Item as={Link} to={`/delivery/map/${api.getProfile().id}`} name='Map' active={activeItem === 'Map'} onClick={this.handleClick} content='Map' icon='map'/>
                 <Dropdown.Item as={Link} to='/delivery/pickups' icon='list' name='Pickups' active={activeItem === 'Pickups'} onClick={this.handleClick} content='All Available Pickups' />
                 <Dropdown.Item as={Link} to={`/delivery/reports/${api.getProfile().id}`} icon='chart bar' name='Reports' active={activeItem === 'Reports'} onClick={this.handleClick} content='Manage Reports' />
@@ -58,6 +60,7 @@ handleMobile = () => {
         <Menu.Item as={Link} to='/delivery' name='Home' id='notmobile' active={activeItem === 'Home'} onClick={this.handleClick} />
         <Menu.Item as={Link} to={`/delivery/map/${api.getProfile().id}`} name='Map' id='notmobile' active={activeItem === 'Map'} onClick={this.handleClick} />
         <Menu.Item as={Link} to='/delivery/pickups' name='Pickups' id='notmobile' active={activeItem === 'Pickups'} onClick={this.handleClick} />
+        <Menu.Item as={Link} to={`/delivery/reports/${api.getProfile().id}`} name='Reports' id='notmobile' active={activeItem === 'Reports'} onClick={this.handleClick} />
         <Menu.Menu position='right' >
           <Dropdown trigger={trigger} pointing='top right' item>
             <Dropdown.Menu >

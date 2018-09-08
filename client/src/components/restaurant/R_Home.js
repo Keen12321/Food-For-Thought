@@ -27,12 +27,6 @@ class R_Home extends Component {
                       color='orange' size='huge' id="shadow" fluid content="Manage Reports" />
                   </Link>
                </div>
-               <div>
-                  <Link to="/restaurant/profile">
-                    <Button type="submit" 
-                      color='red' size='huge' id="shadow" fluid content="I need to be different" />
-                  </Link>
-               </div>
             </Segment>
          </div>
       )
