@@ -5,8 +5,7 @@ import { Menu, Dropdown, Icon } from 'semantic-ui-react'
 
 class D_HomeBar extends Component {
   state = {
-    size: 'huge',
-    stackable: false
+    size: 'huge'
   }
 componentWillMount() {
     window.addEventListener('resize', this.handleMobile)
@@ -16,8 +15,7 @@ componentWillUnmount() {
 }
 handleMobile = () => {
   this.setState({
-    size: 'tiny',
-    stackable: true
+    size: 'tiny'
   })
 }
 
@@ -40,20 +38,27 @@ handleMobile = () => {
         <Icon name='user' size='large'/>
       </div>
     )
+    const burger = (
+      <div>
+      <Icon name='bars' size='large' />
+      </div>)
 
     return (
-      <Menu size={this.state.size} stackable={this.state.stackable} inverted>
-        <Menu.Item>
+      <Menu size={this.state.size} inverted>
+        <Menu.Item id='notmobile' >
           <Icon name='truck' id='truck' size='large'/>
         </Menu.Item>
-        <Menu.Item as={Link} to='/delivery' name='Home' 
-          active={activeItem === 'Home'} onClick={this.handleClick} />
-        <Menu.Item as={Link} to={`/delivery/map/${api.getProfile().id}`} name='Map' 
-          active={activeItem === 'Map'} onClick={this.handleClick} />
-        <Menu.Item as={Link} to='/delivery/pickups' name='Pickups' 
-          active={activeItem === 'Pickups'} onClick={this.handleClick} />
-
-        <Menu.Menu position='right'>
+        <Dropdown trigger={burger} pointing='top left' item>
+            <Dropdown.Menu>
+                <Dropdown.Item as={Link} to={`/delivery/map/${api.getProfile().id}`} name='Map' active={activeItem === 'Map'} onClick={this.handleClick} content='Map' icon='map'/>
+                <Dropdown.Item as={Link} to='/delivery/pickups' icon='list' name='Pickups' active={activeItem === 'Pickups'} onClick={this.handleClick} content='All Available Pickups' />
+                <Dropdown.Item as={Link} to={`/delivery/reports/${api.getProfile().id}`} icon='chart bar' name='Reports' active={activeItem === 'Reports'} onClick={this.handleClick} content='Manage Reports' />
+            </Dropdown.Menu>
+        </Dropdown>
+        <Menu.Item as={Link} to='/delivery' name='Home' id='notmobile' active={activeItem === 'Home'} onClick={this.handleClick} />
+        <Menu.Item as={Link} to={`/delivery/map/${api.getProfile().id}`} name='Map' id='notmobile' active={activeItem === 'Map'} onClick={this.handleClick} />
+        <Menu.Item as={Link} to='/delivery/pickups' name='Pickups' id='notmobile' active={activeItem === 'Pickups'} onClick={this.handleClick} />
+        <Menu.Menu position='right' >
           <Dropdown trigger={trigger} pointing='top right' item>
             <Dropdown.Menu >
               <Dropdown.Item as={Link} to='/delivery/profile' key='user'

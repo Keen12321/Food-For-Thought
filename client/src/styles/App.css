@@ -40,6 +40,19 @@ a {
 	outline: none;
 }
 
+#mobileonly {
+	display: none;
+}
+	@media only screen and (max-device-width: 810px) {
+		#mobileonly {
+			display: block;
+			color: #ccc;
+		}
+		#notmobile {
+			display: none;
+		}
+
+}
 /*.startPickup, .requestPickup {
 	background: rgb(33,172,162);
 	color: white;

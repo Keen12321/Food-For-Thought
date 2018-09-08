@@ -59,7 +59,7 @@
 	height:80vh;
 }
 
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-device-width: 565px) {
 		.reportContainer {
 			width: 100%;
 		}
