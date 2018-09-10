@@ -4,20 +4,22 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "chart.js": "^2.7.2",
     "font-awesome": "^4.7.0",
-    "google-maps-react": "^2.0.2",
     "jsonwebtoken": "^8.3.0",
     "normalize.css": "^8.0.0",
     "react": "^16.4.2",
+    "react-chartjs2": "^1.2.1",
     "react-dom": "^16.4.2",
     "react-google-maps": "^9.4.5",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^1.1.5",
+    "recompose": "^0.29.0",
     "redux": "^4.0.0",
+    "save": "^2.3.2",
     "semantic-ui-react": "^0.82.3",
-    "validator": "^10.7.0",
-    "recompose": "^0.29.0"
+    "validator": "^10.7.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,22 +1,4 @@
 
-
-html {box-sizing: border-box;}
-*, *:before, *:after {box-sizing: inherit;}
-
-
-
-.startPickup {
-	background: rgb(33,172,162);
-	color: white;
-	text-align: center;
-	padding: 10px;
-	font-family: sans-serif;
-	border-radius: 5px;
-	cursor: pointer;
-	height: 100%;
-}
-
-
 /*
 mockup colors
 red - rgb(202,23,26)
@@ -27,10 +9,8 @@ light gray - rgb(247,247,247)
 dark gray - rgb(30,30,30)
 */
 
-
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
-
 
 a {
 	text-decoration: none;
@@ -41,10 +21,6 @@ a {
 * {
 	margin:0;
 	padding:0;
-}
-
-html {
-	font-family: 'Lato', sans-serif;
 }
 
 *:active {
@@ -67,40 +43,21 @@ html {
 }
 
 .fa {
-	color: grey;
-	width: 30px;
 	padding: 5px;
 	margin: 5px;
-	border: 2px solid white;
-	border-radius: 50%;
+}
+
+.fa-calendar-check{
+	color: #fff;
 }
 
 
-.D_navbar{
-	background: #232323;
-	display: flex;
-	justify-content: space-between;
-	padding: 20px;
-
-}
-
-.fa{
-	margin: 3px;
-}
-
-
-
-.fa-map-marker{
+.fa-map-marker {
 	border:2px solid #fff;
 	padding: 5px;
 	border-radius: 50%;
 	font-weight: bold;
 }
-
-
-
-
-
 
 .manageReports {
 	background: rgb(202,23,26);
@@ -173,42 +130,23 @@ dark gray - rgb(30,30,30)
 
 }
 
-.restaurantButton {
-	width:200px;
-	margin:10px;
-	padding:10px;
-	text-align:center;
-	border-radius:5px;
-	background-color:rgb(202,23,26);
-}
-
-.deliveryButton {
-	width:200px;
-	margin:10px;
-	padding:10px;
-	text-align:center;
-	border-radius:5px;
-	background-color:rgb(35,123,202);
-
-}
-
-
-
-
-
 .profileContain{
 	width: 100%;
 	
 }
 
-#head{
+.profileContain {
+	width: 100%;	
+}
+
+#head {
 	width: 100%;
 	padding: 10px;
 	background: #ccc;
 	display: flex;
 }
 
-#head button{
+#head button {
 	border: none;
 	outline: none;
 	background: none;
@@ -216,12 +154,7 @@ dark gray - rgb(30,30,30)
 	margin-right: 40%;
 }
 
-.D_navbar a:hover{
-	transform:scale(1.2);
-	color: #fff;
-}
-
-#prof{
+#prof {
 	margin: 15px;
 	padding: 15px;
 	display: flex;
@@ -230,12 +163,12 @@ dark gray - rgb(30,30,30)
 /*	border-bottom: 1px solid #232323;*/
 }
 
-#prof h2{
+#prof h2 {
 	padding: 5px;
 	border-bottom: 2px solid #232323;
 }
 
-#option{
+#option {
 	margin: 30px;
 	border-top: 1px solid #232323;
 	border-bottom: 1px solid #232323;
@@ -243,18 +176,18 @@ dark gray - rgb(30,30,30)
 	display: flex;
 }
 
-#option button{
+#option button {
 	margin-right:5%;
 }
 
-#itemsD{
+#itemsD {
 	display: flex;
 	/*flex-direction: column;*/
 	justify-content: flex-start;
 	padding: 20px;
 }
 
-#dd{
+#dd {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -262,39 +195,36 @@ dark gray - rgb(30,30,30)
 	padding: 10px;
 }
 
-#amount{
+#amount {
 	font-size: 2.5em;
 	margin-bottom: 30px;
 }
 
-#numberr{
+#numberr {
 	font-size: 2.4em;
 }
 
-
-
-
-/*******************************************
-	MAKING DONATIONS
-*******************************************/
-
-.donate-container {
-	display: flex;
-	border: 2px solid #eee;
-	border-radius: 3px;
-	width: 500px;
-	margin: 0 auto;
+#thanks{
+	width: 40%;
+	border:1px solid #232323;
+	margin:100px auto;
+	text-align: center;
+	background: rgba(255,255,200,.2);
+	padding: 50px;
 }
 
-.donate__food-type {
-	padding: 10px;
+#thanks h1{
+	margin-bottom: 50px;
+	text-transform: capitalize;
+	font-family: sans-serif;
 }
 
-.donate__food-size {
-	padding: 10px;
+#thanks p{
+	line-height: 50px;
 }
 
-.donate__details-submit {
-	padding: 10px;
+#wrongg{
+	background: "rgba(255,0,29,.2)";
 }
+
 

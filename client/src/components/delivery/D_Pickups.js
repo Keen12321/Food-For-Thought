@@ -1,20 +1,48 @@
-import React, { Component } from 'react'
-import { withAuth } from '../Authentication'
-import HomeBar from './D_HomeBar'
+import React, {Component} from 'react'
+import {withAuth, api} from '../Authentication'
+import {updatePickup, getMyPickups} from '../../actions/donateActions'
+import {connect} from 'react-redux'
 
+import PickupsList from './D_PickupsList'
 
 class D_Pickups extends Component {
- render() {
-   return (
+
+	componentDidMount() {
+		getMyPickups(api.getProfile().id)
+		updatePickup()
+	}
+  
+  // componentWillReceiveProps(newProps) {
+  //   if (this.props.mypickups !== newProps.mypickups) {
+  //     getMyPickups(api.getProfile().id, newProps)
+  //   } else {
+  //     getMyPickups(api.getProfile().id)
+  //   }
+  // }
+
+	render() {
+		return (
       <div>
-         <HomeBar />
-   		<div>
-   			Pickups List
-   		</div>
-      </div>
-     
+      	<div className="reversepickups">
+      	{this.props.mypickups.map(user => (
+        	<PickupsList key={user.id} user={user} show1={this.props.show} 
+        		show2={this.props.show} show3={this.props.show} />
+        ))}
+        </div>
+    		<div className="ui raised vertical segment">
+      			<h3>Home</h3>
+      			<h4>{api.getProfile().name}</h4>
+      			<p>{api.getProfile().location}</p>
+    		</div>
+      </div> 
    )
  }
 }
 
-export default withAuth(D_Pickups)
+function mapStateToProps(appState) {
+	return {
+		mypickups: appState.appReducer.mypickups
+	}
+}
+
+export default withAuth(connect(mapStateToProps)(D_Pickups))

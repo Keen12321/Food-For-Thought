@@ -1,31 +1,64 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import { withAuth } from '../Authentication'
-import HomeBar from './D_HomeBar'
-
+import {withAuth, api} from '../Authentication'
+import {connect} from 'react-redux'
+import { getDonations } from '../../actions/donateActions'
+import {Container, Button, Header} from 'semantic-ui-react'
 
 class D_Home extends Component {
- render() {
-   return (
-   		<div>
-   			<HomeBar />
-          <div className="pickupnotification">
-             <h3>There are 3 restaurants with food ready for pickup</h3>
-          </div>
-   		<div className="D_HomeContainer">
-   			<div>
-   				<Link to="/delivery/pickups"><button type="submit" className="startPickup">Start Pickups</button></Link>
-   			</div>
-   			<div>
-   				<Link to="/delivery/pickups"><button type="submit" className="manageReports">Manage Pickups</button></Link>
-   			</div>
-   			<div>
-   				<Link to="/delivery/pickups"><button type="submit" className="navHome">Navigate Home</button></Link>
-   			</div>
-   		</div>
-     	</div>
+  state = {
+      id:api.getProfile().id
+   }
+
+   componentDidMount() {
+    getDonations()
+   }
+
+  // componentWillReceiveProps(newProps) {
+  //   if ( this.props.donate !== newProps.donate)  {
+  //     getDonations(newProps)
+  //   } else {
+  //     getDonations()
+  //   }
+  // }
+
+
+
+  render() {
+    return (
+      <Container text>
+        <Container className="pickupnotification">
+          <Header as='h3'>
+            Pickups available for today: {this.props.donate.length}
+          </Header>
+        </Container>
+     		
+        <Container className="D_HomeContainer">
+     			
+   				<Link to={`/delivery/map/${this.state.id}`}>
+            <Button color='green' type="submit" 
+              className="startPickup wubba">My Pickups Map</Button>
+          </Link>
+
+   				<Link to={`/delivery/reports/${this.state.id}`}>
+            <Button color='red' type="submit" 
+              className="manageReports wubba">Manage Reports</Button>
+          </Link>
+   			
+   				<Link to="/delivery/pickups">
+            <Button color='blue' type="submit" 
+              className="navHome wubba">View All Available Pickups</Button>
+          </Link>
+     			
+     		</Container>
+     	</Container>
    )
  }
 }
 
-export default withAuth(D_Home)
+function mapStateToProps(appState) {
+  return {
+    donate: appState.appReducer.donate
+  }
+}
+export default withAuth(connect(mapStateToProps)(D_Home))

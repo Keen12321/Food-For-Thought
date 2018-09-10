@@ -15,5 +15,3 @@ The hunger issue in Las Vegas is not about having enough meals available, or hav
 Our site allows for the tracking and reporting of donations by local businesses for tax-reduction purposes. It also allows these businesses to examine food waste in a quantifiable way in order to reduce overspending on their own terms. Local charities are able to select only the food donations that fit their particular needs for that day and can see in real-time as donations become available across the valley.
 
 We believe that this project lays the groundwork for a nationwide system to match restaurants with available donations to charities in need of those donations and we are honored to be part of such a worthy cause.
-
-

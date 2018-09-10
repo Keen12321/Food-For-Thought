@@ -1,0 +1,70 @@
+.reportForm {
+	margin:20px auto 40px auto;
+	width:80%;
+}
+
+.reportForm > h2, .reportTable > h2, .reportChart > h2 {
+	font-size:1.3em;
+	font-weight:bold;
+	text-align:center;
+}
+
+.buttons {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:center;
+	text-align:center;
+}
+
+.titles > h1 {
+	font-size:1.5em;
+	font-weight:bold;
+	text-align:center;
+}
+
+.titles > h2 {
+	margin:-10px auto -20px auto;
+	font-size:1.3em;
+	font-weight:bold;
+	text-align:center;
+}
+
+.titles > h3 {
+	font-size:1.1em;
+	font-weight:bold;
+	text-align:center;
+}
+
+.reportTable {
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+	justify-content:center;
+	margin:20px auto;
+	width:80%;
+	text-align:center;
+}
+
+.reportCharts {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+}
+
+.reportChart {
+	position:relative;
+	margin:auto;
+	width:80vh;
+	height:80vh;
+}
+
+@media only print {
+	.reportForm {
+		display:none;
+	}
+
+	.reportCharts {
+		flex-direction:column;
+	}
+}

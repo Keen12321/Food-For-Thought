@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import { Header, Container, Divider } from 'semantic-ui-react'
 import ManagePickupsList from './D_ManagePickupsList'
 
-class ManagePickups extends Component {
+class D_ManagePickups extends Component {
 
 	componentDidMount() {
 		getDonations()
@@ -19,21 +19,21 @@ class ManagePickups extends Component {
  //      getDonations()
  //    }
  //  }
-	
-	componentWillReceiveProps(newProps) {
-		if(this.props.donate !== newProps.donate) {
-			updatePickup()
-			getDonations(newProps)
-		} else {
 
-		}
-  }
+	// componentWillReceiveProps(newProps) {
+	// 	if(this.props.donate !== newProps.donate) {
+	// 		updatePickup()
+	// 		getDonations(newProps)
+	// 	} else {
+	// 		getDonations()
+	// 	}
+ //  }
 
 	render() {
 		return (
 	    <Container>
 	    	<Header as='h1'>Manage Pickups</Header>
-	    <Header as='h1' id="pickle">Pickups available for today: {this.props.donate.length}</Header>
+	    	<Header as='h1' id="pickle">Pickups available for today: {this.props.donate.length}</Header>
 	    	{this.props.donate.map(user => (
 	    		<Container>
 	      		<Divider />
@@ -50,4 +50,5 @@ function mapStateToProps(appState) {
 		donate: appState.appReducer.donate
 	}
 }
-export default withAuth(connect(mapStateToProps)(ManagePickups))
+
+export default withAuth(connect(mapStateToProps)(D_ManagePickups))

@@ -1,16 +1,54 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import {withAuth, api} from '../Authentication'
+import {Menu, Dropdown, Icon} from 'semantic-ui-react'
 
 class R_HomeBar extends Component {
-   render() {
-      return (
-      	<div className="D_navbar">
-     			<Link to='/'><i className='fa fa-cutlery'></i>Home</Link>
-     			<Link to='/deliverymap'><i className="fa fa-map-marker"></i>Map</Link>
-     			<Link to='/Rprofile'><i className='fa fa-user'></i>Restaurant</Link>         
-      	</div>
-      )
-   }
+  state = {}
+
+  handleClick = (e, { name }) => 
+  this.setState({
+    activeItem: name
+  })
+
+  logout = (e) => {
+    this.props.signout()
+  }
+
+  render() {
+    const { activeItem } = this.state
+    const trigger = (
+      <div>
+        <span className='navUsername'>
+          Welcome, {api.getProfile().name}!
+        </span>
+        <Icon name='user' size='large'/>
+      </div>
+    )
+
+    return (
+      <Menu size='huge' inverted>
+        <Menu.Item>
+          <Icon name='truck' size='large'/>
+        </Menu.Item>
+        <Menu.Item as={Link} to='/restaurant' name='Home' 
+          active={activeItem === 'Home'} onClick={this.handleClick} />
+        <Menu.Item as={Link} to='/restaurant/donate' name='Donate' 
+          active={activeItem === 'Donate'} onClick={this.handleClick} />
+
+        <Menu.Menu position='right'>
+          <Dropdown trigger={trigger} pointing='top right'  item>
+            <Dropdown.Menu>
+              <Dropdown.Item as={Link} to='/restaurant/profile' key='user' 
+                text='Edit Profile' icon='user'/>
+              <Dropdown.Item as={Link} to='/login' onClick={this.logout} 
+                key='sign-out' text='Sign Out' icon='sign out' />   
+            </Dropdown.Menu>
+          </Dropdown>
+        </Menu.Menu>
+      </Menu>
+    )
+  }
 }
 
-export default R_HomeBar
+export default withAuth(R_HomeBar)
