@@ -11,14 +11,6 @@ class ManagePickups extends Component {
 		getDonations()
 		updatePickup() 
 	}
-	// componentWillReceiveProps(newProps) {
- //    if (this.props.donate !== newProps.donate) {
- //    	updatePickup()
- //      getDonations(newProps)
- //    } else {
- //      getDonations()
- //    }
- //  }
  
 	render() {
 		return (
