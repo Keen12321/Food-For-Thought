@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {withAuth} from '../Authentication'
 import {getDonations, updatePickup} from '../../actions/donateActions'
 import {connect} from 'react-redux'
+import { Header, Container, Divider } from 'semantic-ui-react'
 import ManagePickupsList from './D_ManagePickupsList'
 
 class D_ManagePickups extends Component {
@@ -9,9 +10,6 @@ class D_ManagePickups extends Component {
 		getDonations()
 		updatePickup() 
 	}
-	
-
-
 
 	// componentWillReceiveProps(newProps) {
 	// 	if(this.props.donate !== newProps.donate) {
@@ -22,14 +20,17 @@ class D_ManagePickups extends Component {
 	// 	}
  //  }
 
-
 	render() {
 		return (
-	    <div className="reversepickups">
+	    <Container>
+	    	<Header as='h1'>Manage Pickups</Header>
 	    	{this.props.donate.map(user => (
-	      	<ManagePickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
+	    		<Container>
+	      		<Divider />
+	      		<ManagePickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
+	      	</Container>
 	      ))}
-	    </div> 
+	    </Container> 
 		)
 	}
 }

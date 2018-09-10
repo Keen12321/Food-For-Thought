@@ -14,9 +14,6 @@ class D_Home extends Component {
     getDonations()
    }
 
-
-
-
   // componentWillReceiveProps(newProps) {
   //   if ( this.props.donate !== newProps.donate)  {
   //     getDonations(newProps)
@@ -24,6 +21,7 @@ class D_Home extends Component {
   //     getDonations()
   //   }
   // }
+
 
 
   render() {
