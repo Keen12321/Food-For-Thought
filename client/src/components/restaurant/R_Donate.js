@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
-import { makeDonation, donateForm, getTime } from '../../actions/donateActions'
+import { makeDonation, donateForm, getTime, addToDefault } from '../../actions/donateActions'
 import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
-import { api } from '../Authentication'
-
+import { api, withAuth } from '../Authentication'
+import DefaultDonations from './DefaultDonations'
+import {connect } from 'react-redux'
 class Donate extends Component {
 	state = {
 		dish: '',
@@ -16,8 +17,10 @@ class Donate extends Component {
 		blankAmount: true,
 		blankType: true,
 		color: 'green',
-		inColor: '#fff'
+		inColor: '#fff',
+		check: !!false
 	}
+
 
 	handleChange = (e) => {
 		this.setState({
@@ -25,6 +28,16 @@ class Donate extends Component {
 		})
 		donateForm(this.state.dish)
 	}
+//HANDLE DEFAULT DONATIONS
+	handleDefault = (e) =>{
+
+		this.setState({
+			check: !this.state.check
+		})
+		console.log(this.state.check)	
+	}
+
+
 
 	handleClick = (e) =>{
 		this.setState({
@@ -79,11 +92,7 @@ class Donate extends Component {
 			})
 		}
 		
-		else{
-			var date = new Date()
-			var hou = date.getHours()
-			var min = date.getMinutes()
-			var time = hou + ':' + min
+		else if(this.state.check === true && FT !== '' && sel!== '0' && foodCost!=='' ){
 			e.preventDefault()
 			console.log('Successful donation made.')
 			makeDonation({
@@ -93,8 +102,32 @@ class Donate extends Component {
 				food_id: api.getProfile().id,
 				donate_time: getTime()
 			})
+
+			addToDefault({
+				dish: this.state.dish,
+				trays: this.state.trays,
+				value: this.state.value,
+				food_id: api.getProfile().id
+			})
+
+			console.log(this.state.check)
 			this.props.history.push('/restaurant/thankyou')	
 		}
+
+		else{
+					e.preventDefault()
+			console.log('Successful donation made.')
+			makeDonation({
+				dish: this.state.dish,
+				trays: this.state.trays,
+				value: this.state.value,
+				food_id: api.getProfile().id,
+				donate_time: getTime()
+			})
+			console.log(this.state.check)
+			this.props.history.push('/restaurant/thankyou')		
+		}
+
 	}
 
 
@@ -107,13 +140,13 @@ class Donate extends Component {
 			if(!this.state.blankFields)
 			{
 				blank_fields =
-				<div id ='wrongg'>
-					<ul>
-						<li>Please tell us what Kind of food you are donating.</li>
-						<li>Please tell us how many trays you are donating.</li>
-						<li>Please provide a cost for your over all donation.</li>
-					</ul>
-				</div>
+					<div id ='wrongg'>
+						<ul>
+							<li>Please tell us what Kind of food you are donating.</li>
+							<li>Please tell us how many trays you are donating.</li>
+							<li>Please provide a cost for your over all donation.</li>
+						</ul>
+					</div>
 			}
 
 			if(!this.state.blankType)
@@ -146,6 +179,7 @@ class Donate extends Component {
 			}
 
 		return (
+		<div>
 			<Container className="donate-container">
 				<Header id='headerD'>Make a Donation</Header>
 
@@ -209,20 +243,32 @@ class Donate extends Component {
 							onClick={this.handleClick}
 						/>
 					</Form.Field>
-
-	    		<Form.Field>
+					<label id='add'>Add To Default Donations</label>
+					<input type="checkbox" name='deff' id='radio' onChange={this.handleDefault} checked={this.state.check}/> 
+	    		
+	    		<Form.Field>	    		
 		    		<Button 
 		    			color={this.state.color}
 		    			type='submit'
 		    			fluid >
-	    				Submit
-	    			</Button>
-    			</Form.Field>
+	    				Donate
+	    			</Button>	    			
+    			</Form.Field>    			
 			  </Form>
 			  {blank_fields}
 			</Container>
+
+			<DefaultDonations/>
+				
+			</div>
 		)
 	}
 }
 
-export default Donate
+function mapStateToProps(appState){
+	return {
+		defaultD: appState.appReducer.defaultD
+	}
+}
+
+export default withAuth(connect(mapStateToProps)(Donate))

@@ -204,7 +204,53 @@ router.get('/donating/pending/addresses/:id', (req, res, next) => {
 	})
 })
 
+//POSTING DEFAULT DONATIONS
 
+router.post('/donation/default', (req, res, next) =>{
+	const dish = req.body.dish
+	const trays = req.body.trays
+	const value = req.body.value
+	const food_id = req.body.food_id
+	const sql = `
+		INSERT INTO
+			defaultDonations (dish, trays, value, food_id)
+		VALUES
+			(?, ?, ?, ?)
+	`
+
+	conn.query(sql, [dish, trays, value, food_id], (error, results, fields) => {
+		let donation = req.body
+		console.log(donation)
+	})
+})
+
+//GETTING YOUR OWN DEFAULT DONATIONS 
+router.get('/donation/default/:id', (req, res, next) =>{
+		const sql = `
+		SELECT 
+			defaultDonations.dish, defaultDonations.trays, defaultDonations.value, defaultDonations.food_id, users.id
+		FROM 
+			defaultDonations
+		LEFT JOIN 
+			users 
+		ON 
+			defaultDonations.food_id = users.id
+		WHERE 
+			defaultDonations.food_id = users.id
+	`
+	conn.query(sql, (error, results, fields) => {
+		let defaultD = []
+		let id = req.params.id
+
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].id == id) {
+				defaultD.push(results[i])
+			}
+		}
+		res.json(defaultD)
+	})
+	
+})
 
 
 export default router

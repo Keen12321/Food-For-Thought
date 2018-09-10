@@ -39,11 +39,13 @@ class D_Map extends Component {
     console.log('adsf', this)
   }
 
+
   render() {
     const lat = this.state.currentLatLng.lat
     const lng = this.state.currentLatLng.lng
     const waypnt = this.props.addresses
     var rte
+
 
     const DirectionsComponent = compose(
 

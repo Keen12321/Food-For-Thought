@@ -11,13 +11,14 @@ class D_Pickups extends Component {
 		getMyPickups(api.getProfile().id)
 		updatePickup()
 	}
-
-  componentWillReceiveProps(newProps) {
-    if (this.props.mypickups !== newProps.mypickups) {
-      getMyPickups(api.getProfile().id, newProps)
-    } else {
-    }
-  }
+  
+  // componentWillReceiveProps(newProps) {
+  //   if (this.props.mypickups !== newProps.mypickups) {
+  //     getMyPickups(api.getProfile().id, newProps)
+  //   } else {
+  //     getMyPickups(api.getProfile().id)
+  //   }
+  // }
 
 	render() {
 		return (

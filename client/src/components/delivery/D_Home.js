@@ -14,12 +14,15 @@ class D_Home extends Component {
     getDonations()
    }
 
-  componentWillReceiveProps(newProps) {
-    if ( this.props.donate !== newProps.donate)  {
-      getDonations(newProps)
-    } else {
-    }
-  }
+  // componentWillReceiveProps(newProps) {
+  //   if ( this.props.donate !== newProps.donate)  {
+  //     getDonations(newProps)
+  //   } else {
+  //     getDonations()
+  //   }
+  // }
+
+
 
   render() {
     return (
