@@ -4,21 +4,24 @@ import { makeDonation, donateForm, getTime } from '../../actions/donateActions'
 import {api, withAuth } from '../Authentication'
 import {connect} from 'react-redux'
 import {Button} from 'semantic-ui-react'
+import { Redirect } from 'react-router-dom'
 
 
 class DefaultDonations extends Component{
 	state ={
 		donations:[],
 		dish: '',
-		tray:'',
+		trays:'',
 		value:'',
-		id:api.getProfile().id,
+		food_id:api.getProfile().id,
 		time:'',
-		confirm: !!false
+		confirm: !!false,
+		deffs: !!false
 	}
 
 	componentDidMount(){
-		getDefault(this.state.id)		
+		getDefault(this.state.food_id)
+		console.log(this.state.deffs)		
 			// console.log(this.state.id)
 			// this.setState({
 			// 	confirm: false
@@ -34,6 +37,11 @@ handleClick = (e) =>{
 	console.log(this.state.confirm)
 }
 
+handleView = (e) =>{
+	this.setState({
+		deffs: !this.state.deffs
+	})
+}
 
 // HANDLE THE DEFAULT DONATION
 	 handleSubmit = (e) =>{
@@ -43,7 +51,7 @@ handleClick = (e) =>{
 
 			this.setState({
 				dish: nam,
-				tray: tray,
+				trays: tray,
 				value: value,
 				time: getTime()
 			})
@@ -53,19 +61,19 @@ handleClick = (e) =>{
 		if(this.state.confirm === !true ){
 			makeDonation({
 				dish:this.state.dish,
-				tray:this.state.tray,
+				trays:this.state.trays,
 				value:this.state.value,
-				id:this.state.id,
-				time:this.state.time
+				food_id:this.state.food_id,
+				donate_time:this.state.time
 			})
-
-			this.props.history.push('/restaurant/thankyou')
+			return	<Redirect to="/restaurant/thankyou" />			
 		}
 		
 	 }
 
 	render(){
 		let confirm
+		let allDefs 
 
 		if(this.state.confirm){
 			confirm = 
@@ -73,8 +81,10 @@ handleClick = (e) =>{
 					<p>Please click "Donate" again to Confirm Donation</p> 	
 				</div>
 		}
-		return(
-			<div className='defaultContain'>
+
+		if(this.state.deffs){
+			allDefs = 
+						<div className='defaultContain'>
 						
 			{this.props.defaultD.map(data =>(
 				<form id='defaults' onSubmit={this.handleSubmit.bind(this)} >	
@@ -96,6 +106,12 @@ handleClick = (e) =>{
 				</form>	
 			))}
 			
+			</div>
+		}
+		return(
+			<div id="deffs">
+				<h1 onClick={this.handleView}>View Default Donations</h1>
+				{allDefs}
 			</div>
 		)
 	}
