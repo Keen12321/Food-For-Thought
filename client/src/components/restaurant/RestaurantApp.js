@@ -20,7 +20,7 @@ class RestaurantApp extends Component {
         <HomeBar />
         <Switch>
           <Route exact path="/restaurant" component={R_Home} />
-  				<Route path="/restaurant/donate/:id" component={R_Donate} />
+  				<Route path="/restaurant/donate" component={R_Donate} />
           <Route path="/restaurant/reports/:id" component={R_Reports} />
           <Route path='/restaurant/thankyou' component={ThankYou} />
           <Route path="/restaurant/profile" component={R_Profile} />

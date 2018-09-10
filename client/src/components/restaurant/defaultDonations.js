@@ -58,6 +58,8 @@ handleClick = (e) =>{
 				id:this.state.id,
 				time:this.state.time
 			})
+
+			this.props.history.push('/restaurant/thankyou')
 		}
 		
 	 }
