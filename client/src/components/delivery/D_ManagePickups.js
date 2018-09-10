@@ -5,13 +5,22 @@ import {connect} from 'react-redux'
 import ManagePickupsList from './D_ManagePickupsList'
 
 class D_ManagePickups extends Component {
-
 	componentDidMount() {
 		getDonations()
-		updatePickup()
-		console.log(this)
+		updatePickup() 
 	}
 	
+
+
+
+	// componentWillReceiveProps(newProps) {
+	// 	if(this.props.donate !== newProps.donate) {
+	// 		updatePickup()
+	// 		getDonations(newProps)
+	// 	} else {
+	// 		getDonations()
+	// 	}
+ //  }
 
 
 	render() {
@@ -26,7 +35,6 @@ class D_ManagePickups extends Component {
 }
 
 function mapStateToProps(appState) {
-	console.log('appstate', appState)
 	return {
 		donate: appState.appReducer.donate
 	}

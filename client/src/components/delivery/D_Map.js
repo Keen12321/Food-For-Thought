@@ -36,65 +36,67 @@ class D_Map extends Component {
   componentDidMount() {
     this.showCurrentLocation()
     getAddresses(api.getProfile().id)
+    console.log('adsf', this)
   }
 
 
-render() {
-  const lat = this.state.currentLatLng.lat
-  const lng = this.state.currentLatLng.lng
-  const waypnt = this.props.addresses
-  var rte
+  render() {
+    const lat = this.state.currentLatLng.lat
+    const lng = this.state.currentLatLng.lng
+    const waypnt = this.props.addresses
+    var rte
 
-  const DirectionsComponent = compose(
 
-    withProps({
-      googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U",
-      loadingElement: <div style={{ height: `100%` }} />,
-      containerElement: <div style={{ width: `100%` }} />,
-      mapElement: <div style={{height: `600px`, width: `100%` }}  />,
-    }),
+    const DirectionsComponent = compose(
 
-    withScriptjs,
-    withGoogleMap,
+      withProps({
+        googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U",
+        loadingElement: <div style={{ height: `100%` }} />,
+        containerElement: <div style={{ width: `100%` }} />,
+        mapElement: <div style={{height: `600px`, width: `100%` }}  />,
+      }),
 
-    lifecycle({
-      componentDidMount() { 
-        const DirectionsService = new google.maps.DirectionsService()
-        DirectionsService.route({
-          origin: new google.maps.LatLng({lat:lat, lng:lng}),
-          destination: api.getProfile().location,
-          waypoints: waypnt, //empty array is ok. array of objects with location and stopover
-          optimizeWaypoints: true,
-          travelMode: google.maps.TravelMode.DRIVING,
-        }, (result, status) => {
-          if (status === google.maps.DirectionsStatus.OK) {
-            this.setState({
-              directions: {...result},
-            })
-            rte = {...result.routes}
-            console.log('asdf', rte)
-          }
-           else {
-            console.error(`error fetching directions ${result}`)
-          }
-        })
-      }
-    })
+      withScriptjs,
+      withGoogleMap,
 
-  )(props =>
-    <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
-         {props.directions && <DirectionsRenderer directions={props.directions}  />}
-         <TrafficLayer autoUpdate />
-    </GoogleMap>
-  )
-  console.log('dddd', this.props)
-return (
-	   <div className="pickupsContainer">
-	   <div id="scroll">
+      lifecycle({
+        componentDidMount() { 
+          const DirectionsService = new google.maps.DirectionsService()
+          DirectionsService.route({
+            origin: new google.maps.LatLng({lat:lat, lng:lng}),
+            destination: api.getProfile().location,
+            waypoints: waypnt, //empty array is ok. array of objects with location and stopover
+            optimizeWaypoints: true,
+            travelMode: google.maps.TravelMode.DRIVING,
+          }, (result, status) => {
+            if (status === google.maps.DirectionsStatus.OK) {
+              this.setState({
+                directions: {...result},
+              })
+              rte = {...result}
+              console.log(this)
+            }
+             else {
+              console.error(`error fetching directions ${result}`)
+            }
+          })
+        }
+      })
+    )(props =>
+
+      <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
+           {props.directions && <DirectionsRenderer directions={props.directions}  />}
+           <TrafficLayer autoUpdate />
+      </GoogleMap>
+    )
+    console.log('reeee', this)
+    return (
+	    <div className="pickupsContainer">
+	    <div id="scroll">
         <Pickups />
         </div>
         <DirectionsComponent />
-     </div>
+      </div>
     )
   }
 }

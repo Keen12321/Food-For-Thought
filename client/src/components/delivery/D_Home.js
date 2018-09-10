@@ -16,6 +16,16 @@ class D_Home extends Component {
 
 
 
+
+  // componentWillReceiveProps(newProps) {
+  //   if ( this.props.donate !== newProps.donate)  {
+  //     getDonations(newProps)
+  //   } else {
+  //     getDonations()
+  //   }
+  // }
+
+
   render() {
     return (
       <Container text>
@@ -49,7 +59,6 @@ class D_Home extends Component {
 }
 
 function mapStateToProps(appState) {
-  console.log('appstate', appState)
   return {
     donate: appState.appReducer.donate
   }

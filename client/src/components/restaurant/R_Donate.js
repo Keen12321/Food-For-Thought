@@ -4,7 +4,7 @@ import { makeDonation, donateForm, getTime, addToDefault } from '../../actions/d
 import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
 import { api, withAuth } from '../Authentication'
 import DefaultDonations from './DefaultDonations'
-import{connect } from 'react-redux'
+import {connect } from 'react-redux'
 class Donate extends Component {
 	state = {
 		dish: '',

@@ -8,7 +8,7 @@ import R_Reports from './R_Reports'
 import ThankYou from './ThankYou'
 import R_Profile from './R_Profile'
 import HomeBar from './R_HomeBar'
-import DefaultDonations from './DefaultDonations'
+
 
 class RestaurantApp extends Component {
  	render() {
