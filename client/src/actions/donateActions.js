@@ -1,6 +1,6 @@
 import { api } from '../components/Authentication'
 import store from '../store'
-// import { Message } from 'semantic-ui-react'
+
 
 export function makeDonation(donation) {
 	api.post('/api/donate', donation).then(data => {
@@ -48,7 +48,6 @@ export function getDonations() {
 		})
 	})
 }
-
 export function getTime() {
 	var time = new Date();
 		

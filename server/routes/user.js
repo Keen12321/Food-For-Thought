@@ -149,7 +149,7 @@ router.patch('/donating', (req, res, next) => {
 router.get('/donating', (req, res, next) => {
 	const sql = `
 		SELECT
-			donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.name
+			donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.phone, users.name
 		FROM
 			donations
 		LEFT JOIN
@@ -169,7 +169,7 @@ router.get('/donating/pending/:id', (req, res, next) => {
 
 	const sql = `
 		SELECT
-			donations.dish, donations.trays, donations.id, donations.delivery_id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.name
+			donations.dish, donations.trays, donations.id, donations.delivery_id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.phone, users.name
 		FROM
 			donations
 		LEFT JOIN

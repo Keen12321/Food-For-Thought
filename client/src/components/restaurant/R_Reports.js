@@ -96,7 +96,7 @@ class R_Reports extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="reportContainer">
 				<div className='reportForm'>
 					<h2>Select Start & End Dates Below</h2>
 					<Form onSubmit={this.handleForm}>
@@ -164,7 +164,8 @@ class R_Reports extends Component {
 
 function mapStateToProps(appState) {
 	return {
-		reportRestaurant:appState.reportReduce.reportRestaurant
+
+		reportRestaurant:appState.reportReducer.reportRestaurant
 	}
 }
 

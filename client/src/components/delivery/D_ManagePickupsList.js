@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import { updatePickup } from '../../actions/donateActions'
 import { Container, Modal, Header, Button, Icon } from 'semantic-ui-react'
 
-class D_ManagePickupsList extends Component {
+class ManagePickupsList extends Component {
 	state = {
 		accepted: null,
 		reason: '',
@@ -27,18 +27,21 @@ class D_ManagePickupsList extends Component {
 		})
 	}
 
- 	render() {
-		const { open } = this.state
-  	return (
-   		<Container>
-        <Container fluid>
-	   			<Container text>
-	  				<Header as='h3'>{this.props.user.name}</Header>
-	  				<p>{this.props.user.location}</p>
-	  			</Container>
-	  			<div>
-	  				<Header as='h4'>{this.props.user.trays} Trays of {this.props.user.dish}</Header>
-	  			</div>
+ render() {
+   return (
+   		<div>
+         	<div key={this.props.user.id} className="availablepickups ui vertical segment" id="lubba">
+		   			<div>
+		  				<h3>{this.props.user.name}</h3>
+		  				<p>{this.props.user.location}</p>
+		  			</div>
+		  			<div id="schwifty">
+		  				<h4>{this.props.user.dish} x {this.props.user.trays}</h4>
+		  			</div>
+		  			<div>
+		  				<Header as='h4'>{this.props.user.trays} Trays of {this.props.user.dish}</Header>
+		  			</div>
+		  		</div>
          	<Modal trigger={<Button color='blue' size='large' icon='map marker alternate' />} closeOnDocumentClick='true'>
 						<Header as='h2'>Add the following pickup to your route:</Header>
 						<p>{this.props.user.name}</p>
@@ -48,15 +51,13 @@ class D_ManagePickupsList extends Component {
 						<Button color='blue' onClick={this.addPickup}>Add to Map</Button>
 						<Button color='orange'>No, Cancel</Button>
          	</Modal>  			         
-				</Container>
-   		</Container>
+				</div>
    	)
  	}
 }
-
 function mapStateToProps(appState) {
 	return {
 		donate: appState.appReducer.donate
 	}
 }
-export default withAuth(connect(mapStateToProps)(D_ManagePickupsList))
+export default withAuth(connect(mapStateToProps)(ManagePickupsList))

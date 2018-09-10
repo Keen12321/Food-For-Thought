@@ -2,15 +2,15 @@ import React, {Component} from 'react'
 import {withAuth, api} from '../Authentication'
 import {updatePickup, getMyPickups} from '../../actions/donateActions'
 import {connect} from 'react-redux'
-
 import PickupsList from './D_PickupsList'
 
-class D_Pickups extends Component {
+class Pickups extends Component {
 
 	componentDidMount() {
 		getMyPickups(api.getProfile().id)
 		updatePickup()
 	}
+
 
   componentWillReceiveProps(newProps) {
     if (this.props.mypickups !== newProps.mypickups) {
@@ -44,4 +44,4 @@ function mapStateToProps(appState) {
 	}
 }
 
-export default withAuth(connect(mapStateToProps)(D_Pickups))
+export default withAuth(connect(mapStateToProps)(Pickups))

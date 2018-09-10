@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
 import { makeDonation, donateForm, getTime } from '../../actions/donateActions'
-import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
+import { Button, Form, Container, Header } from 'semantic-ui-react'
 import { api } from '../Authentication'
 
 class Donate extends Component {
@@ -147,7 +147,7 @@ class Donate extends Component {
 
 		return (
 			<Container className="donate-container">
-				<Header id='headerD'>Make a Donation</Header>
+				<Header as='h1' id='headerD'>Make a Donation</Header>
 
 				<Form onSubmit={this.handleSubmit.bind(this)} widths='equal'>
 					<Form.Field
@@ -174,10 +174,10 @@ class Donate extends Component {
 			    	value={this.state.trays} 
 			     	onClick={this.handleClick} 
 		    	>
-			    		<option value='0'>0</option>
-				        <option value='1'>1</option>
-				        <option value='2'>2</option>
-				        <option value='3'>3</option>
+			    	<option value='0'>0</option>
+		        <option value='1'>1</option>
+		        <option value='2'>2</option>
+		        <option value='3'>3</option>
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 						<option value='6'>6</option>
@@ -214,7 +214,8 @@ class Donate extends Component {
 		    		<Button 
 		    			color={this.state.color}
 		    			type='submit'
-		    			fluid >
+		    			fluid
+		    			id="shadow" >
 	    				Submit
 	    			</Button>
     			</Form.Field>
