@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { updatePickup } from '../../actions/donateActions'
 import { withAuth, api } from '../Authentication'
 import {Link} from 'react-router-dom'
+import {Button} from 'semantic-ui-react'
 
 
 const Modal = ({ handleClose, show, children}) => {
@@ -11,7 +12,7 @@ const Modal = ({ handleClose, show, children}) => {
 		<div className={showHideClassName}>
 			<section className='modal-main'>
 				{children}
-				<button className="ui orange button" onClick={handleClose}>No, Cancel</button>
+				<Button color='orange' icon='cancel' id='shadow' content='No, Cancel' onClick={handleClose} />
 			</section>
 		</div>
 	)
@@ -101,19 +102,15 @@ class PickupsList extends Component {
 	  				<a href={'sms:1+'+`${this.props.user.phone}`}><i className="fa fa-comment fa-2x"></i></a>
 	  			</div>
 	  			<div id="rick">
-	  				<button className="ui green button" onClick={this.showPickupModal}>
-						<i className="check icon"></i>Confirm Pickup
-						</button>
-						<button className="ui red button" onClick={this.showDeleteModal}>
-							<i className="trash alternate icon"></i>Delete
-						</button>
+	  				<Button color='green' icon='check' id='shadow' content='Confirm Pickup' onClick={this.showPickupModal} />
+					<Button color='red' icon='trash' id='shadow' content='Delete' onClick={this.showDeleteModal} />
 	  			</div>
   			         <Modal show={this.state.show1} handleClose={this.hidePickupModal}>
   						<h2>Please confirm that you have picked up the following:</h2>
   						<p>{this.props.user.name}</p>
   						<p id="waypoints">{this.props.user.location}</p>
   						<p>{this.props.user.dish} x {this.props.user.trays}</p>
-  						<button className="ui green button" onClick={this.addPickup} id="confirmpickup">Confirm Pickup</button>
+  						<Button color='green' icon='check' content='Confirm Pickup'onClick={this.addPickup} id="shadow" />
   			         </Modal>
   			         <Modal show={this.state.show2} handleClose={this.hideDeleteModal}>
   						<h2 id='title'>Are you sure you want to delete this pickup?</h2>
@@ -123,7 +120,7 @@ class PickupsList extends Component {
   							<textarea name="reason" type="text" value={this.state.reason} onChange={this.handleChange} placeholder="Must provide reason for cancellation">
   							</textarea>
   						</div>
-  						<button className="ui red button" id="confirmcxl" onSubmit={this.handleSubmit} onClick={this.deletePickup}>Delete Pickup</button>
+  						<Button color='red' icon='cancel' id="shadow" content='Delete Pickup' onSubmit={this.handleSubmit} onClick={this.deletePickup} />
   			         </Modal>
 			</div>
    		</div>

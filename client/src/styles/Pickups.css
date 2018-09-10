@@ -36,7 +36,7 @@
 	font-size: 1.5em;
 }
 #lubba2 {
-	background: rgba(230,255,230,0.4);
+	background: rgba(255,255,255,0.9);
 }
 #lubba {
 	align-items: flex-end;
@@ -45,7 +45,7 @@
 	padding-right: 2%;
 	margin-bottom: 5px;
 	border-radius: 20px;
-	background: rgba(245,245,255,0.9);
+	background: rgba(255,255,255,0.9);
 }
 .dubdub > * {
 	float: right;

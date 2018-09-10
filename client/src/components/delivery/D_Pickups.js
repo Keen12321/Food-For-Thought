@@ -18,6 +18,7 @@ class Pickups extends Component {
   //     getMyPickups(api.getProfile().id)
   //   }
   // }
+  
 
 	render() {
 		return (

@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {withAuth, api} from '../Authentication'
 import { Menu, Dropdown, Icon } from 'semantic-ui-react'
+import heart from '../../assets/heart.png'
 
 class D_HomeBar extends Component {
   state = {
-    size: 'huge'
+    size: 'massive'
   }
 componentWillMount() {
     window.addEventListener('resize', this.handleMobile)
@@ -47,7 +48,7 @@ handleMobile = () => {
     return (
       <Menu size={this.state.size} inverted>
         <Menu.Item id='notmobile' >
-          <Icon name='truck' id='truck' size='large'/>
+          <img src={heart}/>
         </Menu.Item>
         <Dropdown trigger={burger} pointing='top left' id='mobileonly' item>
             <Dropdown.Menu>

@@ -1,7 +1,7 @@
 /*global google*/
 import React, { Component } from 'react'
 import  { compose, withProps, lifecycle } from 'recompose'
-import {withScriptjs, withGoogleMap, GoogleMap, TrafficLayer, DirectionsRenderer} from 'react-google-maps'
+import {withScriptjs, withGoogleMap, InfoWindow, GoogleMap, TrafficLayer, DirectionsRenderer} from 'react-google-maps'
 import {Link} from 'react-router-dom'
 import { withAuth, api } from '../Authentication'
 import { connect } from 'react-redux'
@@ -96,7 +96,8 @@ render() {
     })
   )(props => 
           <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
-             <DirectionsRenderer directions={props.directions} />
+             <DirectionsRenderer
+             directions={props.directions} />
              <TrafficLayer autoUpdate />
           </GoogleMap>
        

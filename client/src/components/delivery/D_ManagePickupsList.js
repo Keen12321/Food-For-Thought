@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
 import {connect} from 'react-redux'
 import { updatePickup } from '../../actions/donateActions'
+import {Button} from 'semantic-ui-react'
 
 
 const Modal = ({ handleClose, show, children}) => {
@@ -10,7 +11,7 @@ const Modal = ({ handleClose, show, children}) => {
 		<div className={showHideClassName}>
 			<section className='modal-main'>
 				{children}
-				<button className="ui orange button" onClick={handleClose}>No, Cancel</button>
+				<Button color='orange' icon='cancel' id='shadow' content='No, Cancel' onClick={handleClose} />
 			</section>
 		</div>
 	)
@@ -61,9 +62,7 @@ class ManagePickupsList extends Component {
 	  				<h4>{this.props.user.dish} x {this.props.user.trays}</h4>
 	  			</div>
 	  			<div>
-	  				<button className="ui blue button" onClick={this.showAddModal}>
-						<i className="map icon"></i>Add to Map
-					</button>
+	  				<Button color='blue' icon='map' id='shadow' content='Add to Map' onClick={this.showAddModal} />
 	  			</div>
          	<Modal show={this.state.show3} handleClose={this.hideAddModal}>
 						<h2>Add the following pickup to your route:</h2>
@@ -71,7 +70,7 @@ class ManagePickupsList extends Component {
 						<p>{this.props.user.location}</p>
 						<p>{this.props.user.dish} x {this.props.user.trays}</p>
 						<p>Distance From Location</p>
-						<button className="ui blue button" id="addtomap" onClick={this.addPickup}>Add to Map</button>
+						<Button color='blue' icon='map' content='Add to Map' id="shadow" onClick={this.addPickup} />
          	</Modal>  			         
 				</div>
    		</div>
