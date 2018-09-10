@@ -16,7 +16,8 @@ class DefaultDonations extends Component{
 		food_id:api.getProfile().id,
 		time:'',
 		confirm: !!false,
-		deffs: !!false
+		deffs: !!false,
+		thanks: false
 	}
 
 	componentDidMount(){
@@ -66,7 +67,9 @@ handleView = (e) =>{
 				food_id:this.state.food_id,
 				donate_time:this.state.time
 			})
-			return	<Redirect to="/restaurant/thankyou" />			
+			this.setState({
+				thanks: true
+			})			
 		}
 		
 	 }
@@ -81,6 +84,12 @@ handleView = (e) =>{
 					<p>Please click "Donate" again to Confirm Donation</p> 	
 				</div>
 		}
+
+		if(this.state.thanks === true){
+			return	<Redirect to="/restaurant/thankyou" />
+		}
+
+
 
 		if(this.state.deffs){
 			allDefs = 
