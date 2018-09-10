@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getDefault } from '../../actions/donateActions'
+import { makeDonation, donateForm, getTime } from '../../actions/donateActions'
 import {api, withAuth } from '../Authentication'
 import {connect} from 'react-redux'
 import {Button} from 'semantic-ui-react'
@@ -11,34 +12,49 @@ class DefaultDonations extends Component{
 		dish: '',
 		tray:'',
 		value:'',
-		id:api.getProfile().id
+		id:api.getProfile().id,
+		time:''
 	}
 
 	componentDidMount(){
 		getDefault(this.state.id)		
 			console.log(this.state.id)
 	}
-	//HANDLING WHAT HAPPENS AFTER CLICK  "MAYBE DELETE"
-	 handleClick = (e) => {
-		
-		console.log(this.state.trays )
-	 }
+
+
 // HANDLE THE DEFAULT DONATION
 	 handleSubmit = (e) =>{
+		let value = e.target.elements.val.value
+		let tray = e.target.elements.tr.value
+		let nam = e.target.elements.nam.value
+
+			this.setState({
+				dish: nam
+			})
+
 		e.preventDefault()
+		
+		console.log(this.state.dish)
+		
 	 }
 
 	render(){
+		let confirm
 		return(
-			<div className='defaultContain'>			
+			<div className='defaultContain'>
+			{confirm}			
 			{this.props.defaultD.map(data =>(
-				<form id='defaults' onSubmit={this.handleSubmit.bind(this)}>	
-					<h2>Dish Name: {data.dish}</h2>
-						<input type="text" value={'price:' + data.value} />
-						<input type="text" value={'Amount:' + data.trays + 'Trays'}/>
+				<form id='defaults' onSubmit={this.handleSubmit.bind(this)} >	
+					<label>Dish Name:</label>
+						<input type="text" value={data.dish} name ='nam' />
+						<label>Dish Price ($$):</label>
+						<input type="text" value={data.value} name='val' />
+						<label>Amount Donated:</label>
+						<input type="text" value={data.trays} name='tr'  />
 							<Button
 								color='blue'
 								type='submit'
+								onClick={this.handleClick}
 								>
 								Donate
 							</Button>
