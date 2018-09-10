@@ -21,10 +21,7 @@ class Donate extends Component {
 		check: !!false
 	}
 
-	componentDidMount(){
-		console.log(this.state.check)
 
-	}
 
 	
 

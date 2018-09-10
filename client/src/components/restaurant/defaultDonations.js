@@ -13,13 +13,26 @@ class DefaultDonations extends Component{
 		tray:'',
 		value:'',
 		id:api.getProfile().id,
-		time:''
+		time:'',
+		confirm: !!false
 	}
 
 	componentDidMount(){
 		getDefault(this.state.id)		
-			console.log(this.state.id)
+			// console.log(this.state.id)
+			// this.setState({
+			// 	confirm: false
+			// })
+			// console.log(this.state.confirm)
 	}
+
+// HANDLE THE CLICK OF THE BUTTON
+handleClick = (e) =>{
+	this.setState({
+		confirm: !this.state.confirm
+	})
+	console.log(this.state.confirm)
+}
 
 
 // HANDLE THE DEFAULT DONATION
@@ -29,28 +42,46 @@ class DefaultDonations extends Component{
 		let nam = e.target.elements.nam.value
 
 			this.setState({
-				dish: nam
+				dish: nam,
+				tray: tray,
+				value: value,
+				time: getTime()
 			})
 
 		e.preventDefault()
 		
-		console.log(this.state.dish)
+		if(this.state.confirm === !true ){
+			makeDonation({
+				dish:this.state.dish,
+				tray:this.state.tray,
+				value:this.state.value,
+				id:this.state.id,
+				time:this.state.time
+			})
+		}
 		
 	 }
 
 	render(){
 		let confirm
+
+		if(this.state.confirm){
+			confirm = 
+				<div id="pleaseConfirm">
+					<p>Please click "Donate" again to Confirm Donation</p> 	
+				</div>
+		}
 		return(
 			<div className='defaultContain'>
-			{confirm}			
+						
 			{this.props.defaultD.map(data =>(
 				<form id='defaults' onSubmit={this.handleSubmit.bind(this)} >	
 					<label>Dish Name:</label>
-						<input type="text" value={data.dish} name ='nam' />
+						<input type="text" value={data.dish} name ='nam' readonly />
 						<label>Dish Price ($$):</label>
-						<input type="text" value={data.value} name='val' />
+						<input type="text" value={data.value} name='val' readonly />
 						<label>Amount Donated:</label>
-						<input type="text" value={data.trays} name='tr'  />
+						<input type="text" value={data.trays} name='tr'  readonly />
 							<Button
 								color='blue'
 								type='submit'
@@ -58,6 +89,7 @@ class DefaultDonations extends Component{
 								>
 								Donate
 							</Button>
+							{confirm}
 					
 				</form>	
 			))}
