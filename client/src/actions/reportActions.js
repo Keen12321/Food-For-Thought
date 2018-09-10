@@ -9,7 +9,6 @@ export function getReportRestaurant(id) {
 		})
 	})
 }
-
 export function getReportDelivery(id) {
 	axios.get('/api/reportsDelivery/' + id).then(resp => {
 		store.dispatch({

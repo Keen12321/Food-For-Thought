@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withAuth, api } from '../Authentication'
 import {connect} from 'react-redux'
 import { updatePickup } from '../../actions/donateActions'
-import {Button} from 'semantic-ui-react'
+import {Button, Header} from 'semantic-ui-react'
 
 
 const Modal = ({ handleClose, show, children}) => {
@@ -55,11 +55,11 @@ class ManagePickupsList extends Component {
    		<div>
          	<div key={this.props.user.id} className="availablepickups ui vertical segment" id="lubba">
 	   			<div>
-	  				<h3>{this.props.user.name}</h3>
+	  				<Header as='h3'>{this.props.user.name}</Header>
 	  				<p>{this.props.user.location}</p>
 	  			</div>
 	  			<div id="schwifty">
-	  				<h4>{this.props.user.dish} x {this.props.user.trays}</h4>
+	  				<Header as='h4'>{this.props.user.dish} x {this.props.user.trays}</Header>
 	  			</div>
 	  			<div>
 	  				<Button color='blue' icon='map' id='shadow' content='Add to Map' onClick={this.showAddModal} />

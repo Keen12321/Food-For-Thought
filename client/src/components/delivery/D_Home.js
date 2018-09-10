@@ -32,7 +32,7 @@ class D_Home extends Component {
      			<div>
      				<Link to={`/delivery/map/${this.state.id}`}>
               <Button color='green' fluid id="shadow" type="submit" size="huge" content="My Pickups Map" />
-              </Link>
+            </Link>
      			</div>
      			<div>
      				<Link to="/delivery/pickups">
@@ -46,9 +46,9 @@ class D_Home extends Component {
           </div>
      		</Segment>
      	</div>
-   )
- }
-}
+     )
+   }
+  }
 
 function mapStateToProps(appState) {
   return {

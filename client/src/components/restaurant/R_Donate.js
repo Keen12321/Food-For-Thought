@@ -209,7 +209,6 @@ class Donate extends Component {
 							onClick={this.handleClick}
 						/>
 					</Form.Field>
-
 	    		<Form.Field>
 		    		<Button 
 		    			color={this.state.color}

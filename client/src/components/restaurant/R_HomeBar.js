@@ -42,14 +42,14 @@ handleMobile = () => {
     )
     const burger = (
       <div>
-      <Icon name='bars' size='large' />
+        <Icon name='bars' size='large' />
       </div>
       )
 
     return (
       <Menu size={this.state.size} inverted>
         <Menu.Item id='notmobile'>
-          <img src={heart}/>
+          <img src={heart} alt="Food For Thought"/>
         </Menu.Item>
         <Dropdown trigger={burger} pointing='top left' id='mobileonly' item>
             <Dropdown.Menu>

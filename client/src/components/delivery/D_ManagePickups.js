@@ -20,11 +20,10 @@ class ManagePickups extends Component {
  //    }
  //  }
  
-
 	render() {
 		return (
 	    <div>
-	    <Header as='h1' id="pickle">Pickups available for today: {this.props.donate.length}</Header>
+		    <Header as='h1' id="pickle">Pickups available for today: {this.props.donate.length}</Header>
 	    	{this.props.donate.map(user => (
 	      	<ManagePickupsList key={user.id} user={user} show1={this.props.show} show2={this.props.show} show3={this.props.show} />
 	      ))}

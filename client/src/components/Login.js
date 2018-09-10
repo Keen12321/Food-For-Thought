@@ -87,10 +87,8 @@ class D_Login extends Component {
 		 						fluid icon={<Icon name='key' color={this.state.iconColor} />}
 		 						onChange={this.handleChange} value={this.state.password} 
 		 						placeholder='Password' type='password' />
-		 					
 		 					<Button className="loginSubmit" id='shadow' type="submit" 
-		 						color={this.state.buttonColor} size='big'>LOGIN</Button>
-
+		 						color={this.state.buttonColor} size='big' content='LOGIN' />
 		 					<Link className="registrationLink" to="/register">
 		 						Not a Registered User? Register Here</Link>
 		 				</Form>

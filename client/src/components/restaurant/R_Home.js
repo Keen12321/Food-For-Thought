@@ -17,14 +17,12 @@ class R_Home extends Component {
             <Segment className="R_HomeContainer" basic>
                <div>
                   <Link to="/restaurant/donate">
-                     <Button type="submit" 
-                      color='green' size='huge' id='shadow' fluid content="Donate Food" />
+                     <Button type="submit" color='green' size='huge' id='shadow' fluid content="Donate Food" />
                   </Link>
                </div>
                <div>
                   <Link to={`/restaurant/reports/${this.state.id}`}>
-                     <Button type="submit" 
-                      color='orange' size='huge' id="shadow" fluid content="Manage Reports" />
+                     <Button type="submit" color='orange' size='huge' id="shadow" fluid content="Manage Reports" />
                   </Link>
                </div>
             </Segment>

@@ -102,7 +102,7 @@ class Register extends Component {
  		} else {
 	   	return (
 	   		<div className="loginContainer">
-	   		<img src={logo} />
+	   		<img src={logo} alt="Food For Thought" />
 	   			<div className='loginright'>
 	   			<div className="loginTitleContainer">
 	   				<i id="loginLogo" className="fa fa-cutlery" />
@@ -124,7 +124,6 @@ class Register extends Component {
 		 						<div>Restaurant</div>
 		 					</label>
 		 				</div>
-
 		 				<Form.Input fluid icon='user' iconPosition='left' 
 		 					name='name' onChange={this.handleChange} value={this.state.name} 
 		 					placeholder='Username' />
@@ -132,7 +131,6 @@ class Register extends Component {
 		 					name='email' onChange={this.handleChange} value={this.state.email} 
 		 					placeholder='Email' />
 		 				{incorrectEmailValidation}
-
 	 					<Form.Input fluid icon='key' iconPosition='left' type='password' 
 	 						name='password' onChange={this.handleChange} value={this.state.password} 
 	 						placeholder='Password' />
@@ -147,14 +145,13 @@ class Register extends Component {
 	 					<Form.Input fluid icon='mobile' iconPosition='left' 
 	 						name='phone' onChange={this.handleChange} 
 	 						value={this.state.phone} placeholder='Phone #' />
-	 					
 	 					<Button className="loginSubmit" size="huge" id='shadow'
 	 						color={this.state.buttonColor} type="submit" content="Click Here to Register" />
 	 					{fieldEmpty}
 	 				</Form>
 	 				</div>
 	 			</div>
-	  		 	)
+  		 	)
  		}
  	}
 }

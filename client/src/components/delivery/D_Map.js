@@ -1,7 +1,7 @@
 /*global google*/
 import React, { Component } from 'react'
 import  { compose, withProps, lifecycle } from 'recompose'
-import {withScriptjs, withGoogleMap, InfoWindow, GoogleMap, TrafficLayer, DirectionsRenderer} from 'react-google-maps'
+import {withScriptjs, withGoogleMap, GoogleMap, TrafficLayer, DirectionsRenderer} from 'react-google-maps'
 import {Link} from 'react-router-dom'
 import { withAuth, api } from '../Authentication'
 import { connect } from 'react-redux'
@@ -115,7 +115,7 @@ render() {
                   <p> {api.getProfile().location}</p>
                   <p>or you can</p>
                   <Link to="/delivery/pickups">
-                    <Button color='blue' type="submit" id="meeseeks" className="wubba">View Any Additional Pickups</Button>
+                    <Button color='blue' type="submit" id="meeseeks" className="wubba" content='View Any Additional Pickups' />
                   </Link>
                 </div>
                   <DirectionsComponent />

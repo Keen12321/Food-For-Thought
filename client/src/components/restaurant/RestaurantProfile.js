@@ -17,21 +17,15 @@ class RestaurantProfile extends Component{
 					</div>
 				</div>
 				<div id="option">
-					<Button className='ui button' role='button'>
-  							Dontation History
-					</Button>
+					<Button className='ui button' role='button' content='Donation History' />
 					<p>You will be able to access all of your dontaions from this page.</p>
 				</div>
 				<div id="option">
-					<Button className="ui button" role='button'>
-						Delete Donation
-					</Button>
+					<Button className="ui button" role='button' content='Delete Donation' />
 					<p>from here you will be able to delete any pre-existing donations.</p> 
 				</div>
 				<div id="option">
-					<Button className="ui button" role='button'>
-						Donate Food
-					</Button>
+					<Button className="ui button" role='button' content='Donate Food' />
 					<p>From here you will be able to donate food to people in need</p> 
 				</div>
 			</div>

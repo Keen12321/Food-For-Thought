@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { updatePickup } from '../../actions/donateActions'
 import { withAuth, api } from '../Authentication'
-import {Link} from 'react-router-dom'
-import {Button} from 'semantic-ui-react'
+import {Button, Header, TextArea} from 'semantic-ui-react'
 
 
 const Modal = ({ handleClose, show, children}) => {
@@ -90,11 +89,11 @@ class PickupsList extends Component {
          	<div key={this.props.user.id} className="pickups ui vertical segment" id='lubba2'>
 	   			<div id="morty">
 		   			<div>
-		  				<h3>{this.props.user.name}</h3>
+		  				<Header as='h3' content={this.props.user.name} />
 		  				<p>{this.props.user.location}</p>
 		  			</div>
 		  			<div className="dubdub">
-		  				<h4>{this.props.user.dish} x {this.props.user.trays}</h4>
+		  				<Header as='h4' content={`${this.props.user.dish} x ${this.props.user.trays}`} />
 		  			</div>
 	  			</div>
 	  			<div>
@@ -106,19 +105,19 @@ class PickupsList extends Component {
 					<Button color='red' icon='trash' id='shadow' content='Delete' onClick={this.showDeleteModal} />
 	  			</div>
   			         <Modal show={this.state.show1} handleClose={this.hidePickupModal}>
-  						<h2>Please confirm that you have picked up the following:</h2>
+  						<Header as='h2' content="Please confirm that you have picked up the following:" />
   						<p>{this.props.user.name}</p>
   						<p id="waypoints">{this.props.user.location}</p>
   						<p>{this.props.user.dish} x {this.props.user.trays}</p>
   						<Button color='green' icon='check' content='Confirm Pickup'onClick={this.addPickup} id="shadow" />
   			         </Modal>
   			         <Modal show={this.state.show2} handleClose={this.hideDeleteModal}>
-  						<h2 id='title'>Are you sure you want to delete this pickup?</h2>
+  						<Header as='h2' id='title' content='Are you sure you want to delete this pickup?' />
   						<p>{this.props.user.name}</p>
   						<p>{this.props.user.dish} x {this.props.user.trays}</p>
   						<div className="cxlreason">
-  							<textarea name="reason" type="text" value={this.state.reason} onChange={this.handleChange} placeholder="Must provide reason for cancellation">
-  							</textarea>
+  							<TextArea name="reason" type="text" value={this.state.reason} onChange={this.handleChange} placeholder="Provide a reason for cancellation">
+  							</TextArea>
   						</div>
   						<Button color='red' icon='cancel' id="shadow" content='Delete Pickup' onSubmit={this.handleSubmit} onClick={this.deletePickup} />
   			         </Modal>
