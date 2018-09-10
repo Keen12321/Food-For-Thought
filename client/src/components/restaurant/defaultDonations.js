@@ -18,29 +18,32 @@ class DefaultDonations extends Component{
 		getDefault(this.state.id)		
 			console.log(this.state.id)
 	}
-
+	//HANDLING WHAT HAPPENS AFTER CLICK  "MAYBE DELETE"
 	 handleClick = (e) => {
-		let p1 = document.getElementById('price1').innerHTML
+		
 		console.log(this.state.trays )
+	 }
+// HANDLE THE DEFAULT DONATION
+	 handleSubmit = (e) =>{
+		e.preventDefault()
 	 }
 
 	render(){
 		return(
 			<div className='defaultContain'>			
 			{this.props.defaultD.map(data =>(
-				<div id='defaults'>	
+				<form id='defaults' onSubmit={this.handleSubmit.bind(this)}>	
 					<h2>Dish Name: {data.dish}</h2>
-					<ul>
-						<li id='price1'>Price: ${data.value}</li>
-						<li id='price2'>Amount: {data.trays} Trays</li>
+						<input type="text" value={'price:' + data.value} />
+						<input type="text" value={'Amount:' + data.trays + 'Trays'}/>
 							<Button
 								color='blue'
-								onClick = {this.handleClick.bind(this)}
+								type='submit'
 								>
 								Donate
 							</Button>
-					</ul>
-				</div>	
+					
+				</form>	
 			))}
 			
 			</div>
