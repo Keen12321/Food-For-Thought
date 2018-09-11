@@ -18,16 +18,12 @@ class DefaultDonations extends Component{
 		confirm: !!false,
 		deffs: !!false,
 		thanks: false
+		
 	}
 
 	componentDidMount(){
 		getDefault(this.state.food_id)
 		console.log(this.state.deffs)		
-			// console.log(this.state.id)
-			// this.setState({
-			// 	confirm: false
-			// })
-			// console.log(this.state.confirm)
 	}
 
 // HANDLE THE CLICK OF THE BUTTON
@@ -81,7 +77,7 @@ handleView = (e) =>{
 		if(this.state.confirm){
 			confirm = 
 				<div id="pleaseConfirm">
-					<p>Please click "Donate" again to Confirm Donation</p> 	
+					<p>Please Click "Donate" Again To Confirm Donation</p> 	
 				</div>
 		}
 
@@ -101,7 +97,7 @@ handleView = (e) =>{
 						<input type="text" value={data.dish} name ='nam' readonly />
 						<label>Dish Price ($$):</label>
 						<input type="text" value={data.value} name='val' readonly />
-						<label>Amount Donated:</label>
+						<label>Amount Donated (Trays):</label>
 						<input type="text" value={data.trays} name='tr'  readonly />
 							<Button
 								color='blue'
@@ -119,7 +115,7 @@ handleView = (e) =>{
 		}
 		return(
 			<div id="deffs">
-				<h1 onClick={this.handleView}>View Default Donations</h1>
+				<span id='clickMe' onClick={this.handleView}>"View Default Donations"</span>
 				{allDefs}
 			</div>
 		)
