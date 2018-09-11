@@ -59,6 +59,23 @@
 	height:80vh;
 }
 
+@media only screen and (max-device-width: 600px) {
+		.reportContainer {
+			width: 100%;
+		}
+		.reportChart {
+			width: 100%;
+			height: 40vh;
+			margin-bottom: 2px;
+		}
+
+		.reportButtons {
+			display: flex;
+		}
+		#submit, #print, #reset {
+			margin: 5px;
+		}
+}
 @media only print {
 	.reportForm {
 		display:none;

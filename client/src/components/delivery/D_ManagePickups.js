@@ -11,16 +11,7 @@ class D_ManagePickups extends Component {
 		getDonations()
 		updatePickup() 
 	}
-
-	// componentWillReceiveProps(newProps) {
- //    if (this.props.donate !== newProps.donate) {
- //    	updatePickup()
- //      getDonations(newProps)
- //    } else {
- //      getDonations()
- //    }
- //  }
-
+	
 	// componentWillReceiveProps(newProps) {
 	// 	if(this.props.donate !== newProps.donate) {
 	// 		updatePickup()
@@ -34,7 +25,8 @@ class D_ManagePickups extends Component {
 		return (
 	    <Container>
 	    	<Header as='h1'>Manage Pickups</Header>
-	    	<Header as='h1' id="pickle">Pickups available for today: {this.props.donate.length}</Header>
+
+	    <Header as='h1' id="pickle">Pickups available for today: {this.props.donate.length}</Header>
 	    	{this.props.donate.map(user => (
 	    		<Container>
 	      		<Divider />

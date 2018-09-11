@@ -1,5 +1,12 @@
 .editProfileContainer {
 	margin: 0 auto;
 	margin-top: 60px;
-	width: 60%
+	width: 60%;
+	box-shadow: 4px 4px 4px #888;	
 }
+
+	@media only screen and (max-device-width: 600px) {
+			.editProfileContainer {
+				width: 90%;
+			}
+		}

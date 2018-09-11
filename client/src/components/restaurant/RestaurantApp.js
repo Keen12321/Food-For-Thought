@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Authentication } from '../Authentication'
-
+import Oops from '../Oops'
 import R_Home from './R_Home'
 import R_Donate from './R_Donate'
 import R_Reports from './R_Reports'
@@ -24,7 +24,7 @@ class RestaurantApp extends Component {
           <Route path="/restaurant/reports/:id" component={R_Reports} />
           <Route path='/restaurant/thankyou' component={ThankYou} />
           <Route path="/restaurant/profile" component={R_Profile} />
-
+          <Route render={() => (<Oops />)} />
         </Switch>
       </Authentication>
    	)
