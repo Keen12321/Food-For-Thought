@@ -10,12 +10,12 @@ class D_Reports extends Component {
 	state = {
 		id:api.getProfile().id,
 		name:api.getProfile().name,
+		idTax:api.getProfile().tax_id,
 		startDate:'',
 		endDate:'',
 		traysTotal:'',
 		valueTotal:'',
 		reportDates:'',
-		idTax:'',
 		filterData:[],
 		traysData:{},
 		valueData:{}
@@ -34,7 +34,6 @@ class D_Reports extends Component {
 	handleForm = (e) => {
 		e.preventDefault()
 		let reportDates = `${this.state.startDate} - ${this.state.endDate}`
-		let tax = `501c3 ID: ${this.props.reportDelivery[0].tax_id}`
 		let dish = this.props.reportDelivery.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.dish)
 		let trays = this.props.reportDelivery.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.trays)
 		let value = this.props.reportDelivery.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.value)
@@ -45,7 +44,6 @@ class D_Reports extends Component {
 			traysTotal:traysTotal,
 			valueTotal:valueTotal,
 			reportDates:reportDates,
-			idTax:tax,
 			filterData:filter,
 			traysData:{
 				labels:dish,
@@ -114,7 +112,7 @@ class D_Reports extends Component {
 				<div className='titles'>
 					<h1>{this.state.name} Report</h1>
 					<h2>{this.state.reportDates}</h2>
-					<h3>{this.state.idTax}</h3>
+					<h3>501c3 ID: {this.state.idTax}</h3>
 				</div>
 				<div className='reportTable'>
 					<h2>Receipt History</h2>
