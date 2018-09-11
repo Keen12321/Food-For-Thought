@@ -62,14 +62,8 @@ router.post('/donate', (req, res, next) => {
 	})
 })
 
-<<<<<<< HEAD
-// GET REPORTS
-router.get('/reports/:id', (req, res, next) => {
-=======
-
 // GET RESTAURANT REPORTS
 router.get('/reportsRestaurant/:id', (req, res, next) => {
->>>>>>> 350c909d3e4a31f7842687b8d9972006fcec1b37
 	const sql = `
 		SELECT 
 			donations.dish, donations.trays, donations.value, donations.date, donations.food_id, users.id, users.name, users.tax_id
@@ -207,9 +201,6 @@ router.get('/donating/pending/addresses/:id', (req, res, next) => {
 	})
 })
 
-<<<<<<< HEAD
-export default router
-=======
 //POSTING DEFAULT DONATIONS
 
 router.post('/donation/default', (req, res, next) =>{
@@ -255,11 +246,6 @@ router.get('/donation/default/:id', (req, res, next) =>{
 		}
 		res.json(defaultD)
 	})
-	
 })
 
-
 export default router
-
-
->>>>>>> 350c909d3e4a31f7842687b8d9972006fcec1b37
