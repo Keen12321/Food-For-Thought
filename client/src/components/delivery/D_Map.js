@@ -49,14 +49,12 @@ render() {
   console.log('this2', this)
   console.log('this.state.result', this.state.result)
   const DirectionsComponent = compose(
-
     withProps({
       googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U",
       loadingElement: <div style={{ height: `100%` }} />,
       containerElement: <div style={{ width: `100%` }} />,
       mapElement: <div style={{height: `80vh`, width: `100%` }}  />,
     }),
-
       withScriptjs,
       withGoogleMap,
 
@@ -98,6 +96,7 @@ render() {
           <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
              <DirectionsRenderer
              directions={props.directions} />
+
              <TrafficLayer autoUpdate />
           </GoogleMap>
        
@@ -143,5 +142,3 @@ function mapStateToProps(appState) {
 	}
 }
 export default withAuth(connect(mapStateToProps)(D_Map))
-
-

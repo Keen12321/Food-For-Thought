@@ -157,8 +157,8 @@ class Register extends Component {
 	 				</div>
 	 			</div>
   		 	)
- 		}
- 	}
-}
+ 		  }
+ 	  }
+  }
 
 export default Register

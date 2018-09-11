@@ -29,4 +29,3 @@ function mapStateToProps(appState) {
 	}
 }
 export default withAuth(connect(mapStateToProps)(ManagePickups))
-

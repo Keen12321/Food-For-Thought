@@ -4,7 +4,6 @@ import { updatePickup } from '../../actions/donateActions'
 import { withAuth, api } from '../Authentication'
 import {Button, Header, TextArea} from 'semantic-ui-react'
 
-
 const Modal = ({ handleClose, show, children}) => {
 	const showHideClassName = show ? 'modal modal-show' : 'modal modal-hidden'
 	return (
@@ -86,7 +85,7 @@ class PickupsList extends Component {
 
    return (
    		<div id="segment">
-         	<div key={this.props.user.id} className="pickups ui vertical segment" id='segment2'>
+        <div key={this.props.user.id} className="pickups ui vertical segment" id='segment2'>
 	   			<div className="space">
 		   			<div>
 		  				<Header as='h3' content={this.props.user.name} />
@@ -102,26 +101,26 @@ class PickupsList extends Component {
 	  			</div>
 	  			<div className="space">
 	  				<Button color='green' icon='check' id='shadow' content='Confirm Pickup' onClick={this.showPickupModal} />
-					<Button color='red' icon='trash' id='shadow' content='Delete' onClick={this.showDeleteModal} />
+					  <Button color='red' icon='trash' id='shadow' content='Delete' onClick={this.showDeleteModal} />
 	  			</div>
-  			         <Modal show={this.state.show1} handleClose={this.hidePickupModal}>
+  			    <Modal show={this.state.show1} handleClose={this.hidePickupModal}>
   						<Header as='h2' content="Please confirm that you have picked up the following:" />
-  						<p>{this.props.user.name}</p>
-  						<p id="waypoints">{this.props.user.location}</p>
-  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
+                <p>{this.props.user.name}</p>
+                <p id="waypoints">{this.props.user.location}</p>
+                <p>{this.props.user.dish} x {this.props.user.trays}</p>
   						<Button color='green' icon='check' content='Confirm Pickup'onClick={this.addPickup} id="shadow" />
-  			         </Modal>
-  			         <Modal show={this.state.show2} handleClose={this.hideDeleteModal}>
+  			     </Modal>
+  			     <Modal show={this.state.show2} handleClose={this.hideDeleteModal}>
   						<Header as='h2' id='title' content='Are you sure you want to delete this pickup?' />
-  						<p>{this.props.user.name}</p>
-  						<p>{this.props.user.dish} x {this.props.user.trays}</p>
-  						<div className="cxlreason">
-  							<TextArea name="reason" type="text" value={this.state.reason} onChange={this.handleChange} placeholder="Provide a reason for cancellation">
-  							</TextArea>
-  						</div>
+                <p>{this.props.user.name}</p>
+                <p>{this.props.user.dish} x {this.props.user.trays}</p>
+                <div className="cxlreason">
+  							  <TextArea name="reason" type="text" value={this.state.reason} onChange={this.handleChange} placeholder="Provide a reason for cancellation">
+  							  </TextArea>
+  						  </div>
   						<Button color='red' icon='cancel' id="shadow" content='Delete Pickup' onSubmit={this.handleSubmit} onClick={this.deletePickup} />
-  			         </Modal>
-			</div>
+  			     </Modal>
+			  </div>
    		</div>
 	   )
 	 }

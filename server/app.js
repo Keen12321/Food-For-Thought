@@ -8,7 +8,6 @@ import authRoutes from './routes/auth'
 import protectedRoutes from './routes/user'
 import jwt from 'express-jwt'
 
-
 const app = express()
 
 const env = app.get('env') || 'development'
@@ -21,7 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', authRoutes)
 app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRoutes)
-// jwt({secret: config.get('jwt.secret')}),
 
 app.use((req, res, next) => {
   let err = new Error('Not Found')

@@ -32,10 +32,10 @@
 	display: flex;
 	justify-content: center;
 	font-size: 1.3em;
+	margin-right: 10px;
 }
 
 input[type='checkbox']{
-	margin-left: 1%;
 	background: #eee;
 	width: 20px;
 	height: 20px;
@@ -74,25 +74,21 @@ input[type='checkbox']{
 }
 
 #deffs {
-	margin-top: 2%;
 	text-align: center;
 }
 
-#deffs h1{
+#deffs p {
 	cursor: pointer;
 	text-align: center;
-	padding: 2%;
-	background: #ccc;
-	width: 30%;
 	margin: auto;
+}
+#deffs:hover {
+	color: rgb(35,123,202);
+	text-decoration: underline;
 }
 .defaultflex {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	margin: 0 auto;
 }
-
-
-
 

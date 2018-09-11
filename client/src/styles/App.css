@@ -14,6 +14,7 @@ html {box-sizing: border-box;}
 body {
 	background: rgb(191,240,193);
 background: radial-gradient(circle, rgba(191,240,193,1) 0%, rgba(245,244,242,1) 100%);
+
 }
 
 a {
@@ -53,6 +54,7 @@ a {
 		}
 
 }
+
 /*.startPickup, .requestPickup {
 	background: rgb(33,172,162);
 	color: white;

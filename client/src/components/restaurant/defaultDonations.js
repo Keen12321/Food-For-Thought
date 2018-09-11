@@ -115,7 +115,7 @@ handleView = (e) =>{
 	}
 		return(
 			<div id="deffs">
-				<h1 onClick={this.handleView}>View Default Donations</h1>
+				<p onClick={this.handleView}>(View Default Donations)</p>
 				{allDefs}
 			</div>
 		)

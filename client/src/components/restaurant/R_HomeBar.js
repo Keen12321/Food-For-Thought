@@ -8,7 +8,6 @@ class R_HomeBar extends Component {
   state = {
     size: 'massive'
   }
-
 componentWillMount() {
     window.addEventListener('resize', this.handleMobile)
 }
