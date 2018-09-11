@@ -44,5 +44,5 @@ if (env === 'production') {
     })
   })
 }
-  
+
 module.exports = app

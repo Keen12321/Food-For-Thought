@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { withAuth, api } from '../Authentication'
 import { connect } from 'react-redux'
 import { getDonations } from '../../actions/donateActions'
-import {Segment, Button, Header} from 'semantic-ui-react'
+import { Segment, Button, Header } from 'semantic-ui-react'
 
 class D_Home extends Component {
   state = {
@@ -13,25 +13,6 @@ class D_Home extends Component {
   componentDidMount() {
     getDonations()
   }
-
-  //  componentWillReceiveProps(newProps) {
-  //   if (this.props.donate !== newProps.donate) {
-  //     getDonations(newProps)
-  //   } else {
-  //     getDonations()
-  //   }
-  // }
-
-
-  // componentWillReceiveProps(newProps) {
-  //   if ( this.props.donate !== newProps.donate)  {
-  //     getDonations(newProps)
-  //   } else {
-  //     getDonations()
-  //   }
-  // }
-
-
 
   render() {
     return (
@@ -43,7 +24,7 @@ class D_Home extends Component {
      			<div>
      				<Link to={`/delivery/map/${this.state.id}`}>
               <Button color='green' fluid id="shadow" type="submit" size="huge" content="My Pickups Map" />
-              </Link>
+            </Link>
      			</div>
      			<div>
      				<Link to="/delivery/pickups">
@@ -57,10 +38,9 @@ class D_Home extends Component {
           </div>
      		</Segment>
      	</div>
-   )
- }
-}
-
+     )
+   }
+  }
 function mapStateToProps(appState) {
   return {
     donate: appState.appReducer.donate

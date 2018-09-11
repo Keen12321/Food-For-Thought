@@ -55,7 +55,6 @@ render() {
       containerElement: <div style={{ width: `100%` }} />,
       mapElement: <div style={{height: `80vh`, width: `100%` }}  />,
     }),
-
       withScriptjs,
       withGoogleMap,
 
@@ -95,7 +94,9 @@ render() {
     })
   )(props => 
           <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
-             <DirectionsRenderer directions={props.directions} />
+             <DirectionsRenderer
+             directions={props.directions} />
+
              <TrafficLayer autoUpdate />
           </GoogleMap>
        
@@ -104,25 +105,36 @@ render() {
   if(this.props.addresses.length == 0) {
     return (
         <div>
-          <Header as='h1' id="pickle">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
+          <Header as='h1' id="centext">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
           <div className="pickupsContainer">
                 <div id="scroll">
-                <audio src={chime} hidePlayer='true' autoPlay />
+                <audio src={chime} hideplayer='true' autoPlay />
                   <h3>All pickups completed.</h3>
                   <h3>Please return to:</h3>
                   <p> {api.getProfile().location}</p>
                   <p>or you can</p>
                   <Link to="/delivery/pickups">
-                    <Button color='blue' type="submit" id="meeseeks" className="wubba">View Any Additional Pickups</Button>
+                    <Button color='blue' type="submit" id="bluebtn" className="lgfont" content='View Any Additional Pickups' />
                   </Link>
                 </div>
                   <DirectionsComponent />
           </div>
         </div>
         )
-    } 
-  }
-}
+  } 
+return (
+        <div>
+          <Header as='h3' id="centext">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
+          <div className="pickupsContainer">
+                <div id="scroll">
+                  <Pickups />
+                </div>
+                  <DirectionsComponent />
+          </div>
+        </div>
+        )
+      }
+    }
 
 function mapStateToProps(appState) {
 	return {

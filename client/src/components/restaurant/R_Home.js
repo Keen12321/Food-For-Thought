@@ -12,25 +12,17 @@ class R_Home extends Component {
       return (
          <div>
             <div className="pickupnotification">
-               <Header as='h1'>Pickup Ready</Header>
+               <Header as='h1' content='What would you like to do?' />
             </div>
             <Segment className="R_HomeContainer" basic>
                <div>
                   <Link to="/restaurant/donate">
-                     <Button type="submit" 
-                      color='green' size='huge' id='shadow' fluid content="Donate Food" />
+                     <Button type="submit" color='green' size='huge' id='shadow' fluid content="Donate Food" />
                   </Link>
                </div>
                <div>
                   <Link to={`/restaurant/reports/${this.state.id}`}>
-                     <Button type="submit" 
-                      color='orange' size='huge' id="shadow" fluid content="Manage Reports" />
-                  </Link>
-               </div>
-               <div>
-                  <Link to="/restaurant/profile">
-                    <Button type="submit" 
-                      color='red' size='huge' id="shadow" fluid content="I need to be different" />
+                     <Button type="submit" color='orange' size='huge' id="shadow" fluid content="Manage Reports" />
                   </Link>
                </div>
             </Segment>
