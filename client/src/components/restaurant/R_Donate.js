@@ -87,10 +87,10 @@ class R_Donate extends Component {
 		}
 
 		else{
-			var date = new Date()
-			var hou = date.getHours()
-			var min = date.getMinutes()
-			var time = hou + ':' + min
+			// var date = new Date()
+			// var hou = date.getHours()
+			// var min = date.getMinutes()
+			// var time = hou + ':' + min
 			e.preventDefault()
 			console.log('Successful donation made.')
 			makeDonation({

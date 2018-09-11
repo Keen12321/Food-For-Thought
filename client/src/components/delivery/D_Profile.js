@@ -35,12 +35,6 @@ class D_Profile extends Component {
 		}
 	}
 	render() {
-		let emptyField
-
-		if(this.state.emptyField) {
-			emptyField = <div>Fields Cannot be Left Empty</div>
-		}
-
 		return (
 			<div className="editProfileContainer">
 				<Header as='h1' textAlign="center" attached='top' content="Edit Profile" />

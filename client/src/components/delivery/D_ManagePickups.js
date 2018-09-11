@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
-import {withAuth} from '../Authentication'
-import {getDonations, updatePickup} from '../../actions/donateActions'
-import {connect} from 'react-redux'
+import React, { Component } from 'react'
+import { withAuth } from '../Authentication'
+import { getDonations, updatePickup } from '../../actions/donateActions'
+import { connect } from 'react-redux'
 import ManagePickupsList from './D_ManagePickupsList'
 import { Header} from 'semantic-ui-react'
 
@@ -10,7 +10,7 @@ class ManagePickups extends Component {
 		getDonations()
 		updatePickup() 
 	}
- 
+
 	render() {
 		return (
 	    <div>

@@ -1,7 +1,6 @@
 import { api } from '../components/Authentication'
 import store from '../store'
 
-
 export function makeDonation(donation) {
 	api.post('/api/donate', donation).then(data => {
 		console.log('resp:', data)
@@ -49,7 +48,6 @@ export function getTime() {
 		
   	return time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 }
-
 
 //POSTING DEFAULT DONATIONS TO THE defaultDonations TABLE
 export function addToDefault(donation){

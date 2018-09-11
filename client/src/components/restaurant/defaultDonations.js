@@ -22,7 +22,6 @@ class DefaultDonations extends Component{
 
 	componentDidMount(){
 		getDefault(this.state.food_id)
-		console.log(this.state.deffs)		
 			// console.log(this.state.id)
 			// this.setState({
 			// 	confirm: false
@@ -35,7 +34,6 @@ handleClick = (e) =>{
 	this.setState({
 		confirm: !this.state.confirm
 	})
-	console.log(this.state.confirm)
 }
 
 handleView = (e) =>{
