@@ -85,14 +85,14 @@ class PickupsList extends Component {
  render() {
 
    return (
-   		<div id="lubba">
-         	<div key={this.props.user.id} className="pickups ui vertical segment" id='lubba2'>
-	   			<div id="morty">
+   		<div id="segment">
+         	<div key={this.props.user.id} className="pickups ui vertical segment" id='segment2'>
+	   			<div className="space">
 		   			<div>
 		  				<Header as='h3' content={this.props.user.name} />
 		  				<p>{this.props.user.location}</p>
 		  			</div>
-		  			<div className="dubdub">
+		  			<div className="rtfloat">
 		  				<Header as='h4' content={`${this.props.user.dish} x ${this.props.user.trays}`} />
 		  			</div>
 	  			</div>
@@ -100,7 +100,7 @@ class PickupsList extends Component {
 	  				<a href={'tel:1+'+`${this.props.user.phone}`}><i className="fa fa-phone fa-2x"></i></a>
 	  				<a href={'sms:1+'+`${this.props.user.phone}`}><i className="fa fa-comment fa-2x"></i></a>
 	  			</div>
-	  			<div id="rick">
+	  			<div className="space">
 	  				<Button color='green' icon='check' id='shadow' content='Confirm Pickup' onClick={this.showPickupModal} />
 					<Button color='red' icon='trash' id='shadow' content='Delete' onClick={this.showDeleteModal} />
 	  			</div>

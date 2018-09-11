@@ -8,6 +8,7 @@
 	margin-top: 20px;
 	border: 2px solid #eee;
 	border-radius: 3px;
+	width: 200px;
 }
 
 #wrongg {
@@ -33,10 +34,11 @@
 }
 
 input[type='checkbox']{
-	margin:2%;
+	margin-left: 1%;
 	background: #eee;
+	width: 20px;
+	height: 20px;
 }
-
 .defaultContain{
 	width: 100%;
 	text-align: center;

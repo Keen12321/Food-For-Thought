@@ -32,13 +32,13 @@
 	display: block;
 	z-index: 100;
 }
-.wubba {
+.lgfont {
 	font-size: 1.5em;
 }
-#lubba2 {
+#segment2 {
 	background: rgba(255,255,255,0.9);
 }
-#lubba {
+#segment {
 	align-items: flex-end;
 	border-bottom: 1px solid #ccc;
 	padding-left: 2%;
@@ -47,24 +47,20 @@
 	border-radius: 20px;
 	background: rgba(255,255,255,0.9);
 }
-.dubdub > * {
+.rtfloat > * {
 	float: right;
 }
-#schwifty > * {
+#leftfloat > * {
 	float: left;
 }
-#pickle {
+#centext {
 	text-align: center;
 }
-#morty {
+.space {
 	display: flex;
 	justify-content: space-between;
 }
-#rick {
-	display: flex;
-	justify-content: space-between;
-}
-#meeseeks {
+#bluebtn {
 	background: rgb(35,123,202);
 	color: white;
 	text-align: center;

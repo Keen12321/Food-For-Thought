@@ -106,7 +106,7 @@ render() {
   if(this.props.addresses.length == 0) {
     return (
         <div>
-          <Header as='h1' id="pickle">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
+          <Header as='h1' id="centext">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
           <div className="pickupsContainer">
                 <div id="scroll">
                 <audio src={chime} hidePlayer='true' autoPlay />
@@ -115,7 +115,7 @@ render() {
                   <p> {api.getProfile().location}</p>
                   <p>or you can</p>
                   <Link to="/delivery/pickups">
-                    <Button color='blue' type="submit" id="meeseeks" className="wubba" content='View Any Additional Pickups' />
+                    <Button color='blue' type="submit" id="bluebtn" className="lgfont" content='View Any Additional Pickups' />
                   </Link>
                 </div>
                   <DirectionsComponent />
@@ -125,7 +125,7 @@ render() {
   } 
 return (
         <div>
-          <Header as='h3' id="pickle">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
+          <Header as='h3' id="centext">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
           <div className="pickupsContainer">
                 <div id="scroll">
                   <Pickups />

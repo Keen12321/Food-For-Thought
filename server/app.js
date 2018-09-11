@@ -7,8 +7,6 @@ import config from 'config'
 import authRoutes from './routes/auth'
 import protectedRoutes from './routes/user'
 import jwt from 'express-jwt'
-import fs from 'fs'
-import https from 'https'
 
 
 const app = express()
@@ -22,7 +20,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', authRoutes)
-app.use('/api', protectedRoutes)
+app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRoutes)
 // jwt({secret: config.get('jwt.secret')}),
 
 app.use((req, res, next) => {
@@ -50,4 +48,3 @@ if (env === 'production') {
 }
 
 module.exports = app
-

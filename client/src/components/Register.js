@@ -13,6 +13,7 @@ class Register extends Component {
 		confirmPassword: '',
 		location: '',
 		phone: '',
+		tax_id: '',
 		type: '',
 		buttonColor: '',
 		validateEmpty: true,
@@ -26,7 +27,7 @@ class Register extends Component {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
-		if(this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '') {
+		if(this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '' && this.state.tax_id !== '') {
 			this.setState({
 				buttonColor:'blue'
 			})
@@ -36,7 +37,7 @@ class Register extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		
-		if (this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '') {
+		if (this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '' && this.state.tax_id !== '') {
 			if (validator.isEmail(this.state.email)) {
 				if (this.state.password === this.state.confirmPassword) {
 					registerUser({
@@ -45,6 +46,7 @@ class Register extends Component {
 						password: this.state.password,
 						location: this.state.location,
 						phone: this.state.phone,
+						tax_id: this.state.tax_id,
 						type: this.state.type
 					}, () => {
 						if (this.state.type === 'Restaurant') {
@@ -145,6 +147,9 @@ class Register extends Component {
 	 					<Form.Input fluid icon='mobile' iconPosition='left' 
 	 						name='phone' onChange={this.handleChange} 
 	 						value={this.state.phone} placeholder='Phone #' />
+	 					<Form.Input fluid icon='user' iconPosition='left' 
+		 					name='tax_id' onChange={this.handleChange} value={this.state.tax_id} 
+		 					placeholder='EIN or 501c3 Identification Number' />
 	 					<Button className="loginSubmit" size="huge" id='shadow'
 	 						color={this.state.buttonColor} type="submit" content="Click Here to Register" />
 	 					{fieldEmpty}

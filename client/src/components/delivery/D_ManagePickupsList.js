@@ -52,12 +52,12 @@ class ManagePickupsList extends Component {
  render() {
    return (
    		<div>
-         	<div key={this.props.user.id} className="availablepickups ui vertical segment" id="lubba">
+         	<div key={this.props.user.id} className="availablepickups ui vertical segment" id="segment">
 	   			<div>
 	  				<Header as='h3'>{this.props.user.name}</Header>
 	  				<p>{this.props.user.location}</p>
 	  			</div>
-	  			<div id="schwifty">
+	  			<div id="leftfloat">
 	  				<Header as='h4'>{this.props.user.dish} x {this.props.user.trays}</Header>
 	  			</div>
 	  			<div>

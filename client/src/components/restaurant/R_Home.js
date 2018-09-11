@@ -12,7 +12,7 @@ class R_Home extends Component {
       return (
          <div>
             <div className="pickupnotification">
-               <Header as='h1'>Pickup Ready</Header>
+               <Header as='h1' content='What would you like to do?' />
             </div>
             <Segment className="R_HomeContainer" basic>
                <div>

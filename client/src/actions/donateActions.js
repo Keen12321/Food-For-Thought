@@ -1,6 +1,5 @@
 import { api } from '../components/Authentication'
 import store from '../store'
-import axios from 'axios'
 
 export function makeDonation(donation) {
 	api.post('/api/donate', donation).then(data => {
