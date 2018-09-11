@@ -1,7 +1,5 @@
 import { api } from '../components/Authentication'
 import store from '../store'
-import axios from 'axios'
-// import { Message } from 'semantic-ui-react'
 
 
 export function makeDonation(donation) {
@@ -9,14 +7,11 @@ export function makeDonation(donation) {
 		console.log('resp:', data)
 	})
 }
-
 export function updatePickup(state) {
 	api.patch('/api/donating', state).then(data => {
 
 	})
 }
-
-
 
 export function donateForm(input) {
 	if (isNaN(input)) {
@@ -25,7 +20,6 @@ export function donateForm(input) {
 		console.log('No numbers, please.')
 	}
 }
-
 export function getAddresses(id) {
 	api.get('/api/donating/pending/addresses/' + id).then(data => {
 		store.dispatch({
@@ -34,7 +28,6 @@ export function getAddresses(id) {
 		})
 	})
 }
-
 export function getMyPickups(id) {
 	api.get('/api/donating/pending/' + id).then(data => {
 		store.dispatch({
@@ -43,7 +36,6 @@ export function getMyPickups(id) {
 		})
 	})
 }
-
 export function getDonations() {
 	api.get('/api/donating').then(data => {
 		store.dispatch({

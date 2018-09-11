@@ -21,16 +21,6 @@ class D_Home extends Component {
   //   }
   // }
 
-  // componentWillReceiveProps(newProps) {
-  //   if ( this.props.donate !== newProps.donate)  {
-  //     getDonations(newProps)
-  //   } else {
-  //     getDonations()
-  //   }
-  // }
-
-
-
   render() {
     return (
       <div>
@@ -41,7 +31,7 @@ class D_Home extends Component {
      			<div>
      				<Link to={`/delivery/map/${this.state.id}`}>
               <Button color='green' fluid id="shadow" type="submit" size="huge" content="My Pickups Map" />
-              </Link>
+            </Link>
      			</div>
      			<div>
      				<Link to="/delivery/pickups">
@@ -55,10 +45,9 @@ class D_Home extends Component {
           </div>
      		</Segment>
      	</div>
-   )
- }
-}
-
+     )
+   }
+  }
 function mapStateToProps(appState) {
   return {
     donate: appState.appReducer.donate

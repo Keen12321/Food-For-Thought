@@ -105,9 +105,9 @@ class R_Reports extends Component {
 							<Form.Input fluid label='End Date' id='endDate' name='endDate' value={this.state.endDate} onChange={this.handleChange} type='date' />
 						</Form.Group>
 						<Form.Group className='buttons'>
-							<Form.Button id='submit' type='submit'>Generate Report</Form.Button>
-							<Form.Button id='print' onClick={this.printReport}>Print Report</Form.Button>
-							<Form.Button id='reset' onClick={this.resetReport}>Reset Report</Form.Button>
+							<Form.Button id='submit' type='submit' content='Generate Report' />
+							<Form.Button id='print' onClick={this.printReport} content='Print Report' />
+							<Form.Button id='reset' onClick={this.resetReport} content='Reset Report' />
 						</Form.Group>
 					</Form>
 				</div>

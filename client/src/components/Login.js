@@ -78,19 +78,17 @@ class D_Login extends Component {
 		 			<img src={logo} alt="Food For Thought" />
 		 			<div className='loginright'>
 		 				<Form size='huge' className="loginForm" onSubmit={this.handleSubmit}>
-		 					<Form.Input className='red' id='shadow2' name='email' type='email'
+		 					<Form.Input className='red' name='email' type='email'
 		 						fluid icon={<Icon name='user' color={this.state.iconColor} />} 
 		 						onChange={this.handleChange} value={this.state.email} 
 		 						iconPosition='left' placeholder='Email' />
 		 					{incorrectEmailValidation}
-		 					<Form.Input iconPosition='left' id='shadow2' name='password'
+		 					<Form.Input iconPosition='left' name='password'
 		 						fluid icon={<Icon name='key' color={this.state.iconColor} />}
 		 						onChange={this.handleChange} value={this.state.password} 
 		 						placeholder='Password' type='password' />
-		 					
 		 					<Button className="loginSubmit" id='shadow' type="submit" 
-		 						color={this.state.buttonColor} size='big'>LOGIN</Button>
-
+		 						color={this.state.buttonColor} size='big' content='LOGIN' />
 		 					<Link className="registrationLink" to="/register">
 		 						Not a Registered User? Register Here</Link>
 		 				</Form>
