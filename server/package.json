@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app --exec babel-node"
+    "start": "nodemon ./bin/www --exec babel-node"
   },
   "author": "",
   "license": "MIT",
