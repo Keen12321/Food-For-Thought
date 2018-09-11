@@ -3,6 +3,7 @@ import store from '../store'
 import axios from 'axios'
 // import { Message } from 'semantic-ui-react'
 
+
 export function makeDonation(donation) {
 	api.post('/api/donate', donation).then(data => {
 		console.log('resp:', data)
@@ -51,7 +52,6 @@ export function getDonations() {
 		})
 	})
 }
-
 export function getTime() {
 	var time = new Date();
 		

@@ -2,14 +2,32 @@
 	display: flex;
 	flex-direction: column-reverse;
 }
+.fa-phone, .fa-comment {
+	color: rgb(63,132,202);
+}
+.fa-phone:hover, .fa-comment:hover {
+	opacity: 0.6;
+}
 #scroll {
 	max-height: 700px;
 	overflow-y: hidden;
 	overflow: auto;
+	min-width: 300px;
 }
 .pickupsContainer {
 	display: flex;
+	padding-left: 5px;
+	padding-right: 5px;
 }
+	@media only screen and (max-device-width: 600px) {
+		.pickupsContainer {
+			flex-direction: column-reverse;
+			margin-left: 5px;
+		}
+		#truck {
+			display: none;
+		}
+	}
 .modal-show{
 	display: block;
 	z-index: 100;
@@ -17,12 +35,52 @@
 .wubba {
 	font-size: 1.5em;
 }
+#lubba2 {
+	background: rgba(230,255,230,0.4);
+}
 #lubba {
 	align-items: flex-end;
 	border-bottom: 1px solid #ccc;
+	padding-left: 2%;
+	padding-right: 2%;
+	margin-bottom: 5px;
+	border-radius: 20px;
+	background: rgba(245,245,255,0.9);
+}
+.dubdub > * {
+	float: right;
+}
+#schwifty > * {
+	float: left;
+}
+#pickle {
+	text-align: center;
+}
+#morty {
+	display: flex;
+	justify-content: space-between;
+}
+#rick {
+	display: flex;
+	justify-content: space-between;
+}
+#meeseeks {
+	background: rgb(35,123,202);
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-family: sans-serif;
+	border-radius: 5px;
+	cursor: pointer;
+}
+@keyframes modalFade {
+	from {opacity: 0}
+	to {opacity: 1}
 }
 .modal {
 	position: fixed;
+	animation-name: modalFade;
+	animation-duration: .3s;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -40,6 +98,12 @@
 }
 .pickups {
 	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.availablepickups {
+	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
 }
 .D_navbar {

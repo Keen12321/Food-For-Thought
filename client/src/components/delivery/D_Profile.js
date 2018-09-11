@@ -10,6 +10,7 @@ class D_Profile extends Component {
 		email: api.getProfile().email,
 		location: api.getProfile().location,
 		phone: api.getProfile().phone,
+		emptyField: false
 	}
 	handleChange = (e) => {
 		this.setState({
@@ -18,29 +19,39 @@ class D_Profile extends Component {
 	}
 	handleSubmit = (e) => {
 		e.preventDefault()
-		changeUserInfo({
-			id: api.getProfile().id,
-			name: this.state.name,
-			email: this.state.email,
-			location: this.state.location,
-			phone: this.state.phone
-		})
-		this.props.signout()
+		if(this.state.name !== '' && this.state.email !== '' && this.state.location !== '' && this.state.phone !== '') {
+			changeUserInfo({
+				id: api.getProfile().id,
+				name: this.state.name,
+				email: this.state.email,
+				location: this.state.location,
+				phone: this.state.phone
+			})
+			this.props.signout()
+		} else {
+			this.setState({
+				emptyField: true
+			})
+		}
 	}
 	render() {
+		let emptyField
+
+		if(this.state.emptyField) {
+			emptyField = <div>Fields Cannot be Left Empty</div>
+		}
+
 		return (
 			<div className="editProfileContainer">
-				<Header as='h1' attached='top'>
-					Edit Profile
-				</Header>
+				<Header as='h1' textAlign="center" attached='top' content="Edit Profile" />
 				<Segment attached>
 	        <Form size='huge' onSubmit={this.handleSubmit}>
-	        	<Form.Input icon='user' iconPosition='left' name='name' onChange={this.handleChange} value={this.state.name} />
-	 					<Form.Input icon='envelope' iconPosition='left' name='email' onChange={this.handleChange} value={this.state.email} />
-	 					<Form.Input icon='home' iconPosition='left' name='location' onChange={this.handleChange} value={this.state.location} />
-	 					<Form.Input icon='mobile' iconPosition='left' name='phone' onChange={this.handleChange} value={this.state.phone} />
+	        	<Form.Input icon='user' iconPosition='left' name='name' id='shadow2' onChange={this.handleChange} value={this.state.name} />
+	 					<Form.Input icon='envelope' id="shadow2" iconPosition='left' name='email' onChange={this.handleChange} value={this.state.email} />
+	 					<Form.Input icon='home' id="shadow2" iconPosition='left' name='location' onChange={this.handleChange} value={this.state.location} />
+	 					<Form.Input icon='mobile' id="shadow2" iconPosition='left' name='phone' onChange={this.handleChange} value={this.state.phone} />
 	 					<Link to='/login'>
-	 						<Button className="loginSubmit" size='huge' type="submit">Change Info</Button>
+	 						<Button className="loginSubmit" id="shadow" size='huge' type="submit" content="Click to Save Changes" />
 	 					</Link>
 	 				</Form>
 	 			</Segment>
