@@ -5,6 +5,7 @@ import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
 import { api, withAuth } from '../Authentication'
 import DefaultDonations from './DefaultDonations'
 import {connect } from 'react-redux'
+
 class Donate extends Component {
 	state = {
 		dish: '',
@@ -21,13 +22,13 @@ class Donate extends Component {
 		check: !!false
 	}
 
-
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
 		donateForm(this.state.dish)
 	}
+
 //HANDLE DEFAULT DONATIONS
 	handleDefault = (e) =>{
 
@@ -36,8 +37,6 @@ class Donate extends Component {
 		})
 		console.log(this.state.check)	
 	}
-
-
 
 	handleClick = (e) =>{
 		this.setState({
@@ -53,10 +52,7 @@ class Donate extends Component {
 		var sel = e.target.elements.trays.value
 		var FT = e.target.elements.dish.value
 		var foodCost = e.target.elements.value.value
-		
-
-
-
+	
 		if(sel === '0' && FT === '' && foodCost === ''){
 			this.setState({
 				blankFields: false,
@@ -79,7 +75,6 @@ class Donate extends Component {
 				blankAmount: false,
 				color: 'red',
 				blankFields: true
-				
 			})
 
 		}
@@ -91,8 +86,12 @@ class Donate extends Component {
 				blankFields: true
 			})
 		}
-		
-		else if(this.state.check === true && FT !== '' && sel!== '0' && foodCost!=='' ){
+
+		else{
+			var date = new Date()
+			var hou = date.getHours()
+			var min = date.getMinutes()
+			var time = hou + ':' + min
 			e.preventDefault()
 			console.log('Successful donation made.')
 			makeDonation({
@@ -102,6 +101,8 @@ class Donate extends Component {
 				food_id: api.getProfile().id,
 				donate_time: getTime()
 			})
+			this.props.history.push('/restaurant/thankyou')	
+		}
 
 			addToDefault({
 				dish: this.state.dish,
@@ -113,22 +114,7 @@ class Donate extends Component {
 			console.log(this.state.check)
 			this.props.history.push('/restaurant/thankyou')	
 		}
-
-		else{
-					e.preventDefault()
-			console.log('Successful donation made.')
-			makeDonation({
-				dish: this.state.dish,
-				trays: this.state.trays,
-				value: this.state.value,
-				food_id: api.getProfile().id,
-				donate_time: getTime()
-			})
-			console.log(this.state.check)
-			this.props.history.push('/restaurant/thankyou')		
-		}
-
-	}
+	
 
 
 	render() {
@@ -140,13 +126,13 @@ class Donate extends Component {
 			if(!this.state.blankFields)
 			{
 				blank_fields =
-					<div id ='wrongg'>
-						<ul>
-							<li>Please tell us what Kind of food you are donating.</li>
-							<li>Please tell us how many trays you are donating.</li>
-							<li>Please provide a cost for your over all donation.</li>
-						</ul>
-					</div>
+				<div id ='wrongg'>
+					<ul>
+						<li>Please tell us what Kind of food you are donating.</li>
+						<li>Please tell us how many trays you are donating.</li>
+						<li>Please provide a cost for your over all donation.</li>
+					</ul>
+				</div>
 			}
 
 			if(!this.state.blankType)
@@ -179,9 +165,8 @@ class Donate extends Component {
 			}
 
 		return (
-		<div>
 			<Container className="donate-container">
-				<Header id='headerD'>Make a Donation</Header>
+				<Header as='h1' id='headerD'>Make a Donation</Header>
 
 				<Form onSubmit={this.handleSubmit.bind(this)} widths='equal'>
 					<Form.Field
@@ -208,10 +193,10 @@ class Donate extends Component {
 			    	value={this.state.trays} 
 			     	onClick={this.handleClick} 
 		    	>
-			    		<option value='0'>0</option>
-				        <option value='1'>1</option>
-				        <option value='2'>2</option>
-				        <option value='3'>3</option>
+			    	<option value='0'>0</option>
+		        <option value='1'>1</option>
+		        <option value='2'>2</option>
+		        <option value='3'>3</option>
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 						<option value='6'>6</option>
@@ -243,24 +228,23 @@ class Donate extends Component {
 							onClick={this.handleClick}
 						/>
 					</Form.Field>
-					<label id='add'>Add To Default Donations</label>
-					<input type="checkbox" name='deff' id='radio' onChange={this.handleDefault} checked={this.state.check}/> 
-	    		
-	    		<Form.Field>	    		
+	    		<Form.Field>
 		    		<Button 
 		    			color={this.state.color}
 		    			type='submit'
-		    			fluid >
+		    			fluid
+		    			id="shadow" >
 	    				Donate
-	    			</Button>	    			
-    			</Form.Field>    			
+	    			</Button>
+    			</Form.Field>
+			  {blank_fields}
+					<label id='add'>Add To Default Donations</label>
+					<input type="checkbox" name='deff' id='radio' onChange={this.handleDefault} checked={this.state.check}/> 
 			  </Form>
 			  {blank_fields}
+			  <DefaultDonations/>
 			</Container>
-
-			<DefaultDonations/>
-				
-			</div>
+			
 		)
 	}
 }

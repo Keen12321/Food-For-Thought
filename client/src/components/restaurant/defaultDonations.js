@@ -102,6 +102,7 @@ handleView = (e) =>{
 							<Button
 								color='blue'
 								type='submit'
+								id='shadow'
 								onClick={this.handleClick}
 								>
 								Donate

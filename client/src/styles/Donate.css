@@ -53,23 +53,30 @@ input[type='checkbox']{
 #defaults {
 	padding:1%;
 	border-bottom: 2px solid #ccc;
+	background: rgba(255,255,255, 0.8);
+	margin: 1.5% 0 1.5% 0;
+	border-radius: 20px;
 }
 
 #defaults input{
-	width: 10%;
-	padding-left: 1%;
+	width: 13%;
+	padding: 1%;
 	margin:auto;
 	/*text-align: center;*/
 	outline: none;
 	border: none;
 	font-style: italic;
+	background: none;
+	text-overflow: ellipsis;
+	cursor: pointer;
 }
 
 #defaults label{
-	border-left: 2px solid #232323;
+	/*border-left: 2px solid #232323;*/
 	padding-left: 5px;
 	padding-right: 5px;
-	border-right: 2px solid #232323;
+	/*border-right: 2px solid #232323;*/
+	font-weight: bold;
 }
 
 
