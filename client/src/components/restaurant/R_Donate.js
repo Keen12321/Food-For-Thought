@@ -235,12 +235,19 @@ class R_Donate extends Component {
 	    			</Button>
     			</Form.Field>
 			  {blank_fields}
+					<div className='defaultflex'>
+					<div>
 					<label id='add'>Add To Default Donations
 					<input type="checkbox" name='deff' id='radio' onChange={this.handleDefault} checked={this.state.check}/>
-					</label>    			
+					</label>
+					</div>
+					<div>
+					<DefaultDonations/>
+					</div>  
+					</div>			
 			  </Form>
 			  {blank_fields}
-			  <DefaultDonations/>
+			  
 			</Container>
 		)
 	}

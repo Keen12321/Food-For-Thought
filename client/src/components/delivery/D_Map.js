@@ -109,7 +109,7 @@ render() {
           <Header as='h1' id="centext">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
           <div className="pickupsContainer">
                 <div id="scroll">
-                <audio src={chime} hidePlayer='true' autoPlay />
+                <audio src={chime} hideplayer='true' autoPlay />
                   <h3>All pickups completed.</h3>
                   <h3>Please return to:</h3>
                   <p> {api.getProfile().location}</p>
