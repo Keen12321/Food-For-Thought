@@ -13,6 +13,13 @@ class D_Home extends Component {
    componentDidMount() {
     getDonations()
    }
+  //  componentWillReceiveProps(newProps) {
+  //   if (this.props.donate !== newProps.donate) {
+  //     getDonations(newProps)
+  //   } else {
+  //     getDonations()
+  //   }
+  // }
 
   render() {
     return (
@@ -41,7 +48,6 @@ class D_Home extends Component {
      )
    }
   }
-
 function mapStateToProps(appState) {
   return {
     donate: appState.appReducer.donate

@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 import { updatePickup } from '../../actions/donateActions'
 import {Button, Header} from 'semantic-ui-react'
 
-
 const Modal = ({ handleClose, show, children}) => {
 	const showHideClassName = show ? 'modal modal-show' : 'modal modal-hidden'
 	return (
@@ -17,7 +16,6 @@ const Modal = ({ handleClose, show, children}) => {
 	)
 }
 class ManagePickupsList extends Component {
-
 	state = {
 		accepted: null,
 		reason: '',
@@ -39,7 +37,7 @@ class ManagePickupsList extends Component {
 			delivery_id: api.getProfile().id
 		})
 	}
-	addPickup = (e) => {
+addPickup = (e) => {
 	e.preventDefault()
 	updatePickup({
 		accepted: 'pending',
@@ -52,7 +50,7 @@ class ManagePickupsList extends Component {
  render() {
    return (
    		<div>
-         	<div key={this.props.user.id} className="availablepickups ui vertical segment" id="segment">
+         <div key={this.props.user.id} className="availablepickups ui vertical segment" id="segment">
 	   			<div>
 	  				<Header as='h3'>{this.props.user.name}</Header>
 	  				<p>{this.props.user.location}</p>
@@ -64,15 +62,14 @@ class ManagePickupsList extends Component {
 	  				<Button color='blue' icon='map' id='shadow' content='Add to Map' onClick={this.showAddModal} />
 	  			</div>
          		<Modal show={this.state.show3} handleClose={this.hideAddModal}>
-						<h2>Add the following pickup to your route:</h2>
-						<p>{this.props.user.name}</p>
-						<p>{this.props.user.location}</p>
-						<p>{this.props.user.dish} x {this.props.user.trays}</p>
-						<p>Distance From Location</p>
-						<Button color='blue' icon='map' content='Add to Map' id="shadow" onClick={this.addPickup} />
-
+              <h2>Add the following pickup to your route:</h2>
+              <p>{this.props.user.name}</p>
+              <p>{this.props.user.location}</p>
+              <p>{this.props.user.dish} x {this.props.user.trays}</p>
+              <p>Distance From Location</p>
+              <Button color='blue' icon='map' content='Add to Map' id="shadow" onClick={this.addPickup} />
          		</Modal>  			         
-			</div>
+			    </div>
    		</div>
    	)
  	}
