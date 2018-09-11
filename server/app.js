@@ -48,13 +48,5 @@ if (env === 'production') {
   })
 }
 
-https.createServer({
-  key: fs.readFileSync('server.key'),
-  cert: fs.readFileSync('server.cert')
-}, app)
-.listen(config.get('server.port'), function () {
-  console.log('Example app listening on port ' + config.get('server.port') + '! Go to https://localhost:/' + config.get('server.port'))
-})
-
 // module.exports = app
 module.exports = app
