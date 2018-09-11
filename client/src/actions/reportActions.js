@@ -1,4 +1,4 @@
-import {api} from '../components/Authentication'
+import { api } from '../components/Authentication'
 import store from '../store'
 
 export function getReportRestaurant(id) {
@@ -9,6 +9,7 @@ export function getReportRestaurant(id) {
 		})
 	})
 }
+
 export function getReportDelivery(id) {
 	api.get('/api/reportsDelivery/' + id).then(data => {
 		store.dispatch({
