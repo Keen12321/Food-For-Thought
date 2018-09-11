@@ -96,8 +96,8 @@ class PickupsList extends Component {
 		  			</div>
 	  			</div>
 	  			<div>
-	  				<a href={'tel:1+'+`${this.props.user.phone}`}><i className="fa fa-phone fa-2x"></i></a>
-	  				<a href={'sms:1+'+`${this.props.user.phone}`}><i className="fa fa-comment fa-2x"></i></a>
+	  				<a href={`tel:1+${this.props.user.phone}`}><i className="fa fa-phone fa-2x"></i></a>
+	  				<a href={`sms:1+${this.props.user.phone}`}><i className="fa fa-comment fa-2x"></i></a>
 	  			</div>
 	  			<div className="space">
 	  				<Button color='green' icon='check' id='shadow' content='Confirm Pickup' onClick={this.showPickupModal} />
