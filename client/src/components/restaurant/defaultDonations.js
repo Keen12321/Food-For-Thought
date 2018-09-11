@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { getDefault } from '../../actions/donateActions'
-import { makeDonation, donateForm, getTime } from '../../actions/donateActions'
+import { makeDonation, getTime } from '../../actions/donateActions'
 import {api, withAuth } from '../Authentication'
 import {connect} from 'react-redux'
 import {Button} from 'semantic-ui-react'
@@ -22,7 +22,6 @@ class DefaultDonations extends Component{
 
 	componentDidMount(){
 		getDefault(this.state.food_id)
-		console.log(this.state.deffs)		
 			// console.log(this.state.id)
 			// this.setState({
 			// 	confirm: false
@@ -35,7 +34,6 @@ handleClick = (e) =>{
 	this.setState({
 		confirm: !this.state.confirm
 	})
-	console.log(this.state.confirm)
 }
 
 handleView = (e) =>{
@@ -88,12 +86,9 @@ handleView = (e) =>{
 		if(this.state.thanks === true){
 			return	<Redirect to="/restaurant/thankyou" />
 		}
-
-
-
 		if(this.state.deffs){
 			allDefs = 
-						<div className='defaultContain'>
+		<div className='defaultContain'>
 						
 			{this.props.defaultD.map(data =>(
 				<form id='defaults' onSubmit={this.handleSubmit.bind(this)} >	
@@ -114,9 +109,8 @@ handleView = (e) =>{
 					
 				</form>	
 			))}
-			
-			</div>
-		}
+		</div>
+	}
 		return(
 			<div id="deffs">
 				<h1 onClick={this.handleView}>View Default Donations</h1>
@@ -131,7 +125,4 @@ function mapStatetoProps(appState) {
 		defaultD: appState.appReducer.defaultD
 	}
 }
-
-
-
 export default withAuth(connect(mapStatetoProps)(DefaultDonations))

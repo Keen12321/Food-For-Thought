@@ -1,21 +1,20 @@
-import axios from 'axios'
+import { api } from '../components/Authentication'
 import store from '../store'
 
 export function getReportRestaurant(id) {
-	axios.get('/api/reportsRestaurant/' + id).then(resp => {
+	api.get('/api/reportsRestaurant/' + id).then(data => {
 		store.dispatch({
 			type:'GET_REPORT_RESTAURANT',
-			payload:resp.data
+			payload:data
 		})
 	})
 }
 
 export function getReportDelivery(id) {
-	axios.get('/api/reportsDelivery/' + id).then(resp => {
+	api.get('/api/reportsDelivery/' + id).then(data => {
 		store.dispatch({
 			type:'GET_REPORT_DELIVERY',
-			payload:resp.data
+			payload:data
 		})
 	})
 }
-
