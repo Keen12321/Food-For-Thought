@@ -8,7 +8,7 @@ export function makeDonation(donation) {
 }
 export function updatePickup(state) {
 	api.patch('/api/donating', state).then(data => {
-
+		getDonations()
 	})
 }
 
