@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Authentication } from '../Authentication'
-
+import Oops from '../Oops'
+import D_ManagePickups from './D_ManagePickups'
 import D_Home from './D_Home'
 // import D_Pickups from './D_Pickups'
-import D_ManagePickups from './D_ManagePickups.js'
 import D_Reports from './D_Reports'
 import D_Profile from './D_Profile'
 import D_Map from './D_Map'
@@ -25,6 +25,7 @@ class DeliveryApp extends Component {
             <Route path="/delivery/reports/:id" component={D_Reports} />
             <Route path="/delivery/profile" component={D_Profile} />
             <Route path="/delivery/map/:id" component={D_Map} />
+            <Route render={() => (<Oops />)} />
           </Switch>
         </div>
       </Authentication>

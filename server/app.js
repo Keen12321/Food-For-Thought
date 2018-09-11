@@ -1,14 +1,12 @@
 import express from 'express'
 import logger from 'morgan'
 import bodyParser from 'body-parser'
-import path from 'path'
 import cookieParser from 'cookie-parser'
+import path from 'path'
 import config from 'config'
 import authRoutes from './routes/auth'
 import protectedRoutes from './routes/user'
 import jwt from 'express-jwt'
-import fs from 'fs'
-import https from 'https'
 
 const app = express()
 
@@ -21,8 +19,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', authRoutes)
-app.use('/api', protectedRoutes)
-// jwt({secret: config.get('jwt.secret')}),
+app.use('/api', jwt({secret: config.get('jwt.secret')}), protectedRoutes)
 
 app.use((req, res, next) => {
   let err = new Error('Not Found')
@@ -48,5 +45,4 @@ if (env === 'production') {
   })
 }
 
-// module.exports = app
 module.exports = app
