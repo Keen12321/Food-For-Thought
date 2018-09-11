@@ -96,7 +96,7 @@ class R_Reports extends Component {
 
 	render() {
 		return (
-			<div className="reportContainer">
+			<div className='reportContainer'>
 				<div className='reportForm'>
 					<h2>Select Start & End Dates Below</h2>
 					<Form onSubmit={this.handleForm}>
@@ -106,8 +106,8 @@ class R_Reports extends Component {
 						</Form.Group>
 						<Form.Group className='buttons'>
 							<Form.Button id='submit' type='submit' content='Generate Report' />
-							<Form.Button id='print' onClick={this.printReport} content='Print Report' />
-							<Form.Button id='reset' onClick={this.resetReport} content='Reset Report' />
+							<Form.Button id='print' content='Print Report' onClick={this.printReport} />
+							<Form.Button id='reset' content='Reset Report' onClick={this.resetReport} />
 						</Form.Group>
 					</Form>
 				</div>
@@ -164,7 +164,6 @@ class R_Reports extends Component {
 
 function mapStateToProps(appState) {
 	return {
-
 		reportRestaurant:appState.reportReducer.reportRestaurant
 	}
 }

@@ -9,6 +9,7 @@ export function getReportRestaurant(id) {
 		})
 	})
 }
+
 export function getReportDelivery(id) {
 	api.get('/api/reportsDelivery/' + id).then(data => {
 		store.dispatch({

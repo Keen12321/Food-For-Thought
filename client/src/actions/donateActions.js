@@ -3,7 +3,6 @@ import store from '../store'
 
 export function makeDonation(donation) {
 	api.post('/api/donate', donation).then(data => {
-		console.log('resp:', data)
 	})
 }
 
@@ -46,7 +45,6 @@ export function getTime() {
 //POSTING DEFAULT DONATIONS TO THE defaultDonations TABLE
 export function addToDefault(donation){
 	api.post('/api/donation/default', donation).then(data =>{
-		console.log('resp:', data)
 	})
 }
 

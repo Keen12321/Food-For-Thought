@@ -45,28 +45,43 @@ input[type='checkbox']{
 	text-align: center;
 }
 
-#defaults {
+/*#defaults {
 	margin: 20px 0 30px 0;
 	display: flex;
 	flex-direction: column;
 	padding: 1%;
 	border-bottom:2px solid #232323;
+}*/
+
+#defaults {
+	padding:1%;
+	border-bottom: 2px solid #ccc;
+	background: rgba(255,255,255, 0.8);
+	margin: 1.5% 0 1.5% 0;
+	border-radius: 20px;
 }
 
 #defaults input{
-	width: 10%;
+	width: 13%;
+	padding: 1%;
 	margin:auto;
-	text-align: center;
+	/*text-align: center;*/
 	outline: none;
 	border: none;
 	font-style: italic;
+	background: none;
+	text-overflow: ellipsis;
+	cursor: pointer;
 }
 
 #defaults label{
-	margin-top: 2%;
+	/*border-left: 2px solid #232323;*/
+	padding-left: 5px;
+	padding-right: 5px;
+	/*border-right: 2px solid #232323;*/
 	font-weight: bold;
-	margin-bottom: 5px;
 }
+
 
 #defaults button{
 	width: 25%;
@@ -86,13 +101,27 @@ input[type='checkbox']{
 	width: 30%;
 	margin: auto;
 }
+
+
+#pleaseConfirm{
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 11%
+}
+
 .defaultflex {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	margin: 0 auto;
+
 }
 
+#clickMe{
+	color: blue;
+	font-weight: bold;
+	cursor: pointer;
+}
 
 
 

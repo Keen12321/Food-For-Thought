@@ -23,7 +23,11 @@ a {
 	font-family: sans-serif;
 }
 #shadow, #submit, #print, #reset {
+
+	box-shadow: 3px 3px 1px #232323;
+
 	box-shadow: 3px 3px 1px #000;
+
 }
 #shadow2, #foodTitle, #foodVal, #mySelect {
 	box-shadow: 0 0 5px #888 inset;

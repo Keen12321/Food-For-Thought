@@ -221,20 +221,22 @@ class R_Donate extends Component {
 		    			type='submit'
 		    			fluid
 		    			id="shadow" >
-	    				Submit
+	    				Donate
 	    			</Button>
     			</Form.Field>
 			  {blank_fields}
+
+					<label id='add'>Add To Default Donations</label>
+					<input type="checkbox" name='deff' id='radio' onChange={this.handleDefault} checked={this.state.check}/> 
+
 					<div className='defaultflex'>
 					<div>
-					<label id='add'>Add To Default Donations
-					<input type="checkbox" name='deff' id='radio' onChange={this.handleDefault} checked={this.state.check}/>
-					</label>
 					</div>
 					<div>
 					<DefaultDonations/>
 					</div>  
 					</div>			
+
 			  </Form>
 			  {blank_fields}
 			  
