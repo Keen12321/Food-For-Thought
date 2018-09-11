@@ -1,8 +1,5 @@
 import { api } from '../components/Authentication'
 import store from '../store'
-import axios from 'axios'
-// import { Message } from 'semantic-ui-react'
-
 
 export function makeDonation(donation) {
 	api.post('/api/donate', donation).then(data => {
@@ -15,7 +12,6 @@ export function updatePickup(state) {
 
 	})
 }
-
 
 
 export function donateForm(input) {
@@ -57,7 +53,6 @@ export function getTime() {
 		
   	return time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 }
-
 
 //POSTING DEFAULT DONATIONS TO THE defaultDonations TABLE
 export function addToDefault(donation){

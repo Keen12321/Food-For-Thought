@@ -102,7 +102,7 @@ class Register extends Component {
  		} else {
 	   	return (
 	   		<div className="loginContainer">
-	   		<img src={logo} />
+	   		<img src={logo} alt=''/>
 	   			<div className='loginright'>
 	   			<div className="loginTitleContainer">
 	   				<i id="loginLogo" className="fa fa-cutlery" />

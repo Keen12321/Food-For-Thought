@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { getDefault } from '../../actions/donateActions'
-import { makeDonation, donateForm, getTime } from '../../actions/donateActions'
+import { makeDonation, getTime } from '../../actions/donateActions'
 import {api, withAuth } from '../Authentication'
 import {connect} from 'react-redux'
 import {Button} from 'semantic-ui-react'

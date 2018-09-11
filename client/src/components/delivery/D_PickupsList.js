@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { updatePickup } from '../../actions/donateActions'
 import { withAuth, api } from '../Authentication'
-import {Link} from 'react-router-dom'
-
 
 const Modal = ({ handleClose, show, children}) => {
 	const showHideClassName = show ? 'modal modal-show' : 'modal modal-hidden'

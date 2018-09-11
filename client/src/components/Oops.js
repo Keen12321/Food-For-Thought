@@ -7,7 +7,7 @@ class Oops extends Component {
  render() {
    return (
    		<div className="errorpage">
-   		<img src={error} />
+   		<img src={error} alt=""/>
    		</div>
      
    )
