@@ -9,6 +9,7 @@ import ThankYou from './ThankYou'
 import R_Profile from './R_Profile'
 import HomeBar from './R_HomeBar'
 
+
 class RestaurantApp extends Component {
  	render() {
    	return (
@@ -23,6 +24,7 @@ class RestaurantApp extends Component {
           <Route path="/restaurant/reports/:id" component={R_Reports} />
           <Route path='/restaurant/thankyou' component={ThankYou} />
           <Route path="/restaurant/profile" component={R_Profile} />
+
         </Switch>
       </Authentication>
    	)

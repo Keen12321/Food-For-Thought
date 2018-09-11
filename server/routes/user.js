@@ -62,11 +62,17 @@ router.post('/donate', (req, res, next) => {
 	})
 })
 
+<<<<<<< HEAD
 // GET REPORTS
 router.get('/reports/:id', (req, res, next) => {
+=======
+
+// GET RESTAURANT REPORTS
+router.get('/reportsRestaurant/:id', (req, res, next) => {
+>>>>>>> 350c909d3e4a31f7842687b8d9972006fcec1b37
 	const sql = `
 		SELECT 
-			users.name, donations.date, donations.dish, donations.trays, donations.value, users.id
+			donations.dish, donations.trays, donations.value, donations.date, donations.food_id, users.id, users.name, users.tax_id
 		FROM 
 			donations
 		LEFT JOIN 
@@ -78,15 +84,43 @@ router.get('/reports/:id', (req, res, next) => {
 	`
 
 	conn.query(sql, (error, results, fields) => {
-		let report = []
+		let reportRestaurant = []
 		let id = req.params.id
 
 		for (let i = 0; i < results.length; i++) {
 			if (results[i].id == id) {
-				report.push(results[i])
+				reportRestaurant.push(results[i])
 			}
 		}
-		res.json(report)
+		res.json(reportRestaurant)
+	})
+})
+
+// GET DELIVERY REPORTS
+router.get('/reportsDelivery/:id', (req, res, next) => {
+	const sql = `
+		SELECT 
+			donations.dish, donations.trays, donations.value, donations.date, donations.delivery_id, users.id, users.name, users.tax_id
+		FROM 
+			donations
+		LEFT JOIN 
+			users 
+		ON 
+			donations.delivery_id = users.id
+		WHERE 
+			donations.delivery_id = users.id;
+	`
+
+	conn.query(sql, (error, results, fields) => {
+		let reportDelivery = []
+		let id = req.params.id
+
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].id == id) {
+				reportDelivery.push(results[i])
+			}
+		}
+		res.json(reportDelivery)
 	})
 })
 
@@ -119,7 +153,7 @@ router.patch('/donating', (req, res, next) => {
 router.get('/donating', (req, res, next) => {
 	const sql = `
 		SELECT
-			donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.name
+			donations.dish, donations.trays, donations.id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.phone, users.name
 		FROM
 			donations
 		LEFT JOIN
@@ -139,7 +173,7 @@ router.get('/donating/pending/:id', (req, res, next) => {
 
 	const sql = `
 		SELECT
-			donations.dish, donations.trays, donations.id, donations.delivery_id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.name
+			donations.dish, donations.trays, donations.id, donations.delivery_id, donations.accepted, donations.reason, donations.pickup_by, users.location, users.phone, users.name
 		FROM
 			donations
 		LEFT JOIN
@@ -154,7 +188,7 @@ router.get('/donating/pending/:id', (req, res, next) => {
 })
 
 //GETTING ADDRESSES FROM PENDING TO BE THE WAYPOINTS
-router.get('/donating/pending/addresses', (req, res, next) => {
+router.get('/donating/pending/addresses/:id', (req, res, next) => {
 	let id = req.params.id
 
 	const sql = `
@@ -165,12 +199,67 @@ router.get('/donating/pending/addresses', (req, res, next) => {
 		LEFT JOIN
 			donations ON food_id = users.id
 		WHERE
-			donations.accepted = "pending"
+			delivery_id = ? AND donations.accepted = "pending"
 	`
 
-	conn.query(sql, (err, results, fields) => {
+	conn.query(sql, [id], (err, results, fields) => {
 		res.json(results)
 	})
 })
 
+<<<<<<< HEAD
 export default router
+=======
+//POSTING DEFAULT DONATIONS
+
+router.post('/donation/default', (req, res, next) =>{
+	const dish = req.body.dish
+	const trays = req.body.trays
+	const value = req.body.value
+	const food_id = req.body.food_id
+	const sql = `
+		INSERT INTO
+			defaultDonations (dish, trays, value, food_id)
+		VALUES
+			(?, ?, ?, ?)
+	`
+
+	conn.query(sql, [dish, trays, value, food_id], (error, results, fields) => {
+		let donation = req.body
+		console.log(donation)
+	})
+})
+
+//GETTING YOUR OWN DEFAULT DONATIONS 
+router.get('/donation/default/:id', (req, res, next) =>{
+		const sql = `
+		SELECT 
+			defaultDonations.dish, defaultDonations.trays, defaultDonations.value, defaultDonations.food_id, users.id
+		FROM 
+			defaultDonations
+		LEFT JOIN 
+			users 
+		ON 
+			defaultDonations.food_id = users.id
+		WHERE 
+			defaultDonations.food_id = users.id
+	`
+	conn.query(sql, (error, results, fields) => {
+		let defaultD = []
+		let id = req.params.id
+
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].id == id) {
+				defaultD.push(results[i])
+			}
+		}
+		res.json(defaultD)
+	})
+	
+})
+
+
+export default router
+
+
+>>>>>>> 350c909d3e4a31f7842687b8d9972006fcec1b37

@@ -36,15 +36,15 @@ class D_Map extends Component {
   componentDidMount() {
     this.showCurrentLocation()
     getAddresses(api.getProfile().id)
+    console.log('adsf', this)
   }
 
   render() {
     const lat = this.state.currentLatLng.lat
     const lng = this.state.currentLatLng.lng
     const waypnt = this.props.addresses
-    
-    // TO-DO: Resolve declaration warning
-    let rte
+    var rte
+
 
     const DirectionsComponent = compose(
 
@@ -52,7 +52,7 @@ class D_Map extends Component {
         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U",
         loadingElement: <div style={{ height: `100%` }} />,
         containerElement: <div style={{ width: `100%` }} />,
-        mapElement: <div style={{height: `600px`, width: `100%` }} />
+        mapElement: <div style={{height: `600px`, width: `100%` }}  />,
       }),
 
       withScriptjs,
@@ -61,37 +61,38 @@ class D_Map extends Component {
       lifecycle({
         componentDidMount() { 
           const DirectionsService = new google.maps.DirectionsService()
-          
           DirectionsService.route({
             origin: new google.maps.LatLng({lat:lat, lng:lng}),
             destination: api.getProfile().location,
             waypoints: waypnt, //empty array is ok. array of objects with location and stopover
             optimizeWaypoints: true,
-            travelMode: google.maps.TravelMode.DRIVING
+            travelMode: google.maps.TravelMode.DRIVING,
           }, (result, status) => {
             if (status === google.maps.DirectionsStatus.OK) {
               this.setState({
-                directions: {...result}
+                directions: {...result},
               })
-              rte = {...result.routes}
-            } else {
+              rte = {...result}
+              console.log(this)
+            }
+             else {
               console.error(`error fetching directions ${result}`)
             }
           })
         }
       })
-    ) ( props =>
+    )(props =>
+
       <GoogleMap defaultZoom={8} center={{lat: 36.1699, lng: -115.1398}}>
-        {props.directions && <DirectionsRenderer directions={props.directions} />}
-        <TrafficLayer autoUpdate />
+           {props.directions && <DirectionsRenderer directions={props.directions}  />}
+           <TrafficLayer autoUpdate />
       </GoogleMap>
     )
-    // console.log('The outside Props:', this.props)
-
+    console.log('reeee', this)
     return (
-      <div className="pickupsContainer">
-        <div id="scroll">
-          <Pickups />
+	    <div className="pickupsContainer">
+	    <div id="scroll">
+        <Pickups />
         </div>
 
         <DirectionsComponent />

@@ -14,45 +14,49 @@ class D_Home extends Component {
     getDonations()
   }
 
+  // componentWillReceiveProps(newProps) {
+  //   if ( this.props.donate !== newProps.donate)  {
+  //     getDonations(newProps)
+  //   } else {
+  //     getDonations()
+  //   }
+  // }
+
+
+
   render() {
     return (
-      <div>
-        <div className="pickupnotification">
+      <Container text>
+        <Container className="pickupnotification">
           <Header as='h3'>
             Pickups available for today: {this.props.donate.length}
           </Header>
-        </div>
+        </Container>
      		
         <Container className="D_HomeContainer">
-     			<div>
-     				<Link to={`/delivery/map/${this.state.id}`}>
-              <Button color='green' type="submit" className="startPickup wubba">
-                My Pickups Map
-              </Button>
-            </Link>
-     			</div>
-     			<div>
-     				<Link to={`/delivery/reports/${this.state.id}`}>
-              <Button color='red' type="submit" className="manageReports wubba">
-                Manage Reports
-              </Button>
-            </Link>
-     			</div>
-     			<div>
-     				<Link to="/delivery/pickups">
-              <Button color='blue' type="submit" className="navHome wubba">
-                View All Available Pickups
-              </Button>
-            </Link>
-     			</div>
+     			
+   				<Link to={`/delivery/map/${this.state.id}`}>
+            <Button color='green' type="submit" 
+              className="startPickup wubba">My Pickups Map</Button>
+          </Link>
+
+   				<Link to={`/delivery/reports/${this.state.id}`}>
+            <Button color='red' type="submit" 
+              className="manageReports wubba">Manage Reports</Button>
+          </Link>
+   			
+   				<Link to="/delivery/pickups">
+            <Button color='blue' type="submit" 
+              className="navHome wubba">View All Available Pickups</Button>
+          </Link>
+     			
      		</Container>
-     	</div>
+     	</Container>
    )
  }
 }
 
 function mapStateToProps(appState) {
-  console.log('appstate', appState)
   return {
     donate: appState.appReducer.donate
   }
