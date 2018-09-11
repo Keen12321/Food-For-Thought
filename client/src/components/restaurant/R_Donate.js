@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
 import { makeDonation, donateForm, getTime, addToDefault } from '../../actions/donateActions'
-import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
+import { Button, Form, Container, Header } from 'semantic-ui-react'
 import { api, withAuth } from '../Authentication'
 import DefaultDonations from './DefaultDonations'
 import {connect } from 'react-redux'
 
-class Donate extends Component {
+class R_Donate extends Component {
 	state = {
 		dish: '',
 		trays: '',
@@ -31,7 +31,6 @@ class Donate extends Component {
 
 //HANDLE DEFAULT DONATIONS
 	handleDefault = (e) =>{
-
 		this.setState({
 			check: !this.state.check
 		})
@@ -88,10 +87,10 @@ class Donate extends Component {
 		}
 
 		else{
-			var date = new Date()
-			var hou = date.getHours()
-			var min = date.getMinutes()
-			var time = hou + ':' + min
+			// var date = new Date()
+			// var hou = date.getHours()
+			// var min = date.getMinutes()
+			// var time = hou + ':' + min
 			e.preventDefault()
 			console.log('Successful donation made.')
 			makeDonation({
@@ -115,8 +114,6 @@ class Donate extends Component {
 			this.props.history.push('/restaurant/thankyou')	
 		}
 	
-
-
 	render() {
 		let blank_fields
 		let blank_value  
@@ -149,7 +146,7 @@ class Donate extends Component {
 			{
 				blank_amount = <div id="wrongg">
 					<ul>
-						<li>Please Tell us how many trays you are donating.</li>
+						<li>Please tell us how many trays you are donating.</li>
 					</ul>
 				</div>
 			}
@@ -159,7 +156,7 @@ class Donate extends Component {
 					blank_value = 
 					<div id="wrongg">
 						<ul>
-							<li>Please Tell us what the value of this donation is</li>
+							<li>Please tell us what the value of this donation is</li>
 						</ul>
 					</div>
 			}
@@ -238,13 +235,22 @@ class Donate extends Component {
 	    			</Button>
     			</Form.Field>
 			  {blank_fields}
+
 					<label id='add'>Add To Default Donations</label>
 					<input type="checkbox" name='deff' id='radio' onChange={this.handleDefault} checked={this.state.check}/> 
+
+					<div className='defaultflex'>
+					<div>
+					</div>
+					<div>
+					<DefaultDonations/>
+					</div>  
+					</div>			
+
 			  </Form>
 			  {blank_fields}
-			  <DefaultDonations/>
+			  
 			</Container>
-			
 		)
 	}
 }
@@ -255,4 +261,4 @@ function mapStateToProps(appState){
 	}
 }
 
-export default withAuth(connect(mapStateToProps)(Donate))
+export default withAuth(connect(mapStateToProps)(R_Donate))

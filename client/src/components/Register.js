@@ -13,6 +13,7 @@ class Register extends Component {
 		confirmPassword: '',
 		location: '',
 		phone: '',
+		tax_id: '',
 		type: '',
 		buttonColor: '',
 		validateEmpty: true,
@@ -26,7 +27,7 @@ class Register extends Component {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
-		if(this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '') {
+		if(this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '' && this.state.tax_id !== '') {
 			this.setState({
 				buttonColor:'blue'
 			})
@@ -36,7 +37,7 @@ class Register extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		
-		if (this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '') {
+		if (this.state.name !== '' && this.state.email !== '' && this.state.password !== '' && this.state.confirmPassword !== '' && this.state.location !== '' && this.state.phone !== '' && this.state.type !== '' && this.state.tax_id !== '') {
 			if (validator.isEmail(this.state.email)) {
 				if (this.state.password === this.state.confirmPassword) {
 					registerUser({
@@ -45,6 +46,7 @@ class Register extends Component {
 						password: this.state.password,
 						location: this.state.location,
 						phone: this.state.phone,
+						tax_id: this.state.tax_id,
 						type: this.state.type
 					}, () => {
 						if (this.state.type === 'Restaurant') {
@@ -102,7 +104,7 @@ class Register extends Component {
  		} else {
 	   	return (
 	   		<div className="loginContainer">
-	   		<img src={logo} />
+	   		<img src={logo} alt="Food For Thought" />
 	   			<div className='loginright'>
 	   			<div className="loginTitleContainer">
 	   				<i id="loginLogo" className="fa fa-cutlery" />
@@ -124,7 +126,6 @@ class Register extends Component {
 		 						<div>Restaurant</div>
 		 					</label>
 		 				</div>
-
 		 				<Form.Input fluid icon='user' iconPosition='left' 
 		 					name='name' onChange={this.handleChange} value={this.state.name} 
 		 					placeholder='Username' />
@@ -132,7 +133,6 @@ class Register extends Component {
 		 					name='email' onChange={this.handleChange} value={this.state.email} 
 		 					placeholder='Email' />
 		 				{incorrectEmailValidation}
-
 	 					<Form.Input fluid icon='key' iconPosition='left' type='password' 
 	 						name='password' onChange={this.handleChange} value={this.state.password} 
 	 						placeholder='Password' />
@@ -147,16 +147,18 @@ class Register extends Component {
 	 					<Form.Input fluid icon='mobile' iconPosition='left' 
 	 						name='phone' onChange={this.handleChange} 
 	 						value={this.state.phone} placeholder='Phone #' />
-	 					
+	 					<Form.Input fluid icon='user' iconPosition='left' 
+		 					name='tax_id' onChange={this.handleChange} value={this.state.tax_id} 
+		 					placeholder='EIN or 501c3 Identification Number' />
 	 					<Button className="loginSubmit" size="huge" id='shadow'
 	 						color={this.state.buttonColor} type="submit" content="Click Here to Register" />
 	 					{fieldEmpty}
 	 				</Form>
 	 				</div>
 	 			</div>
-	  		 	)
- 		}
- 	}
-}
+  		 	)
+ 		  }
+ 	  }
+  }
 
 export default Register

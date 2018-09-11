@@ -3,21 +3,21 @@ import {withAuth, api} from '../Authentication'
 import {updatePickup, getMyPickups} from '../../actions/donateActions'
 import {connect} from 'react-redux'
 import PickupsList from './D_PickupsList'
+import { Header} from 'semantic-ui-react'
 
 class Pickups extends Component {
 
 	componentDidMount() {
 		getMyPickups(api.getProfile().id)
 		updatePickup()
-	}
+  }
   
-  // componentWillReceiveProps(newProps) {
-  //   if (this.props.mypickups !== newProps.mypickups) {
-  //     getMyPickups(api.getProfile().id, newProps)
-  //   } else {
-  //     getMyPickups(api.getProfile().id)
-  //   }
-  // }
+  componentWillReceiveProps(newProps) {
+    console.log(this.props)
+    if (this.props.mypickups.length !== newProps.mypickups.length) {
+      updatePickup()
+    }
+  }
 
 	render() {
 		return (
@@ -29,13 +29,13 @@ class Pickups extends Component {
         ))}
         </div>
     		<div className="ui raised vertical segment">
-      			<h3>Home</h3>
-      			<h4>{api.getProfile().name}</h4>
+      			<Header as='h3' content='Home' />
+      			<Header as='h4' content={api.getProfile().name} />
       			<p>{api.getProfile().location}</p>
     		</div>
       </div> 
-   )
- }
+    )
+  }
 }
 
 function mapStateToProps(appState) {

@@ -12,8 +12,9 @@ dark gray - rgb(30,30,30)
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
 body {
-	background: rgb(223,251,165);
-background: radial-gradient(circle, rgba(223,251,165,1) 0%, rgba(245,244,242,1) 100%);
+	background: rgb(191,240,193);
+background: radial-gradient(circle, rgba(191,240,193,1) 0%, rgba(245,244,242,1) 100%);
+
 }
 
 a {
@@ -22,7 +23,11 @@ a {
 	font-family: sans-serif;
 }
 #shadow, #submit, #print, #reset {
+
 	box-shadow: 3px 3px 1px #232323;
+
+	box-shadow: 3px 3px 1px #000;
+
 }
 #shadow2, #foodTitle, #foodVal, #mySelect {
 	box-shadow: 0 0 5px #888 inset;
@@ -38,6 +43,20 @@ a {
 
 *:focus {
 	outline: none;
+}
+
+#mobileonly {
+	display: none;
+}
+	@media only screen and (max-device-width: 810px) {
+		#mobileonly {
+			display: block;
+			color: #ccc;
+		}
+		#notmobile {
+			display: none;
+		}
+
 }
 
 /*.startPickup, .requestPickup {

@@ -12,7 +12,7 @@ router.post('/login', (req, res, next) => {
 
 	const sql = `
 		SELECT 
-			id, name, email, location, phone, type
+			id, name, email, location, phone, type, tax_id
 		FROM 
 			users 
 		WHERE 
@@ -29,7 +29,8 @@ router.post('/login', (req, res, next) => {
 				"email": email, 
 				"location": results[0].location, 
 				"phone": results[0].phone, 
-				"type": results[0].type}, 
+				"type": results[0].type,
+				"tax_id": results[0].tax_id}, 
 				config.get('jwt.secret'))
 
 			res.json({
@@ -51,15 +52,16 @@ router.post('/register', (req, res, next) => {
 	const location = req.body.location
 	const phone = req.body.phone
 	const type = req.body.type
+	const tax_id = req.body.tax_id
 
 	const sql = `
 		INSERT INTO 
-			users (name, email, password, location, phone, type)
+			users (name, email, password, location, phone, type, tax_id)
 		VALUES 
-			(?, ?, ?, ?, ?, ?)
+			(?, ?, ?, ?, ?, ?, ?)
 	`
 
-	conn.query(sql, [name, email, password, location, phone, type], (err, results, fields) => {
+	conn.query(sql, [name, email, password, location, phone, type, tax_id], (err, results, fields) => {
 		res.json({
 			message: 'User created'
 		})

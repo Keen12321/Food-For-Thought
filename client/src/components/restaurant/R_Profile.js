@@ -30,9 +30,7 @@ class R_Profile extends Component {
 	render() {
 		return (
 			<div className="editProfileContainer">
-				<Header as='h1' attached='top'>
-					Edit Profile
-				</Header>
+				<Header as='h1' attached='top' content='Edit Profile' />
 				<Segment attached>
 	        <Form size='huge' onSubmit={this.handleSubmit}>
 	        	<Form.Input icon='user' iconPosition='left' name='name' onChange={this.handleChange} value={this.state.name} />
@@ -40,7 +38,7 @@ class R_Profile extends Component {
 	 					<Form.Input icon='home' iconPosition='left' name='location' onChange={this.handleChange} value={this.state.location} />
 	 					<Form.Input icon='mobile' iconPosition='left' name='phone' onChange={this.handleChange} value={this.state.phone} />
 	 					<Link to='/login'>
-	 						<Button className="loginSubmit" size='huge' type="submit">Change Info</Button>
+	 						<Button className="loginSubmit" id='shadow' size='huge' type="submit" content='Click to Save Changes' />
 	 					</Link>
 	 				</Form>
 	 			</Segment>	
