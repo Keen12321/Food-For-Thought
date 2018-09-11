@@ -10,7 +10,14 @@ class Pickups extends Component {
 	componentDidMount() {
 		getMyPickups(api.getProfile().id)
 		updatePickup()
-	}
+  }
+  
+  componentWillReceiveProps(newProps) {
+    console.log(this.props)
+    if (this.props.mypickups.length !== newProps.mypickups.length) {
+      updatePickup()
+    }
+  }
 
 	render() {
 		return (
