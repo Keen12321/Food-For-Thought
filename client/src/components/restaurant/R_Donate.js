@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-// import {Link} from 'react-router-dom'
-import { makeDonation, donateForm, getTime, addToDefault } from '../../actions/donateActions'
+import { makeDonation, getTime, addToDefault } from '../../actions/donateActions'
 import { Button, Form, Container, Header } from 'semantic-ui-react'
 import { api, withAuth } from '../Authentication'
 import DefaultDonations from './defaultDonations'
-import {connect } from 'react-redux'
+import { connect } from 'react-redux'
 
 class R_Donate extends Component {
 	state = {
@@ -26,7 +25,6 @@ class R_Donate extends Component {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
-		donateForm(this.state.dish)
 	}
 
 //HANDLE DEFAULT DONATIONS
@@ -34,7 +32,6 @@ class R_Donate extends Component {
 		this.setState({
 			check: !this.state.check
 		})
-		console.log(this.state.check)	
 	}
 
 	handleClick = (e) =>{
@@ -87,12 +84,7 @@ class R_Donate extends Component {
 		}
 
 		else{
-			// var date = new Date()
-			// var hou = date.getHours()
-			// var min = date.getMinutes()
-			// var time = hou + ':' + min
 			e.preventDefault()
-			console.log('Successful donation made.')
 			makeDonation({
 				dish: this.state.dish,
 				trays: this.state.trays,
@@ -109,8 +101,6 @@ class R_Donate extends Component {
 				value: this.state.value,
 				food_id: api.getProfile().id
 			})
-
-			console.log(this.state.check)
 			this.props.history.push('/restaurant/thankyou')	
 		}
 	

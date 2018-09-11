@@ -75,11 +75,7 @@ class PickupsList extends Component {
 	})
 	this.hideDeleteModal()
 	}
-	componentDidMount() {
-		console.log('this.props.user on pickupslist', this.props.user)
-		console.log('this on pickupslist', this)
-		console.log('this.state.results on pickupslist', this.state.results)
-	}
+
 
  render() {
 

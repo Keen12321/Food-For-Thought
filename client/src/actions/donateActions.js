@@ -6,19 +6,13 @@ export function makeDonation(donation) {
 		console.log('resp:', data)
 	})
 }
+
 export function updatePickup(state) {
 	api.patch('/api/donating', state).then(data => {
-
+		getDonations()
 	})
 }
 
-export function donateForm(input) {
-	if (isNaN(input)) {
-		console.log(input)
-	} else {
-		console.log('No numbers, please.')
-	}
-}
 export function getAddresses(id) {
 	api.get('/api/donating/pending/addresses/' + id).then(data => {
 		store.dispatch({
