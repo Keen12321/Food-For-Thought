@@ -7,6 +7,8 @@ import config from 'config'
 import authRoutes from './routes/auth'
 import protectedRoutes from './routes/user'
 import jwt from 'express-jwt'
+import fs from 'fs'
+import https from 'https'
 
 
 const app = express()
@@ -48,3 +50,4 @@ if (env === 'production') {
 }
 
 module.exports = app
+

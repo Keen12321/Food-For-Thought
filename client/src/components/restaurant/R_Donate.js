@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
-import { makeDonation, donateForm, getTime } from '../../actions/donateActions'
-import { Button, Form, Container, Header } from 'semantic-ui-react'
-import { api } from '../Authentication'
+import { makeDonation, donateForm, getTime, addToDefault } from '../../actions/donateActions'
+import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
+import { api, withAuth } from '../Authentication'
+import DefaultDonations from './defaultDonations'
+import {connect } from 'react-redux'
 
 class Donate extends Component {
 	state = {
@@ -16,7 +18,8 @@ class Donate extends Component {
 		blankAmount: true,
 		blankType: true,
 		color: 'green',
-		inColor: '#fff'
+		inColor: '#fff',
+		check: !!false
 	}
 
 	handleChange = (e) => {
@@ -24,6 +27,15 @@ class Donate extends Component {
 			[e.target.name]: e.target.value
 		})
 		donateForm(this.state.dish)
+	}
+
+//HANDLE DEFAULT DONATIONS
+	handleDefault = (e) =>{
+
+		this.setState({
+			check: !this.state.check
+		})
+		console.log(this.state.check)	
 	}
 
 	handleClick = (e) =>{
@@ -40,10 +52,7 @@ class Donate extends Component {
 		var sel = e.target.elements.trays.value
 		var FT = e.target.elements.dish.value
 		var foodCost = e.target.elements.value.value
-		
-
-
-
+	
 		if(sel === '0' && FT === '' && foodCost === ''){
 			this.setState({
 				blankFields: false,
@@ -66,7 +75,6 @@ class Donate extends Component {
 				blankAmount: false,
 				color: 'red',
 				blankFields: true
-				
 			})
 
 		}
@@ -78,7 +86,7 @@ class Donate extends Component {
 				blankFields: true
 			})
 		}
-		
+
 		else{
 			var date = new Date()
 			var hou = date.getHours()
@@ -95,7 +103,18 @@ class Donate extends Component {
 			})
 			this.props.history.push('/restaurant/thankyou')	
 		}
-	}
+
+			addToDefault({
+				dish: this.state.dish,
+				trays: this.state.trays,
+				value: this.state.value,
+				food_id: api.getProfile().id
+			})
+
+			console.log(this.state.check)
+			this.props.history.push('/restaurant/thankyou')	
+		}
+	
 
 
 	render() {
@@ -174,10 +193,10 @@ class Donate extends Component {
 			    	value={this.state.trays} 
 			     	onClick={this.handleClick} 
 		    	>
-			    		<option value='0'>0</option>
-				        <option value='1'>1</option>
-				        <option value='2'>2</option>
-				        <option value='3'>3</option>
+			    	<option value='0'>0</option>
+		        <option value='1'>1</option>
+		        <option value='2'>2</option>
+		        <option value='3'>3</option>
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 						<option value='6'>6</option>
@@ -218,11 +237,31 @@ class Donate extends Component {
 	    				Submit
 	    			</Button>
     			</Form.Field>
+			  {blank_fields}
+					<label id='add'>Add To Default Donations</label>
+					<input type="checkbox" name='deff' id='radio' onChange={this.handleDefault} checked={this.state.check}/> 
+	    		
+	    		<Form.Field>	    		
+		    		<Button 
+		    			color={this.state.color}
+		    			type='submit'
+		    			fluid >
+	    				Donate
+	    			</Button>	    			
+    			</Form.Field>    			
 			  </Form>
 			  {blank_fields}
+			  <DefaultDonations/>
 			</Container>
+			
 		)
 	}
 }
 
-export default Donate
+function mapStateToProps(appState){
+	return {
+		defaultD: appState.appReducer.defaultD
+	}
+}
+
+export default withAuth(connect(mapStateToProps)(Donate))

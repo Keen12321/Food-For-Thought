@@ -52,11 +52,11 @@ class R_Reports extends Component {
 				datasets:[
 					{
 						label:'Trays (#)',
-						backgroundColor:'rgba(35,123,202,0.5)',
-						borderColor:'rgba(35,123,202,1)',
+						backgroundColor:'rgba(29,122,202,0.5)',
+						borderColor:'rgba(29,122,202,1)',
 						borderWidth:1,
-						hoverBackgroundColor:'rgba(35,123,202,0.75)',
-						hoverBorderColor:'rgba(35,123,202,1)',
+						hoverBackgroundColor:'rgba(29,122,202,0.75)',
+						hoverBorderColor:'rgba(29,122,202,1)',
 						data:trays
 					}
 				]
@@ -66,11 +66,11 @@ class R_Reports extends Component {
 				datasets:[
 					{
 						label:'Trays ($)',
-						backgroundColor:'rgba(33,172,162,0.5)',
-						borderColor:'rgba(33,172,162,1)',
+						backgroundColor:'rgba(31,177,61,0.5)',
+						borderColor:'rgba(31,177,61,1)',
 						borderWidth:1,
-						hoverBackgroundColor:'rgba(33,172,162,0.75)',
-						hoverBorderColor:'rgba(33,172,162,1)',
+						hoverBackgroundColor:'rgba(31,177,61,0.75)',
+						hoverBorderColor:'rgba(31,177,61,1)',
 						data:value
 					}
 				]
