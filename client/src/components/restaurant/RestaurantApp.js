@@ -9,6 +9,7 @@ import ThankYou from './ThankYou'
 import R_Profile from './R_Profile'
 import HomeBar from './R_HomeBar'
 
+
 class RestaurantApp extends Component {
  	render() {
    	return (

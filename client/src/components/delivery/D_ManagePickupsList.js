@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import { updatePickup } from '../../actions/donateActions'
 import { Container, Modal, Header, Button, Icon } from 'semantic-ui-react'
 
-class ManagePickupsList extends Component {
+class D_ManagePickupsList extends Component {
 	state = {
 		accepted: null,
 		reason: '',
@@ -60,4 +60,5 @@ function mapStateToProps(appState) {
 		donate: appState.appReducer.donate
 	}
 }
-export default withAuth(connect(mapStateToProps)(ManagePickupsList))
+
+export default withAuth(connect(mapStateToProps)(D_ManagePickupsList))

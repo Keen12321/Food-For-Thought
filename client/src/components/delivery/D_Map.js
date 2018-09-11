@@ -49,7 +49,6 @@ render() {
   console.log('this2', this)
   console.log('this.state.result', this.state.result)
   const DirectionsComponent = compose(
-
     withProps({
       googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U",
       loadingElement: <div style={{ height: `100%` }} />,
@@ -121,20 +120,9 @@ render() {
           </div>
         </div>
         )
-  } 
-return (
-        <div>
-          <Header as='h3' id="pickle">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
-          <div className="pickupsContainer">
-                <div id="scroll">
-                  <Pickups />
-                </div>
-                  <DirectionsComponent />
-          </div>
-        </div>
-        )
-      }
-    }
+    } 
+  }
+}
 
 function mapStateToProps(appState) {
 	return {
