@@ -266,9 +266,9 @@ class Donate extends Component {
 	    			</Button>
 	    			
     			</Form.Field>    			
-    			{blank_fields}
-    			<DefaultDonations/>
-			  </Form>	
+    			{blank_fields}    			
+			  </Form>
+			  <DefaultDonations/>	
 			</Container>
 
 			
