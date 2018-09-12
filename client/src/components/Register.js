@@ -106,10 +106,6 @@ class Register extends Component {
 	   		<div className="loginContainer">
 	   		<img src={logo} alt="Food For Thought" />
 	   			<div className='loginright'>
-	   			<div className="loginTitleContainer">
-	   				<i id="loginLogo" className="fa fa-cutlery" />
-	   				<div id="loginTitle">Register</div>
-	   			</div>
 	 				<Form className="loginForm" size='huge' onSubmit={this.handleSubmit}>
 	 					<div className="userTypeContainer">
 		 					<label className="userType" forhtml="type" id='shadow'>

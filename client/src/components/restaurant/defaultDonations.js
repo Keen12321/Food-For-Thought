@@ -27,20 +27,20 @@ class DefaultDonations extends Component {
 		console.log(this.state.deffs)		
 	}
 
-// HANDLE THE CLICK OF THE BUTTON
-handleClick = (e) => {
-	this.setState({
-		confirm: !this.state.confirm
-	})
-}
+	// HANDLE THE CLICK OF THE BUTTON
+	handleClick = (e) => {
+		this.setState({
+			confirm: !this.state.confirm
+		})
+	}
 
-handleView = (e) => {
-	this.setState({
-		deffs: !this.state.deffs
-	})
-}
+	handleView = (e) => {
+		this.setState({
+			deffs: !this.state.deffs
+		})
+	}
 
-// HANDLE THE DEFAULT DONATION
+	// HANDLE THE DEFAULT DONATION
 	 handleSubmit = (e) => {
 		let value = e.target.elements.val.value
 		let tray = e.target.elements.tr.value
@@ -106,8 +106,8 @@ handleView = (e) => {
 					{confirm}	
 				</form>	
 			))}
-		</div>
-	}
+			</div>
+		}
 		return (
 			<div id="deffs">
 				<span id='clickMe' onClick={this.handleView}>View Default Donations</span>
