@@ -7,7 +7,7 @@ import {Button} from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom'
 
 
-class DefaultDonations extends Component{
+class DefaultDonations extends Component {
 	state ={
 		donations:[],
 		dish: '',
@@ -21,27 +21,27 @@ class DefaultDonations extends Component{
 		
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 		getDefault(this.state.food_id)
 
 		console.log(this.state.deffs)		
 	}
 
 // HANDLE THE CLICK OF THE BUTTON
-handleClick = (e) =>{
+handleClick = (e) => {
 	this.setState({
 		confirm: !this.state.confirm
 	})
 }
 
-handleView = (e) =>{
+handleView = (e) => {
 	this.setState({
 		deffs: !this.state.deffs
 	})
 }
 
 // HANDLE THE DEFAULT DONATION
-	 handleSubmit = (e) =>{
+	 handleSubmit = (e) => {
 		let value = e.target.elements.val.value
 		let tray = e.target.elements.tr.value
 		let nam = e.target.elements.nam.value
@@ -55,7 +55,7 @@ handleView = (e) =>{
 
 		e.preventDefault()
 		
-		if(this.state.confirm === !true ){
+		if(this.state.confirm === !true ) {
 			makeDonation({
 				dish:this.state.dish,
 				trays:this.state.trays,
@@ -70,47 +70,45 @@ handleView = (e) =>{
 		
 	 }
 
-	render(){
+	render() {
 		let confirm
 		let allDefs 
 
-		if(this.state.confirm){
+		if(this.state.confirm) {
 			confirm = 
 				<div id="pleaseConfirm">
 					<p>Please Click "Donate" Again To Confirm Donation</p> 	
 				</div>
 		}
 
-		if(this.state.thanks === true){
+		if(this.state.thanks === true) {
 			return	<Redirect to="/restaurant/thankyou" />
 		}
-		if(this.state.deffs){
+		if(this.state.deffs) {
 			allDefs = 
-		<div className='defaultContain'>
-						
-			{this.props.defaultD.map(data =>(
+		<div className='defaultContain'>			
+			{this.props.defaultD.map(data => (
 				<form id='defaults' onSubmit={this.handleSubmit.bind(this)} >	
 					<label>Dish Name:</label>
-						<input type="text" value={data.dish} name ='nam' readonly />
-						<label>Dish Price ($$):</label>
-						<input type="text" value={data.value} name='val' readonly />
-						<label>Amount Donated (Trays):</label>
-						<input type="text" value={data.trays} name='tr'  readonly />
-							<Button
-								color='blue'
-								type='submit'
-								id='shadow'
-								onClick={this.handleClick}
-								>
-								Donate
-							</Button>
-							{confirm}
-					
+					<input type="text" value={data.dish} name ='nam' readonly />
+					<label>Dish Price ($$):</label>
+					<input type="text" value={data.value} name='val' readonly />
+					<label>Amount Donated (Trays):</label>
+					<input type="text" value={data.trays} name='tr'  readonly />
+					<Button
+						color='blue'
+						type='submit'
+						id='shadow'
+						onClick={this.handleClick}
+						>
+						Donate
+					</Button>
+					{confirm}	
 				</form>	
 			))}
 		</div>
 	}
-		return(
+		return (
 			<div id="deffs">
 				<span id='clickMe' onClick={this.handleView}>"View Default Donations"</span>
 				{allDefs}

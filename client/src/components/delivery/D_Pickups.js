@@ -13,7 +13,6 @@ class Pickups extends Component {
   }
   
   componentWillReceiveProps(newProps) {
-    console.log(this.props)
     if (this.props.mypickups.length !== newProps.mypickups.length) {
       updatePickup()
     }
@@ -29,9 +28,9 @@ class Pickups extends Component {
         ))}
         </div>
     		<div className="ui raised vertical segment">
-      			<Header as='h3' content='Home' />
-      			<Header as='h4' content={api.getProfile().name} />
-      			<p>{api.getProfile().location}</p>
+    			<Header as='h3' content='Home' />
+    			<Header as='h4' content={api.getProfile().name} />
+    			<p>{api.getProfile().location}</p>
     		</div>
       </div> 
     )

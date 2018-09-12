@@ -10,23 +10,23 @@ class R_Home extends Component {
 
    render() {
       return (
-         <div>
-            <div className="pickupnotification">
-               <Header as='h1' content='What would you like to do?' />
+        <div>
+          <div className="pickupnotification">
+             <Header as='h1' content='What would you like to do?' />
+          </div>
+          <Segment className="R_HomeContainer" basic>
+            <div>
+              <Link to="/restaurant/donate">
+                <Button type="submit" color='green' size='huge' id='shadow' fluid content="Donate Food" />
+              </Link>
             </div>
-            <Segment className="R_HomeContainer" basic>
-               <div>
-                  <Link to="/restaurant/donate">
-                     <Button type="submit" color='green' size='huge' id='shadow' fluid content="Donate Food" />
-                  </Link>
-               </div>
-               <div>
-                  <Link to={`/restaurant/reports/${this.state.id}`}>
-                     <Button type="submit" color='orange' size='huge' id="shadow" fluid content="Manage Reports" />
-                  </Link>
-               </div>
-            </Segment>
-         </div>
+            <div>
+              <Link to={`/restaurant/reports/${this.state.id}`}>
+                <Button type="submit" color='orange' size='huge' id="shadow" fluid content="Manage Reports" />
+              </Link>
+            </div>
+          </Segment>
+        </div>
       )
    }
 }

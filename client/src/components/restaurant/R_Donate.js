@@ -30,7 +30,7 @@ class R_Donate extends Component {
 	}
 
 //HANDLE DEFAULT DONATIONS
-	handleDefault = (e) =>{
+	handleDefault = (e) => {
 		this.setState({
 			check: !this.state.check
 		})
@@ -234,11 +234,9 @@ class R_Donate extends Component {
 	    				Donate
 	    			</Button>
     			</Form.Field>
-			  {blank_fields}
-
+			  	{blank_fields}
 					<label id='add'>Add To Default Donations</label>
 					<input type="checkbox" name='deff' id='radio' onChange={this.handleDefault} checked={this.state.check}/> 
-
 					<div className='defaultflex'>
 					<div>
 					</div>
@@ -246,10 +244,8 @@ class R_Donate extends Component {
 					<DefaultDonations/>
 					</div>  
 					</div>			
-
 			  </Form>
-			  {blank_fields}
-			  
+			  {blank_fields} 
 			</Container>
 		)
 	}
