@@ -15,6 +15,7 @@ const Modal = ({ handleClose, show, children}) => {
 		</div>
 	)
 }
+
 class ManagePickupsList extends Component {
 	state = {
 		show: false,
@@ -50,9 +51,9 @@ class ManagePickupsList extends Component {
 		})
 		this.hideAddModal()
 	}
-	
- 	render() {
-   	return (
+
+ render() {
+   return (
    		<div>
        	<div key={this.props.user.id} className="availablepickups ui vertical segment" id="segment">
 	   			<div>
