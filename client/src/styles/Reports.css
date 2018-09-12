@@ -80,10 +80,6 @@
 }
 
 @media only print {
-	.reportContainer {
-		background-color:white;
-	}
-
 	.reportForm {
 		display:none;
 	}
