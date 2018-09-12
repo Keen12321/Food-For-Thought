@@ -23,6 +23,7 @@ class D_Reports extends Component {
 
 	componentDidMount() {
 		getReportDelivery(this.state.id)
+		console.log(this.props.reportDelivery)
 	}
 
 	handleChange = (e) => {

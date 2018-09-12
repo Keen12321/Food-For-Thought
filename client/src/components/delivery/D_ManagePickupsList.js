@@ -17,6 +17,8 @@ const Modal = ({ handleClose, show, children}) => {
 }
 class ManagePickupsList extends Component {
 	state = {
+		show: false,
+		show3: false,
 		accepted: null,
 		reason: '',
 		pickup_by: '',
@@ -27,16 +29,17 @@ class ManagePickupsList extends Component {
 			[e.target.name]: e.target.value
 		})
 	}
-
-	addPickup = (e) => {
-		e.preventDefault()
-		updatePickup({
-			accepted: 'pending',
-			id: this.props.user.id,
-			pickup_by: api.getProfile().email,
-			delivery_id: api.getProfile().id
+	showAddModal = () => {
+		this.setState({
+			show3: true
 		})
 	}
+	hideAddModal = () => {
+		this.setState({
+			show3: false
+		})
+	}
+	
 addPickup = (e) => {
 	e.preventDefault()
 	updatePickup({
@@ -47,6 +50,7 @@ addPickup = (e) => {
 	})
 	this.hideAddModal()
 }
+
  render() {
    return (
    		<div>

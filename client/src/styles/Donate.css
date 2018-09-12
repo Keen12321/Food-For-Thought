@@ -46,20 +46,22 @@ input[type='checkbox']{
 }
 
 #defaults {
-	margin: 20px 0 30px 0;
-	display: flex;
-	flex-direction: column;
 	padding: 1%;
-	border-bottom:2px solid #232323;
+	border-bottom: 2px solid #ccc;
+	background: rgba(255,255,255,0.8);
+	margin: 1.5% 0 1.5% 0;
+	border-radius: 20px;
 }
 
 #defaults input{
-	width: 10%;
+	width: 13%;
+	padding: 1%;
 	margin:auto;
 	text-align: center;
 	outline: none;
 	border: none;
 	font-style: italic;
+	cursor: pointer;
 }
 
 #defaults label{
@@ -67,7 +69,10 @@ input[type='checkbox']{
 	font-weight: bold;
 	margin-bottom: 5px;
 }
-
+#blue:hover {
+	text-decoration: underline;
+	color: rgb(35,123,202);
+}
 #defaults button{
 	width: 25%;
 	margin: 20px auto;
@@ -81,11 +86,9 @@ input[type='checkbox']{
 	cursor: pointer;
 	text-align: center;
 	margin: auto;
+	font-weight: bold;
 }
-#deffs:hover {
-	color: rgb(35,123,202);
-	text-decoration: underline;
-}
+
 .defaultflex {
 	display: flex;
 	flex-direction: row;

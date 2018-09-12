@@ -96,9 +96,9 @@ handleView = (e) =>{
 				<form id='defaults' onSubmit={this.handleSubmit.bind(this)} >	
 					<label>Dish Name:</label>
 						<input type="text" value={data.dish} name ='nam' readonly />
-						<label>Dish Price ($$):</label>
+					<label>Dish Price ($$):</label>
 						<input type="text" value={data.value} name='val' readonly />
-						<label>Amount Donated:</label>
+					<label>Amount Donated:</label>
 						<input type="text" value={data.trays} name='tr'  readonly />
 							<Button
 								color='blue'
@@ -115,7 +115,7 @@ handleView = (e) =>{
 	}
 		return(
 			<div id="deffs">
-				<p onClick={this.handleView}>(View Default Donations)</p>
+				<p id='blue' onClick={this.handleView}>(View Default Donations)</p>
 				{allDefs}
 			</div>
 		)
