@@ -25,6 +25,7 @@ a {
 #shadow, #submit, #print, #reset {
 	box-shadow: 3px 3px 1px #232323;
 }
+
 #shadow2 {
 	box-shadow: 0 0 5px #888 inset;
 }

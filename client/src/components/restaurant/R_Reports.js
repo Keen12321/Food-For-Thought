@@ -10,12 +10,12 @@ class R_Reports extends Component {
 	state = {
 		id:api.getProfile().id,
 		name:api.getProfile().name,
+		idTax:api.getProfile().tax_id,
 		startDate:'',
 		endDate:'',
 		traysTotal:'',
 		valueTotal:'',
 		reportDates:'',
-		idTax:'',
 		filterData:[],
 		traysData:{},
 		valueData:{}
@@ -34,7 +34,6 @@ class R_Reports extends Component {
 	handleForm = (e) => {
 		e.preventDefault()
 		let reportDates = `${this.state.startDate} - ${this.state.endDate}`
-		let tax = `EIN ID: ${this.props.reportRestaurant[0].tax_id}`
 		let dish = this.props.reportRestaurant.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.dish)
 		let trays = this.props.reportRestaurant.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.trays)
 		let value = this.props.reportRestaurant.filter(item => item.date >= this.state.startDate && item.date <= this.state.endDate).map(item => item.value)
@@ -45,7 +44,6 @@ class R_Reports extends Component {
 			traysTotal:traysTotal,
 			valueTotal:valueTotal,
 			reportDates:reportDates,
-			idTax:tax,
 			filterData:filter,
 			traysData:{
 				labels:dish,
@@ -96,7 +94,7 @@ class R_Reports extends Component {
 
 	render() {
 		return (
-			<div className="reportContainer">
+			<div className='reportContainer'>
 				<div className='reportForm'>
 					<h2>Select Start & End Dates Below</h2>
 					<Form onSubmit={this.handleForm}>
@@ -106,15 +104,15 @@ class R_Reports extends Component {
 						</Form.Group>
 						<Form.Group className='buttons'>
 							<Form.Button id='submit' type='submit' content='Generate Report' />
-							<Form.Button id='print' onClick={this.printReport} content='Print Report' />
-							<Form.Button id='reset' onClick={this.resetReport} content='Reset Report' />
+							<Form.Button id='print' content='Print Report' onClick={this.printReport} />
+							<Form.Button id='reset' content='Reset Report' onClick={this.resetReport} />
 						</Form.Group>
 					</Form>
 				</div>
 				<div className='titles'>
 					<h1>{this.state.name} Report</h1>
 					<h2>{this.state.reportDates}</h2>
-					<h3>{this.state.idTax}</h3>
+					<h3>EIN ID: {this.state.idTax}</h3>
 				</div>
 				<div className='reportTable'>
 					<h2>Donation History</h2>
@@ -164,7 +162,6 @@ class R_Reports extends Component {
 
 function mapStateToProps(appState) {
 	return {
-
 		reportRestaurant:appState.reportReducer.reportRestaurant
 	}
 }

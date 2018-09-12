@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
-import {withAuth, api} from '../Authentication'
+import { Link } from 'react-router-dom'
+import { withAuth, api } from '../Authentication'
 import { Menu, Dropdown, Icon } from 'semantic-ui-react'
 import heart from '../../assets/heart.png'
 
@@ -20,11 +20,12 @@ handleMobile = () => {
   })
 }
 
-  handleClick = (e, { name }) => 
-  this.setState({
-    activeItem: name
-  })
-
+  handleClick = (e, { name }) => {
+    this.setState({
+      activeItem: name
+    })
+  }
+  
   logout = (e) => {
     this.props.signout()
   }

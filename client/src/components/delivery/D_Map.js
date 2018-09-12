@@ -30,24 +30,18 @@ class D_Map extends Component {
           }
         })
       })
-    } else {
-      // error => console.log(error)
     }
   }
 
   componentDidMount() {
     this.showCurrentLocation()
     getAddresses(api.getProfile().id)
-    console.log('this', this)
   }
 
 render() {
   const lat = this.state.currentLatLng.lat
   const lng = this.state.currentLatLng.lng
   const waypnt = this.props.addresses
-  let rte
-  console.log('this2', this)
-  console.log('this.state.result', this.state.result)
   const DirectionsComponent = compose(
     withProps({
       googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U",
@@ -60,7 +54,6 @@ render() {
 
     lifecycle({
       componentDidMount() { 
-        console.log('this3 in lifecycle', this)
         const DirectionsService = new google.maps.DirectionsService()
         DirectionsService.route({
           origin: new google.maps.LatLng({lat:lat, lng:lng}),
@@ -76,18 +69,9 @@ render() {
               routes: {...result.routes},
               rte: {...result.routes}
             })
-            rte = {...result.routes} //assign rte to the routes object
-            console.log('result in lifecycle', result)
-            console.log('this4 in lifecycle', this)
             this.setState({
               result: result
             })
-            console.log('rte in lifecycle', this.state.directions)
-          }
-           else {
-            console.error(`error fetching directions ${result}`)
-            console.log('waypnt in lifecycle', waypnt)
-            console.log('status in lifecycle', status)
           }
         })
       }
@@ -101,8 +85,7 @@ render() {
           </GoogleMap>
        
   )
-  console.log('this5', this)
-  if(this.props.addresses.length == 0) {
+  if(this.props.addresses.length === 0) {
     return (
         <div>
           <Header as='h1' id="centext">Donations scheduled for {api.getProfile().name}: {this.props.addresses.length}</Header>
@@ -141,4 +124,5 @@ function mapStateToProps(appState) {
 		addresses: appState.appReducer.addresses
 	}
 }
+
 export default withAuth(connect(mapStateToProps)(D_Map))

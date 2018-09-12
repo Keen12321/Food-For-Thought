@@ -4,6 +4,7 @@ import { withAuth } from './Authentication'
 import {Redirect, Link} from 'react-router-dom'
 import {api} from './Authentication'
 import { Button, Icon, Form } from 'semantic-ui-react'
+
 import logo from '../assets/fft.png'
 
 class D_Login extends Component {

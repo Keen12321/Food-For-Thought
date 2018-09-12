@@ -29,50 +29,56 @@
 
 #add{
 	font-weight: bold;
-	display: flex;
 	justify-content: center;
 	font-size: 1.3em;
-	margin-right: 10px;
+	display: flex;
 }
 
 input[type='checkbox']{
 	background: #eee;
 	width: 20px;
 	height: 20px;
+	margin-left: 10px;
 }
 .defaultContain{
 	width: 100%;
 	text-align: center;
 }
-
 #defaults {
-	padding: 1%;
+	padding:1%;
 	border-bottom: 2px solid #ccc;
-	background: rgba(255,255,255,0.8);
+	background: rgba(255,255,255, 0.8);
 	margin: 1.5% 0 1.5% 0;
 	border-radius: 20px;
+	display: flex;
+}
+	@media only screen and (max-device-width: 600px) {
+		#defaults {
+			flex-direction: column;
+		}
+		#defaults input {
+			width: 50%;
+		}
+
 }
 
 #defaults input{
 	width: 13%;
 	padding: 1%;
 	margin:auto;
-	text-align: center;
 	outline: none;
 	border: none;
 	font-style: italic;
+	background: none;
 	cursor: pointer;
 }
 
 #defaults label{
-	margin-top: 2%;
+	padding-left: 5px;
+	padding-right: 5px;
 	font-weight: bold;
-	margin-bottom: 5px;
 }
-#blue:hover {
-	text-decoration: underline;
-	color: rgb(35,123,202);
-}
+
 #defaults button{
 	width: 25%;
 	margin: 20px auto;
@@ -89,9 +95,25 @@ input[type='checkbox']{
 	font-weight: bold;
 }
 
+#pleaseConfirm{
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 11%
+}
+
 .defaultflex {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	margin-bottom: 1%;
 }
 
+#clickMe{
+	color: blue;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#radio{
+	cursor: pointer;
+}
